@@ -18,17 +18,21 @@ Item {
     property int center_x: 48
     property int center_y: 48
 
-    onRotation_green_arrow_degChanged: {
+    function update_canvas() : undefined {
         canvas.requestPaint();
     }
 
-    onRotation_purpure_circleChanged: {
-        canvas.requestPaint();
-    }
+    // onRotation_green_arrow_degChanged: {
+    //     canvas.requestPaint();
+    // }
 
-    onRotation_green_triangle_degChanged: {
-        canvas.requestPaint();
-    }
+    // onRotation_purpure_circleChanged: {
+    //     canvas.requestPaint();
+    // }
+
+    // onRotation_green_triangle_degChanged: {
+    //     canvas.requestPaint();
+    // }
 
     Canvas {
         id: canvas
@@ -41,7 +45,7 @@ Item {
             const map_throttle = new Helpers.Interp1d([0, 1], [-110 - 90, 75 - 90]); 
 
             let rotation_green_arrow_deg = map_n1.interp(n1.rotation_green_arrow_deg);
-            console.log(rotation_green_arrow_deg)
+            // console.log(rotation_green_arrow_deg)
 
             const initial_rotation = -210;
 

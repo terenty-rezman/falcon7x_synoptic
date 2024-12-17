@@ -1,17 +1,17 @@
 from collections import defaultdict
 
-from PySide6.QtCore import QObject, Slot, Property, SLOT, SIGNAL, QByteArray, QTimer
+from PySide6.QtCore import QObject, Slot, Property, SLOT, SIGNAL, QByteArray, QTimer, QMetaObject
 
 import view_helper
 
 
 dref_indicator_map = {
-    ("sim/cockpit2/engine/indicators/N1_percent[0]", None): ("eng_engn1", "rotation_green_arrow_deg"),
-    ("sim/cockpit2/engine/actuators/throttle_ratio[0]", None): ("eng_engn1", "rotation_purpure_circle"),
-    ("sim/cockpit2/engine/indicators/N1_percent[1]", None): ("eng_engn2", "rotation_green_arrow_deg"),
-    ("sim/cockpit2/engine/actuators/throttle_ratio[1]", None): ("eng_engn2", "rotation_purpure_circle"),
-    ("sim/cockpit2/engine/indicators/N1_percent[2]", None): ("eng_engn3", "rotation_green_arrow_deg"),
-    ("sim/cockpit2/engine/actuators/throttle_ratio[2]", None): ("eng_engn3", "rotation_purpure_circle"),
+    ("sim/cockpit2/engine/indicators/N1_percent[0]", None): ("eng_engn1", "rotation_green_arrow_deg", float, 1),
+    ("sim/cockpit2/engine/actuators/throttle_ratio[0]", None): ("eng_engn1", "rotation_purpure_circle", float, 2),
+    ("sim/cockpit2/engine/indicators/N1_percent[1]", None): ("eng_engn2", "rotation_green_arrow_deg", float, 1),
+    ("sim/cockpit2/engine/actuators/throttle_ratio[1]", None): ("eng_engn2", "rotation_purpure_circle", float, 2),
+    ("sim/cockpit2/engine/indicators/N1_percent[2]", None): ("eng_engn3", "rotation_green_arrow_deg", float, 1),
+    ("sim/cockpit2/engine/actuators/throttle_ratio[2]", None): ("eng_engn3", "rotation_purpure_circle", float, 2),
 }
 
 dref_nested_dict = defaultdict(dict)
@@ -38,18 +38,26 @@ class Backend(QObject):
     
     def set_data_http(self, data: dict):
         for dataref, value in data.items():
-            indicators = dref_nested_dict.get(dataref)
+            indicators = dref_nested_dict.get(str(dataref))
             if not indicators:
                 continue
 
-            for idx, indicator in indicators.items():
-                item = view_helper.find_object(indicator[0])
+            for idx, indicator_data in indicators.items():
+                item = view_helper.find_object(indicator_data[0])
                 if item is None:
                     break
 
                 val = value[idx] if idx is not None else value
 
-                item.setProperty(indicator[1], val)
+                if indicator_data[2] == float:
+                    val = round(val, indicator_data[3])
+
+                item.setProperty(indicator_data[1], val)
+        
+        for obj in ["eng_engn1", "eng_engn2", "eng_engn3"]:
+            item = view_helper.find_object(obj)
+            QMetaObject.invokeMethod(item, "update_canvas")
+
 
 
 backend = Backend()
