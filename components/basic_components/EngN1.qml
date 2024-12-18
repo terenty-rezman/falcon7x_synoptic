@@ -22,17 +22,12 @@ Item {
         canvas.requestPaint();
     }
 
-    // onRotation_green_arrow_degChanged: {
-    //     canvas.requestPaint();
-    // }
-
-    // onRotation_purpure_circleChanged: {
-    //     canvas.requestPaint();
-    // }
-
-    // onRotation_green_triangle_degChanged: {
-    //     canvas.requestPaint();
-    // }
+    Connections {
+        target: backend 
+        function onUpdateCanvas() {
+            canvas.requestPaint()
+        }
+    }
 
     Canvas {
         id: canvas

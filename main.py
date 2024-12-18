@@ -15,6 +15,7 @@ import web_interface
 import view_helper
 
 import falcon7x_core.xplane.master as xp
+from falcon7x_core.xplane.params import Params
 
 import params_to_subscribe
 
@@ -39,10 +40,37 @@ def on_data_exception(ex: Exception):
 
 def on_new_xp_data_udp(received_vals):
     backend.backend.set_data_http(received_vals)
+    pass
 
 
 def on_data_exception_udp(ex):
     print(traceback.format_exc())
+
+
+val = 0
+async def test_qml():
+    global val
+    speed = 0.1
+
+    while True:
+        if val < 0:
+            speed = 0.05 
+        elif val > 1:
+            speed = -0.05
+
+        val += speed
+        
+        fake = {
+            Params["sim/cockpit2/engine/indicators/N1_percent[0]"]: val*90,
+            Params["sim/cockpit2/engine/indicators/N1_percent[1]"]: val*90,
+            Params["sim/cockpit2/engine/indicators/N1_percent[2]"]: val*90,
+            Params["sim/cockpit2/engine/actuators/throttle_ratio[0]"]: val,
+            Params["sim/cockpit2/engine/actuators/throttle_ratio[1]"]: val,
+            Params["sim/cockpit2/engine/actuators/throttle_ratio[2]"]: val
+        }
+
+        backend.backend.set_data_http(fake)
+        await asyncio.sleep(0.016)
 
 
 async def main():
@@ -53,6 +81,8 @@ async def main():
 
     xp.param_subscriber.run_subsriber_task()
     xp.udp_param_subscriber.run_subsriber_task()
+
+    # asyncio.create_task(test_qml())
 
     await app_close_event.wait()
 

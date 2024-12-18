@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from PySide6.QtCore import QObject, Slot, Property, SLOT, SIGNAL, QByteArray, QTimer, QMetaObject
+from PySide6.QtCore import QObject, Slot, Property, SLOT, SIGNAL, QByteArray, QTimer, QMetaObject, Signal
 
 import view_helper
 
@@ -35,6 +35,8 @@ class Backend(QObject):
     @Slot(QObject, result=None)
     def on_click(self, button):
         rotation = button.property("state")
+
+    updateCanvas = Signal()
     
     def set_data_http(self, data: dict):
         for dataref, value in data.items():
@@ -53,10 +55,12 @@ class Backend(QObject):
                     val = round(val, indicator_data[3])
 
                 item.setProperty(indicator_data[1], val)
+
+        backend.updateCanvas.emit()
         
-        for obj in ["eng_engn1", "eng_engn2", "eng_engn3"]:
-            item = view_helper.find_object(obj)
-            QMetaObject.invokeMethod(item, "update_canvas")
+        # for obj in ["eng_engn1", "eng_engn2", "eng_engn3"]:
+        #     item = view_helper.find_object(obj)
+        #     QMetaObject.invokeMethod(item, "update_canvas")
 
 
 
