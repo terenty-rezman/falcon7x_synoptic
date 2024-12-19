@@ -28,6 +28,7 @@ XP_MASTER_PORT = 51000
 
 # native xplane udp port to send to
 XP_MASTER_UDP_PORT = 49000
+UDP_LOCAL_PORT = 62223
 
 
 def on_new_xp_data(type, dataref, value):
@@ -76,7 +77,7 @@ async def test_qml():
 async def main():
     web_interface.run_server_task("127.0.0.1", WEB_INTERFACE_PORT)
 
-    await xp.xp_master_udp.connect(XP_MASTER_HOST, XP_MASTER_UDP_PORT, on_new_xp_data_udp, on_data_exception_udp)
+    await xp.xp_master_udp.connect(XP_MASTER_HOST, XP_MASTER_UDP_PORT, on_new_xp_data_udp, on_data_exception_udp, listen_port=UDP_LOCAL_PORT)
     await xp.xp_master.connect_until_success(XP_MASTER_HOST, XP_MASTER_PORT, on_new_xp_data, on_data_exception)
 
     xp.param_subscriber.run_subsriber_task()

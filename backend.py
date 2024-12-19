@@ -57,11 +57,6 @@ class Backend(QObject):
                 item.setProperty(indicator_data[1], val)
 
         backend.updateCanvas.emit()
-        
-        # for obj in ["eng_engn1", "eng_engn2", "eng_engn3"]:
-        #     item = view_helper.find_object(obj)
-        #     QMetaObject.invokeMethod(item, "update_canvas")
-
 
 
 backend = Backend()
