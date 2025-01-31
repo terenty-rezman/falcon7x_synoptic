@@ -10,6 +10,29 @@ Rectangle {
     anchors.fill: parent
     color: "#000000"
 
+    MouseArea {
+        anchors.fill: parent
+        acceptedButtons: Qt.RightButton
+
+        onClicked: (mouse) => {
+            if (mouse.button === Qt.RightButton) {
+                contextMenu.popup()
+            }
+        }
+    }
+
+    Menu {
+        id: contextMenu
+
+        // Close Action
+        Action {
+            text: "Close Window"
+            onTriggered: {
+                Qt.quit() // Close the application
+            }
+        }
+    }
+
     TabBar {
         id: tab_bar
         width: parent.width

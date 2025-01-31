@@ -7,18 +7,23 @@ from PySide6.QtGui import QGuiApplication
 from PySide6.QtCore import QUrl, QObject, Slot, Property, SLOT, SIGNAL, QByteArray, QTimer
 from PySide6.QtNetwork import QUdpSocket, QHostAddress
 from PySide6.QtQml import QQmlContext
+from PySide6.QtCore import Qt, QPoint, QSettings, QRect
 
 from qasync import QEventLoop, QApplication
 
 import backend
 import web_interface
 import view_helper
+from view import View
 
 import falcon7x_core.xplane.master as xp
 from falcon7x_core.xplane.params import Params
 
 import params_to_subscribe
 
+
+WINDOW_WIDTH = 684
+WINDOW_HEIGHT = 383
 
 WEB_INTERFACE_PORT = 8800
 
@@ -75,31 +80,39 @@ async def test_qml():
 
 
 async def main():
-    web_interface.run_server_task("127.0.0.1", WEB_INTERFACE_PORT)
+    try:
+        web_interface.run_server_task("127.0.0.1", WEB_INTERFACE_PORT)
 
-    await xp.xp_master_udp.connect(XP_MASTER_HOST, XP_MASTER_UDP_PORT, on_new_xp_data_udp, on_data_exception_udp, listen_port=UDP_LOCAL_PORT)
-    await xp.xp_master.connect_until_success(XP_MASTER_HOST, XP_MASTER_PORT, on_new_xp_data, on_data_exception)
+        await xp.xp_master_udp.connect(XP_MASTER_HOST, XP_MASTER_UDP_PORT, on_new_xp_data_udp, on_data_exception_udp, listen_port=UDP_LOCAL_PORT)
+        await xp.xp_master.connect_until_success(XP_MASTER_HOST, XP_MASTER_PORT, on_new_xp_data, on_data_exception)
 
-    xp.param_subscriber.run_subsriber_task()
-    xp.udp_param_subscriber.run_subsriber_task()
+        xp.param_subscriber.run_subsriber_task()
+        xp.udp_param_subscriber.run_subsriber_task()
 
-    # asyncio.create_task(test_qml())
+        # asyncio.create_task(test_qml())
+    except asyncio.exceptions.CancelledError:
+        pass
+    finally:
+        await app_close_event.wait()
 
-    await app_close_event.wait()
+
+def quit():
+    main_future.cancel()
+    app.quit()
 
 
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
 
     url = QUrl("components/synoptic.qml")
-    synoptic = QQuickView()
+    synoptic = View(WINDOW_WIDTH, WINDOW_HEIGHT)
     synoptic.rootContext().setContextProperty("backend", backend.backend)
     synoptic.setSource(url)
     synoptic.setTitle("synoptic - falcon7x")
-    synoptic.setWidth(670)
-    synoptic.setHeight(349)
-    synoptic.setMaximumWidth(670)
-    synoptic.setMaximumHeight(349)
+    synoptic.setResizeMode(QQuickView.SizeRootObjectToView)
+    synoptic.engine().quit.connect(quit)
+    synoptic.readSettings()
+    synoptic.setFlags(Qt.FramelessWindowHint)
     synoptic.show()
 
     view_helper.all_views.append(synoptic)
@@ -109,6 +122,7 @@ if __name__ == "__main__":
 
     app_close_event = asyncio.Event()
     app.aboutToQuit.connect(app_close_event.set)
-
+    
     with event_loop:
-        event_loop.run_until_complete(main())
+        main_future = asyncio.Task(main())
+        event_loop.run_until_complete(main_future)

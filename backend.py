@@ -6,12 +6,15 @@ import view_helper
 
 
 dref_indicator_map = {
+    # (dataref, idx): ("object_name", "property", cast type, round_digits)
     ("sim/cockpit2/engine/indicators/N1_percent[0]", None): ("eng_engn1", "rotation_green_arrow_deg", float, 1),
     ("sim/cockpit2/engine/actuators/throttle_ratio[0]", None): ("eng_engn1", "rotation_purpure_circle", float, 2),
     ("sim/cockpit2/engine/indicators/N1_percent[1]", None): ("eng_engn2", "rotation_green_arrow_deg", float, 1),
     ("sim/cockpit2/engine/actuators/throttle_ratio[1]", None): ("eng_engn2", "rotation_purpure_circle", float, 2),
     ("sim/cockpit2/engine/indicators/N1_percent[2]", None): ("eng_engn3", "rotation_green_arrow_deg", float, 1),
     ("sim/cockpit2/engine/actuators/throttle_ratio[2]", None): ("eng_engn3", "rotation_purpure_circle", float, 2),
+    ("sim/cockpit2/electrical/APU_N1_percent", None): ("eng_apun1t5", "n1", int, 3),
+    ("sim/cockpit2/electrical/APU_EGT_c", None): ("eng_apun1t5", "t5", int, 3),
 }
 
 dref_nested_dict = defaultdict(dict)
@@ -47,6 +50,7 @@ class Backend(QObject):
             for idx, indicator_data in indicators.items():
                 item = view_helper.find_object(indicator_data[0])
                 if item is None:
+                    raise Exception(f"no such object_name {indicator_data[0]}")
                     break
 
                 val = value[idx] if idx is not None else value

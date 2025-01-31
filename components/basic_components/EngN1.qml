@@ -122,7 +122,7 @@ Item {
         text: n1.top_digit
         color: "#00FC00"
         font.pixelSize: 18
-        font.bold: true
+        // font.bold: true
     }
 
     Text {
@@ -131,7 +131,7 @@ Item {
         text: n1.rotation_green_arrow_deg
         color: "#00FC00"
         font.pixelSize: 18
-        font.bold: true
+        // font.bold: true
     }
 
     Image {
