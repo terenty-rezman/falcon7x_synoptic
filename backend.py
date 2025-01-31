@@ -7,14 +7,23 @@ import view_helper
 
 dref_indicator_map = {
     # (dataref, idx): ("object_name", "property", cast type, round_digits)
-    ("sim/cockpit2/engine/indicators/N1_percent[0]", None): ("eng_engn1", "rotation_green_arrow_deg", float, 1),
-    ("sim/cockpit2/engine/actuators/throttle_ratio[0]", None): ("eng_engn1", "rotation_purpure_circle", float, 2),
-    ("sim/cockpit2/engine/indicators/N1_percent[1]", None): ("eng_engn2", "rotation_green_arrow_deg", float, 1),
-    ("sim/cockpit2/engine/actuators/throttle_ratio[1]", None): ("eng_engn2", "rotation_purpure_circle", float, 2),
-    ("sim/cockpit2/engine/indicators/N1_percent[2]", None): ("eng_engn3", "rotation_green_arrow_deg", float, 1),
-    ("sim/cockpit2/engine/actuators/throttle_ratio[2]", None): ("eng_engn3", "rotation_purpure_circle", float, 2),
-    ("sim/cockpit2/electrical/APU_N1_percent", None): ("eng_apun1t5", "n1", int, 3),
-    ("sim/cockpit2/electrical/APU_EGT_c", None): ("eng_apun1t5", "t5", int, 3),
+    ("sim/cockpit2/engine/indicators/N1_percent[0]", None): ("eng_engn1", "rotation_green_arrow_deg"),
+    ("sim/cockpit2/engine/actuators/throttle_ratio[0]", None): ("eng_engn1", "rotation_purpure_circle"),
+    ("sim/cockpit2/engine/indicators/N1_percent[1]", None): ("eng_engn2", "rotation_green_arrow_deg"),
+    ("sim/cockpit2/engine/actuators/throttle_ratio[1]", None): ("eng_engn2", "rotation_purpure_circle"),
+    ("sim/cockpit2/engine/indicators/N1_percent[2]", None): ("eng_engn3", "rotation_green_arrow_deg"),
+    ("sim/cockpit2/engine/actuators/throttle_ratio[2]", None): ("eng_engn3", "rotation_purpure_circle"),
+    ("sim/cockpit2/electrical/APU_N1_percent", None): ("eng_apun1t5", "n1"),
+    ("sim/cockpit2/electrical/APU_EGT_c", None): ("eng_apun1t5", "t5"),
+    ("sim/cockpit2/engine/indicators/ITT_deg_C[0]", None): ("eng_itt1", "rotation_green_arrow_deg"),
+    ("sim/cockpit2/engine/indicators/ITT_deg_C[1]", None): ("eng_itt2", "rotation_green_arrow_deg"),
+    ("sim/cockpit2/engine/indicators/ITT_deg_C[2]", None): ("eng_itt3", "rotation_green_arrow_deg"),
+    ("sim/cockpit2/engine/indicators/N2_percent[0]", None): ("eng_n2_1", "value"),
+    ("sim/cockpit2/engine/indicators/N2_percent[1]", None): ("eng_n2_2", "value"),
+    ("sim/cockpit2/engine/indicators/N2_percent[2]", None): ("eng_n2_3", "value"),
+    ("sim/cockpit2/engine/indicators/fuel_flow_kg_sec[0]", None): ("eng_ff_1", "value"),
+    ("sim/cockpit2/engine/indicators/fuel_flow_kg_sec[1]", None): ("eng_ff_2", "value"),
+    ("sim/cockpit2/engine/indicators/fuel_flow_kg_sec[2]", None): ("eng_ff_3", "value"),
 }
 
 dref_nested_dict = defaultdict(dict)
@@ -54,9 +63,6 @@ class Backend(QObject):
                     break
 
                 val = value[idx] if idx is not None else value
-
-                if indicator_data[2] == float:
-                    val = round(val, indicator_data[3])
 
                 item.setProperty(indicator_data[1], val)
 

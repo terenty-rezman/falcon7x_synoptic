@@ -9,11 +9,6 @@ Item {
     height: 100
 
     property real rotation_green_arrow_deg: 70
-    property real rotation_purpure_circle: 0.5 
-    property real rotation_green_triangle_deg: 0
-
-    property real top_digit: 75
-    property real bottom_digit: 86
 
     property int center_x: 49 
     property int center_y: 52 
@@ -36,13 +31,14 @@ Item {
         anchors.fill: parent
 
         onPaint: {
-            const map_n1 = new Helpers.Interp1d([0, 29, 94, 100, 110], [-130 - 90, -120 - 90, 40 - 90, 80 - 90, 90 - 90]); 
-            const map_throttle = new Helpers.Interp1d([0, 1], [-110 - 90, 75 - 90]); 
+            const vals = [0, 940]
+            const degs = [-110 - 90, 90 - 90]
+            const map_n1 = new Helpers.Interp1d(vals, degs); 
 
             let rotation_green_arrow_deg = map_n1.interp(n1.rotation_green_arrow_deg);
             // console.log(rotation_green_arrow_deg)
 
-            const initial_rotation = -210;
+            const initial_rotation = degs[0];
 
             const ctx = getContext("2d"); 
 
@@ -79,65 +75,22 @@ Item {
             ctx.lineTo(36, 0);
             ctx.stroke();
             ctx.closePath();
-
-            // draw purpure circle
-            let throttle = map_throttle.interp(n1.rotation_purpure_circle);
-
-            ctx.resetTransform();
-            ctx.translate(center_x, center_y);
-            ctx.rotate(throttle / 180 * Math.PI);
-
-            ctx.strokeStyle = "#ED008C";
-            ctx.lineWidth = 3;
-
-            ctx.beginPath();
-            ctx.arc(36 + 8, 0, 3, 0, 2 * Math.PI);
-            ctx.stroke();
-            ctx.closePath();
-
-            // draw green triangle
-            ctx.resetTransform();
-            ctx.translate(center_x, center_y);
-            ctx.rotate((initial_rotation + n1.rotation_green_triangle_deg) / 180 * Math.PI);
-            ctx.translate(41, 0);
-
-            ctx.fillStyle = "#00FF00";
-            ctx.strokeStyle = "#00FF00";
-            ctx.lineWidth = 1;
-
-            ctx.beginPath();
-            ctx.moveTo(0, 0)
-            ctx.lineTo(6, -3)
-            ctx.lineTo(6, 3)
-            ctx.lineTo(0, 0)
-            ctx.fill()
-            ctx.stroke()
-            ctx.closePath();
         }
     }
 
     Text {
-        x: 35
-        y: -15
-        text: n1.top_digit.toFixed(1)
-        color: "#00FC00"
-        font.pixelSize: 18
-        // font.bold: true
-    }
-
-    Text {
         x: 38
-        y: 65
-        text: n1.rotation_green_arrow_deg.toFixed(1)
+        y: 55
+        text: n1.rotation_green_arrow_deg.toFixed(0)
         color: "#00FC00"
         font.pixelSize: 18
         // font.bold: true
     }
 
     Image {
-        source: "../svg/ENG_N1.svg"
-        x: 0//n1.center_x 
-        y: 0//n1.center_y 
+        source: "../svg/ENG_ITT.svg"
+        x: 0
+        y: 0
         
         width: 100
         height: 100
