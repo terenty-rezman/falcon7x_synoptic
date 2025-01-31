@@ -89,11 +89,10 @@ async def main():
         xp.param_subscriber.run_subsriber_task()
         xp.udp_param_subscriber.run_subsriber_task()
 
+        await app_close_event.wait()
         # asyncio.create_task(test_qml())
     except asyncio.exceptions.CancelledError:
         pass
-    finally:
-        await app_close_event.wait()
 
 
 def quit():

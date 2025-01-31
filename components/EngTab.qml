@@ -146,4 +146,10 @@ Item {
         y: 213
     }
 
+    EngOil {
+        objectName: "eng_oil1"
+        x: 82
+        y: 243
+    }
+
 }
