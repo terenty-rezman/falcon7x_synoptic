@@ -14,7 +14,7 @@ Item {
     height: 100
 
     property real psi: 0 
-    property real temp: 0
+    property real temp:-20 
 
     property int center_x: 50
     property int center_y: 59
@@ -43,7 +43,7 @@ Item {
             const psi_args = [0, 220]
             const psi_vals = [0, 55]
             const map_psi = new Helpers.Interp1d(psi_args, psi_vals); 
-            let psi_m = map_psi.interp(n1.temp);
+            let psi_m = map_psi.interp(n1.psi);
 
             const ctx = getContext("2d"); 
 
@@ -57,10 +57,11 @@ Item {
             ctx.strokeStyle = "#00FF00";
             ctx.lineWidth = 1;
 
+            const side = 8
             ctx.beginPath();
             ctx.moveTo(0, 0)
-            ctx.lineTo(6, -3)
-            ctx.lineTo(6, 3)
+            ctx.lineTo(side, -side/2)
+            ctx.lineTo(side, side/2)
             ctx.lineTo(0, 0)
             ctx.fill()
             ctx.stroke()
@@ -73,8 +74,8 @@ Item {
 
             ctx.beginPath();
             ctx.moveTo(0, 0)
-            ctx.lineTo(-6, -3)
-            ctx.lineTo(-6, 3)
+            ctx.lineTo(-side, -side/2)
+            ctx.lineTo(-side, side/2)
             ctx.lineTo(0, 0)
             ctx.fill()
             ctx.stroke()
@@ -83,9 +84,38 @@ Item {
     }
 
     Text {
-        x: 38
-        y: 55
+        x: 0
+        y: -7
+        text: "PSI"
+        color: "#FFFFFF"
+        font.pixelSize: 16
+        // font.bold: true
+    }
+
+    Text {
+        x: 52
+        y: -7
+        text: "°C"
+        color: "#FFFFFF"
+        font.pixelSize: 16
+        // font.bold: true
+    }
+
+    Text {
+        x: -7
+        y: 36
+        width: 25
         text: n1.psi.toFixed(0)
+        color: "#00FC00"
+        font.pixelSize: 18
+        horizontalAlignment: Text.AlignRight
+        // font.bold: true
+    }
+
+    Text {
+        x: 58
+        y: 36
+        text: n1.temp.toFixed(0)
         color: "#00FC00"
         font.pixelSize: 18
         // font.bold: true

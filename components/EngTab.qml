@@ -146,10 +146,60 @@ Item {
         y: 213
     }
 
+    Text {
+        text: "OIL"
+        x: 17
+        y: 257
+
+        color: "#ffffff"
+        font.pixelSize: 18
+        // font.bold: true
+    }
+
     EngOil {
         objectName: "eng_oil1"
         x: 82
         y: 243
+    }
+
+    EngOil {
+        objectName: "eng_oil2"
+        x: 210
+        y: 243
+    }
+
+    EngOil {
+        objectName: "eng_oil3"
+        x: 343
+        y: 243
+    }
+
+    Text {
+        text: "VIB"
+        x: 17
+        y: 308
+
+        color: "#ffffff"
+        font.pixelSize: 18
+        // font.bold: true
+    }
+
+    EngVib {
+        objectName: "eng_vib1"
+        x: 83
+        y: 308
+    }
+
+    EngVib {
+        objectName: "eng_vib2"
+        x: 212
+        y: 308
+    }
+
+    EngVib {
+        objectName: "eng_vib3"
+        x: 342
+        y: 308
     }
 
 }

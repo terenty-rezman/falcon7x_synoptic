@@ -24,6 +24,15 @@ dref_indicator_map = {
     ("sim/cockpit2/engine/indicators/fuel_flow_kg_sec[0]", None): ("eng_ff_1", "value"),
     ("sim/cockpit2/engine/indicators/fuel_flow_kg_sec[1]", None): ("eng_ff_2", "value"),
     ("sim/cockpit2/engine/indicators/fuel_flow_kg_sec[2]", None): ("eng_ff_3", "value"),
+    ("sim/cockpit2/engine/indicators/oil_pressure_psi[0]", None): ("eng_oil1", "psi"),
+    ("sim/cockpit2/engine/indicators/oil_pressure_psi[1]", None): ("eng_oil2", "psi"),
+    ("sim/cockpit2/engine/indicators/oil_pressure_psi[2]", None): ("eng_oil3", "psi"),
+    ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[0]", None): ("eng_oil1", "temp"),
+    ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[1]", None): ("eng_oil2", "temp"),
+    ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[2]", None): ("eng_oil3", "temp"),
+    ("sim/cockpit2/engine/indicators/N1_percent[0]", None): ("eng_vib1", "vib"),
+    ("sim/cockpit2/engine/indicators/N1_percent[1]", None): ("eng_vib2", "vib"),
+    ("sim/cockpit2/engine/indicators/N1_percent[2]", None): ("eng_vib3", "vib"),
 }
 
 dref_nested_dict = defaultdict(dict)
