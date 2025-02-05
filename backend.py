@@ -57,6 +57,7 @@ class Backend(QObject):
     def on_click(self, button):
         rotation = button.property("state")
 
+    # triger repaint for all canvas item in qml
     updateCanvas = Signal()
     
     def set_data_http(self, data: dict):

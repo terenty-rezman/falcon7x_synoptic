@@ -19,10 +19,6 @@ Item {
     property int center_x: 50
     property int center_y: 59
 
-    function update_canvas() : undefined {
-        canvas.requestPaint();
-    }
-
     Connections {
         target: backend 
         function onUpdateCanvas() {
