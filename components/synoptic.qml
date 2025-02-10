@@ -37,6 +37,12 @@ Rectangle {
         id: tab_bar
         width: parent.width
 
+        background: Rectangle {
+            color: "#000000"
+            height: 20
+            anchors.bottom: parent.bottom
+        }
+
         SynopticTabButton {
             id: stat_button
             text: qsTr("STAT")

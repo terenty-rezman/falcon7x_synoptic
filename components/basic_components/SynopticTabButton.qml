@@ -24,5 +24,14 @@ TabButton {
         border.color: button.checked ? "#00FC00" : "#000000"
         border.width: button.checked ? 4 : 2
         radius: 4
+
+        // Rectangle {
+        //     visible: button.checked
+        //     height: 20
+        //     anchors.left: parent.left
+        //     anchors.right: parent.right
+        //     y: 34 
+        //     color: "red"
+        // }
     }
 }
