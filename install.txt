@@ -1,1 +1,3 @@
 python -m pip install -e ./falcon7x_core
+
+python -m pip install --ignore-requires-python pyside6_ds 
