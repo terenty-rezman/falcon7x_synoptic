@@ -105,13 +105,14 @@ if __name__ == "__main__":
 
     url = QUrl("components/synoptic.qml")
     synoptic = View(WINDOW_WIDTH, WINDOW_HEIGHT)
+    synoptic.engine().addImportPath("./Falcon7x_synoptic_design")
     synoptic.rootContext().setContextProperty("backend", backend.backend)
     synoptic.setSource(url)
     synoptic.setTitle("synoptic - falcon7x")
     synoptic.setResizeMode(QQuickView.SizeRootObjectToView)
     synoptic.engine().quit.connect(quit)
     synoptic.readSettings()
-    synoptic.setFlags(Qt.FramelessWindowHint)
+    synoptic.setFlags(synoptic.flags() | Qt.FramelessWindowHint)
     synoptic.show()
 
     view_helper.all_views.append(synoptic)

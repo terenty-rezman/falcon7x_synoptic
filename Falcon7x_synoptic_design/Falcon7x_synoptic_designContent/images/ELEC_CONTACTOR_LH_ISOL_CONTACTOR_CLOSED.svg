@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="31.305826"
+   height="31.305815"
+   viewBox="0 0 8.2829997 8.2829968"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="ELEC_BAS_TIE_CONTACTOR_CLOSED_WHEN_ALL_MAIN_GEN_ARE_ONLINE.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="4.0970529"
+     inkscape:cx="13.180206"
+     inkscape:cy="33.072553"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" /><defs
+     id="defs1" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-57.870493,-22.030459)"><ellipse
+       style="font-variation-settings:'opsz' 36;fill:none;stroke:#d2b60c;stroke-width:0.986805;stroke-miterlimit:3.3;stroke-dasharray:none;stroke-opacity:1"
+       id="path1"
+       cx="62.011993"
+       cy="26.171957"
+       rx="3.6480975"
+       ry="3.6480958" /><path
+       style="font-variation-settings:'opsz' 36;fill:none;stroke:#d2b60c;stroke-width:1;stroke-miterlimit:3.3;stroke-dasharray:none;stroke-opacity:1"
+       d="m 58.371618,26.171958 h 7.296191"
+       id="path2" /></g></svg>
