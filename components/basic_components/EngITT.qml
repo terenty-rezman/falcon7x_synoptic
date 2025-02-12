@@ -9,7 +9,7 @@ Item {
     height: 100
 
     property real rotation_green_arrow_deg: 70
-    property int ign: 1
+    property int ign: 0
 
     property int center_x: 49 
     property int center_y: 52 
