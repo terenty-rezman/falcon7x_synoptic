@@ -37,7 +37,7 @@ UDP_LOCAL_PORT = 62223
 
 
 def on_new_xp_data(type, dataref, value):
-    print(f"{dataref} value")
+    backend.backend.set_data_http({"data": {Params[dataref]: value}})
 
 
 def on_data_exception(ex: Exception):
@@ -45,7 +45,7 @@ def on_data_exception(ex: Exception):
 
 
 def on_new_xp_data_udp(received_vals):
-    backend.backend.set_data_http(received_vals)
+    backend.backend.set_data_http({"data": received_vals})
     pass
 
 
@@ -86,6 +86,8 @@ async def main():
         await xp.xp_master_udp.connect(XP_MASTER_HOST, XP_MASTER_UDP_PORT, on_new_xp_data_udp, on_data_exception_udp, listen_port=UDP_LOCAL_PORT)
         await xp.xp_master.connect_until_success(XP_MASTER_HOST, XP_MASTER_PORT, on_new_xp_data, on_data_exception)
 
+        # replace suscribe values
+        xp.set_subscribe_params(params_to_subscribe.to_subscribe)
         xp.param_subscriber.run_subsriber_task()
         xp.udp_param_subscriber.run_subsriber_task()
 

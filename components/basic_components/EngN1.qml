@@ -11,6 +11,7 @@ Item {
     property real rotation_green_arrow_deg: 70
     property real rotation_purpure_circle: 0.5 
     property real rotation_green_triangle_deg: 0
+    property int start: 0
 
     property real top_digit: 75
     property real bottom_digit: 86
@@ -111,6 +112,16 @@ Item {
             ctx.closePath();
         }
     }
+
+    Text {
+        x: 20 
+        y: 22
+        text: "START"
+        color: "#00FC00"
+        font.pixelSize: 18
+        font.bold: true
+        visible: n1.start
+     }
 
     Text {
         x: 35

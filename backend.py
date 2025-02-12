@@ -3,12 +3,14 @@ from collections import defaultdict
 from PySide6.QtCore import QObject, Slot, Property, SLOT, SIGNAL, QByteArray, QTimer, QMetaObject, Signal
 
 import view_helper
+import param_overrides
 
 
 dref_indicators = [
     # (dataref, idx, "object_name", "property", cast type, round_digits)
     ("sim/cockpit2/engine/indicators/N1_percent[0]", None, "eng_engn1", "rotation_green_arrow_deg"),
     ("sim/cockpit2/engine/actuators/throttle_ratio[0]", None, "eng_engn1", "rotation_purpure_circle"),
+    ("sim/custom/7x/z_syn_eng_start1", None, "eng_engn1", "start"),
     ("sim/cockpit2/engine/indicators/N1_percent[1]", None,"eng_engn2", "rotation_green_arrow_deg"),
     ("sim/cockpit2/engine/actuators/throttle_ratio[1]", None, "eng_engn2", "rotation_purpure_circle"),
     ("sim/cockpit2/engine/indicators/N1_percent[2]", None, "eng_engn3", "rotation_green_arrow_deg"),
@@ -16,6 +18,7 @@ dref_indicators = [
     ("sim/cockpit2/electrical/APU_N1_percent", None, "eng_apun1t5", "n1"),
     ("sim/cockpit2/electrical/APU_EGT_c", None, "eng_apun1t5", "t5"),
     ("sim/cockpit2/engine/indicators/ITT_deg_C[0]", None, "eng_itt1", "rotation_green_arrow_deg"),
+    ("sim/custom/7x/z_syn_eng_ign1", None, "eng_itt1", "ign"),
     ("sim/cockpit2/engine/indicators/ITT_deg_C[1]", None, "eng_itt2", "rotation_green_arrow_deg"),
     ("sim/cockpit2/engine/indicators/ITT_deg_C[2]", None, "eng_itt3", "rotation_green_arrow_deg"),
     ("sim/cockpit2/engine/indicators/N2_percent[0]", None, "eng_n2_1", "value"),
@@ -61,6 +64,19 @@ class Backend(QObject):
     updateCanvas = Signal()
     
     def set_data_http(self, data: dict):
+        overrides = data.get("overrides") or {}
+        data = data.get("data") or {} 
+
+        # override params from overrides
+        for param, value in overrides.items():
+            if param in param_overrides.enabled_overrides: 
+                data[param] = value
+        
+        # remove items that must be overriden
+        for param in param_overrides.enabled_overrides:
+            if param in data and param not in overrides:
+                del data[param]
+
         for dataref, value in data.items():
             indicator_list = dref_nested_dict.get(str(dataref))
             if not indicator_list:
@@ -70,7 +86,6 @@ class Backend(QObject):
                 item = view_helper.find_object(object_name)
                 if item is None:
                     raise Exception(f"no such object_name {object_name}")
-                    break
 
                 val = value[idx] if idx is not None else value
 

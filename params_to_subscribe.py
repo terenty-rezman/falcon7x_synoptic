@@ -1,9 +1,8 @@
-import xplane.params_to_subscribe as ps
-from xplane.params import Params
+import falcon7x_core.xplane.params_to_subscribe as ps
+from falcon7x_core.xplane.params import Params
 
 # replace original subscribe list content
-ps.to_subscribe.clear()
-ps.to_subscribe.extend([
+to_subscribe = [
     (Params["sim/cockpit2/engine/indicators/N1_percent[0]"], 15, "udp"), # synoptic indicator - eng - N1
     (Params["sim/cockpit2/engine/indicators/N1_percent[1]"], 15, "udp"), # synoptic indicator - eng - N1
     (Params["sim/cockpit2/engine/indicators/N1_percent[2]"], 15, "udp"), # synoptic indicator - eng - N1
@@ -27,6 +26,6 @@ ps.to_subscribe.extend([
     (Params["sim/cockpit2/engine/indicators/oil_temperature_deg_C[0]"], 8, "udp"), # synoptic - eng - oil temp
     (Params["sim/cockpit2/engine/indicators/oil_temperature_deg_C[1]"], 8, "udp"), # synoptic - eng - oil temp
     (Params["sim/cockpit2/engine/indicators/oil_temperature_deg_C[2]"], 8, "udp"), # synoptic - eng - oil temp
-])
-
-ps.update_udp_lists()
+    (Params["sim/custom/7x/z_syn_eng_start1"], None, "tcp"), # synoptic eng 1 start indication
+    (Params["sim/custom/7x/z_syn_eng_ign1"], None, "tcp"), # synoptic eng 1 ign indication
+]

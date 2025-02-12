@@ -9,6 +9,7 @@ Item {
     height: 100
 
     property real rotation_green_arrow_deg: 70
+    property int ign: 1
 
     property int center_x: 49 
     property int center_y: 52 
@@ -73,6 +74,16 @@ Item {
             ctx.closePath();
         }
     }
+
+    Text {
+        x: 32 
+        y: 22
+        text: "IGN"
+        color: "#F0F000"
+        font.pixelSize: 18
+        font.bold: true
+        visible: n1.ign
+     }
 
     Text {
         x: 38
