@@ -26,12 +26,35 @@ Rectangle {
         source: "images/ELEC_F7X_CODDE1_R13_DGT97831 Image[2252]_ok.jpg"
         enabled: true
         fillMode: Image.PreserveAspectFit
+
+        Button {
+            id: c_b_button
+            x: 484
+            y: 275
+            width: 119
+            height: 29
+            text: qsTr("C/B STATUS")
+        }
+
+        Elec_cb_out {
+            id: elec_cb_out
+            x: 508
+            y: 314
+        }
     }
 
     Elec_Apu {
         id: elec_apu
         x: 116
         y: 83
+    }
+
+    Elec_bat_temp_scane {
+        id: elec_bat_temp_scane1
+        x: 201
+        y: 271
+        width: 73
+        height: 18
     }
 
     Elec_current {
@@ -80,13 +103,6 @@ Rectangle {
         id: elec_temperature_bat1
         x: 212
         y: 302
-    }
-
-    Elec_bat_temp_scane {
-        id: rectangle6
-        x: 202
-        y: 271
-        width: 37
     }
 
     Elec_left_voltage {
@@ -192,10 +208,6 @@ Rectangle {
         y: 83
     }
 
-    Item {
-        id: __materialLibrary__
-    }
-
     states: [
         State {
             name: "clicked"
@@ -215,4 +227,11 @@ Rectangle {
             }
         }
     ]
+    Elec_bat_temp_scane {
+        id: elec_bat_temp_scane
+        x: 298
+        y: 271
+        width: 74
+        height: 17
+    }
 }

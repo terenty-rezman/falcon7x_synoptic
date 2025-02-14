@@ -4,7 +4,7 @@ import QtQuick.Studio.Components
 // import "Helpers.js" as helpers
 Item {
     id: self
-    property alias triangle_pos: triangle.x
+    // property alias triangle_pos: triangle.x
 
     // property int state: 0
     Rectangle {
@@ -37,9 +37,10 @@ Item {
         id: triangle
         x: 22
         y: 8
-        width: 15
+        width: 14
+        height: 9
         radius: 0
-        fillColor: "#00ff0000"
+        fillColor: "#21da1b"
         strokeColor: "#00ff0000"
     }
 }
