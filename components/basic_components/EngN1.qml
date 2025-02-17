@@ -12,6 +12,7 @@ Item {
     property real rotation_purpure_circle: 0.5 
     property real rotation_green_triangle_deg: 0
     property int start: 0
+    property int ab: 0
 
     property real top_digit: 75
     property real bottom_digit: 86
@@ -34,7 +35,7 @@ Item {
 
         onPaint: {
             const map_n1 = new Helpers.Interp1d([0, 29, 94, 100, 110], [-130 - 90, -120 - 90, 40 - 90, 80 - 90, 90 - 90]); 
-            const map_throttle = new Helpers.Interp1d([0, 1], [-110 - 90, 75 - 90]); 
+            const map_throttle = new Helpers.Interp1d([0, 1], [-120 - 90, 75 - 90]); 
 
             let rotation_green_arrow_deg = map_n1.interp(n1.rotation_green_arrow_deg);
             // console.log(rotation_green_arrow_deg)
@@ -121,6 +122,31 @@ Item {
         font.pixelSize: 18
         font.bold: true
         visible: n1.start
+     }
+
+    Rectangle {
+        x: 0  
+        y: 80
+        width: 20
+        height:22
+
+        border.color: "#00FC00"
+        border.width: 1
+        color: "transparent"
+        
+        Text {
+            y: -2
+            width: 20
+            height:22
+
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+
+            text: (n1.ab == 0) ? "A" : "B"
+            color: "#00FC00"
+            font.pixelSize: 18
+            font.bold: true
+        }
      }
 
     Text {

@@ -32,4 +32,8 @@ to_subscribe = [
     (Params["sim/custom/7x/z_syn_eng_ign1"], None, "tcp"), # synoptic eng 1 ign indication
     (Params["sim/custom/7x/z_syn_eng_ign2"], None, "tcp"), # synoptic eng 1 ign indication
     (Params["sim/custom/7x/z_syn_eng_ign3"], None, "tcp"), # synoptic eng 1 ign indication
+    (Params["sim/custom/xap/maxin1"], None, "tcp"), # synoptic eng n1 top digit
+    (Params["sim/custom/7x/z_syn_eng_ab1"], None, "tcp"), # synoptic eng 1 A or B
+    (Params["sim/custom/7x/z_syn_eng_ab2"], None, "tcp"), # synoptic eng 2 A or B
+    (Params["sim/custom/7x/z_syn_eng_ab3"], None, "tcp"), # synoptic eng 3 A or B
 ]
