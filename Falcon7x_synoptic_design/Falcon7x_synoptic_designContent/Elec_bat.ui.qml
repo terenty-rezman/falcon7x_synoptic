@@ -5,6 +5,8 @@ Image {
 	property alias text: text_elec_bat.text
     source: "images/ELEC_BAT_NORMAL_OPERATION.svg"
     fillMode: Image.PreserveAspectFit
+    width: 64
+    height: 106
 
     Text {
         id: text_elec_bat

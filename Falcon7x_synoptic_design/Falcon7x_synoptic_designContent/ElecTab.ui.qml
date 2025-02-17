@@ -22,7 +22,7 @@ Rectangle {
 
     Image {
         id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
-        visible: true
+        visible: false
         source: "images/ELEC_F7X_CODDE1_R13_DGT97831 Image[2252]_ok.jpg"
         enabled: true
         fillMode: Image.PreserveAspectFit
