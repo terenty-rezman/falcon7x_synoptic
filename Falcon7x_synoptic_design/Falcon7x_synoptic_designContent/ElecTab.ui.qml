@@ -118,31 +118,36 @@ Rectangle {
     }
 
     Elec_contactor {
-        id: elec_contactor1
+        id: elec_contactor_rh
+        objectName: "elec_contactor_rh"
         x: 458
         y: 63
     }
 
     Elec_contactor {
-        id: elec_contactor
+        id: elec_contactor_lh
+        objectName: "elec_contactor_lh"
         x: 89
         y: 63
     }
 
     Elec_bas_tie_contactor {
-        id: elec_bas_tie_contactor
+        id: elec_bus_tie_contactor
+        objectName: "elec_bus_tie_contactor"
         x: 267
         y: 63
     }
 
     Elec_bat {
-        id: elec_bat1
+        id: elec_bat_2
+        objectName: "elec_bat_2"
         x: 299
         y: 83
     }
 
     Elec_bat {
-        id: elec_bat
+        id: elec_bat_1
+        objectName: "elec_bat_1"
         x: 201
         y: 83
         text: "BAT 1"

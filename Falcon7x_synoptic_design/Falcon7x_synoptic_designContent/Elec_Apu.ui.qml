@@ -1,11 +1,13 @@
 import QtQuick
 
 Image {
-    id: eLEC_APU_NORMAL_OPERATION
+    id: self
     width: 50
     height: 118
     source: "images/ELEC_APU_NORMAL_OPERATION.svg"
     fillMode: Image.PreserveAspectFit
+
+    property int state: 1
 
     Text {
         id: _text_apu

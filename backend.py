@@ -46,6 +46,11 @@ dref_indicators = [
     ("sim/cockpit2/engine/indicators/N1_percent[0]", None, "eng_vib1", "vib"),
     ("sim/cockpit2/engine/indicators/N1_percent[1]", None, "eng_vib2", "vib"),
     ("sim/cockpit2/engine/indicators/N1_percent[2]", None, "eng_vib3", "vib"),
+    ("sim/custom/7x/lhisol", None, "elec_contactor_lh", "state"),
+    ("sim/custom/7x/rhisol", None, "elec_contactor_rh", "state"),
+    ("sim/cockpit2/electrical/cross_tie", None, "elec_bus_tie_contactor", "state"),
+    ("sim/cockpit2/electrical/battery_on", 0, "elec_bat_1", "state"),
+    ("sim/cockpit2/electrical/battery_on", 1, "elec_bat_2", "state"),
 ]
 
 dref_nested_dict = defaultdict(list)

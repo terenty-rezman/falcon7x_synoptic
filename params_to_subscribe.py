@@ -36,4 +36,8 @@ to_subscribe = [
     (Params["sim/custom/7x/z_syn_eng_ab1"], None, "tcp"), # synoptic eng 1 A or B
     (Params["sim/custom/7x/z_syn_eng_ab2"], None, "tcp"), # synoptic eng 2 A or B
     (Params["sim/custom/7x/z_syn_eng_ab3"], None, "tcp"), # synoptic eng 3 A or B
+    (Params["sim/custom/7x/lhisol"], None, "tcp"), # synoptic elec lh isol
+    (Params["sim/custom/7x/rhisol"], None, "tcp"), # synoptic elec rh isol
+    (Params["sim/cockpit2/electrical/cross_tie"], None, "tcp"), # synoptic elec bus tie
+    (Params["sim/cockpit2/electrical/battery_on"], None, "tcp"), # synoptic elec bat 1
 ]

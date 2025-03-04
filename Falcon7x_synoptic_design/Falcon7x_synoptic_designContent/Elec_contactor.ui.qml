@@ -1,14 +1,16 @@
 import QtQuick
 
 Image {
-    id: eLEC_CONTACTOR_NORMAL_OPERATION
-    source: "images/ELEC_CONTACTOR_LH_ISOL_CONTACTOR_OPEN_AND_NO_FAULT.svg"
+    id: self
+    source: "images/ELEC_CONTACTOR_NORMAL_OPERATION.svg"
     fillMode: Image.PreserveAspectFit
     width: 31
     height: 31
 
+    property int state: 1
+
     Text {
-        id: text_rh_lh_contactor
+        id: text_
         x: 2
         y: -16
         color: "#d2b60c"
@@ -18,4 +20,36 @@ Image {
         verticalAlignment: Text.AlignVCenter
         font.family: "Arial"
     }
+
+    states: [
+        State {
+            name: "normal"
+            when: self.state === 1
+
+            PropertyChanges {
+                target: self
+                source: "images/ELEC_CONTACTOR_NORMAL_OPERATION.svg"
+            }
+
+            PropertyChanges {
+                target: text_
+                visible: false
+            }
+        },
+
+        State {
+            name: "open_offline"
+            when: self.state === 0
+
+            PropertyChanges {
+                target: self
+                source: "images/ELEC_CONTACTOR_LH_ISOL_CONTACTOR_OPEN_GEN_OFFLINE.svg"
+            }
+
+            PropertyChanges {
+                target: text_
+                visible: true
+            }
+        }
+    ]
 }
