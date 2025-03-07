@@ -1,10 +1,15 @@
 import QtQuick
 
 Item {
-    id: elec_line_gen1_gen3
+    id: self
+
+    property int state: 0
+
+    property string green: "#00ff00"
+    property string yellow: "#d2b60c"
 
     Rectangle {
-        id: rectangle2
+        id: rectangle1
         x: 11
         y: 80
         width: 4
@@ -15,68 +20,150 @@ Item {
     }
 
     Rectangle {
-        id: rectangle5
+        id: rectangle2
         x: 11
         y: 207
         width: 647
         height: 4
-        color: "#00ff00"
+        color: self.green
+        border.color: "#00000000"
+        layer.format: ShaderEffectSource.RGB
+    }
+
+    Rectangle {
+        id: rectangle3
+        x: 654
+        y: 77
+        width: 4
+        height: 132
+        color: self.green
+        border.color: "#00000000"
+        layer.format: ShaderEffectSource.RGB
+    }
+
+    Rectangle {
+        id: rectangle4
+        x: 608
+        y: 77
+        width: 50
+        height: 4
+        color: self.green
+        border.color: "#00000000"
+        layer.format: ShaderEffectSource.RGB
+    }
+
+    Rectangle {
+        id: rectangle5
+        x: 605
+        y: 77
+        width: 4
+        height: 6
+        color: self.green
         border.color: "#00000000"
         layer.format: ShaderEffectSource.RGB
     }
 
     Rectangle {
         id: rectangle6
-        x: 654
-        y: 77
-        width: 4
-        height: 132
-        color: "#00ff00"
-        border.color: "#00000000"
-        layer.format: ShaderEffectSource.RGB
-    }
-
-    Rectangle {
-        id: rectangle10
-        x: 608
-        y: 77
-        width: 50
-        height: 4
-        color: "#00ff00"
-        border.color: "#00000000"
-        layer.format: ShaderEffectSource.RGB
-    }
-
-    Rectangle {
-        id: rectangle12
-        x: 605
-        y: 77
-        width: 4
-        height: 6
-        color: "#00ff00"
-        border.color: "#00000000"
-        layer.format: ShaderEffectSource.RGB
-    }
-
-    Rectangle {
-        id: rectangle17
         x: 11
         y: 76
         width: 78
         height: 4
-        color: "#00ff00"
+        color: self.green
         border.color: "#00000000"
         layer.format: ShaderEffectSource.RGB
     }
 
     Rectangle {
-        id: rectangle18
+        id: rectangle7
         x: 57
         y: 80
         width: 4
         height: 4
-        color: "#00ff00"
+        color: self.green
         border.color: "#00000000"
         layer.format: ShaderEffectSource.RGB
     }
+
+    states: [
+        State {
+            name: "on"
+            when: self.state === 1
+
+            PropertyChanges {
+                target: rectangle1
+                color: self.green
+            }
+
+            PropertyChanges {
+                target: rectangle2
+                color: self.green
+            }
+
+            PropertyChanges {
+                target: rectangle3
+                color: self.green
+            }
+
+            PropertyChanges {
+                target: rectangle4
+                color: self.green
+            }
+
+            PropertyChanges {
+                target: rectangle5
+                color: self.green
+            }
+
+            PropertyChanges {
+                target: rectangle6
+                color: self.green
+            }
+
+            PropertyChanges {
+                target: rectangle7
+                color: self.green
+            }
+        },
+
+        State {
+            name: "off"
+            when: self.state === 0
+
+            PropertyChanges {
+                target: rectangle1
+                color: self.yellow
+            }
+
+            PropertyChanges {
+                target: rectangle2
+                color: self.yellow
+            }
+
+            PropertyChanges {
+                target: rectangle3
+                color: self.yellow
+            }
+
+            PropertyChanges {
+                target: rectangle4
+                color: self.yellow
+            }
+
+            PropertyChanges {
+                target: rectangle5
+                color: self.yellow
+            }
+
+            PropertyChanges {
+                target: rectangle6
+                color: self.yellow
+            }
+
+            PropertyChanges {
+                target: rectangle7
+                color: self.yellow
+            }
+        }
+    ]
 }

@@ -51,6 +51,19 @@ dref_indicators = [
     ("sim/cockpit2/electrical/cross_tie", None, "elec_bus_tie_contactor", "state"),
     ("sim/cockpit2/electrical/battery_on", 0, "elec_bat_1", "state"),
     ("sim/cockpit2/electrical/battery_on", 1, "elec_bat_2", "state"),
+    ("sim/cockpit2/electrical/generator_on", 0, "elec_gen_1", "state"),
+    ("sim/cockpit2/engine/indicators/N1_percent[0]", None, "elec_gen_1", "n1"),
+    ("sim/cockpit2/electrical/generator_on", 1, "elec_gen_2", "state"),
+    ("sim/cockpit2/engine/indicators/N1_percent[1]", None, "elec_gen_2", "n1"),
+    ("sim/cockpit2/electrical/generator_on", 2, "elec_gen_3", "state"),
+    ("sim/cockpit2/engine/indicators/N1_percent[2]", None, "elec_gen_3", "n1"),
+    ("sim/cockpit2/electrical/APU_generator_on", None, "elec_apu", "master_on"),
+    ("sim/cockpit2/electrical/APU_N1_percent", None, "elec_apu", "n1"),
+
+    ("sim/custom/7x/z_line_gen2_on", None, "elec_line_gen2", "state"),
+    ("sim/custom/7x/z_line_bat2_ratgen_on", None, "elec_line_bat2_ratgen", "state"),
+    ("sim/custom/7x/z_line_apu_bat1_on", None, "elec_line_apu_bat1", "state"),
+    ("sim/custom/7x/z_line_gen1_gen3_on", None, "elec_line_gen1_gen3", "state"),
 ]
 
 dref_nested_dict = defaultdict(list)

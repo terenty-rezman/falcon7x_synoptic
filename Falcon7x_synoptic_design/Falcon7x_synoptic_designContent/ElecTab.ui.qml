@@ -45,6 +45,7 @@ Rectangle {
 
     Elec_Apu {
         id: elec_apu
+        objectName: "elec_apu"
         x: 116
         y: 83
     }
@@ -160,22 +161,24 @@ Rectangle {
     }
 
     Elec_Gen {
-        id: elec_gen3
+        id: elec_gen_3
+        objectName: "elec_gen_3"
         x: 582
         y: 83
-        objectName: "elec_gen3"
         text: "ENG3\nGEN"
     }
 
     Elec_Gen {
-        id: elec_gen2
+        id: elec_gen_2
+        objectName: "elec_gen_2"
         x: 494
         y: 83
         text: "ENG2\nGEN"
     }
 
     Elec_Gen {
-        id: elec_gen1
+        id: elec_gen_1
+        objectName: "elec_gen_1"
         x: 34
         y: 84
         text: "ENG1\nGEN"
@@ -183,6 +186,7 @@ Rectangle {
 
     Elec_line_apu_bat1 {
         id: elec_line_apu_bat1
+        objectName: "elec_line_apu_bat1"
         x: 0
         y: 0
         width: 29
@@ -191,24 +195,28 @@ Rectangle {
 
     ELec_line_gen2 {
         id: eLec_line_gen2
+        objectName: "elec_line_gen2"
         x: 0
         y: 0
     }
 
     Elec_line_gen1_gen3 {
         id: elec_line_gen1_gen3
+        objectName: "elec_line_gen1_gen3"
         x: 0
         y: 0
     }
 
     Elec_line_bat2_ratgen {
         id: elec_line_bat2_ratgen
+        objectName: "elec_line_bat2_ratgen"
         x: 0
         y: 0
     }
 
     Elec_rat_gen {
         id: elec_rat_gen
+        objectName: "elec_rat_gen"
         x: 403
         y: 83
     }
@@ -240,3 +248,10 @@ Rectangle {
         height: 17
     }
 }
+
+/*##^##
+Designer {
+    D{i:0}D{i:25;invisible:true}
+}
+##^##*/
+

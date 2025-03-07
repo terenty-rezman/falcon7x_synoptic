@@ -7,10 +7,11 @@ Image {
     source: "images/ELEC_APU_NORMAL_OPERATION.svg"
     fillMode: Image.PreserveAspectFit
 
-    property int state: 1
+    property int master_on: 0
+    property real n1: 0
 
     Text {
-        id: _text_apu
+        id: text_
         x: 13
         y: 71
         color: "#00ff00"
@@ -18,4 +19,51 @@ Image {
         font.pixelSize: 12
         font.family: "Arial"
     }
+
+    states: [
+        State {
+            name: "master_off"
+            when: self.master_on === 0
+
+            PropertyChanges {
+                target: self
+                source: "images/ELEC_APU_MASTER_OFF.svg"
+            }
+
+            PropertyChanges {
+                target: text_
+                color: "#000000"
+            }
+        },
+
+        State {
+            name: "normal"
+            when: self.n1 > 50
+
+            PropertyChanges {
+                target: self
+                source: "images/ELEC_APU_NORMAL_OPERATION.svg"
+            }
+
+            PropertyChanges {
+                target: text_
+                color: "#00ff00"
+            }
+        },
+
+        State {
+            name: "open_not_ready"
+            when: self.n1 < 50
+
+            PropertyChanges {
+                target: self
+                source: "images/ELEC_APU_GLC_AND_BC1_ARE_CLOSED.svg"
+            }
+
+            PropertyChanges {
+                target: text_
+                color: "#000000"
+            }
+        }
+    ]
 }
