@@ -1,8 +1,8 @@
-import falcon7x_core.xplane.params_to_subscribe as ps
 from falcon7x_core.xplane.params import Params
 
 # replace original subscribe list content
 to_subscribe = [
+    # param, freq, protocol
     (Params["sim/cockpit2/engine/indicators/N1_percent[0]"], 15, "udp"), # synoptic indicator - eng - N1
     (Params["sim/cockpit2/engine/indicators/N1_percent[1]"], 15, "udp"), # synoptic indicator - eng - N1
     (Params["sim/cockpit2/engine/indicators/N1_percent[2]"], 15, "udp"), # synoptic indicator - eng - N1
@@ -47,4 +47,14 @@ to_subscribe = [
     (Params["sim/custom/7x/z_line_bat2_ratgen_on"], None, "tcp"), # synoptic elec
     (Params["sim/custom/7x/z_line_apu_bat1_on"], None, "tcp"), # synoptic elec
     (Params["sim/custom/7x/z_line_gen1_gen3_on"], None, "tcp"), # synoptic elec
+
+    (Params["sim/cockpit2/electrical/bus_volts[0]"], 3, "udp"), # synoptic elec bus voltage lh
+    (Params["sim/cockpit2/electrical/bus_volts[1]"], 3, "udp"), # synoptic elec bus voltage rh
+    (Params["sim/cockpit2/electrical/generator_amps[0]"], 6, "udp"), # synoptic elec gen amps
+    (Params["sim/cockpit2/electrical/generator_amps[1]"], 6, "udp"), # synoptic elec gen amps
+    (Params["sim/cockpit2/electrical/generator_amps[2]"], 6, "udp"), # synoptic elec gen amps
+    (Params["sim/cockpit2/electrical/battery_amps[0]"], 6, "udp"), # synoptic elec bat amps
+    (Params["sim/cockpit2/electrical/battery_amps[1]"], 6, "udp"), # synoptic elec bat amps
+    (Params["sim/custom/7X/TBAT"], 3, "udp"), # synoptic elec bat temp
+    (Params["sim/cockpit/electrical/gpu_on"], None, "tcp"), # synoptic elec ext power
 ]

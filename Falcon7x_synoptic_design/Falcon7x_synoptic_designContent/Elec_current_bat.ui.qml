@@ -2,14 +2,14 @@ import QtQuick
 
 Rectangle {
     id: self
-    width: 44
-    height: 23
+    width: 51
+    height: 22
     color: "transparent"
     border.color: "white"
     border.width: 1.5
     radius: 1
 
-    property real temp: 25
+    property real amps: 150
 
     Text {
         id: _text
@@ -17,7 +17,8 @@ Rectangle {
         anchors.fill: parent
         // width: 51
         // height: 22
-        text: self.temp.toFixed(0)
+        text: (self.amps > 0) ? "+" + self.amps.toFixed(
+                                    0) : self.amps.toFixed(0)
         font.pixelSize: 17
         horizontalAlignment: Text.AlignRight
         verticalAlignment: Text.AlignVCenter
@@ -27,10 +28,10 @@ Rectangle {
 
     Text {
         id: _text1
-        x: 45
+        x: 55
         y: 2
         color: "#ffffff"
-        text: qsTr("°C")
+        text: qsTr("A")
         font.pixelSize: 15
         font.family: "Arial"
         font.bold: true

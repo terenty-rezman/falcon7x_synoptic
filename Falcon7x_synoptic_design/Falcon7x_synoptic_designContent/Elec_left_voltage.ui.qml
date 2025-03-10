@@ -1,6 +1,7 @@
 import QtQuick
 
 Rectangle {
+    id: self
     width: 51
     height: 22
     color: "transparent"
@@ -8,13 +9,15 @@ Rectangle {
     border.width: 1.5
     radius: 1
 
+    property real v: 28.5
+
     Text {
         id: _text
         color: "#00ff00"
         anchors.fill: parent
         // width: 51
         // height: 22
-        text: qsTr("28.5")
+        text: self.v.toFixed(1)
         font.pixelSize: 17
         horizontalAlignment: Text.AlignRight
         verticalAlignment: Text.AlignVCenter

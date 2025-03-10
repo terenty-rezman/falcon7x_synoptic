@@ -64,6 +64,19 @@ dref_indicators = [
     ("sim/custom/7x/z_line_bat2_ratgen_on", None, "elec_line_bat2_ratgen", "state"),
     ("sim/custom/7x/z_line_apu_bat1_on", None, "elec_line_apu_bat1", "state"),
     ("sim/custom/7x/z_line_gen1_gen3_on", None, "elec_line_gen1_gen3", "state"),
+
+    ("sim/cockpit2/electrical/bus_volts[0]", None, "elec_left_voltage", "v"),
+    ("sim/cockpit2/electrical/bus_volts[1]", None, "elec_right_voltage", "v"),
+    ("sim/cockpit2/electrical/generator_amps[0]", None, "elec_current_gen_1", "amps"),
+    ("sim/cockpit2/electrical/generator_amps[1]", None, "elec_current_gen_2", "amps"),
+    ("sim/cockpit2/electrical/generator_amps[2]", None, "elec_current_gen_3", "amps"),
+    ("sim/cockpit2/electrical/battery_amps[0]", None, "elec_current_bat_1", "amps"),
+    ("sim/cockpit2/electrical/battery_amps[1]", None, "elec_current_bat_2", "amps"),
+    ("sim/custom/7X/TBAT", None, "elec_temperature_bat1", "temp"),
+    ("sim/custom/7X/TBAT", None, "elec_temperature_bat2", "temp"),
+    ("sim/cockpit/electrical/gpu_on", None, "ext_power", "state"),
+    ("sim/custom/7X/TBAT", None, "elec_bat_temp_scane_1", "temp"),
+    ("sim/custom/7X/TBAT", None, "elec_bat_temp_scane_2", "temp"),
 ]
 
 dref_nested_dict = defaultdict(list)

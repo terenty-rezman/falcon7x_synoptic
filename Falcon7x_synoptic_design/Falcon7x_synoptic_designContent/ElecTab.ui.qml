@@ -11,6 +11,7 @@ import QtQuick.Controls
 import Falcon7x_synoptic_design
 import QtQuick.Studio.Components
 import QtQuick.VectorImage
+import "../../components/basic_components"
 
 Rectangle {
     id: rectangle
@@ -51,8 +52,9 @@ Rectangle {
     }
 
     Elec_bat_temp_scane {
-        id: elec_bat_temp_scane1
-        x: 201
+        id: elec_bat_temp_scane_1
+        objectName: "elec_bat_temp_scane_1"
+        x: 191
         y: 271
         width: 73
         height: 18
@@ -64,56 +66,65 @@ Rectangle {
         y: 221
     }
 
-    Elec_current {
-        id: elec_current_but_1
+    Elec_current_bat {
+        id: elec_current_bat_1
+        objectName: "elec_current_bat_1"
         x: 209
         y: 221
     }
 
-    Elec_current {
-        id: elec_current_but_2
+    Elec_current_bat {
+        id: elec_current_bat_2
+        objectName: "elec_current_bat_2"
         x: 306
         y: 221
     }
 
     Elec_current {
         id: elec_current_gen_2
+        objectName: "elec_current_gen_2"
         x: 493
         y: 221
     }
 
     Elec_current {
         id: elec_current_gen_3
+        objectName: "elec_current_gen_3"
         x: 581
         y: 221
     }
 
     Elec_current {
         id: elec_current_gen_1
+        objectName: "elec_current_gen_1"
         x: 34
         y: 221
     }
 
     Elec_temperature {
         id: elec_temelec_temperature_bat2
+        objectName: "elec_temperature_bat2"
         x: 309
         y: 302
     }
 
     Elec_temperature {
         id: elec_temperature_bat1
+        objectName: "elec_temperature_bat1"
         x: 212
         y: 302
     }
 
     Elec_left_voltage {
         id: elec_right_voltage
+        objectName: "elec_right_voltage"
         x: 357
         y: 17
     }
 
     Elec_left_voltage {
         id: elec_left_voltage
+        objectName: "elec_left_voltage"
         x: 164
         y: 17
     }
@@ -156,6 +167,7 @@ Rectangle {
 
     Ext_power {
         id: ext_power
+        objectName: "ext_power"
         x: 609
         y: 14
     }
@@ -221,28 +233,10 @@ Rectangle {
         y: 83
     }
 
-    states: [
-        State {
-            name: "clicked"
-        },
-        State {
-            name: "State1"
-
-            PropertyChanges {
-                target: rectangle7
-                color: "#1cff00"
-            }
-
-            PropertyChanges {
-                target: ext_power
-                x: 17
-                y: 16
-            }
-        }
-    ]
     Elec_bat_temp_scane {
-        id: elec_bat_temp_scane
-        x: 298
+        id: elec_bat_temp_scane_2
+        objectName: "elec_bat_temp_scane_2"
+        x: 288
         y: 271
         width: 74
         height: 17
