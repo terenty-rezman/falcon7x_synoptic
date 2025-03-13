@@ -24,6 +24,20 @@ Image {
         font.family: "Arial"
     }
 
+    Text {
+        id: off
+        x: 40
+        y: 19
+        width: 33
+        height: 15
+        visible: false
+        color: "#798372"
+        text: qsTr("OFF")
+        font.pixelSize: 12
+        horizontalAlignment: Text.AlignHCenter
+        font.family: "Arial"
+    }
+
     states: [
         State {
             name: "glc_closed"
@@ -31,12 +45,17 @@ Image {
 
             PropertyChanges {
                 target: self
-                source: "images/ELEC_GEN_GLC_CLOSED_WHEN.svg"
+                source: "images/ELEC_GEN_NOT_READY_TO_LOAD(OFF_NOT_FAULTY).svg"
             }
 
             PropertyChanges {
                 target: text_
                 color: "#000000"
+            }
+
+            PropertyChanges {
+                target: off
+                visible: false
             }
         },
 
@@ -53,6 +72,11 @@ Image {
                 target: text_
                 color: "#00ff00"
             }
+
+            PropertyChanges {
+                target: off
+                visible: false
+            }
         },
 
         State {
@@ -67,6 +91,11 @@ Image {
             PropertyChanges {
                 target: text_
                 color: "#000000"
+            }
+
+            PropertyChanges {
+                target: off
+                visible: true
             }
         }
     ]
