@@ -105,8 +105,8 @@ def quit():
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
 
-    url = QUrl("components/synoptic.qml")
-    synoptic = View(WINDOW_WIDTH, WINDOW_HEIGHT)
+    url = QUrl("components/app.qml")
+    synoptic = View(WINDOW_WIDTH, WINDOW_HEIGHT * 2)
     synoptic.engine().addImportPath("./Falcon7x_synoptic_design")
     synoptic.rootContext().setContextProperty("backend", backend.backend)
     synoptic.setSource(url)

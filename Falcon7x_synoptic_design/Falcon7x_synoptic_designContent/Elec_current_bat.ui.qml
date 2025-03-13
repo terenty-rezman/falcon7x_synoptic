@@ -17,8 +17,7 @@ Rectangle {
         anchors.fill: parent
         // width: 51
         // height: 22
-        text: (self.amps > 0) ? "+" + self.amps.toFixed(
-                                    0) : self.amps.toFixed(0)
+        text: (self.amps > 0) ? "+" + self.amps.toFixed(0) : self.amps.toFixed(0)
         font.pixelSize: 17
         horizontalAlignment: Text.AlignRight
         verticalAlignment: Text.AlignVCenter

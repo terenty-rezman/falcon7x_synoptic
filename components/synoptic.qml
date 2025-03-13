@@ -6,34 +6,7 @@ import QtQuick.Layouts
 import "basic_components"
 import "../Falcon7x_synoptic_design/Falcon7x_synoptic_designContent"
 
-
-Rectangle {
-    anchors.fill: parent
-    color: "#000000"
-
-    MouseArea {
-        anchors.fill: parent
-        acceptedButtons: Qt.RightButton
-
-        onClicked: (mouse) => {
-            if (mouse.button === Qt.RightButton) {
-                contextMenu.popup()
-            }
-        }
-    }
-
-    Menu {
-        id: contextMenu
-
-        // Close Action
-        Action {
-            text: "Close Window"
-            onTriggered: {
-                Qt.quit() // Close the application
-            }
-        }
-    }
-
+Item {
     TabBar {
         id: tab_bar
         width: parent.width
@@ -97,6 +70,7 @@ Rectangle {
         }
 
         ElecTab {
+
         }
     }
 }

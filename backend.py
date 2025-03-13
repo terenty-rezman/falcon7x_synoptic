@@ -124,13 +124,14 @@ class Backend(QObject):
                 continue
 
             for idx, object_name, value_name in indicator_list:
-                item = view_helper.find_object(object_name)
-                if item is None:
+                items = view_helper.find_object(object_name)
+                if not items:
                     raise Exception(f"no such object_name {object_name}")
 
                 val = value[idx] if idx is not None else value
 
-                item.setProperty(value_name, val)
+                for item in items:
+                    item.setProperty(value_name, val)
 
         backend.updateCanvas.emit()
 
