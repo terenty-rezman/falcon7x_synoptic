@@ -7,6 +7,8 @@ import "basic_components"
 import "../Falcon7x_synoptic_design/Falcon7x_synoptic_designContent"
 
 Item {
+    property alias currentIndex: tab_bar.currentIndex
+
     TabBar {
         id: tab_bar
         width: parent.width

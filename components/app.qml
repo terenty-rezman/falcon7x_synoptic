@@ -34,6 +34,7 @@ Rectangle {
         id: synoptic_1
         width: parent.width
         height: parent.height / 2
+        currentIndex: 2
     }
 
     Synoptic {
@@ -41,5 +42,6 @@ Rectangle {
         y: parent.height / 2
         width: parent.width
         height: parent.height / 2
+        currentIndex: 1
     }
 }

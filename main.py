@@ -114,7 +114,7 @@ if __name__ == "__main__":
     synoptic.setResizeMode(QQuickView.SizeRootObjectToView)
     synoptic.engine().quit.connect(quit)
     synoptic.readSettings()
-    synoptic.setFlags(synoptic.flags() | Qt.FramelessWindowHint)
+    synoptic.setFlags(synoptic.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
     synoptic.show()
 
     view_helper.all_views.append(synoptic)
