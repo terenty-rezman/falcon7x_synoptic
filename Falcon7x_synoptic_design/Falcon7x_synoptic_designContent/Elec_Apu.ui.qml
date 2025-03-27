@@ -38,11 +38,26 @@ Image {
 
         State {
             name: "normal"
-            when: self.n1 > 50
+            when: self.n1 > 90
 
             PropertyChanges {
                 target: self
                 source: "images/ELEC_APU_NORMAL_OPERATION.svg"
+            }
+
+            PropertyChanges {
+                target: text_
+                color: "#00ff00"
+            }
+        },
+
+        State {
+            name: "normal"
+            when: self.n1 > 50
+
+            PropertyChanges {
+                target: self
+                source: "images/ELEC_APU_GLC_AND_BC1_ARE_CLOSED.svg"
             }
 
             PropertyChanges {
@@ -57,7 +72,7 @@ Image {
 
             PropertyChanges {
                 target: self
-                source: "images/ELEC_APU_GLC_AND_BC1_ARE_CLOSED.svg"
+                source: "images/ELEC_APU_GLC_NOT_READY_TO_LOAD.svg"
             }
 
             PropertyChanges {

@@ -7,6 +7,7 @@ Item {
 
     property string green: "#00ff00"
     property string yellow: "#d2b60c"
+    property string grey: "#555555"
 
     Rectangle {
         id: rectangle1
@@ -132,37 +133,37 @@ Item {
 
             PropertyChanges {
                 target: rectangle1
-                color: self.yellow
+                color: self.grey
             }
 
             PropertyChanges {
                 target: rectangle2
-                color: self.yellow
+                color: self.grey
             }
 
             PropertyChanges {
                 target: rectangle3
-                color: self.yellow
+                color: self.grey
             }
 
             PropertyChanges {
                 target: rectangle4
-                color: self.yellow
+                color: self.grey
             }
 
             PropertyChanges {
                 target: rectangle5
-                color: self.yellow
+                color: self.grey
             }
 
             PropertyChanges {
                 target: rectangle6
-                color: self.yellow
+                color: self.grey
             }
 
             PropertyChanges {
                 target: rectangle7
-                color: self.yellow
+                color: self.grey
             }
         }
     ]
