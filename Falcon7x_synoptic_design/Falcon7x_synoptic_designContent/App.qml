@@ -13,6 +13,30 @@ Window {
 
     ElecTab {
         id: mainScreen
+
+        Text {
+            id: start_under_APU
+            x: 117
+            y: 248
+            width: 50
+            height: 23
+            color: "#21da1b"
+            text: qsTr("START")
+            font.pixelSize: 15
+            font.family: "Arial"
+        }
+
+        Text {
+            id: ready_under_APU
+            x: 115
+            y: 277
+            width: 55
+            height: 17
+            color: "#21da1b"
+            text: qsTr("READY")
+            font.pixelSize: 15
+            font.family: "Arial"
+        }
     }
 
 }
