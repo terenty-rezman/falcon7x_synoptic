@@ -5,6 +5,8 @@ from PySide6.QtCore import QObject, Slot, Property, SLOT, SIGNAL, QByteArray, QT
 import view_helper
 import param_overrides
 
+from falcon7x_core.xplane.params import Params
+
 
 dref_indicators = [
     # (dataref, idx, "object_name", "property", cast type, round_digits)
@@ -40,6 +42,9 @@ dref_indicators = [
     ("sim/cockpit2/engine/indicators/oil_pressure_psi[0]", None, "eng_oil1", "psi"),
     ("sim/cockpit2/engine/indicators/oil_pressure_psi[1]", None, "eng_oil2", "psi"),
     ("sim/cockpit2/engine/indicators/oil_pressure_psi[2]", None, "eng_oil3", "psi"),
+    ("sim/custom/7x/z_oil_min_height_1", None, "eng_oil1", "oil_min_temp"),
+    ("sim/custom/7x/z_oil_min_height_2", None, "eng_oil2", "oil_min_temp"),
+    ("sim/custom/7x/z_oil_min_height_3", None, "eng_oil3", "oil_min_temp"),
     ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[0]", None, "eng_oil1", "temp"),
     ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[1]", None, "eng_oil2", "temp"),
     ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[2]", None, "eng_oil3", "temp"),
@@ -77,6 +82,9 @@ dref_indicators = [
     ("sim/cockpit/electrical/gpu_on", None, "ext_power", "state"),
     ("sim/custom/7X/TBAT", None, "elec_bat_temp_scane_1", "temp"),
     ("sim/custom/7X/TBAT", None, "elec_bat_temp_scane_2", "temp"),
+
+    ("sim/custom/7x/z_apu_startup_stage", None, "elec_apu", "startup_stage"),
+    ("sim/cockpit2/electrical/APU_generator_amps", None, "elec_current_apu", "amps"),
 ]
 
 dref_nested_dict = defaultdict(list)
@@ -103,7 +111,7 @@ class Backend(QObject):
 
     # triger repaint for all canvas item in qml
     updateCanvas = Signal()
-    
+
     def set_data_http(self, data: dict):
         overrides = data.get("overrides") or {}
         data = data.get("data") or {} 

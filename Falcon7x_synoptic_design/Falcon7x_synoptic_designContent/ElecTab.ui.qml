@@ -62,6 +62,7 @@ Rectangle {
 
     Elec_current {
         id: elec_current_apu
+        objectName: "elec_current_apu"
         x: 116
         y: 221
     }

@@ -51,7 +51,8 @@ Image {
 
             PropertyChanges {
                 target: text_
-                visible: false
+                // visible: false
+                color: "#000000"
             }
         }
     ]

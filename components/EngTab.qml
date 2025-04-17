@@ -82,21 +82,21 @@ Item {
         font.bold: true
     }
 
-    ToFixedText {
+    MappedValueText {
         objectName: "eng_n2_1"
         
         x: 97
         y: 187   
     }
 
-    ToFixedText {
+    MappedValueText {
         objectName: "eng_n2_2"
         
         x: 233
         y: 187   
     }
 
-    ToFixedText {
+    MappedValueText {
         objectName: "eng_n2_3"
         
         x: 368
@@ -113,7 +113,7 @@ Item {
         font.bold: true
     }
 
-    ToFixedText {
+    MappedValueText {
         objectName: "eng_ff_1"
 
         precision: 0
@@ -124,7 +124,7 @@ Item {
         y: 213
     }
 
-    ToFixedText {
+    MappedValueText {
         objectName: "eng_ff_2"
 
         precision: 0
@@ -135,7 +135,7 @@ Item {
         y: 213
     }
 
-    ToFixedText {
+    MappedValueText {
         objectName: "eng_ff_3"
 
         precision: 0

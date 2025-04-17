@@ -57,4 +57,16 @@ to_subscribe = [
     (Params["sim/cockpit2/electrical/battery_amps[1]"], 6, "udp"), # synoptic elec bat amps
     (Params["sim/custom/7X/TBAT"], 3, "udp"), # synoptic elec bat temp
     (Params["sim/cockpit/electrical/gpu_on"], None, "tcp"), # synoptic elec ext power
+    (Params["sim/custom/7x/z_apu_startup_stage"], None, "tcp"), # synoptic elec ext power
+    (Params["sim/cockpit2/electrical/APU_generator_amps"], 3, "udp"), # synoptic elec apu amps
+
+    (Params["sim/custom/7x/z_oil_min_height_1"], 2, "udp"), # synoptic eng min oil level
+    (Params["sim/custom/7x/z_oil_min_height_2"], 2, "udp"), # synoptic eng min oil level
+    (Params["sim/custom/7x/z_oil_min_height_3"], 2, "udp"), # synoptic eng min oil level
+
+    (Params["sim/custom/7x/z_left_black_screen"], None, "tcp"), # pdu left
+    (Params["sim/custom/7x/z_right_black_screen"], None, "tcp"), # pdu right
+    (Params["sim/custom/7x/z_middle_up_black_screen"], None, "tcp"), # mdu up 
+    (Params["sim/custom/7x/z_middle_down_black_screen"], None, "tcp"), # mdu down
+    (Params["sim/custom/7x/z_mini_black_screen"], None, "tcp"), # aux screen
 ]

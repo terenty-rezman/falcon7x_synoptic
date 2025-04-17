@@ -30,3 +30,25 @@ export function Interp1d(x_array, y_array) {
         return y1 + (y2 - y1) * (x_input - x1) / (x2 - x1)
     }
 }
+
+export function bisectLeft(arr, value, lo=0, hi=arr.length) {
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1;
+    if (arr[mid] < value) {
+      lo = mid + 1;
+    } else {
+      hi = mid;
+    }
+  }
+
+  lo = lo - 1
+//   if (lo == arr.length) {
+//     lo = lo - 1
+//   }
+
+  if (lo < 0) {
+    lo = 0
+  }
+
+  return lo;
+}

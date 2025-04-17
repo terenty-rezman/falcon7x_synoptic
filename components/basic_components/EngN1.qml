@@ -94,23 +94,23 @@ Item {
             ctx.closePath();
 
             // draw green triangle
-            ctx.resetTransform();
-            ctx.translate(center_x, center_y);
-            ctx.rotate((initial_rotation + n1.rotation_green_triangle_deg) / 180 * Math.PI);
-            ctx.translate(41, 0);
+            // ctx.resetTransform();
+            // ctx.translate(center_x, center_y);
+            // ctx.rotate((initial_rotation + n1.rotation_green_triangle_deg) / 180 * Math.PI);
+            // ctx.translate(41, 0);
 
-            ctx.fillStyle = "#00FF00";
-            ctx.strokeStyle = "#00FF00";
-            ctx.lineWidth = 1;
+            // ctx.fillStyle = "#00FF00";
+            // ctx.strokeStyle = "#00FF00";
+            // ctx.lineWidth = 1;
 
-            ctx.beginPath();
-            ctx.moveTo(0, 0)
-            ctx.lineTo(6, -3)
-            ctx.lineTo(6, 3)
-            ctx.lineTo(0, 0)
-            ctx.fill()
-            ctx.stroke()
-            ctx.closePath();
+            // ctx.beginPath();
+            // ctx.moveTo(0, 0)
+            // ctx.lineTo(6, -3)
+            // ctx.lineTo(6, 3)
+            // ctx.lineTo(0, 0)
+            // ctx.fill()
+            // ctx.stroke()
+            // ctx.closePath();
         }
     }
 

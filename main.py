@@ -20,6 +20,7 @@ import falcon7x_core.xplane.master as xp
 from falcon7x_core.xplane.params import Params
 
 import params_to_subscribe
+import black_screen
 
 
 WINDOW_WIDTH = 684
@@ -38,6 +39,7 @@ UDP_LOCAL_PORT = 62223
 
 def on_new_xp_data(type, dataref, value):
     backend.backend.set_data_http({"data": {Params[dataref]: value}})
+    black_screen.set_data_http({"data": {Params[dataref]: value}})
 
 
 def on_data_exception(ex: Exception):
@@ -105,19 +107,20 @@ def quit():
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
 
-    url = QUrl("components/app.qml")
+    app_qml_url = QUrl("components/app.qml")
     synoptic = View(WINDOW_WIDTH, WINDOW_HEIGHT * 2)
     synoptic.engine().addImportPath("./Falcon7x_synoptic_design")
     synoptic.rootContext().setContextProperty("backend", backend.backend)
-    synoptic.setSource(url)
+    synoptic.setSource(app_qml_url)
     synoptic.setTitle("synoptic - falcon7x")
     synoptic.setResizeMode(QQuickView.SizeRootObjectToView)
     synoptic.engine().quit.connect(quit)
     synoptic.readSettings()
     synoptic.setFlags(synoptic.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
     synoptic.show()
-
     view_helper.all_views.append(synoptic)
+
+    black_screen.create_black_screens()
 
     event_loop = QEventLoop(app)
     asyncio.set_event_loop(event_loop)
