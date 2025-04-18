@@ -39,7 +39,7 @@ UDP_LOCAL_PORT = 62223
 
 def on_new_xp_data(type, dataref, value):
     backend.backend.set_data_http({"data": {Params[dataref]: value}})
-    black_screen.set_data_http({"data": {Params[dataref]: value}})
+    black_screen.set_data_http({"data": {Params[dataref]: value}}, synoptic)
 
 
 def on_data_exception(ex: Exception):

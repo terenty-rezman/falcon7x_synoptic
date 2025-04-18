@@ -34,7 +34,7 @@ Item {
         anchors.fill: parent
 
         onPaint: {
-            const map_n1 = new Helpers.Interp1d([0, 29, 94, 100, 110], [-130 - 90, -120 - 90, 40 - 90, 80 - 90, 90 - 90]); 
+            const map_n1 = new Helpers.Interp1d([0, 29, 94, 100, 110], [-120 - 90, -120 - 90, 40 - 90, 80 - 90, 90 - 90]); 
             const map_throttle = new Helpers.Interp1d([0, 1], [-120 - 90, 75 - 90]); 
 
             let rotation_green_arrow_deg = map_n1.interp(n1.rotation_green_arrow_deg);

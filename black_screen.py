@@ -85,7 +85,7 @@ class BlackScreen(QQuickView):
         else:
             super().show()
 
-        # self.setFlags(self.flags() | Qt.WindowStaysOnTopHint)
+        self.setFlags(self.flags() | Qt.WindowStaysOnTopHint)
 
 
 class Screens:
@@ -131,7 +131,7 @@ def create_black_sreen(name):
     return black_screen
 
 
-def set_data_http(data):
+def set_data_http(data, synoptic):
     global black_screen_ref
 
     data = data.get("data") or {} 
@@ -149,13 +149,22 @@ def set_data_http(data):
         if value is not None:
             if value == 0:
                 screen.hide();
+                if dataref == Params["sim/custom/7x/z_middle_up_black_screen"]:
+                    if synoptic:
+                        synoptic.show()
 
             if value == 1:
                 screen.show();
                 cross = screen.rootObject().findChild(QQuickItem, "red_cross")
                 cross.setProperty("visible", False)
+                if dataref == Params["sim/custom/7x/z_middle_up_black_screen"]:
+                    if synoptic:
+                        synoptic.hide()
 
             if value == 2:
                 screen.show();
                 cross = screen.rootObject().findChild(QQuickItem, "red_cross")
                 cross.setProperty("visible", True)
+                if dataref == Params["sim/custom/7x/z_middle_up_black_screen"]:
+                    if synoptic:
+                        synoptic.hide()
