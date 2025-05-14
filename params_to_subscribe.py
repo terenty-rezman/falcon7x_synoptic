@@ -40,6 +40,7 @@ to_subscribe = [
     (Params["sim/custom/7x/rhisol"], None, "tcp"), # synoptic elec rh isol
     (Params["sim/cockpit2/electrical/cross_tie"], None, "tcp"), # synoptic elec bus tie
     (Params["sim/cockpit2/electrical/battery_on"], None, "tcp"), # synoptic elec bat 1
+    (Params["sim/cockpit2/electrical/battery_on[0]"], 2, "udp"), # to override battery 1 state
     (Params["sim/cockpit2/electrical/generator_on"], None, "tcp"), # synoptic elec gens
     (Params["sim/cockpit2/electrical/APU_generator_on"], None, "tcp"), # synoptic elec apu
 

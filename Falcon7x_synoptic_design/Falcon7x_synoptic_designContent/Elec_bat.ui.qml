@@ -54,6 +54,22 @@ Image {
                 // visible: false
                 color: "#000000"
             }
+        },
+
+        State {
+            name: "apu_start"
+            when: self.state === 2
+
+            PropertyChanges {
+                target: self
+                source: "images/ELEC_BAT_APU_START_NOTE_BAT1_ONLY.svg"
+            }
+
+            PropertyChanges {
+                target: text_
+                // visible: false
+                color: "#000000"
+            }
         }
     ]
 }

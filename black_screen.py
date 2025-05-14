@@ -80,13 +80,12 @@ class BlackScreen(QQuickView):
         # self.setMaximumHeight(self.win_height)
     
     def show(self):
+        self.setFlags(self.flags() | Qt.WindowStaysOnTopHint)
+
         if self.fullscreen:
             super().showFullScreen()
         else:
             super().show()
-
-        self.setFlags(self.flags() | Qt.WindowStaysOnTopHint)
-
 
 class Screens:
     left_black_screen = None
