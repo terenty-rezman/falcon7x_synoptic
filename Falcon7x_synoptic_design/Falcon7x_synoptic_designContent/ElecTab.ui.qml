@@ -60,7 +60,7 @@ Rectangle {
         height: 18
     }
 
-    Elec_current {
+    Elec_current_apu {
         id: elec_current_apu
         objectName: "elec_current_apu"
         x: 116

@@ -1,0 +1,12 @@
+WINDOW_WIDTH = 684
+WINDOW_HEIGHT = 383
+
+WEB_INTERFACE_PORT = 8800
+
+# connect to master xplane plugin
+XP_MASTER_HOST = "127.0.0.1"
+XP_MASTER_PORT = 51000
+
+# native xplane udp port to send to
+XP_MASTER_UDP_PORT = 49000
+UDP_LOCAL_PORT = 62223

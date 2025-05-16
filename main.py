@@ -22,19 +22,7 @@ from falcon7x_core.xplane.params import Params
 import params_to_subscribe
 import black_screen
 
-
-WINDOW_WIDTH = 684
-WINDOW_HEIGHT = 383
-
-WEB_INTERFACE_PORT = 8800
-
-# connect to master xplane plugin
-XP_MASTER_HOST = "127.0.0.1"
-XP_MASTER_PORT = 51000
-
-# native xplane udp port to send to
-XP_MASTER_UDP_PORT = 49000
-UDP_LOCAL_PORT = 62223
+import settings as s
 
 
 def on_new_xp_data(type, dataref, value):
@@ -83,10 +71,12 @@ async def test_qml():
 
 async def main():
     try:
-        web_interface.run_server_task("127.0.0.1", WEB_INTERFACE_PORT)
+        web_interface.run_server_task("127.0.0.1", s.WEB_INTERFACE_PORT)
 
-        await xp.xp_master_udp.connect(XP_MASTER_HOST, XP_MASTER_UDP_PORT, on_new_xp_data_udp, on_data_exception_udp, listen_port=UDP_LOCAL_PORT)
-        await xp.xp_master.connect_until_success(XP_MASTER_HOST, XP_MASTER_PORT, on_new_xp_data, on_data_exception)
+        await xp.xp_master_udp.connect(
+            s.XP_MASTER_HOST, s.XP_MASTER_UDP_PORT, on_new_xp_data_udp, on_data_exception_udp, listen_port=s.UDP_LOCAL_PORT
+        )
+        await xp.xp_master.connect_until_success(s.XP_MASTER_HOST, s.XP_MASTER_PORT, on_new_xp_data, on_data_exception)
 
         # replace suscribe values
         xp.set_subscribe_params(params_to_subscribe.to_subscribe)
@@ -108,7 +98,7 @@ if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
 
     app_qml_url = QUrl("components/app.qml")
-    synoptic = View(WINDOW_WIDTH, WINDOW_HEIGHT * 2)
+    synoptic = View(s.WINDOW_WIDTH, s.WINDOW_HEIGHT * 2)
     synoptic.engine().addImportPath("./Falcon7x_synoptic_design")
     synoptic.rootContext().setContextProperty("backend", backend.backend)
     synoptic.setSource(app_qml_url)

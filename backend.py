@@ -86,6 +86,7 @@ dref_indicators = [
 
     ("sim/custom/7x/z_apu_startup_stage", None, "elec_apu", "startup_stage"),
     ("sim/cockpit2/electrical/APU_generator_amps", None, "elec_current_apu", "amps"),
+    ("sim/cockpit2/electrical/APU_N1_percent", None, "elec_current_apu", "apu_n1"),
 ]
 
 dref_nested_dict = defaultdict(list)
