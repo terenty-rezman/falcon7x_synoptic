@@ -71,7 +71,7 @@ async def test_qml():
 
 async def main():
     try:
-        web_interface.run_server_task("127.0.0.1", s.WEB_INTERFACE_PORT)
+        web_interface.run_server_task("0.0.0.0", s.WEB_INTERFACE_PORT)
 
         await xp.xp_master_udp.connect(
             s.XP_MASTER_HOST, s.XP_MASTER_UDP_PORT, on_new_xp_data_udp, on_data_exception_udp, listen_port=s.UDP_LOCAL_PORT
