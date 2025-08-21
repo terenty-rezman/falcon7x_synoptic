@@ -118,10 +118,10 @@ Item {
         x: 20 
         y: 22
         text: "START"
-        color: "#00FC00"
+        color: (n1.start == 1) ? "#00FC00" : "#efd20fff"
         font.pixelSize: 18
         font.bold: true
-        visible: n1.start
+        visible: n1.start > 0
      }
 
     Rectangle {
