@@ -23,8 +23,8 @@ Item {
     property var oil_temp_zones: [0, self.oil_min_temp, 146, 149, 152]
     property var oil_temp_color: ["#fccd07", "#00FF00", "#fccd07", "#FF0000", "#FF0000"]
 
-    property var oil_psi_zones: [0, 10]
-    property var oil_psi_color: ["#00FF00", "#00FF00"]
+    property var oil_psi_zones: [0, 15, 25, 30]
+    property var oil_psi_color: ["#FF0000", "#fccd07", "#fccd07", "#00FF00"]
 
     Connections {
         target: backend 
@@ -137,7 +137,7 @@ Item {
         // width: 25
 
         value_zones: self.oil_psi_zones
-        state_zones: ["green", "green"]
+        state_zones:  ["red", "yellow", "yellow", "green", "red"]
 
         value: self.psi.toFixed(0)
 
