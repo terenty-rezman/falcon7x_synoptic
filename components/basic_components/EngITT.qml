@@ -48,7 +48,7 @@ Item {
                 ctx.translate(center_x, center_y);
                 ctx.beginPath();
                 ctx.moveTo(0, 0);
-                ctx.arc(0, 0, 36, (initial_rotation) / 180 * Math.PI, rotation_green_arrow_deg / 180 * Math.PI);
+                ctx.arc(0, 0, 38, (initial_rotation) / 180 * Math.PI, rotation_green_arrow_deg / 180 * Math.PI);
                 ctx.lineTo(0, 0);
                 ctx.fill();
                 ctx.stroke();
