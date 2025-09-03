@@ -3,7 +3,7 @@ import QtQuick
 Image {
     id: self
     property alias text: text_.text
-    property real n1: 0
+    property real n2: 0
     property int state: 1
 
     width: 50
@@ -41,7 +41,7 @@ Image {
     states: [
         State {
             name: "glc_closed"
-            when: self.n1 < 10
+            when: self.n2 < 51.9 
 
             PropertyChanges {
                 target: self

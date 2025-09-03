@@ -3,22 +3,25 @@ import "../js/helpers.mjs" as Helpers
 
 Item {
 
-    id: n1
+    id: self
 
     width: 100
     height: 100
 
-    property real rotation_green_arrow_deg: 70
+    property real n1: 70
     property real rotation_purpure_circle: 0.5 
     property real rotation_green_triangle_deg: 0
     property int start: 0
     property int ab: 0
+    property bool ab_visible: true
 
     property real top_digit: 75
     property real bottom_digit: 86
 
     property int center_x: 49 
     property int center_y: 52 
+
+    property int max_thrust_deg: 75
 
     Connections {
         target: backend 
@@ -34,11 +37,15 @@ Item {
         anchors.fill: parent
 
         onPaint: {
-            const map_n1 = new Helpers.Interp1d([0, 29, 94, 100, 110], [-120 - 90, -110 - 90, 40 - 90, 80 - 90, 90 - 90]); 
-            const map_throttle = new Helpers.Interp1d([0, 1], [-120 - 90, 75 - 90]); 
+            const map_n1_to_linear = new Helpers.Interp1d([22, 30, 60, 82, 89, 90.8], [0, 0.125, 0.375, 0.625, 0.875, 1]);
+            const map_n1 = new Helpers.Interp1d([0, 1], [-120 - 90, 30 - 90]); 
 
-            let rotation_green_arrow_deg = map_n1.interp(n1.rotation_green_arrow_deg);
-            // console.log(rotation_green_arrow_deg)
+            const map_throttle = new Helpers.Interp1d([0, 1], [-120 - 90, 30 - 90]); 
+
+            let n1_linear = map_n1_to_linear.interp(self.n1);
+            // console.log(n1_linear);
+
+            let rotation_green_arrow_deg = map_n1.interp(n1_linear);
 
             const initial_rotation = -210;
 
@@ -49,7 +56,7 @@ Item {
             // draw pie
             if (rotation_green_arrow_deg > initial_rotation) {
                 ctx.fillStyle = "#8E9093";
-                ctx.strokeStyle = "#000000";
+                ctx.strokeStyle = "#8E9093";
                 ctx.translate(center_x, center_y);
                 ctx.beginPath();
                 ctx.moveTo(0, 0);
@@ -79,7 +86,8 @@ Item {
             ctx.closePath();
 
             // draw purpure circle
-            let throttle = map_throttle.interp(n1.rotation_purpure_circle);
+            let throttle = map_throttle.interp(self.rotation_purpure_circle);
+            // if (throttle > self.max_thrust_deg - 90) { throttle = self.max_thrust_deg - 90;}
 
             ctx.resetTransform();
             ctx.translate(center_x, center_y);
@@ -96,7 +104,7 @@ Item {
             // draw green triangle
             // ctx.resetTransform();
             // ctx.translate(center_x, center_y);
-            // ctx.rotate((initial_rotation + n1.rotation_green_triangle_deg) / 180 * Math.PI);
+            // ctx.rotate((initial_rotation + self.rotation_green_triangle_deg) / 180 * Math.PI);
             // ctx.translate(41, 0);
 
             // ctx.fillStyle = "#00FF00";
@@ -118,10 +126,10 @@ Item {
         x: 20 
         y: 22
         text: "START"
-        color: (n1.start == 1) ? "#00FC00" : "#efd20f"
+        color: (self.start == 1) ? "#00FC00" : "#efd20f"
         font.pixelSize: 18
         font.bold: true
-        visible: n1.start > 0
+        visible: self.start > 0
     }
 
     Rectangle {
@@ -133,6 +141,7 @@ Item {
         border.color: "#00FC00"
         border.width: 1
         color: "transparent"
+        visible: self.ab_visible
         
         Text {
             y: -2
@@ -142,7 +151,7 @@ Item {
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
 
-            text: (n1.ab == 0) ? "A" : "B"
+            text: (self.ab == 0) ? "A" : "B"
             color: "#00FC00"
             font.pixelSize: 18
             font.bold: true
@@ -152,7 +161,7 @@ Item {
     Text {
         x: 35
         y: -15
-        text: n1.top_digit.toFixed(1)
+        text: self.top_digit.toFixed(1)
         color: "#00FC00"
         font.pixelSize: 18
         // font.bold: true
@@ -161,7 +170,7 @@ Item {
     Text {
         x: 38
         y: 65
-        text: n1.rotation_green_arrow_deg.toFixed(1)
+        text: self.n1.toFixed(1)
         color: "#00FC00"
         font.pixelSize: 18
         // font.bold: true

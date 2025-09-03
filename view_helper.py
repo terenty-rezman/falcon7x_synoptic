@@ -7,12 +7,12 @@ all_views: list[QQuickView] = []
 
 
 def find_object(obj_name: str) -> Optional[QQuickItem]:
-    objs = None
+    objs = []
 
     for v in all_views:
-        objs = v.rootObject().findChildren(QQuickItem, obj_name)
-        if objs:
-            break
+        found = v.rootObject().findChildren(QQuickItem, obj_name)
+        if found:
+            objs += found
     
     return objs
 

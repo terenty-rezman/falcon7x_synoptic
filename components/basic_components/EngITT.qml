@@ -44,7 +44,7 @@ Item {
             // draw pie
             if (rotation_green_arrow_deg > initial_rotation) {
                 ctx.fillStyle = "#8E9093";
-                ctx.strokeStyle = "#000000";
+                ctx.strokeStyle = "#8E9093";
                 ctx.translate(center_x, center_y);
                 ctx.beginPath();
                 ctx.moveTo(0, 0);

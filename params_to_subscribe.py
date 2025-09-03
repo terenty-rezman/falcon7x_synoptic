@@ -70,4 +70,8 @@ to_subscribe = [
     (Params["sim/custom/7x/z_middle_up_black_screen"], None, "tcp"), # mdu up 
     (Params["sim/custom/7x/z_middle_down_black_screen"], None, "tcp"), # mdu down
     (Params["sim/custom/7x/z_mini_black_screen"], None, "tcp"), # aux screen
+
+    (Params["sim/custom/7x/z_thrust_purple_max_deg_1"], None, "tcp"), #  # max thrust degree of purple circle on synoptic indicator
+    (Params["sim/custom/7x/z_thrust_purple_max_deg_2"], None, "tcp"), #  # max thrust degree of purple circle on synoptic indicator
+    (Params["sim/custom/7x/z_thrust_purple_max_deg_3"], None, "tcp"), #  # max thrust degree of purple circle on synoptic indicator
 ]

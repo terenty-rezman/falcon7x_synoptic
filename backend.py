@@ -10,17 +10,17 @@ from falcon7x_core.xplane.params import Params
 
 dref_indicators = [
     # (dataref, idx, "object_name", "property", cast type, round_digits)
-    ("sim/cockpit2/engine/indicators/N1_percent[0]", None, "eng_engn1", "rotation_green_arrow_deg"),
+    ("sim/cockpit2/engine/indicators/N1_percent[0]", None, "eng_engn1", "n1"),
     ("sim/cockpit2/engine/actuators/throttle_ratio[0]", None, "eng_engn1", "rotation_purpure_circle"),
     ("sim/custom/7x/z_syn_eng_start1", None, "eng_engn1", "start"),
     ("sim/custom/xap/maxin1", None, "eng_engn1", "top_digit"),
     ("sim/custom/7x/z_syn_eng_ab1", None, "eng_engn1", "ab"),
-    ("sim/cockpit2/engine/indicators/N1_percent[1]", None,"eng_engn2", "rotation_green_arrow_deg"),
+    ("sim/cockpit2/engine/indicators/N1_percent[1]", None,"eng_engn2", "n1"),
     ("sim/cockpit2/engine/actuators/throttle_ratio[1]", None, "eng_engn2", "rotation_purpure_circle"),
     ("sim/custom/7x/z_syn_eng_start2", None, "eng_engn2", "start"),
     ("sim/custom/xap/maxin1", None, "eng_engn2", "top_digit"),
     ("sim/custom/7x/z_syn_eng_ab2", None, "eng_engn2", "ab"),
-    ("sim/cockpit2/engine/indicators/N1_percent[2]", None, "eng_engn3", "rotation_green_arrow_deg"),
+    ("sim/cockpit2/engine/indicators/N1_percent[2]", None, "eng_engn3", "n1"),
     ("sim/cockpit2/engine/actuators/throttle_ratio[2]", None, "eng_engn3", "rotation_purpure_circle"),
     ("sim/custom/7x/z_syn_eng_start3", None, "eng_engn3", "start"),
     ("sim/custom/xap/maxin1", None, "eng_engn3", "top_digit"),
@@ -58,11 +58,11 @@ dref_indicators = [
     ("sim/cockpit2/electrical/battery_on[0]", None, "elec_bat_1", "state"),
     ("sim/cockpit2/electrical/battery_on", 1, "elec_bat_2", "state"),
     ("sim/cockpit2/electrical/generator_on", 0, "elec_gen_1", "state"),
-    ("sim/cockpit2/engine/indicators/N1_percent[0]", None, "elec_gen_1", "n1"),
+    ("sim/cockpit2/engine/indicators/N2_percent[0]", None, "elec_gen_1", "n2"),
     ("sim/cockpit2/electrical/generator_on", 1, "elec_gen_2", "state"),
-    ("sim/cockpit2/engine/indicators/N1_percent[1]", None, "elec_gen_2", "n1"),
+    ("sim/cockpit2/engine/indicators/N2_percent[1]", None, "elec_gen_2", "n2"),
     ("sim/cockpit2/electrical/generator_on", 2, "elec_gen_3", "state"),
-    ("sim/cockpit2/engine/indicators/N1_percent[2]", None, "elec_gen_3", "n1"),
+    ("sim/cockpit2/engine/indicators/N2_percent[2]", None, "elec_gen_3", "n2"),
     ("sim/cockpit2/electrical/APU_generator_on", None, "elec_apu", "master_on"),
     ("sim/cockpit2/electrical/APU_N1_percent", None, "elec_apu", "n1"),
 
@@ -87,6 +87,9 @@ dref_indicators = [
     ("sim/custom/7x/z_apu_startup_stage", None, "elec_apu", "startup_stage"),
     ("sim/cockpit2/electrical/APU_generator_amps", None, "elec_current_apu", "amps"),
     ("sim/cockpit2/electrical/APU_N1_percent", None, "elec_current_apu", "apu_n1"),
+    ("sim/custom/7x/z_thrust_purple_max_deg_1", None, "eng_engn1", "max_thrust_deg"),
+    ("sim/custom/7x/z_thrust_purple_max_deg_2", None, "eng_engn2", "max_thrust_deg"),
+    ("sim/custom/7x/z_thrust_purple_max_deg_3", None, "eng_engn3", "max_thrust_deg"),
 ]
 
 dref_nested_dict = defaultdict(list)

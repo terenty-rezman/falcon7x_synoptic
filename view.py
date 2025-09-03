@@ -3,10 +3,11 @@ from PySide6.QtCore import QPoint, QSettings, QRect
 
 
 class View(QQuickView):
-    def __init__(self, window_width, window_height):
+    def __init__(self, window_name, window_width, window_height):
         self.win_width = window_width
         self.win_height = window_height
         self.mouse_pressed = False
+        self.window_name = window_name 
         return super().__init__()
 
     def mousePressEvent(self, event):
@@ -32,7 +33,7 @@ class View(QQuickView):
 
     def writeSettings(self):
         settings = QSettings("settings.ini", QSettings.IniFormat)
-        settings.beginGroup("MainWindow")
+        settings.beginGroup(self.window_name)
         settings.setValue("x", self.position().x())
         settings.setValue("y", self.position().y())
         settings.setValue("w", self.width())
@@ -41,7 +42,7 @@ class View(QQuickView):
         
     def readSettings(self):
         settings = QSettings("settings.ini", QSettings.IniFormat)
-        settings.beginGroup("MainWindow")
+        settings.beginGroup(self.window_name)
         x = int(settings.value("x", 40))
         y = int(settings.value("y", 40))
         w = int(settings.value("w", self.win_width))

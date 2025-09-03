@@ -15,9 +15,11 @@ import backend
 import web_interface
 import view_helper
 from view import View
+import param_overrides
 
 import falcon7x_core.xplane.master as xp
 from falcon7x_core.xplane.params import Params
+import falcon7x_core.common.sane_tasks as sane_tasks
 
 import params_to_subscribe
 import black_screen
@@ -83,6 +85,8 @@ async def main():
         xp.param_subscriber.run_subsriber_task()
         xp.udp_param_subscriber.run_subsriber_task()
 
+        sane_tasks.spawn(param_overrides.param_overrides_auto_disable_task())    
+
         await app_close_event.wait()
         # asyncio.create_task(test_qml())
     except asyncio.exceptions.CancelledError:
@@ -97,8 +101,8 @@ def quit():
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
 
-    app_qml_url = QUrl("components/app.qml")
-    synoptic = View(s.WINDOW_WIDTH, s.WINDOW_HEIGHT * 2)
+    app_qml_url = QUrl("components/synoptic_app.qml")
+    synoptic = View("synoptic", s.SYNOPTIC_WINDOW_WIDTH, s.SYNOPTIC_WINDOW_HEIGHT * 2)
     synoptic.engine().addImportPath("./Falcon7x_synoptic_design")
     synoptic.rootContext().setContextProperty("backend", backend.backend)
     synoptic.setSource(app_qml_url)
@@ -109,6 +113,19 @@ if __name__ == "__main__":
     synoptic.setFlags(synoptic.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
     synoptic.show()
     view_helper.all_views.append(synoptic)
+
+    app_qml_url = QUrl("components/under_cas_app.qml")
+    under_cas = View("under_cas", s.UNDER_CAS_WINDOW_WIDTH, s.UNDER_CAS_WINDOW_HEIGHT)
+    under_cas.engine().addImportPath("./Falcon7x_synoptic_design")
+    under_cas.rootContext().setContextProperty("backend", backend.backend)
+    under_cas.setSource(app_qml_url)
+    under_cas.setTitle("synoptic - falcon7x")
+    under_cas.setResizeMode(QQuickView.SizeRootObjectToView)
+    under_cas.engine().quit.connect(quit)
+    under_cas.readSettings()
+    under_cas.setFlags(synoptic.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+    under_cas.show()
+    view_helper.all_views.append(under_cas)
 
     black_screen.create_black_screens()
 
