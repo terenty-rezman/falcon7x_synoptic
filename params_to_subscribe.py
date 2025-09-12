@@ -74,4 +74,7 @@ to_subscribe = [
     (Params["sim/custom/7x/z_thrust_purple_max_deg_1"], None, "tcp"), #  # max thrust degree of purple circle on synoptic indicator
     (Params["sim/custom/7x/z_thrust_purple_max_deg_2"], None, "tcp"), #  # max thrust degree of purple circle on synoptic indicator
     (Params["sim/custom/7x/z_thrust_purple_max_deg_3"], None, "tcp"), #  # max thrust degree of purple circle on synoptic indicator
+
+    (Params["sim/cockpit2/gauges/indicators/pitch_electric_deg_pilot"], 24, "udp"), #  # max thrust degree of purple circle on synoptic indicator
+    (Params["sim/cockpit2/gauges/indicators/roll_electric_deg_pilot"], 24, "udp"), #  # max thrust degree of purple circle on synoptic indicator
 ]

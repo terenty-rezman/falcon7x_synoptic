@@ -90,6 +90,9 @@ dref_indicators = [
     ("sim/custom/7x/z_thrust_purple_max_deg_1", None, "eng_engn1", "max_thrust_deg"),
     ("sim/custom/7x/z_thrust_purple_max_deg_2", None, "eng_engn2", "max_thrust_deg"),
     ("sim/custom/7x/z_thrust_purple_max_deg_3", None, "eng_engn3", "max_thrust_deg"),
+
+    ("sim/cockpit2/gauges/indicators/pitch_electric_deg_pilot", None, "adi_horizon", "pitch_deg"),
+    ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_horizon", "bank_deg"),
 ]
 
 dref_nested_dict = defaultdict(list)
