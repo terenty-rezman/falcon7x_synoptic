@@ -11,6 +11,7 @@ Item {
 
     TabBar {
         id: tab_bar
+
         width: parent.width
 
         background: Rectangle {

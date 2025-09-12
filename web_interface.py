@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from backend import backend
 import param_overrides
 from falcon7x_core.xplane.params import Params
+import view_helper
 
 
 quart_task = None
@@ -56,3 +57,29 @@ def run_server_task(listen_host, listen_port):
     quart_task = app.run_task(host=listen_host, port=listen_port)
     quart_task = asyncio.create_task(quart_task)
 
+
+synoptic_pages = {
+    "STAT": 0,
+    "ENG": 1,
+    "ELEC": 2,
+    "FUEL": 3,
+    "HYD": 4,
+    "ECS": 5, 
+    "BLD": 6,
+    "FCS": 7,
+    "TEST": 8
+}
+
+
+@app.post("/api/synoptic_page")
+async def synoptic_page():
+    synoptics = view_helper.find_object("synoptic_tab_bar")
+    data = await request.json
+    if not synoptics:
+        raise Exception(f"no such object_name 'synoptic_tab_bar'")
+
+    page = synoptic_pages[data["page"]] 
+    for item in synoptics:
+        item.setProperty("currentIndex", page)
+
+    return {"result": "ok"}

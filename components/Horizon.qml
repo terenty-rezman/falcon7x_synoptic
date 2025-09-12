@@ -56,12 +56,6 @@ Item {
             ctx.rotate(-bank_deg / 180 * Math.PI);
             ctx.translate(0, pitch_deg * pitch_to_pix);
 
-            // ctx.beginPath();
-            // ctx.moveTo(-line_width / 2, -5 * pitch_to_pix);
-            // ctx.lineTo(-line_width / 4, -5 * pitch_to_pix);
-            // ctx.stroke();
-            // ctx.closePath();
-
             ctx.beginPath();
             for(let i = -line_count / 2 + 1; i < line_count / 2; i++) {
                 const line_pitch = i * line_step + closest_below_line;
