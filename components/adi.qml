@@ -6,6 +6,8 @@ import QtQuick.Layouts
 import "basic_components"
 
 Rectangle {
+    id: self
+
     anchors.fill: parent
     color: "#FF9A00"
 
@@ -34,6 +36,12 @@ Rectangle {
 
     Horizon {
         objectName: "adi_horizon"
+    }
 
+    AdiBankTop 
+    {
+        objectName: "adi_bank"
+        x: self.width / 2
+        y: self.height / 4 + 30
     }
 }

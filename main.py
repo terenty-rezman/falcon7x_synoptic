@@ -115,7 +115,7 @@ if __name__ == "__main__":
     view_helper.all_views.append(synoptic)
 
     app_qml_url = QUrl("components/synoptic_single.qml")
-    single_synoptic = View("synoptic", s.SYNOPTIC_WINDOW_WIDTH, s.SYNOPTIC_WINDOW_HEIGHT)
+    single_synoptic = View("synoptic_single", s.SYNOPTIC_WINDOW_WIDTH, s.SYNOPTIC_WINDOW_HEIGHT)
     single_synoptic.engine().addImportPath("./Falcon7x_synoptic_design")
     single_synoptic.rootContext().setContextProperty("backend", backend.backend)
     single_synoptic.setSource(app_qml_url)

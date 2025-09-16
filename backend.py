@@ -93,6 +93,7 @@ dref_indicators = [
 
     ("sim/cockpit2/gauges/indicators/pitch_electric_deg_pilot", None, "adi_horizon", "pitch_deg"),
     ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_horizon", "bank_deg"),
+    ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_bank", "bank_deg"),
 ]
 
 dref_nested_dict = defaultdict(list)
