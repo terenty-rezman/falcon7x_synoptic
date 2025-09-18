@@ -98,71 +98,55 @@ def quit():
     app.quit()
 
 
+def create_toplevel_qml_view(app_qml_url: str, view_name: str, window_title: str, width: int, height: int):
+    app_qml_url = QUrl(app_qml_url)
+    view = View(view_name, width, height)
+    view.engine().addImportPath("./Falcon7x_synoptic_design")
+    view.rootContext().setContextProperty("backend", backend.backend)
+    view.setSource(app_qml_url)
+    view.setTitle(window_title)
+    view.setResizeMode(QQuickView.SizeRootObjectToView)
+    view.engine().quit.connect(quit)
+    view.readSettings()
+    view.setFlags(view.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+    return view
+
+
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
 
-    app_qml_url = QUrl("components/synoptic_app.qml")
-    synoptic = View("synoptic", s.SYNOPTIC_WINDOW_WIDTH, s.SYNOPTIC_WINDOW_HEIGHT * 2)
-    synoptic.engine().addImportPath("./Falcon7x_synoptic_design")
-    synoptic.rootContext().setContextProperty("backend", backend.backend)
-    synoptic.setSource(app_qml_url)
-    synoptic.setTitle("synoptic - falcon7x")
-    synoptic.setResizeMode(QQuickView.SizeRootObjectToView)
-    synoptic.engine().quit.connect(quit)
-    synoptic.readSettings()
-    synoptic.setFlags(synoptic.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+    synoptic = create_toplevel_qml_view(
+        "components/synoptic_app.qml", "synoptic", "synoptic - falcon7x",
+        s.SYNOPTIC_WINDOW_WIDTH, s.SYNOPTIC_WINDOW_HEIGHT * 2
+    )
     synoptic.show()
     view_helper.all_views.append(synoptic)
 
-    app_qml_url = QUrl("components/synoptic_single.qml")
-    single_synoptic = View("synoptic_single", s.SYNOPTIC_WINDOW_WIDTH, s.SYNOPTIC_WINDOW_HEIGHT)
-    single_synoptic.engine().addImportPath("./Falcon7x_synoptic_design")
-    single_synoptic.rootContext().setContextProperty("backend", backend.backend)
-    single_synoptic.setSource(app_qml_url)
-    single_synoptic.setTitle("synoptic - falcon7x")
-    single_synoptic.setResizeMode(QQuickView.SizeRootObjectToView)
-    single_synoptic.engine().quit.connect(quit)
-    single_synoptic.readSettings()
-    single_synoptic.setFlags(synoptic.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+    single_synoptic = create_toplevel_qml_view(
+        "components/synoptic_single.qml", "synoptic_single", "synoptic - falcon7x",
+        s.SYNOPTIC_WINDOW_WIDTH, s.SYNOPTIC_WINDOW_HEIGHT
+    )
     single_synoptic.show()
     view_helper.all_views.append(single_synoptic)
 
-    app_qml_url = QUrl("components/under_cas_app.qml")
-    under_cas_1 = View("under_cas_1", s.UNDER_CAS_WINDOW_WIDTH, s.UNDER_CAS_WINDOW_HEIGHT)
-    under_cas_1.engine().addImportPath("./Falcon7x_synoptic_design")
-    under_cas_1.rootContext().setContextProperty("backend", backend.backend)
-    under_cas_1.setSource(app_qml_url)
-    under_cas_1.setTitle("synoptic - falcon7x")
-    under_cas_1.setResizeMode(QQuickView.SizeRootObjectToView)
-    under_cas_1.engine().quit.connect(quit)
-    under_cas_1.readSettings()
-    under_cas_1.setFlags(synoptic.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+    under_cas_1 = create_toplevel_qml_view(
+        "components/under_cas_app.qml", "under_cas_1", "under cas 1 - falcon 7x",
+        s.UNDER_CAS_WINDOW_WIDTH, s.UNDER_CAS_WINDOW_HEIGHT
+    )
     under_cas_1.show()
     view_helper.all_views.append(under_cas_1)
 
-    app_qml_url = QUrl("components/under_cas_app.qml")
-    under_cas_2 = View("under_cas_2", s.UNDER_CAS_WINDOW_WIDTH, s.UNDER_CAS_WINDOW_HEIGHT)
-    under_cas_2.engine().addImportPath("./Falcon7x_synoptic_design")
-    under_cas_2.rootContext().setContextProperty("backend", backend.backend)
-    under_cas_2.setSource(app_qml_url)
-    under_cas_2.setTitle("under cas - falcon7x")
-    under_cas_2.setResizeMode(QQuickView.SizeRootObjectToView)
-    under_cas_2.engine().quit.connect(quit)
-    under_cas_2.readSettings()
-    under_cas_2.setFlags(synoptic.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+    under_cas_2 = create_toplevel_qml_view(
+        "components/under_cas_app.qml", "under_cas_2", "under cas 2 - falcon 7x",
+        s.UNDER_CAS_WINDOW_WIDTH, s.UNDER_CAS_WINDOW_HEIGHT
+    )
     under_cas_2.show()
     view_helper.all_views.append(under_cas_2)
 
-    app_qml_url = QUrl("components/adi.qml")
-    adi = View("adi", s.ADI_WINDOW_WIDTH, s.ADI_WINDOW_HEIGHT)
-    adi.engine().addImportPath("./Falcon7x_synoptic_design")
-    adi.rootContext().setContextProperty("backend", backend.backend)
-    adi.setSource(app_qml_url)
-    adi.setTitle("adi - falcon7x")
-    adi.setResizeMode(QQuickView.SizeRootObjectToView)
-    adi.engine().quit.connect(quit)
-    adi.readSettings()
-    adi.setFlags(synoptic.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+    adi = create_toplevel_qml_view(
+        "components/adi.qml", "adi", "adi - falcon7x", 
+        s.ADI_WINDOW_WIDTH, s.ADI_WINDOW_HEIGHT
+    )
     adi.show()
     view_helper.all_views.append(adi)
 
@@ -177,3 +161,4 @@ if __name__ == "__main__":
     with event_loop:
         main_future = asyncio.Task(main())
         event_loop.run_until_complete(main_future)
+
