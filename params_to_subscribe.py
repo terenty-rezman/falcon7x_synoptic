@@ -77,4 +77,6 @@ to_subscribe = [
 
     (Params["sim/cockpit2/gauges/indicators/pitch_electric_deg_pilot"], 24, "udp"), #  # max thrust degree of purple circle on synoptic indicator
     (Params["sim/cockpit2/gauges/indicators/roll_electric_deg_pilot"], 24, "udp"), #  # max thrust degree of purple circle on synoptic indicator
+    (Params["sim/cockpit2/gauges/indicators/altitude_ft_pilot"], 20, "udp"), # altitude
+    (Params["sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot"], 20, "udp"), # heading
 ]

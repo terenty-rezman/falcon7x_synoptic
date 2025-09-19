@@ -9,7 +9,7 @@ Rectangle {
     id: self
 
     anchors.fill: parent
-    color: "#FF9A00"
+    color: "#DD8618"
 
     MouseArea {
         anchors.fill: parent
@@ -38,10 +38,19 @@ Rectangle {
         objectName: "adi_horizon"
     }
 
-    AdiBankTop 
-    {
+    AdiBankTop {
         objectName: "adi_bank"
-        x: self.width / 2
-        y: self.height / 4 + 30
+    }
+
+    AdiAlt {
+        objectName: "adi_alt"
+        x: 547
+        y: 74
+    }
+    
+    AdiHeading {
+        objectName: "adi_heading"
+        x: 324
+        y: 621
     }
 }

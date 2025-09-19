@@ -75,13 +75,14 @@ async def main():
     try:
         web_interface.run_server_task("0.0.0.0", s.WEB_INTERFACE_PORT)
 
+        # replace suscribe values
+        xp.set_subscribe_params(params_to_subscribe.to_subscribe)
+
         await xp.xp_master_udp.connect(
             s.XP_MASTER_HOST, s.XP_MASTER_UDP_PORT, on_new_xp_data_udp, on_data_exception_udp, listen_port=s.UDP_LOCAL_PORT
         )
         await xp.xp_master.connect_until_success(s.XP_MASTER_HOST, s.XP_MASTER_PORT, on_new_xp_data, on_data_exception)
 
-        # replace suscribe values
-        xp.set_subscribe_params(params_to_subscribe.to_subscribe)
         xp.param_subscriber.run_subsriber_task()
         xp.udp_param_subscriber.run_subsriber_task()
 

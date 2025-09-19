@@ -6,34 +6,36 @@ Item {
 
     property real bank_deg: 45
 
-    width: 360 
-    height: 360 
+    anchors.fill: parent
+
+    property int center_x: 324
+    property int center_y: 222
 
     Rectangle {
-        width: self.width
-        height: self.height
-        color: "#55ffffff"
-        x: -180
-        y: -180
+        width: 684 / 2
+        color: "#55ff00ff"
         visible: false
     }
 
     Image {
         source: "../svg/ADI_BANK_ANGLE.svg"
 
-        x: -180
-        y: -180
-        width: self.width
-        height: self.height
+        width: 684
+        height: 766
     }
 
     Image {
+        Rectangle {
+            anchors.fill: parent
+            color: "#5500ffff"
+            visible: false
+        }
         source: "../svg/ADI_BANK_ANGLE_TRIANGLE.svg"
 
-        x: -180
-        y: -180
-        width: self.width
-        height: self.height
+        x: -180 + self.center_x
+        y: -180 + self.center_y
+        width: 360
+        height: 360
 
         rotation: -self.bank_deg
 
