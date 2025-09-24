@@ -1,5 +1,4 @@
 import QtQuick 2.15
-import QtQuick.Window 2.15
 
 Item {
     id: self
@@ -8,6 +7,7 @@ Item {
     height: 288
 
     property real altitude_ft: 0 
+    property string fonts: "bold 26px consolas"
 
     property int center_x: width / 2
     property int center_y: height / 2
@@ -39,7 +39,7 @@ Item {
             // draw sky rect
             ctx.strokeStyle = "#FFFFFF";
             ctx.fillStyle = "#FFFFFF"
-            ctx.font = "bold 26px consolas";
+            ctx.font = self.fonts;
             ctx.textAlign = "right";
 
             const alt_to_pix = 26;
@@ -72,8 +72,8 @@ Item {
         }
     }
 
-    RollNumber {
-        y: center_y
-        value: (altitude_ft / 100) * 10 % 100 / 10
+    AltCurrent {
+        y: self.center_y
+        altitude_ft: self.altitude_ft
     }
 }

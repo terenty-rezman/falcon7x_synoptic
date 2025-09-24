@@ -4,13 +4,15 @@ import QtQuick.Window 2.15
 Item {
     id: self
 
-    width: 61
+    width: 40
     height: 54
 
     property real value: 0 
 
     property int center_x: width / 2
     property int center_y: height / 2
+
+    property string color: "#fff"
 
     Connections {
         target: backend 
@@ -19,27 +21,25 @@ Item {
         }
     }
 
-    Rectangle {
-        anchors.fill: parent
-        color: "#000000"
-    }
-
     Canvas {
         id: canvas
-        anchors.fill: parent
+
+        y: -self.center_y
+        width: parent.width
+        height: parent.height
 
         onPaint: {
             const ctx = getContext("2d");
             ctx.reset();
 
             // draw sky rect
-            ctx.strokeStyle = "#FFFFFF";
-            ctx.fillStyle = "#FFFFFF"
-            ctx.font = "bold 26px consolas";
+            ctx.strokeStyle = self.color;
+            ctx.fillStyle = self.color;
+            ctx.font = "bold 24px consolas";
             ctx.textAlign = "right";
 
-            const alt_to_pix = 26;
-            const line_step = 1;
+            const alt_to_pix = 1;
+            const line_step = 20;
             const value = self.value;
             const closest_below_line = value - value % line_step;
 
@@ -48,13 +48,17 @@ Item {
             ctx.translate(0, value * alt_to_pix);
 
             const line_count = 4;
-            const line_width = 10; 
             ctx.beginPath();
-            for(let i = -line_count / 2; i < line_count / 2 + 2; i++) {
+            for(let i = line_count / 2; i >= -line_count / 2 + 1; i--) {
                 const line_alt = i * line_step + closest_below_line;
                 const line_y = alt_to_pix * line_alt; 
 
-                ctx.fillText((line_alt + 10) % 10, self.width - 4, -line_y + 8);
+                let number = line_alt % 100;
+                if (number < 0) {
+                    number = 100 + number;
+                } 
+
+                ctx.fillText(number, self.width - 4, -line_y + 8);
             }
             ctx.closePath();
         }
