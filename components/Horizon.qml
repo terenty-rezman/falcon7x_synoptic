@@ -46,7 +46,7 @@ Item {
 
             ctx.fillStyle = "#FFFFFF"
             ctx.lineWidth = 2;
-            ctx.font = "bold 18px consolas";
+            ctx.font = "bold 18px Helvetica";
             ctx.textAlign = "right";
             const line_width = 146; // white pitch line full length
             const line_len = 41; // white pitch colored part

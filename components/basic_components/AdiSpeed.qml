@@ -6,8 +6,9 @@ Item {
     width: 63
     height: 288
 
-    property real altitude_ft: 0 
+    property real speed: 0 
     property string fonts: "bold 26px Helvetica"
+    property string small_fonts: "bold 20px Helvetica"
 
     property int center_x: width / 2
     property int center_y: height / 2
@@ -27,7 +28,6 @@ Item {
         radius: 3
     }
 
-
     Canvas {
         id: canvas
         anchors.fill: parent
@@ -42,15 +42,16 @@ Item {
             ctx.font = self.fonts;
             ctx.textAlign = "right";
 
-            const alt_to_pix = 26;
-            const alt = altitude_ft / 100;
+            const alt_to_pix = 36;
             const line_step = 1;
-            const closest_below_line = alt - alt % line_step;
+            const speed = self.speed / 10;
+            const closest_below_line = speed - speed % line_step;
 
-            ctx.resetTransform();
+            // ctx.resetTransform();
             ctx.translate(0, center_y);
-            ctx.translate(0, alt * alt_to_pix);
+            ctx.translate(0, speed * alt_to_pix);
 
+            // speed digits & lines
             const line_count = 10;
             const line_width = 10; 
             ctx.beginPath();
@@ -58,22 +59,36 @@ Item {
                 const line_alt = i * line_step + closest_below_line;
                 const line_y = alt_to_pix * line_alt; 
 
-                if (line_alt % 2 == 0 && line_alt >= 0) {
-                    ctx.fillText(line_alt, self.width - 4, -line_y + 8);
+                if (line_alt % 2 == 0 && line_alt > 0) {
+                    ctx.fillText(line_alt, self.width - 25, -line_y + 8);
                 }
 
                 if (line_alt >= 0) {
-                    ctx.moveTo(0, -line_y);
-                    ctx.lineTo(line_width, -line_y);
+                    ctx.moveTo(self.width, -line_y);
+                    ctx.lineTo(self.width - line_width, -line_y);
                     ctx.stroke();
+                }
+            }
+            ctx.closePath();
+
+            // small font zeros
+            ctx.beginPath();
+            ctx.font = self.small_fonts;
+            for(let i = -line_count / 2; i < line_count / 2 + 2; i++) {
+                const line_alt = i * line_step + closest_below_line;
+                const line_y = alt_to_pix * line_alt; 
+
+                if (line_alt % 2 == 0 && line_alt >= 0) {
+                    ctx.fillText("0", self.width - 13, -line_y + 8);
                 }
             }
             ctx.closePath();
         }
     }
 
-    AltCurrent {
+    SpeedCurrent {
+        x: -16
         y: self.center_y
-        altitude_ft: self.altitude_ft
+        speed: self.speed
     }
 }

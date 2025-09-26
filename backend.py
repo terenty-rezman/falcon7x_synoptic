@@ -96,6 +96,8 @@ dref_indicators = [
     ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_bank", "bank_deg"),
     ("sim/cockpit2/gauges/indicators/altitude_ft_pilot", None, "adi_alt", "altitude_ft"),
     ("sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot", None, "adi_heading", "heading_deg"),
+    ("sim/cockpit2/gauges/indicators/airspeed_kts_pilot", None, "adi_airspeed", "speed"),
+    ("sim/cockpit2/gauges/indicators/vvi_fpm_pilot", None, "adi_vertical_speed", "vy_ft_per_min"),
 ]
 
 dref_nested_dict = defaultdict(list)

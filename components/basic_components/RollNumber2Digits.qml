@@ -5,7 +5,7 @@ Item {
     id: self
 
     width: 40
-    height: 54
+    height: 50
 
     property real value: 0 
 
@@ -35,7 +35,7 @@ Item {
             // draw sky rect
             ctx.strokeStyle = self.color;
             ctx.fillStyle = self.color;
-            ctx.font = "bold 24px consolas";
+            ctx.font = "bold 24px Helvetica";
             ctx.textAlign = "right";
 
             const alt_to_pix = 1;
@@ -57,6 +57,11 @@ Item {
                 if (number < 0) {
                     number = 100 + number;
                 } 
+
+                if (number == 0) {
+                    ctx.fillText("00", self.width - 4, -line_y + 8);
+                    continue;
+                }
 
                 ctx.fillText(number, self.width - 4, -line_y + 8);
             }

@@ -5,9 +5,10 @@ Item {
     id: self
 
     width: 20
-    height: 54
+    height: 50
 
     property real value: 0 
+    property int pixel_height: 30
 
     property int center_x: width / 2
     property int center_y: height / 2
@@ -37,10 +38,10 @@ Item {
             // draw sky rect
             ctx.strokeStyle = self.color;
             ctx.fillStyle = self.color;
-            ctx.font = "bold 24px consolas";
+            ctx.font = "bold 24px Helvetica";
             ctx.textAlign = "right";
 
-            const alt_to_pix = 30;
+            const alt_to_pix = self.pixel_height;
             const line_step = 1;
             const value = self.value;
             const closest_below_line = value - value % line_step;
