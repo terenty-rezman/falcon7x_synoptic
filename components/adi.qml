@@ -66,6 +66,19 @@ Rectangle {
         y: 100
     }
 
+    AdiGear {
+        objectName: "adi_gear"
+        x: 542
+        y: 417
+    }
+
+    AdiPitch {
+        objectName: "adi_pitch"
+        x: 631
+        y: 413
+    }
+
+
     AdiWhiteText {
         text: "UTC"
         x: 6
@@ -73,9 +86,21 @@ Rectangle {
     }
 
     AdiGreenText {
-        text: "00:00"
+        objectName: "adi_current_time"
+        property int hours: 0
+        property int minutes: 0
+        text: lead_zero(hours) + ":" + lead_zero(minutes)
         x: 51
         y: 496
+
+        function lead_zero(number) {
+            if (number < 10) {
+                return "0" + number;
+            }
+            else {
+                return number;
+            }
+        }
     }
 
     AdiWhiteText {

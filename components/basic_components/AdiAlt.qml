@@ -7,6 +7,7 @@ Item {
     height: 288
 
     property real altitude_ft: 0 
+    property real baro_settings: 29.92
     property string fonts: "bold 26px Helvetica"
 
     property int center_x: width / 2
@@ -75,5 +76,20 @@ Item {
     AltCurrent {
         y: self.center_y
         altitude_ft: self.altitude_ft
+    }
+
+    AdiGreenText {
+
+        Rectangle {
+            anchors.fill: parent
+            color: "#ff000055"
+            visible: false
+        }
+
+        text: (self.baro_settings.toFixed(2) == 29.92) ? "STD" : self.baro_settings.toFixed(2); 
+        x: self.width - width
+        y: 292
+
+        horizontalAlignment: Text.AlignRight
     }
 }

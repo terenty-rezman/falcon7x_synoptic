@@ -81,4 +81,8 @@ to_subscribe = [
     (Params["sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot"], 20, "udp"), # heading
     (Params["sim/cockpit2/gauges/indicators/airspeed_kts_pilot"], 20, "udp"), # airspeed
     (Params["sim/cockpit2/gauges/indicators/vvi_fpm_pilot"], 20, "udp"), # vertical speed ft per min
+    (Params["sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot"], 15, "udp"), # adi alt baro settings
+    (Params["sim/cockpit2/clock_timer/local_time_hours"], None, "tcp"), # hours
+    (Params["sim/cockpit2/clock_timer/local_time_minutes"], None, "tcp"), # minutes
+
 ]

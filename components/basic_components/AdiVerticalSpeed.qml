@@ -31,7 +31,14 @@ Item {
             let y = 0;
 
             const abs_vy = Math.abs(self.vy_ft_per_min);
-            const vy = self.vy_ft_per_min;
+            let vy = self.vy_ft_per_min;
+
+            const limit_vy = 5000;
+            if (vy > limit_vy) {
+                vy = limit_vy;
+            } else if (vy < -limit_vy) {
+                vy = -limit_vy;
+            } 
 
             if (abs_vy < 1000) {
                 y = -(vy / 1000) * 50 + y_center;
@@ -52,6 +59,7 @@ Item {
                     y = -(vy + 2000) / 2000 * 25 + y_center + 75;
                 } 
             }
+
 
             const ctx = getContext("2d");
             ctx.reset();
