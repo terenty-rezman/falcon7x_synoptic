@@ -78,40 +78,58 @@ Rectangle {
         y: 413
     }
 
-
-    AdiWhiteText {
-        text: "UTC"
+    Item {
         x: 6
         y: 496
-    }
 
-    AdiGreenText {
-        objectName: "adi_current_time"
-        property int hours: 0
-        property int minutes: 0
-        text: lead_zero(hours) + ":" + lead_zero(minutes)
-        x: 51
-        y: 496
+        AdiWhiteText {
+            text: "UTC"
+        }
 
-        function lead_zero(number) {
-            if (number < 10) {
-                return "0" + number;
-            }
-            else {
-                return number;
+        AdiGreenText {
+            objectName: "adi_current_time"
+            property int hours: 0
+            property int minutes: 0
+            text: lead_zero(hours) + ":" + lead_zero(minutes)
+            x: 45
+
+            function lead_zero(number) {
+                if (number < 10) {
+                    return "0" + number;
+                }
+                else {
+                    return number;
+                }
             }
         }
-    }
 
-    AdiWhiteText {
-        text: "ET"
-        x: 6
-        y: 521
-    }
+        AdiWhiteText {
+            text: "ET"
+            y: 22
+        }
 
-    AdiWhiteText {
-        text: "00:00"
-        x: 51
-        y: 521
+        AdiWhiteText {
+            text: "00:00"
+            x: 45
+            y: 22
+        }
+       
+        AdiWhiteText {
+            text: "TAS"
+            y: 44
+        }
+
+        AdiGreenText {
+            Rectangle {
+                anchors.fill: parent
+                color: "#ff000055"
+                visible: false
+            }
+
+            text: "0"
+            x: 92 - width
+            y: 44
+            horizontalAlignment: Text.AlignRight
+        }
     }
 }
