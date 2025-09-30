@@ -84,5 +84,7 @@ to_subscribe = [
     (Params["sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot"], 15, "udp"), # adi alt baro settings
     (Params["sim/cockpit2/clock_timer/local_time_hours"], None, "tcp"), # hours
     (Params["sim/cockpit2/clock_timer/local_time_minutes"], None, "tcp"), # minutes
+    (Params["sim/flightmodel/position/true_airspeed"], 10, "udp"), # adi alt baro settings
+    (Params["sim/cockpit2/switches/ram_air_turbine_on"], None, "tcp"), # rat gen
 
 ]
