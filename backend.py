@@ -97,6 +97,7 @@ dref_indicators = [
     ("sim/cockpit2/gauges/indicators/altitude_ft_pilot", None, "adi_alt", "altitude_ft"),
     ("sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot", None, "adi_heading", "heading_deg"),
     ("sim/cockpit2/gauges/indicators/airspeed_kts_pilot", None, "adi_airspeed", "speed"),
+    ("sim/cockpit2/gauges/indicators/mach_pilot", None, "adi_airspeed", "mach"),
     ("sim/cockpit2/gauges/indicators/vvi_fpm_pilot", None, "adi_vertical_speed", "vy_ft_per_min"),
     ("sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot", None, "adi_alt", "baro_settings"),
     ("sim/cockpit2/clock_timer/local_time_hours", None, "adi_current_time", "hours"),

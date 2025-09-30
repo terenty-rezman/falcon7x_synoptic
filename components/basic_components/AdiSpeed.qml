@@ -7,6 +7,7 @@ Item {
     height: 288
 
     property real speed: 0 
+    property real mach: 0.0
     property string fonts: "bold 26px Helvetica"
     property string small_fonts: "bold 20px Helvetica"
 
@@ -90,5 +91,27 @@ Item {
         x: -16
         y: self.center_y
         speed: self.speed
+    }    
+    
+    AdiGreenText {
+
+        Rectangle {
+            anchors.fill: parent
+            color: "#ff000055"
+            visible: false
+        }
+
+        text: format_double(self.mach); 
+        x: self.width - width
+        y: 292
+
+        horizontalAlignment: Text.AlignRight
+
+        function format_double(number) {
+            if (number < 1) {
+                return "." + (number * 100).toFixed(0);
+            }
+            return number;
+        }
     }
 }
