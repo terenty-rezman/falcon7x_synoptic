@@ -101,6 +101,7 @@ dref_indicators = [
     ("sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot", None, "adi_alt", "baro_settings"),
     ("sim/cockpit2/clock_timer/local_time_hours", None, "adi_current_time", "hours"),
     ("sim/cockpit2/clock_timer/local_time_minutes", None, "adi_current_time", "minutes"),
+    ("sim/cockpit2/switches/ram_air_turbine_on", None, "elec_rat_gen", "state"),
 ]
 
 dref_nested_dict = defaultdict(list)
