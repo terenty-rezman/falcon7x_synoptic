@@ -107,6 +107,7 @@ dref_indicators = [
     ("sim/cockpit2/controls/gear_handle_down", None, "adi_gear", "gear_handle_state"),
     ("sim/flightmodel/position/true_airspeed", None, "adi_tas_text", "tas"),
     ("sim/flightmodel2/position/groundspeed", None, "adi_gs_text", "gs"),
+    ("sim/flightmodel/controls/elv_trim", None, "adi_pitch", "elv_trim"),
 ]
 
 dref_nested_dict = defaultdict(list)

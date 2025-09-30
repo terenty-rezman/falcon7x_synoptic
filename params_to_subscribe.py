@@ -87,6 +87,7 @@ to_subscribe = [
     (Params["sim/flightmodel/position/true_airspeed"], 10, "udp"), # adi tas
     (Params["sim/flightmodel2/position/groundspeed"], 10, "udp"), # adi gs
     (Params["sim/cockpit2/gauges/indicators/mach_pilot"], 5, "udp"), # adi mach current pilot
+    (Params["sim/flightmodel/controls/elv_trim"], 5, "udp"), # adi pitch elev
     (Params["sim/cockpit2/switches/ram_air_turbine_on"], None, "tcp"), # rat gen
     (Params["sim/cockpit2/annunciators/gear_unsafe"], None, "tcp"), # gear transition state
     (Params["sim/cockpit2/controls/gear_handle_down"], None, "tcp"), # gear handle
