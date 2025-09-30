@@ -85,6 +85,8 @@ to_subscribe = [
     (Params["sim/cockpit2/clock_timer/local_time_hours"], None, "tcp"), # hours
     (Params["sim/cockpit2/clock_timer/local_time_minutes"], None, "tcp"), # minutes
     (Params["sim/flightmodel/position/true_airspeed"], 10, "udp"), # adi alt baro settings
+    (Params["sim/flightmodel2/position/groundspeed"], 10, "udp"), # adi alt baro settings
     (Params["sim/cockpit2/switches/ram_air_turbine_on"], None, "tcp"), # rat gen
-
+    (Params["sim/cockpit2/annunciators/gear_unsafe"], None, "tcp"), # gear transition state
+    (Params["sim/cockpit2/controls/gear_handle_down"], None, "tcp"), # gear handle
 ]

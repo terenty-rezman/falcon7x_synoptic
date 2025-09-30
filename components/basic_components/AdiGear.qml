@@ -3,10 +3,58 @@ import QtQuick 2.15
 Item {
     id: self
 
-    property int state: 0
+    property int gear_handle_state: 0
+    property int gear_transition_state: 0
+
+    property bool clear_display: false
+
+    property int state: calc_gear_state(gear_handle_state, gear_transition_state);
 
     width: 82
     height: 63
+
+    Timer {
+        interval: 11000 
+        running: true
+        repeat: true
+        onTriggered: {
+            if (self.state == 4) {
+                self.clear_display = true;
+            }
+        }
+    }
+
+    function calc_gear_state(handle_state, transition_state) {
+        let state = 0;
+
+        self.clear_display = false;
+
+        if (handle_state == 1) {
+            if (transition_state == 1) {
+                return 3; // gear arrows down
+            }
+            else {
+                return 1; // gear green down
+            }
+        } else {
+            if (transition_state == 1) {
+                return 2; // gear arrows up
+            }
+            else {
+                return 4; // gear up closed
+            }
+        }
+
+        return state
+    }
+
+    AdiWhiteText {
+        id: up_text
+        text: "UP"
+        x: 29
+        y: -5
+        visible: true
+    }
 
     Image {
         id: gear_dn_green
@@ -54,8 +102,8 @@ Item {
 
     states:[
         State {
-            name: "gear_clear"
-            when: self.state === 0
+            name: "gear_up_text"
+            when: self.clear_display === true
 
             PropertyChanges {
                 target: gear_dn_green
@@ -72,6 +120,10 @@ Item {
             PropertyChanges {
                 target: gear_white_squre
                 visible: false
+            }
+            PropertyChanges {
+                target: up_text
+                visible: true
             }
         },
         State {
@@ -92,6 +144,10 @@ Item {
             }
             PropertyChanges {
                 target: gear_white_squre
+                visible: false
+            }
+            PropertyChanges {
+                target: up_text
                 visible: false
             }
         },
@@ -115,6 +171,10 @@ Item {
                 target: gear_white_squre
                 visible: false
             }
+            PropertyChanges {
+                target: up_text
+                visible: false
+            }
         },
 
         State{
@@ -134,6 +194,10 @@ Item {
             }
             PropertyChanges {
                 target: gear_white_squre
+                visible: false
+            }
+            PropertyChanges {
+                target: up_text
                 visible: false
             }
         },
@@ -157,7 +221,10 @@ Item {
                 target: gear_white_squre
                 visible: true
             }
+            PropertyChanges {
+                target: up_text
+                visible: false
+            }
         }
     ]
 }
-

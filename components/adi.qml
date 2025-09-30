@@ -120,15 +120,41 @@ Rectangle {
         }
 
         AdiGreenText {
+            objectName: "adi_tas_text"
+
+            property int tas: 0
+
             Rectangle {
                 anchors.fill: parent
                 color: "#ff000055"
                 visible: false
             }
 
-            text: "0"
+            text: (tas * 1.94380).toFixed(0)
             x: 92 - width
             y: 44
+            horizontalAlignment: Text.AlignRight
+        }
+
+        AdiWhiteText {
+            text: "GS"
+            y: 66
+        }
+
+        AdiGreenText {
+            objectName: "adi_gs_text"
+
+            property int gs: 0
+
+            Rectangle {
+                anchors.fill: parent
+                color: "#ff000055"
+                visible: false
+            }
+
+            text: (gs * 1.94380).toFixed(0)
+            x: 92 - width
+            y: 66
             horizontalAlignment: Text.AlignRight
         }
     }

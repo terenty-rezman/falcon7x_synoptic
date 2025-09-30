@@ -102,6 +102,10 @@ dref_indicators = [
     ("sim/cockpit2/clock_timer/local_time_hours", None, "adi_current_time", "hours"),
     ("sim/cockpit2/clock_timer/local_time_minutes", None, "adi_current_time", "minutes"),
     ("sim/cockpit2/switches/ram_air_turbine_on", None, "elec_rat_gen", "state"),
+    ("sim/cockpit2/annunciators/gear_unsafe", None, "adi_gear", "gear_transition_state"),
+    ("sim/cockpit2/controls/gear_handle_down", None, "adi_gear", "gear_handle_state"),
+    ("sim/flightmodel/position/true_airspeed", None, "adi_tas_text", "tas"),
+    ("sim/flightmodel2/position/groundspeed", None, "adi_gs_text", "gs"),
 ]
 
 dref_nested_dict = defaultdict(list)
