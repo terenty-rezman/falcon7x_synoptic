@@ -8,7 +8,7 @@ Item {
 
     property real altitude_ft: 0 
     property real baro_settings: 29.92
-    property string fonts: "bold 26px Helvetica"
+    property string fonts: "bold 26px sans-serif"
 
     property int center_x: width / 2
     property int center_y: height / 2

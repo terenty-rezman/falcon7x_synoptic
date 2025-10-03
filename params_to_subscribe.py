@@ -91,4 +91,9 @@ to_subscribe = [
     (Params["sim/cockpit2/switches/ram_air_turbine_on"], None, "tcp"), # rat gen
     (Params["sim/cockpit2/annunciators/gear_unsafe"], None, "tcp"), # gear transition state
     (Params["sim/cockpit2/controls/gear_handle_down"], None, "tcp"), # gear handle
+    (Params["sim/cockpit/autopilot/autopilot_mode"], None, "tcp"), # autopilot mode
+    (Params["sim/cockpit/radios/ap_src"], None, "tcp"), # autopilot pilot side
+    (Params["sim/cockpit2/autopilot/heading_mode"], None, "tcp"), # autopilot heading mode
+    (Params["sim/cockpit/autopilot/heading_mag"], 5, "udp"), # target heading
+    (Params["sim/cockpit2/autopilot/airspeed_dial_kts"], 10, "udp"), # target speed kts
 ]

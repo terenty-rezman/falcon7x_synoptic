@@ -108,6 +108,12 @@ dref_indicators = [
     ("sim/flightmodel/position/true_airspeed", None, "adi_tas_text", "tas"),
     ("sim/flightmodel2/position/groundspeed", None, "adi_gs_text", "gs"),
     ("sim/flightmodel/controls/elv_trim", None, "adi_pitch", "elv_trim"),
+    ("sim/cockpit/autopilot/autopilot_mode", None, "adi_ap_symbol", "ap_mode"),
+    ("sim/cockpit/autopilot/autopilot_mode", None, "adi_lnav_hdg_roll_symbol", "ap_mode"),
+    ("sim/cockpit2/autopilot/heading_mode", None, "adi_lnav_hdg_roll_symbol", "heading_mode"),
+    ("sim/cockpit/autopilot/heading_mag", None, "adi_lnav_hdg_roll_symbol", "target_heading"),
+    ("sim/cockpit/radios/ap_src", None, "adi_ap_symbol", "pilot_side"),
+    # ("sim/cockpit2/autopilot/airspeed_dial_kts", None, "adi_airspeed", "target_speed"),
 ]
 
 dref_nested_dict = defaultdict(list)

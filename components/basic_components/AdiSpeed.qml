@@ -8,8 +8,9 @@ Item {
 
     property real speed: 0 
     property real mach: 0.0
-    property string fonts: "bold 26px Helvetica"
-    property string small_fonts: "bold 20px Helvetica"
+    property real target_speed: 10
+    property string fonts: "bold 26px sans-serif"
+    property string small_fonts: "bold 20px sans-serif"
 
     property int center_x: width / 2
     property int center_y: height / 2
@@ -33,6 +34,10 @@ Item {
         id: canvas
         anchors.fill: parent
 
+        Component.onCompleted: {
+            canvas.loadImage("../svg/ADI_VELOCITY_SETPOINT.svg"); 
+        }
+
         onPaint: {
             const ctx = getContext("2d");
             ctx.reset();
@@ -46,11 +51,15 @@ Item {
             const alt_to_pix = 36;
             const line_step = 1;
             const speed = self.speed / 10;
+            const target_speed = self.target_speed / 10;
             const closest_below_line = speed - speed % line_step;
+
+            const setpoint_height = 34;
 
             // ctx.resetTransform();
             ctx.translate(0, center_y);
             ctx.translate(0, speed * alt_to_pix);
+            ctx.drawImage("../svg/ADI_VELOCITY_SETPOINT.svg", 50, -target_speed * alt_to_pix + height / 2 - setpoint_height / 2);
 
             // speed digits & lines
             const line_count = 10;
@@ -109,7 +118,7 @@ Item {
 
         function format_double(number) {
             if (number < 1) {
-                return "." + (number * 100).toFixed(0);
+                return "." + (number * 1000).toFixed(0);
             }
             return number;
         }

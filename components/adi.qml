@@ -38,6 +38,23 @@ Rectangle {
         objectName: "adi_horizon"
     }
 
+    AdiAtSpd {
+        x: 29
+        y: 1
+    }
+
+    AdiLnavHdgRoll {
+        objectName: "adi_lnav_hdg_roll_symbol"
+        x: 188
+        y: 16
+    }
+
+    AdiAp {
+        objectName: "adi_ap_symbol"
+        x: 254
+        y: 16
+    }
+
     AdiBankTop {
         objectName: "adi_bank"
     }

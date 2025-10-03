@@ -35,7 +35,7 @@ Item {
             // draw sky rect
             ctx.strokeStyle = self.color;
             ctx.fillStyle = self.color;
-            ctx.font = "bold 24px Helvetica";
+            ctx.font = "bold 24px sans-serif";
             ctx.textAlign = "right";
 
             const alt_to_pix = 1;
