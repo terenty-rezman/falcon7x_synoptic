@@ -4,6 +4,8 @@ Rectangle {
     id: self
 
     property int state: 1
+    property int ap_mode: 0
+    property int at_enabled: 0
 
     color: "#55000000"
     width: 63
@@ -23,7 +25,7 @@ Rectangle {
     states: [
         State {
             name: "on"
-            when: self.state === 1
+            when: self.ap_mode == 2 && self.at_enabled == 1
 
             PropertyChanges {
                 target: self
@@ -37,7 +39,7 @@ Rectangle {
         },
 
         State {
-            when: self.state === 0
+            when: self.ap_mode !== 2 || self.at_enabled != 1
             name: "off"
 
             PropertyChanges {

@@ -6,9 +6,9 @@ Item {
     width: 63
     height: 288
 
-    property real speed: 0 
+    property real speed: 100 
     property real mach: 0.0
-    property real target_speed: 10
+    property real target_speed: 120 
     property string fonts: "bold 26px sans-serif"
     property string small_fonts: "bold 20px sans-serif"
 
@@ -54,12 +54,12 @@ Item {
             const target_speed = self.target_speed / 10;
             const closest_below_line = speed - speed % line_step;
 
-            const setpoint_height = 34;
+            const setpoint_height = 26;
 
             // ctx.resetTransform();
             ctx.translate(0, center_y);
             ctx.translate(0, speed * alt_to_pix);
-            ctx.drawImage("../svg/ADI_VELOCITY_SETPOINT.svg", 50, -target_speed * alt_to_pix + height / 2 - setpoint_height / 2);
+            ctx.drawImage("../svg/ADI_VELOCITY_SETPOINT.svg", 50, (-target_speed) * alt_to_pix - setpoint_height / 2);
 
             // speed digits & lines
             const line_count = 10;
@@ -103,7 +103,6 @@ Item {
     }    
     
     AdiGreenText {
-
         Rectangle {
             anchors.fill: parent
             color: "#ff000055"
@@ -111,8 +110,9 @@ Item {
         }
 
         text: format_double(self.mach); 
-        x: self.width - width
-        y: 292
+
+        anchors.right: parent.right
+        anchors.top: parent.bottom
 
         horizontalAlignment: Text.AlignRight
 
@@ -122,5 +122,11 @@ Item {
             }
             return number;
         }
+    }
+
+    AdiMagentaText {
+        text: self.target_speed.toFixed(0)
+        anchors.right: parent.right
+        anchors.bottom: parent.top
     }
 }

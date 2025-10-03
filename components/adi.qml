@@ -39,6 +39,7 @@ Rectangle {
     }
 
     AdiAtSpd {
+        objectName: "adi_at_spd"
         x: 29
         y: 1
     }

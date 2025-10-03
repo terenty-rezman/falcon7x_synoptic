@@ -113,7 +113,9 @@ dref_indicators = [
     ("sim/cockpit2/autopilot/heading_mode", None, "adi_lnav_hdg_roll_symbol", "heading_mode"),
     ("sim/cockpit/autopilot/heading_mag", None, "adi_lnav_hdg_roll_symbol", "target_heading"),
     ("sim/cockpit/radios/ap_src", None, "adi_ap_symbol", "pilot_side"),
-    # ("sim/cockpit2/autopilot/airspeed_dial_kts", None, "adi_airspeed", "target_speed"),
+    ("sim/cockpit2/autopilot/airspeed_dial_kts", None, "adi_airspeed", "target_speed"),
+    ("sim/cockpit/autopilot/autopilot_mode", None, "adi_at_spd", "ap_mode"),
+    ("sim/cockpit2/autopilot/autothrottle_enabled", None, "adi_at_spd", "at_enabled"),
 ]
 
 dref_nested_dict = defaultdict(list)

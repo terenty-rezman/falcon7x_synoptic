@@ -96,4 +96,5 @@ to_subscribe = [
     (Params["sim/cockpit2/autopilot/heading_mode"], None, "tcp"), # autopilot heading mode
     (Params["sim/cockpit/autopilot/heading_mag"], 5, "udp"), # target heading
     (Params["sim/cockpit2/autopilot/airspeed_dial_kts"], 10, "udp"), # target speed kts
+    (Params["sim/cockpit2/autopilot/autothrottle_enabled"], None, "tcp"), # autothrust enabled
 ]
