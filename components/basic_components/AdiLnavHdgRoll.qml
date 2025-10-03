@@ -38,7 +38,7 @@ Rectangle {
 
     Text {
         id: text_
-        text: "LNAV"
+        text: "ROL"
         anchors.centerIn: parent
         color: self.font_color
         font.pixelSize: 14
