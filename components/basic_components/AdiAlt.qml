@@ -7,6 +7,7 @@ Item {
     height: 288
 
     property real altitude_ft: 0 
+    property real target_alt_ft: 0 
     property real baro_settings: 29.92
     property string fonts: "bold 26px sans-serif"
 
@@ -33,6 +34,10 @@ Item {
         id: canvas
         anchors.fill: parent
 
+        Component.onCompleted: {
+            canvas.loadImage("../svg/ADI_ALT_SETPOINT.svg"); 
+        }
+
         onPaint: {
             const ctx = getContext("2d");
             ctx.reset();
@@ -45,12 +50,15 @@ Item {
 
             const alt_to_pix = 26;
             const alt = altitude_ft / 100;
+            const target_alt = self.target_alt_ft / 100;
             const line_step = 1;
             const closest_below_line = alt - alt % line_step;
+            const setpoint_height = 26;
 
             ctx.resetTransform();
             ctx.translate(0, center_y);
             ctx.translate(0, alt * alt_to_pix);
+            ctx.drawImage("../svg/ADI_ALT_SETPOINT.svg", 0, (-target_alt) * alt_to_pix - setpoint_height / 2);
 
             const line_count = 10;
             const line_width = 10; 

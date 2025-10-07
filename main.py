@@ -144,12 +144,19 @@ if __name__ == "__main__":
     under_cas_2.show()
     view_helper.all_views.append(under_cas_2)
 
-    adi = create_toplevel_qml_view(
-        "components/adi.qml", "adi", "adi - falcon7x", 
+    adi_left = create_toplevel_qml_view(
+        "components/adi_left.qml", "adi_left", "adi left - falcon7x", 
         s.ADI_WINDOW_WIDTH, s.ADI_WINDOW_HEIGHT
     )
-    adi.show()
-    view_helper.all_views.append(adi)
+    adi_left.show()
+    view_helper.all_views.append(adi_left)
+
+    adi_right = create_toplevel_qml_view(
+        "components/adi_right.qml", "adi_right", "adi right - falcon7x", 
+        s.ADI_WINDOW_WIDTH, s.ADI_WINDOW_HEIGHT
+    )
+    adi_right.show()
+    view_helper.all_views.append(adi_right)
 
     black_screen.create_black_screens()
 

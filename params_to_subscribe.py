@@ -95,6 +95,12 @@ to_subscribe = [
     (Params["sim/cockpit/radios/ap_src"], None, "tcp"), # autopilot pilot side
     (Params["sim/cockpit2/autopilot/heading_mode"], None, "tcp"), # autopilot heading mode
     (Params["sim/cockpit/autopilot/heading_mag"], 5, "udp"), # target heading
+    (Params["sim/cockpit2/autopilot/altitude_dial_ft"], 5, "udp"), # target alt
     (Params["sim/cockpit2/autopilot/airspeed_dial_kts"], 10, "udp"), # target speed kts
     (Params["sim/cockpit2/autopilot/autothrottle_enabled"], None, "tcp"), # autothrust enabled
+    (Params["sim/custom/7x/z_ads_pilot"], None, "tcp"), # ads
+    (Params["sim/custom/7x/z_ads_copilot"], None, "tcp"), # ads
+    (Params["sim/custom/7x/z_irs_pilot"], None, "tcp"), # irs
+    (Params["sim/custom/7x/z_irs_copilot"], None, "tcp"), # irs
+    (Params["sim/cockpit2/autopilot/altitude_hold_armed"], None, "tcp"), # ap alt
 ]

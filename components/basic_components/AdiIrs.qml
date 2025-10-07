@@ -1,0 +1,42 @@
+import QtQuick 2.15
+
+Rectangle {
+    id: self
+
+    property int irs_self: 1
+    property int irs_partner: 3
+
+    onIrs_selfChanged: {
+        self.visible = true;
+        hide_timer.restart();
+    }
+
+    color: "transparent"
+    width: 19
+    height: 66
+    radius: 4
+    visible: false
+    border.color: (irs_self == irs_partner) ? "#ffff00" : "#ffffff";
+    border.width: 2
+
+    Timer {
+        id: hide_timer
+        interval: 3000
+        running: false
+        repeat: false
+
+        onTriggered: {
+            self.visible = false
+        }
+    }
+
+    Text {
+        id: text_
+        text: "I\nR\nS\n" + self.irs_self
+        anchors.centerIn: parent
+        color: (irs_self == irs_partner) ? "#ffff00" : "#ffffff"
+        font.pixelSize: 14
+        font.bold: true
+        font.family: "Helvetica"
+    }
+}

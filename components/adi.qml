@@ -6,33 +6,8 @@ import QtQuick.Layouts
 import "basic_components"
 
 Rectangle {
-    id: self
-
     anchors.fill: parent
     color: "#C8761B"
-
-    MouseArea {
-        anchors.fill: parent
-        acceptedButtons: Qt.RightButton
-
-        onClicked: (mouse) => {
-            if (mouse.button === Qt.RightButton) {
-                contextMenu.popup()
-            }
-        }
-    }
-
-    Menu {
-        id: contextMenu
-
-        // Close Action
-        Action {
-            text: "Close Window"
-            onTriggered: {
-                Qt.quit() // Close the application
-            }
-        }
-    }
 
     Horizon {
         objectName: "adi_horizon"
@@ -53,6 +28,12 @@ Rectangle {
     AdiAp {
         objectName: "adi_ap_symbol"
         x: 254
+        y: 16
+    }
+
+    AdiAltSymbol {
+        objectName: "adi_alt_symbol"
+        x: 407
         y: 16
     }
 
@@ -94,6 +75,18 @@ Rectangle {
         objectName: "adi_pitch"
         x: 631
         y: 413
+    }
+
+    AdiAds {
+        objectName: "adi_ads"
+        x: 614
+        y: 74
+    }
+
+    AdiIrs {
+        objectName: "adi_irs"
+        x: 614
+        y: 318
     }
 
     Item {
