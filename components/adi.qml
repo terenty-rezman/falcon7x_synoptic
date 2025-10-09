@@ -89,6 +89,12 @@ Rectangle {
         y: 318
     }
 
+    AdiReverseSymbol {
+        objectName: "adi_reverse_symbol"
+        x: 115
+        y: 165
+    }
+
     Item {
         x: 6
         y: 496

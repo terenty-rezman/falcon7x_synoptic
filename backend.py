@@ -126,6 +126,10 @@ dref_indicators = [
     ("sim/custom/7x/z_irs_copilot", None, "adi_irs", "irs_self", "adi_right"),
     ("sim/custom/7x/z_irs_pilot", None, "adi_irs", "irs_partner", "adi_right"),
     ("sim/cockpit/autopilot/autopilot_mode", None, "adi_alt_symbol", "ap_mode", None),
+    ("sim/cockpit2/autopilot/altitude_dial_ft", None, "adi_alt_symbol", "target_alt_ft", None),
+    ("sim/cockpit2/autopilot/altitude_hold_armed", None, "adi_alt_symbol", "altitude_mode", None),
+    ("sim/cockpit2/autopilot/vvi_status", None, "adi_alt_symbol", "vs_mode", None),
+    ("sim/cockpit2/annunciators/reverser_deployed", None, "adi_reverse_symbol", "mode", None),
 ]
 
 dref_nested_dict = defaultdict(list)

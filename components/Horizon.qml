@@ -52,6 +52,11 @@ Item {
             const line_len = 41; // white pitch colored part
 
             ctx.resetTransform();
+
+            ctx.beginPath();
+            ctx.rect(104, 96, 435, 353);
+            ctx.clip();
+
             ctx.translate(center_x, center_y);
             ctx.rotate(-bank_deg / 180 * Math.PI);
             ctx.translate(0, pitch_deg * pitch_to_pix);

@@ -5,10 +5,11 @@ Rectangle {
 
     property int state: 0
     property alias text: text_.text
-    property int target_alt: 0
+    property int target_alt_ft: 0
 
     property int ap_mode: 0
-    property int altitude_mode: 6
+    property int altitude_mode: 0
+    property int vs_mode: 0
 
     onAp_modeChanged: {
         if (self.ap_mode == 2) {
@@ -19,9 +20,20 @@ Rectangle {
     }
 
     onAltitude_modeChanged: {
-        if (self.altitude_mode == 6) {
+        mode()
+    }
+
+    onVs_modeChanged: {
+        mode()
+    }
+
+    function mode() {
+        if (self.vs_mode == 2) {
+            self.text = "VS";  
+        }
+        else if (self.altitude_mode == 0) {
             self.text = "ALT";  
-        } else if (self.heading_mode == 2) {
+        } else if (self.altitude_mode == 1) {
             self.text = "PATH";  
         }
     }
@@ -45,11 +57,11 @@ Rectangle {
     }
 
     AdiMagentaText {
-        text: "FL " + self.target_alt 
+        text: "FL " + Math.round(self.target_alt_ft /  100)
         anchors.left: parent.right
         anchors.verticalCenter: text_.verticalCenter
         anchors.leftMargin: 5
-        visible: self.altitude_mode == 6
+        visible: self.altitude_mode == 0
     }
 
     states: [

@@ -103,4 +103,6 @@ to_subscribe = [
     (Params["sim/custom/7x/z_irs_pilot"], None, "tcp"), # irs
     (Params["sim/custom/7x/z_irs_copilot"], None, "tcp"), # irs
     (Params["sim/cockpit2/autopilot/altitude_hold_armed"], None, "tcp"), # ap alt
+    (Params["sim/cockpit2/autopilot/vvi_status"], None, "tcp"), # ap vs
+    (Params["sim/cockpit2/annunciators/reverser_deployed"], None, "tcp"), # thrust reverse
 ]
