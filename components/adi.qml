@@ -168,5 +168,138 @@ Rectangle {
             y: 66
             horizontalAlignment: Text.AlignRight
         }
+        
+        AdiWhiteText {
+            text: "TAT"
+            y: 88
+        }
+
+        AdiGreenText {
+            objectName: "adi_tat_text"
+
+            property int tat: 0
+
+            Rectangle {
+                anchors.fill: parent
+                color: "#ff000055"
+                visible: false
+            }
+
+            text: "22" // исправить на tat
+            x: 92 - width
+            y: 88
+            horizontalAlignment: Text.AlignRight
+        }
+
+        AdiWhiteText {
+            text: "SAT"
+            y: 110
+        }
+
+        AdiGreenText {
+            objectName: "adi_sat_text"
+
+            property int sat: 0
+
+            Rectangle {
+                anchors.fill: parent
+                color: "#ff000055"
+                visible: false
+            }
+
+            text: sat
+            x: 92 - width
+            y: 110
+            horizontalAlignment: Text.AlignRight
+        }
+
+        AdiWhiteText {
+            text: "ISA"
+            y: 132
+        }
+
+        AdiGreenText {
+            objectName: "adi_isa_text"
+
+            property int isa: 8
+
+            Rectangle {
+                anchors.fill: parent
+                color: "#ff000055"
+                visible: false
+            }
+
+            text: (isa > 0) ? "+" + isa : isa
+            x: 92 - width
+            y: 132
+            horizontalAlignment: Text.AlignRight
+        
+        }
+
+        AdiWhiteText {
+            text: "FQ"
+            y: 154
+        }
+
+        AdiGreenText {
+            objectName: "adi_fq_text"
+
+            property int fq: 0
+
+            Rectangle {
+                anchors.fill: parent
+                color: "#ff000055"
+                visible: false
+            }
+
+            text: fq
+            x: 92 - width
+            y: 154
+            horizontalAlignment: Text.AlignRight
+        }
+
+         AdiWhiteText {
+            text: "FR"
+            y: 176 
+        }
+
+        AdiGreenText {
+            objectName: "adi_fr_text"
+
+            property int fr: 0
+
+            Rectangle {
+                anchors.fill: parent
+                color: "#ff000055"
+                visible: false
+            }
+
+            text: fr
+            x: 92 - width
+            y: 176
+            horizontalAlignment: Text.AlignRight
+        }
+
+        AdiWhiteText {
+            text: "GW"
+            y: 198
+        }
+
+        AdiGreenText {
+            objectName: "adi_gw_text"
+
+            property int gw: 0
+
+            Rectangle {
+                anchors.fill: parent
+                color: "#ff000055"
+                visible: false
+            }
+
+            text: gw
+            x: 92 - width
+            y: 198
+            horizontalAlignment: Text.AlignRight
+        }
     }
 }
