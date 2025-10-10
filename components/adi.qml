@@ -95,6 +95,18 @@ Rectangle {
         y: 135
     }
 
+    AdiFdSymbol {
+        objectName: "adi_fd"
+        x: 154  // уточнить расположение
+        y: 290
+    }
+
+    AdiAccSymbol {
+        objectName: "adi_acc"
+        x: 45  // уточнить расположение
+        y: 364
+    }
+
     AdiIrs {
         objectName: "adi_irs"
         x: 614
