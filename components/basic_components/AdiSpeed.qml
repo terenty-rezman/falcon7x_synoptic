@@ -119,11 +119,7 @@ Item {
     }
     
     AdiGreenText {
-        Rectangle {
-            anchors.fill: parent
-            color: "#ff000055"
-            visible: false
-        }
+        visible: !self.fail
 
         text: format_double(self.mach); 
 

@@ -15,7 +15,9 @@ Rectangle {
 
         property int ads_self: 0
         property int ads_partner: 0
-        property int ads_failed: 1
+        property int ads_failed: 0
+
+        property bool current_adi_fail: ads_self == ads_failed
     }
 
     Horizon {
@@ -61,7 +63,7 @@ Rectangle {
         x: 547
         y: 74
 
-        fail: adi_shared_data.ads_self == adi_shared_data.ads_failed
+        fail: adi_shared_data.current_adi_fail
     }
 
     AdiSpeed {
@@ -69,7 +71,7 @@ Rectangle {
         x: 32
         y: 74
 
-        fail: adi_shared_data.ads_self == adi_shared_data.ads_failed
+        fail: adi_shared_data.current_adi_fail
     }
     
     AdiHeading {
@@ -109,18 +111,24 @@ Rectangle {
         objectName: "adi_td"
         x: 154
         y: 135
+
+        visible: adi_shared_data.current_adi_fail
     }
 
     AdiFdSymbol {
         objectName: "adi_fd"
         x: 154  // уточнить расположение
         y: 290
+
+        visible: adi_shared_data.current_adi_fail
     }
 
     AdiAccSymbol {
         objectName: "adi_acc"
         x: 45  // уточнить расположение
         y: 364
+
+        visible: adi_shared_data.current_adi_fail
     }
 
     AdiIrs {
