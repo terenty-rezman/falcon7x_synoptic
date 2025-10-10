@@ -6,6 +6,7 @@ Item {
     width: 63
     height: 288
 
+    property bool fail: true
     property real speed: 100 
     property real mach: 0.0
     property real target_speed: 120 
@@ -41,6 +42,10 @@ Item {
         onPaint: {
             const ctx = getContext("2d");
             ctx.reset();
+
+            if (self.fail) {
+                return;
+            }
 
             // draw sky rect
             ctx.strokeStyle = "#FFFFFF";
@@ -100,7 +105,18 @@ Item {
         x: -16
         y: self.center_y
         speed: self.speed
+        fail: self.fail
     }    
+
+    Image {
+        id: gear_dn_green
+        source: "../svg/ADI_BIG_RED_CROSS.svg"
+
+        visible: self.fail
+
+        width: 63
+        height: 288
+    }
     
     AdiGreenText {
         Rectangle {

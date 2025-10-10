@@ -6,6 +6,7 @@ Item {
     width: 63
     height: 288
 
+    property bool fail: true
     property real altitude_ft: 0 
     property real target_alt_ft: 0 
     property real radio_alt_ft: 0
@@ -30,7 +31,6 @@ Item {
         radius: 3
     }
 
-
     Canvas {
         id: canvas
         anchors.fill: parent
@@ -48,6 +48,10 @@ Item {
             const ctx = getContext("2d");
             ctx.reset();
 
+            if (self.fail) {
+                return;
+            }
+
             // draw sky rect
             ctx.strokeStyle = "#FFFFFF";
             ctx.fillStyle = "#FFFFFF"
@@ -61,7 +65,6 @@ Item {
             const line_step = 1;
             const closest_below_line = alt - alt % line_step;
             const setpoint_height = 26;
-
 
             ctx.resetTransform();
             ctx.translate(0, center_y);
@@ -109,10 +112,20 @@ Item {
     AltCurrent {
         y: self.center_y
         altitude_ft: self.altitude_ft
+        fail: self.fail
+    }
+
+    Image {
+        id: gear_dn_green
+        source: "../svg/ADI_BIG_RED_CROSS.svg"
+
+        visible: self.fail
+
+        width: 63
+        height: 288
     }
 
     AdiGreenText {
-
         Rectangle {
             anchors.fill: parent
             color: "#ff000055"

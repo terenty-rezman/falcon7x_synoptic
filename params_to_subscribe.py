@@ -106,4 +106,5 @@ to_subscribe = [
     (Params["sim/cockpit2/autopilot/vvi_status"], None, "tcp"), # ap vs
     (Params["sim/cockpit2/annunciators/reverser_deployed"], None, "tcp"), # thrust reverse
     (Params["sim/cockpit2/gauges/indicators/radio_altimeter_height_ft_pilot"], 10, "udp"), # radio altitude
+    (Params["sim/custom/7x/z_ads_fail"], None, "tcp"), # failed ads id
 ]

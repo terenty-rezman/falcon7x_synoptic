@@ -2,6 +2,7 @@ import QtQuick 2.15
 
 Item {
     property real speed: 0
+    property bool fail: false
 
     Image {
         source: "../svg/ADI_VELOCITY_BACKGROUD.svg"
@@ -20,6 +21,7 @@ Item {
         font.pixelSize: 26
         font.bold: true
         font.family: "Helvetica"
+        visible: !self.fail
     }
 
     Text {
@@ -30,6 +32,7 @@ Item {
         font.pixelSize: 26
         font.bold: true
         font.family: "Helvetica"
+        visible: !self.fail
     }
 
     RollNumber1Digit {
@@ -38,5 +41,6 @@ Item {
         pixel_height: 20
         value: (self.speed) * 10 % 100 / 10
         color: "#00FC00"
+        visible: !self.fail
     }
 }
