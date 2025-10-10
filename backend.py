@@ -1,6 +1,7 @@
 from collections import defaultdict
 
 from PySide6.QtCore import QObject, Slot, Property, SLOT, SIGNAL, QByteArray, QTimer, QMetaObject, Signal
+import PySide6.QtCore as QtCore
 
 import view_helper
 import param_overrides
@@ -116,10 +117,10 @@ dref_indicators = [
     ("sim/cockpit2/autopilot/airspeed_dial_kts", None, "adi_airspeed", "target_speed", None),
     ("sim/cockpit/autopilot/autopilot_mode", None, "adi_at_spd", "ap_mode", None),
     ("sim/cockpit2/autopilot/autothrottle_enabled", None, "adi_at_spd", "at_enabled", None),
-    ("sim/custom/7x/z_ads_pilot", None, "adi_ads", "ads_self", "adi_left"),
-    ("sim/custom/7x/z_ads_copilot", None, "adi_ads", "ads_partner", "adi_left"),
-    ("sim/custom/7x/z_ads_copilot", None, "adi_ads", "ads_self", "adi_right"),
-    ("sim/custom/7x/z_ads_pilot", None, "adi_ads", "ads_partner", "adi_right"),
+    ("sim/custom/7x/z_ads_pilot", None, "adi_shared_data", "ads_self", "adi_left"),
+    ("sim/custom/7x/z_ads_copilot", None, "adi_shared_data", "ads_partner", "adi_left"),
+    ("sim/custom/7x/z_ads_copilot", None, "adi_shared_data", "ads_self", "adi_right"),
+    ("sim/custom/7x/z_ads_pilot", None, "adi_shared_data", "ads_partner", "adi_right"),
     ("sim/cockpit2/autopilot/altitude_dial_ft", None, "adi_alt", "target_alt_ft", None),
     ("sim/custom/7x/z_irs_pilot", None, "adi_irs", "irs_self", "adi_left"),
     ("sim/custom/7x/z_irs_copilot", None, "adi_irs", "irs_partner", "adi_left"),
@@ -133,14 +134,18 @@ dref_indicators = [
     ("sim/cockpit2/autopilot/altitude_dial_ft", None, "adi_asel", "target_alt_ft", None),
     ("sim/cockpit2/autopilot/altitude_hold_armed", None, "adi_asel", "mode", None),
     ("sim/cockpit2/gauges/indicators/radio_altimeter_height_ft_pilot", None, "adi_alt", "radio_alt_ft", None),
-    # ("sim/custom/7x/z_ads_fail", None, "shared_data", "failed_ads_id", "adi_left"),
-    # ("sim/custom/7x/z_ads_pilot", None, "shared_data", "current_ads", "adi_left"),
+    ("sim/custom/7x/z_ads_fail", None, "adi_shared_data", "ads_failed", "adi_left"),
+    ("sim/custom/7x/z_ads_fail", None, "adi_shared_data", "ads_failed", "adi_right"),
 ]
 
 dref_nested_dict = defaultdict(list)
 
 for dref, array_idx, object_name, property_name, root_obj_name in dref_indicators:
     dref_nested_dict[dref].append((array_idx, object_name, property_name, root_obj_name))
+
+
+class TestSingleton(QObject):
+    xx = QtCore.Property(int)
 
 
 class Backend(QObject):

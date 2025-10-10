@@ -9,6 +9,15 @@ Rectangle {
     anchors.fill: parent
     color: "#C8761B"
 
+    Item {
+        id: adi_shared_data
+        objectName: "adi_shared_data"
+
+        property int ads_self: 0
+        property int ads_partner: 0
+        property int ads_failed: 1
+    }
+
     Horizon {
         objectName: "adi_horizon"
     }
@@ -51,12 +60,16 @@ Rectangle {
         objectName: "adi_alt"
         x: 547
         y: 74
+
+        fail: adi_shared_data.ads_self == adi_shared_data.ads_failed
     }
 
     AdiSpeed {
         objectName: "adi_airspeed"
         x: 32
         y: 74
+
+        fail: adi_shared_data.ads_self == adi_shared_data.ads_failed
     }
     
     AdiHeading {
@@ -87,6 +100,9 @@ Rectangle {
         objectName: "adi_ads"
         x: 614
         y: 74
+
+        ads_self: adi_shared_data.ads_self
+        ads_partner: adi_shared_data.ads_partner
     }
 
     AdiTdSymbol {
