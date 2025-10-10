@@ -41,6 +41,12 @@ Rectangle {
         objectName: "adi_bank"
     }
 
+    AdiAsel {
+        objectName: "adi_asel"
+        x: 548
+        y: 14
+    }
+
     AdiAlt {
         objectName: "adi_alt"
         x: 547

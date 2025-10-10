@@ -130,6 +130,9 @@ dref_indicators = [
     ("sim/cockpit2/autopilot/altitude_hold_armed", None, "adi_alt_symbol", "altitude_mode", None),
     ("sim/cockpit2/autopilot/vvi_status", None, "adi_alt_symbol", "vs_mode", None),
     ("sim/cockpit2/annunciators/reverser_deployed", None, "adi_reverse_symbol", "mode", None),
+    ("sim/cockpit2/autopilot/altitude_dial_ft", None, "adi_asel", "target_alt_ft", None),
+    ("sim/cockpit2/autopilot/altitude_hold_armed", None, "adi_asel", "mode", None),
+    ("sim/cockpit2/gauges/indicators/radio_altimeter_height_ft_pilot", None, "adi_alt", "radio_alt_ft", None),
 ]
 
 dref_nested_dict = defaultdict(list)
