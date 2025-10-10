@@ -89,6 +89,12 @@ Rectangle {
         y: 74
     }
 
+    AdiTdSymbol {
+        objectName: "adi_td"
+        x: 154
+        y: 135
+    }
+
     AdiIrs {
         objectName: "adi_irs"
         x: 614
