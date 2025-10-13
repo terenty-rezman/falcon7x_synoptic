@@ -31,7 +31,7 @@ Item {
         }
     }
 
-    Adi{
-
+    Adi {
+        side: "right"
     }
 }

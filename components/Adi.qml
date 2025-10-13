@@ -9,16 +9,33 @@ Rectangle {
     anchors.fill: parent
     color: "#C8761B"
 
+    property string side: "left" || "right" // set it from where component is instantiated
+
     Item {
         id: adi_shared_data
         objectName: "adi_shared_data"
+
+        property int ads_default: (side == "left") ? 1 : 2 // default ads for pilot is 1; for copilot is 2
+        property int irs_default: (side == "left") ? 1 : 2 // default irs for pilot is 1; for copilot is 2
+        property int ra_default: (side == "left") ? 1 : 2 // default ra for pilot is 1; for copilot is 2
+        property int fms_default: (side == "left") ? 1 : 2 // default fms for pilot is 1; for copilot is 2
 
         property int ads_self: 0
         property int ads_partner: 0
         property int ads_failed: 0
 
-        property bool current_adi_fail: ads_self == ads_failed
+        property int fms_self: 0
+        property int fms_partner: 0
+
+        property int ra_self: 0
+        property int ra_partner: 0
+
+        property int vor_self: 0
+        property int vor_partner: 0
+
+        property bool current_ads_fail: ads_self == ads_failed
     }
+
 
     Horizon {
         objectName: "adi_horizon"
@@ -63,7 +80,7 @@ Rectangle {
         x: 547
         y: 74
 
-        fail: adi_shared_data.current_adi_fail
+        fail: adi_shared_data.current_ads_fail
     }
 
     AdiSpeed {
@@ -71,7 +88,7 @@ Rectangle {
         x: 32
         y: 74
 
-        fail: adi_shared_data.current_adi_fail
+        fail: adi_shared_data.current_ads_fail
     }
     
     AdiHeading {
@@ -99,40 +116,63 @@ Rectangle {
     }
 
     AdiAds {
-        objectName: "adi_ads"
+        objectName: "adi_ads_symbol"
         x: 614
         y: 74
 
+        ads_default: adi_shared_data.ads_default
         ads_self: adi_shared_data.ads_self
         ads_partner: adi_shared_data.ads_partner
     }
 
+    AdiRaSymbol {
+        objectName: "adi_ra_symbol"
+        x: 614
+        y: 142
+
+        ra_current: adi_shared_data.ra_self
+        ra_partner: adi_shared_data.ra_partner
+        ra_default: adi_shared_data.ra_default
+    }
+
+    AdiVorSymbol {
+        objectName: "adi_vor_symbol"
+        x: 441
+        y: 416
+
+        vor_current: adi_shared_data.vor_self
+        vor_partner: adi_shared_data.vor_partner
+    }
+
     AdiTdSymbol {
-        objectName: "adi_td"
+        objectName: "adi_td_symbol"
         x: 154
         y: 135
 
-        visible: adi_shared_data.current_adi_fail
+        visible: adi_shared_data.current_ads_fail
     }
 
     AdiFdSymbol {
-        objectName: "adi_fd"
+        objectName: "adi_fd_symbol"
         x: 154  // уточнить расположение
         y: 290
 
-        visible: adi_shared_data.current_adi_fail
+        visible: adi_shared_data.current_ads_fail
     }
 
     AdiAccSymbol {
-        objectName: "adi_acc"
+        objectName: "adi_acc_symbol"
         x: 45  // уточнить расположение
         y: 364
 
-        visible: adi_shared_data.current_adi_fail
+        visible: adi_shared_data.current_ads_fail
     }
 
     AdiIrs {
-        objectName: "adi_irs"
+        objectName: "adi_irs_symbol"
+
+        irs_default: adi_shared_data.irs_default
+
         x: 614
         y: 318
     }
@@ -141,6 +181,16 @@ Rectangle {
         objectName: "adi_reverse_symbol"
         x: 115
         y: 165
+    }
+
+    AdiFmsSymbol {
+        objectName: "adi_fms_symbol"
+        x: 100
+        y: 572
+
+        fms_default: adi_shared_data.fms_default
+        fms_current: adi_shared_data.fms_self
+        fms_partner: adi_shared_data.fms_partner
     }
 
     Item {
@@ -355,5 +405,9 @@ Rectangle {
             y: 198
             horizontalAlignment: Text.AlignRight
         }
+    }
+
+    Text {
+        text: side
     }
 }

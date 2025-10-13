@@ -107,4 +107,10 @@ to_subscribe = [
     (Params["sim/cockpit2/annunciators/reverser_deployed"], None, "tcp"), # thrust reverse
     (Params["sim/cockpit2/gauges/indicators/radio_altimeter_height_ft_pilot"], 10, "udp"), # radio altitude
     (Params["sim/custom/7x/z_ads_fail"], None, "tcp"), # failed ads id
+    (Params["sim/custom/7x/z_fms_pilot"], None, "tcp"), # curr fms
+    (Params["sim/custom/7x/z_fms_copilot"], None, "tcp"), # curr fms
+    (Params["sim/custom/7x/z_ra_pilot"], None, "tcp"), # curr ra
+    (Params["sim/custom/7x/z_ra_copilot"], None, "tcp"), # curr ra
+    (Params["sim/custom/7x/z_vor_pilot"], None, "tcp"), # curr vor
+    (Params["sim/custom/7x/z_vor_copilot"], None, "tcp"), # curr vor
 ]

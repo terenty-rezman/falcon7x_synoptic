@@ -3,9 +3,8 @@ import QtQuick 2.15
 Rectangle {
     id: self
 
-    property int ads_self: 1
-    property int ads_partner: 3
-    property int ads_default: 0
+    property int vor_current: 0
+    property int vor_partner: 0
 
     // onAds_selfChanged: {
     //     self.visible = true;
@@ -13,12 +12,11 @@ Rectangle {
     // }
 
     color: "transparent"
-    width: 19
-    height: 66
+    width: 46
+    height: 19
     radius: 4
-    visible: ads_self != ads_default
-    border.color: (ads_self == ads_partner) ? "#ffff00" : "#ffffff";
-    border.width: 2
+    border.color: (vor_current == vor_partner) ? "#ffff00" : "#ffffff";
+    border.width: (vor_current == vor_partner) ? 2 : 0;
 
     // Timer {
     //     id: hide_timer
@@ -33,10 +31,10 @@ Rectangle {
 
     Text {
         id: text_
-        text: "A\nD\nS\n" + self.ads_self
+        text: "VOR" + self.vor_current
         anchors.centerIn: parent
-        color: (ads_self == ads_partner) ? "#ffff00" : "#ffffff"
-        font.pixelSize: 14
+        color: (vor_current == vor_partner) ? "#ffff00" : "#ffffff";
+        font.pixelSize: 12
         font.bold: true
         font.family: "Helvetica"
     }
