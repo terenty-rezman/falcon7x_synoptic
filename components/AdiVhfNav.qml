@@ -42,10 +42,13 @@ Column {
         Column {
             spacing: 0
             x: 3
-            y: 24
+            y: 58
             width: parent.width - 3
             height: parent.height / 2
-
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            anchors.rightMargin: 2
+            anchors.bottomMargin: 5
 
             // линия 1 внутренней таблицы 1
             Rectangle { 
@@ -100,6 +103,7 @@ Column {
         border.color: "#ffffffff";
         border.width: 1
 
+
         Text {
             //id: text_
             text: "NAV1"
@@ -126,7 +130,10 @@ Column {
             y: 24
             width: parent.width - 3
             height: parent.height / 2
-
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            anchors.rightMargin: 2
+            anchors.bottomMargin: 5
 
             // линия 1 внутренней таблицы 1
             Rectangle { 
