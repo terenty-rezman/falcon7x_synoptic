@@ -55,7 +55,11 @@ Item {
 
             const alt_to_pix = 36;
             const line_step = 1;
-            const speed = self.speed / 10;
+            let speed = self.speed / 10;
+            if (speed < 0) {
+                speed = 0;
+            }
+
             const target_speed = self.target_speed / 10;
             const closest_below_line = speed - speed % line_step;
 
@@ -104,8 +108,8 @@ Item {
     SpeedCurrent {
         x: -16
         y: self.center_y
-        speed: self.speed
         fail: self.fail
+        speed: Math.max(self.speed, 0)
     }    
 
     Image {

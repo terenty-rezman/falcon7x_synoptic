@@ -1,7 +1,8 @@
 import QtQuick 2.15
 
 Item {
-    property real speed: 0
+    id: self
+    property real speed: 900
     property bool fail: false
 
     Image {

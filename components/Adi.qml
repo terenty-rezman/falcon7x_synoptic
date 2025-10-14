@@ -193,6 +193,14 @@ Rectangle {
         fms_partner: adi_shared_data.fms_partner
     }
 
+    AdiVhfNav {
+        objectName: "adi_vhf_nav"
+        //x: 551
+        anchors.right: parent.right
+        anchors.rightMargin: 2
+        y: 488
+    }
+
     Item {
         x: 6
         y: 496

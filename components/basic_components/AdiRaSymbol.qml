@@ -18,7 +18,7 @@ Rectangle {
     radius: 4
     border.color: (ra_current == ra_partner) ? "#ffff00" : "#ffffff";
     border.width: 2
-    visible: ra_current == ra_default
+    visible: ra_current != ra_default
 
     // Timer {
     //     id: hide_timer
