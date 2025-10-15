@@ -73,19 +73,35 @@ Item {
             // speed digits & lines
             const line_count = 10;
             const line_width = 10; 
+
+            // lines
             ctx.beginPath();
             for(let i = -line_count / 2; i < line_count / 2 + 2; i++) {
                 const line_alt = i * line_step + closest_below_line;
                 const line_y = alt_to_pix * line_alt; 
 
-                if (line_alt % 2 == 0 && line_alt > 0) {
-                    ctx.fillText(line_alt, self.width - 25, -line_y + 8);
-                }
-
                 if (line_alt >= 0) {
                     ctx.moveTo(self.width, -line_y);
                     ctx.lineTo(self.width - line_width, -line_y);
                     ctx.stroke();
+                }
+            }
+            ctx.closePath();
+
+            // numbers
+            ctx.beginPath();
+            ctx.strokeStyle = '#000001';
+            ctx.lineWidth = 1;
+            ctx.lineJoin = "round";
+            ctx.miterLimit = 2;
+
+            for(let i = -line_count / 2; i < line_count / 2 + 2; i++) {
+                const line_alt = i * line_step + closest_below_line;
+                const line_y = alt_to_pix * line_alt; 
+
+                if (line_alt % 2 == 0 && line_alt > 0) {
+                    ctx.strokeText(line_alt, self.width - 25, -line_y + 8); // outlined text
+                    ctx.fillText(line_alt, self.width - 25, -line_y + 8);
                 }
             }
             ctx.closePath();
@@ -98,6 +114,7 @@ Item {
                 const line_y = alt_to_pix * line_alt; 
 
                 if (line_alt % 2 == 0 && line_alt >= 0) {
+                    ctx.strokeText("0", self.width - 13, -line_y + 8);
                     ctx.fillText("0", self.width - 13, -line_y + 8);
                 }
             }

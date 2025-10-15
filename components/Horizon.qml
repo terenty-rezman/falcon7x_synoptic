@@ -29,7 +29,7 @@ Item {
 
             // draw sky rect
             ctx.strokeStyle = "#FFFFFF";
-            ctx.fillStyle = "#5887f6";
+            ctx.fillStyle = "#4da6ff";
             ctx.beginPath();
             ctx.rotate(-bank_deg / 180 * Math.PI);
             ctx.translate(0, pitch_deg * pitch_to_pix);

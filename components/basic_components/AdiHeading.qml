@@ -57,6 +57,8 @@ Item {
                 font.pixelSize: 26 
                 font.bold: true
                 horizontalAlignment: Text.AlignRight
+                style: Text.Outline 
+                styleColor: "#55000000"
             }
         }
 

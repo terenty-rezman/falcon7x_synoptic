@@ -6,7 +6,7 @@ Rectangle {
     property int mode: 0
     property int target_alt_ft: 2000 
 
-    property string text_color: (mode != 0) ? "#55ffff" : "#ff66ff"
+    property string text_color: (mode != 0) ? "#00ffff" : "#ff66ff"
 
     color: "transparent"
     width: 80

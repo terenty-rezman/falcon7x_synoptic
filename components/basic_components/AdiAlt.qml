@@ -78,18 +78,32 @@ Item {
 
             ctx.fillStyle = "#FFFFFF"
             ctx.beginPath();
+            // draw lines
             for(let i = -line_count / 2; i < line_count / 2 + 2; i++) {
                 const line_alt = i * line_step + closest_below_line;
                 const line_y = alt_to_pix * line_alt; 
-
-                if (line_alt % 2 == 0 && line_alt >= 0) {
-                    ctx.fillText(line_alt, self.width - 4, -line_y + 8);
-                }
 
                 if (line_alt >= 0) {
                     ctx.moveTo(0, -line_y);
                     ctx.lineTo(line_width, -line_y);
                     ctx.stroke();
+                }
+            }
+            ctx.closePath();
+
+            // draw numbers
+            ctx.beginPath();
+            ctx.strokeStyle = '#000001';
+            ctx.lineWidth = 1;
+            ctx.lineJoin = "round";
+            ctx.miterLimit = 2;
+            for(let i = -line_count / 2; i < line_count / 2 + 2; i++) {
+                const line_alt = i * line_step + closest_below_line;
+                const line_y = alt_to_pix * line_alt; 
+
+                if (line_alt % 2 == 0 && line_alt >= 0) {
+                    ctx.strokeText(line_alt, self.width - 4, -line_y + 8);
+                    ctx.fillText(line_alt, self.width - 4, -line_y + 8);
                 }
             }
             ctx.closePath();
@@ -101,6 +115,7 @@ Item {
             ctx.translate(0, center_y);
             ctx.translate(0, alt * alt_to_pix);
 
+            ctx.strokeStyle = '#fff';
             ctx.fillStyle = pattern;
             ctx.clearRect(0, (radio_alt - alt) * alt_to_pix, width, height);
             ctx.fillRect(0, (radio_alt - alt) * alt_to_pix, width, height);

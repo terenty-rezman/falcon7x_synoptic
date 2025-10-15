@@ -7,7 +7,7 @@ import "basic_components"
 
 Rectangle {
     anchors.fill: parent
-    color: "#C8761B"
+    color: "#c47a2c"
 
     property string side: "left" || "right" // set it from where component is instantiated
 
