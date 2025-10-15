@@ -14,7 +14,7 @@ Column {
         width: 134
         height: 33
         radius: 2
-        border.color: "#ffffffff";
+        border.color: "#ffffff";
         border.width: 1
 
 
@@ -63,7 +63,7 @@ Column {
                     text: "125.875" // изменить 
                     anchors.right: parent.right
                     anchors.rightMargin: 4
-                    color: "#66FF66"
+                    color: "#00FF00"
                     font.pixelSize: 18
                     font.bold: true
                     font.family: "Helvetica"
@@ -148,7 +148,7 @@ Column {
                     text: "111.10" // изменить 
                     anchors.right: parent.right
                     anchors.rightMargin: 4
-                    color: "#66FF66"
+                    color: "#00FF00"
                     font.pixelSize: 18
                     font.bold: true
                     font.family: "Helvetica"
