@@ -80,6 +80,7 @@ to_subscribe = [
     (Params["sim/cockpit2/gauges/indicators/altitude_ft_pilot"], 20, "udp"), # altitude
     (Params["sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot"], 20, "udp"), # heading
     (Params["sim/cockpit2/gauges/indicators/airspeed_kts_pilot"], 20, "udp"), # airspeed
+    (Params["sim/cockpit2/gauges/indicators/airspeed_kts_copilot"], 20, "udp"), # airspeed
     (Params["sim/cockpit2/gauges/indicators/vvi_fpm_pilot"], 20, "udp"), # vertical speed ft per min
     (Params["sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot"], 15, "udp"), # adi alt baro settings
     (Params["sim/cockpit2/clock_timer/local_time_hours"], None, "tcp"), # hours
@@ -107,4 +108,10 @@ to_subscribe = [
     (Params["sim/cockpit2/annunciators/reverser_deployed"], None, "tcp"), # thrust reverse
     (Params["sim/cockpit2/gauges/indicators/radio_altimeter_height_ft_pilot"], 10, "udp"), # radio altitude
     (Params["sim/custom/7x/z_ads_fail"], None, "tcp"), # failed ads id
+    (Params["sim/custom/7x/z_fms_pilot"], None, "tcp"), # curr fms
+    (Params["sim/custom/7x/z_fms_copilot"], None, "tcp"), # curr fms
+    (Params["sim/custom/7x/z_ra_pilot"], None, "tcp"), # curr ra
+    (Params["sim/custom/7x/z_ra_copilot"], None, "tcp"), # curr ra
+    (Params["sim/custom/7x/z_vor_pilot"], None, "tcp"), # curr vor
+    (Params["sim/custom/7x/z_vor_copilot"], None, "tcp"), # curr vor
 ]

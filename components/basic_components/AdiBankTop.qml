@@ -30,6 +30,15 @@ Item {
             color: "#5500ffff"
             visible: false
         }
+
+        Rectangle {
+            color: "#FFDE21"
+            width: 18
+            height: 4
+            x: parent.width/2 - width/2
+            y: parent.height/2 - height/2 - 129
+        }
+
         source: "../svg/ADI_BANK_ANGLE_TRIANGLE.svg"
 
         x: -180 + self.center_x
@@ -38,6 +47,5 @@ Item {
         height: 360
 
         rotation: -self.bank_deg
-
     }
 }

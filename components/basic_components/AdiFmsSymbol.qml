@@ -3,9 +3,9 @@ import QtQuick 2.15
 Rectangle {
     id: self
 
-    property int ads_self: 1
-    property int ads_partner: 3
-    property int ads_default: 0
+    property int fms_current: 1
+    property int fms_partner: 0
+    property int fms_default: 0
 
     // onAds_selfChanged: {
     //     self.visible = true;
@@ -16,9 +16,8 @@ Rectangle {
     width: 19
     height: 66
     radius: 4
-    visible: ads_self != ads_default
-    border.color: (ads_self == ads_partner) ? "#ffff00" : "#ffffff";
-    border.width: 2
+    border.color: (fms_current == fms_partner) ? "#ffff00" : "#ffffff";
+    border.width: (fms_current == fms_default) ? 0 : 2
 
     // Timer {
     //     id: hide_timer
@@ -33,9 +32,10 @@ Rectangle {
 
     Text {
         id: text_
-        text: "A\nD\nS\n" + self.ads_self
+        text: "F\nM\nS\n" + self.fms_current
         anchors.centerIn: parent
-        color: (ads_self == ads_partner) ? "#ffff00" : "#ffffff"
+        // color: (fms_current == fms_partner) ? "#ffff00" : "#ffffff"
+        color: "#ffffff"
         font.pixelSize: 14
         font.bold: true
         font.family: "Helvetica"

@@ -97,7 +97,8 @@ dref_indicators = [
     ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_bank", "bank_deg", None),
     ("sim/cockpit2/gauges/indicators/altitude_ft_pilot", None, "adi_alt", "altitude_ft", None),
     ("sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot", None, "adi_heading", "heading_deg", None),
-    ("sim/cockpit2/gauges/indicators/airspeed_kts_pilot", None, "adi_airspeed", "speed", None),
+    ("sim/cockpit2/gauges/indicators/airspeed_kts_pilot", None, "adi_airspeed", "speed", "adi_left"),
+    ("sim/cockpit2/gauges/indicators/airspeed_kts_copilot", None, "adi_airspeed", "speed", "adi_right"),
     ("sim/cockpit2/gauges/indicators/mach_pilot", None, "adi_airspeed", "mach", None),
     ("sim/cockpit2/gauges/indicators/vvi_fpm_pilot", None, "adi_vertical_speed", "vy_ft_per_min", None),
     ("sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot", None, "adi_alt", "baro_settings", None),
@@ -122,10 +123,10 @@ dref_indicators = [
     ("sim/custom/7x/z_ads_copilot", None, "adi_shared_data", "ads_self", "adi_right"),
     ("sim/custom/7x/z_ads_pilot", None, "adi_shared_data", "ads_partner", "adi_right"),
     ("sim/cockpit2/autopilot/altitude_dial_ft", None, "adi_alt", "target_alt_ft", None),
-    ("sim/custom/7x/z_irs_pilot", None, "adi_irs", "irs_self", "adi_left"),
-    ("sim/custom/7x/z_irs_copilot", None, "adi_irs", "irs_partner", "adi_left"),
-    ("sim/custom/7x/z_irs_copilot", None, "adi_irs", "irs_self", "adi_right"),
-    ("sim/custom/7x/z_irs_pilot", None, "adi_irs", "irs_partner", "adi_right"),
+    ("sim/custom/7x/z_irs_pilot", None, "adi_irs_symbol", "irs_current", "adi_left"),
+    ("sim/custom/7x/z_irs_copilot", None, "adi_irs_symbol", "irs_partner", "adi_left"),
+    ("sim/custom/7x/z_irs_copilot", None, "adi_irs_symbol", "irs_current", "adi_right"),
+    ("sim/custom/7x/z_irs_pilot", None, "adi_irs_symbol", "irs_partner", "adi_right"),
     ("sim/cockpit/autopilot/autopilot_mode", None, "adi_alt_symbol", "ap_mode", None),
     ("sim/cockpit2/autopilot/altitude_dial_ft", None, "adi_alt_symbol", "target_alt_ft", None),
     ("sim/cockpit2/autopilot/altitude_hold_armed", None, "adi_alt_symbol", "altitude_mode", None),
@@ -135,6 +136,21 @@ dref_indicators = [
     ("sim/cockpit2/autopilot/altitude_hold_armed", None, "adi_asel", "mode", None),
     ("sim/cockpit2/gauges/indicators/radio_altimeter_height_ft_pilot", None, "adi_alt", "radio_alt_ft", None),
     ("sim/custom/7x/z_ads_fail", None, "adi_shared_data", "ads_failed", None),
+
+    ("sim/custom/7x/z_fms_pilot", None, "adi_shared_data", "fms_self", "adi_left"),
+    ("sim/custom/7x/z_fms_copilot", None, "adi_shared_data", "fms_self", "adi_right"),
+    ("sim/custom/7x/z_fms_copilot", None, "adi_shared_data", "fms_partner", "adi_left"),
+    ("sim/custom/7x/z_fms_pilot", None, "adi_shared_data", "fms_partner", "adi_right"),
+
+    ("sim/custom/7x/z_ra_pilot", None, "adi_shared_data", "ra_self", "adi_left"),
+    ("sim/custom/7x/z_ra_copilot", None, "adi_shared_data", "ra_self", "adi_right"),
+    ("sim/custom/7x/z_ra_copilot", None, "adi_shared_data", "ra_partner", "adi_left"),
+    ("sim/custom/7x/z_ra_pilot", None, "adi_shared_data", "ra_partner", "adi_right"),
+
+    ("sim/custom/7x/z_vor_pilot", None, "adi_shared_data", "vor_self", "adi_left"),
+    ("sim/custom/7x/z_vor_copilot", None, "adi_shared_data", "vor_self", "adi_right"),
+    ("sim/custom/7x/z_vor_copilot", None, "adi_shared_data", "vor_partner", "adi_left"),
+    ("sim/custom/7x/z_vor_pilot", None, "adi_shared_data", "vor_partner", "adi_right"),
 ]
 
 dref_nested_dict = defaultdict(list)
