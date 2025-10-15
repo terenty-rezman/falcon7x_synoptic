@@ -47,7 +47,7 @@ Column {
             height: parent.height / 2
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            anchors.rightMargin: 2
+            anchors.leftMargin: 2
             anchors.bottomMargin: 5
 
             // линия 1 внутренней таблицы 1
@@ -83,7 +83,7 @@ Column {
                     text: "125.875" // изменить 
                     anchors.right: parent.right
                     anchors.rightMargin: 4
-                    color: "#6ee4d8"
+                    color: "#00FFFF"
                     font.pixelSize: 16
                     font.bold: true
                     font.family: "Helvetica"
@@ -123,7 +123,7 @@ Column {
         border.color: "#ffffffff";
         border.width: 1
 
-        // внутренняя таблица 1
+        // внутренняя таблица 2
         Column {
             spacing: 0
             x: 3
@@ -132,10 +132,10 @@ Column {
             height: parent.height / 2
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            anchors.rightMargin: 2
+            anchors.leftMargin: 2
             anchors.bottomMargin: 5
 
-            // линия 1 внутренней таблицы 1
+            // линия 1 внутренней таблицы 2
             Rectangle { 
                 color: "transparent"
                 width: parent.width
@@ -155,7 +155,7 @@ Column {
                 }
             }
 
-            // линия 2 внутренней таблицы 1
+            // линия 2 внутренней таблицы 2
             Rectangle { 
                 color: "transparent"
                 width: parent.width
@@ -168,7 +168,7 @@ Column {
                     text: "111.10" // изменить 
                     anchors.right: parent.right
                     anchors.rightMargin: 4
-                    color: "#6ee4d8"
+                    color: "#00FFFF"
                     font.pixelSize: 16
                     font.bold: true
                     font.family: "Helvetica"
