@@ -10,6 +10,7 @@ Item {
     property real speed: 100 
     property real mach: 0.0
     property real target_speed: 120 
+    property real ab_pos: 0.5
     property string fonts: "bold 26px sans-serif"
     property string small_fonts: "bold 20px sans-serif"
 
@@ -161,5 +162,11 @@ Item {
         text: self.target_speed.toFixed(0)
         anchors.right: parent.right
         anchors.bottom: parent.top
+    }
+
+    AdiSpeedAB {
+        x: 3
+        y: 170
+        ab_pos: self.ab_pos
     }
 }
