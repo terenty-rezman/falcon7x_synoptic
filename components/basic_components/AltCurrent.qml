@@ -17,7 +17,7 @@ Item {
         x: 10 
         y: -height/2
         text: Math.floor((altitude_ft / 100) / 10 % 100 / 10);
-        visible: ((altitude_ft / 100) > 100 && self.fail == false) > 100) ? true : false;
+        visible: ((altitude_ft / 100) > 100 && self.fail == false) ? true : false;
         color: "#00FC00"
         font.pixelSize: 26
         font.bold: true
