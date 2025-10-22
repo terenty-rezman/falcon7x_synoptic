@@ -25,7 +25,7 @@ Item {
     }
 
     Text {
-        x: 25 
+        anchors.right: roll_digit_1.right
         y: -height/2
         text: Math.floor((altitude_ft / 100) / 10);
         visible: ((altitude_ft / 100) > 10 && self.fail == false) ? true : false;
@@ -36,6 +36,7 @@ Item {
     }
 
     RollNumber1Digit {
+        id: roll_digit_1
         x: 38
         value: (altitude_ft / 100) * 10 % 100 / 10
         color: "#00FC00"
