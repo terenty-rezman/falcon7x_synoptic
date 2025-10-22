@@ -153,6 +153,8 @@ dref_indicators = [
     ("sim/custom/7x/z_vor_copilot", None, "adi_shared_data", "vor_self", "adi_right"),
     ("sim/custom/7x/z_vor_copilot", None, "adi_shared_data", "vor_partner", "adi_left"),
     ("sim/custom/7x/z_vor_pilot", None, "adi_shared_data", "vor_partner", "adi_right"),
+
+    ("sim/custom/7x/z_no_slip_comp", None, "adi_shared_data", "no_slip_comp", None),
 ]
 
 dref_nested_dict = defaultdict(list)

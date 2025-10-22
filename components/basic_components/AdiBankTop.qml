@@ -11,6 +11,8 @@ Item {
     property int center_x: 324
     property int center_y: 222
 
+    property bool no_slip_comp: false
+
     Rectangle {
         width: 684 / 2
         color: "#55ff00ff"
@@ -37,6 +39,7 @@ Item {
             height: 4
             x: parent.width/2 - width/2
             y: parent.height/2 - height/2 - 129
+            visible: self.no_slip_comp
         }
 
         source: "../svg/ADI_BANK_ANGLE_TRIANGLE.svg"

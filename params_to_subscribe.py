@@ -116,5 +116,5 @@ to_subscribe = [
     (Params["sim/custom/7x/z_ra_copilot"], None, "tcp"), # curr ra
     (Params["sim/custom/7x/z_vor_pilot"], None, "tcp"), # curr vor
     (Params["sim/custom/7x/z_vor_copilot"], None, "tcp"), # curr vor
-
+    (Params["sim/custom/7x/z_no_slip_comp"], None, "tcp"), # yellow triangle beta bank
 ]

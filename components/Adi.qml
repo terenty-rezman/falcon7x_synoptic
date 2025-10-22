@@ -33,6 +33,8 @@ Rectangle {
         property int vor_self: 0
         property int vor_partner: 0
 
+        property int no_slip_comp: 0 // ads id with no slip comp
+
         property bool current_ads_fail: ads_self == ads_failed
     }
 
@@ -67,6 +69,7 @@ Rectangle {
 
     AdiBankTop {
         objectName: "adi_bank"
+        no_slip_comp: adi_shared_data.no_slip_comp == adi_shared_data.ads_self
     }
 
     AdiAsel {
