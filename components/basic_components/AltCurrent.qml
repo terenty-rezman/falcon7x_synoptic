@@ -17,7 +17,7 @@ Item {
         x: 10 
         y: -height/2
         text: Math.floor((altitude_ft / 100) / 10 % 100 / 10);
-        visible: ((altitude_ft / 100 && self.fail == false) > 100) ? true : false;
+        visible: ((altitude_ft / 100) > 100 && self.fail == false) > 100) ? true : false;
         color: "#00FC00"
         font.pixelSize: 26
         font.bold: true
@@ -25,9 +25,9 @@ Item {
     }
 
     Text {
-        anchors.right: roll_digit_1.right
+        x: 25 
         y: -height/2
-        text: Math.floor((altitude_ft / 100) / 10);
+        text: Math.floor((altitude_ft / 100) / 10 % 10);
         visible: ((altitude_ft / 100) > 10 && self.fail == false) ? true : false;
         color: "#00FC00"
         font.pixelSize: 26
@@ -36,7 +36,6 @@ Item {
     }
 
     RollNumber1Digit {
-        id: roll_digit_1
         x: 38
         value: (altitude_ft / 100) * 10 % 100 / 10
         color: "#00FC00"
