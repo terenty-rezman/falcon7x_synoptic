@@ -118,6 +118,11 @@ Rectangle {
         y: 413
     }
 
+    AdiFlapsSlats {
+        x: 26
+        y: 411
+    }
+
     AdiAds {
         objectName: "adi_ads_symbol"
         x: 614
