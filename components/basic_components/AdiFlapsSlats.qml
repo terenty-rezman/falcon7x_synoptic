@@ -42,6 +42,8 @@ Item {
             border.color: "#55000000";
             border.width: 1
 
+            visible: self.airbrake_pos > 0
+
             property var map_args: [0, 0.5, 1]
             property var map_vals: [7, -8, -26]
 

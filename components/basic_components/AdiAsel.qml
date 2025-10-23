@@ -15,7 +15,7 @@ Rectangle {
     border.color: "#55ffffff";
     border.width: 2
 
-    Text {
+    AdiMagentaText {
         id: text_
         text: "FL" + Math.round(self.target_alt_ft /  100);
         anchors.centerIn: parent
@@ -32,7 +32,7 @@ Rectangle {
         width: asel_text.width + 6
         color: "#5887f6"
 
-        Text {
+        AdiMagentaText {
             id: asel_text
             text: "ASEL"
             anchors.centerIn: parent
