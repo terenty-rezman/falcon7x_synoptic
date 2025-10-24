@@ -7,9 +7,9 @@ Item {
     height: 288
 
     property bool fail: true
-    property real altitude_ft: 0 
+    property real altitude_ft: 1000 
     property real target_alt_ft: 0 
-    property real radio_alt_ft: 0
+    property real radio_alt_ft: 200 
     property real baro_settings: 29.92
     property string fonts: "bold 26px sans-serif"
 

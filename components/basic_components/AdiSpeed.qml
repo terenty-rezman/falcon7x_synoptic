@@ -6,10 +6,13 @@ Item {
     width: 63
     height: 288
 
-    property bool fail: true
-    property real speed: 100 
+    property bool fail: false
+    property real speed: 90
     property real mach: 0.0
     property real target_speed: 120 
+    property real high_speed: 130
+    property real low_speed: 100
+    property real stall_speed: 70
     property string fonts: "bold 26px sans-serif"
     property string small_fonts: "bold 20px sans-serif"
 
@@ -33,10 +36,15 @@ Item {
 
     Canvas {
         id: canvas
-        anchors.fill: parent
+        // anchors.fill: parent
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        width: parent.width + 20
 
         Component.onCompleted: {
             canvas.loadImage("../svg/ADI_VELOCITY_SETPOINT.svg"); 
+            canvas.loadImage("../png/max_speed_pattern.png"); 
         }
 
         onPaint: {
@@ -70,6 +78,24 @@ Item {
             ctx.translate(0, speed * alt_to_pix);
             ctx.drawImage("../svg/ADI_VELOCITY_SETPOINT.svg", 50, (-target_speed) * alt_to_pix - setpoint_height / 2);
 
+            // draw high speed cue (vmo/mmo)
+            ctx.lineWidth = 2;
+            const pattern = ctx.createPattern("../png/max_speed_pattern.png", "repeat");
+            ctx.fillStyle = pattern;
+            const high_speed_end = (-high_speed / 10) * alt_to_pix;
+            ctx.fillRect(self.width, high_speed_end, 5, high_speed_end - self.height);
+            ctx.strokeRect(self.width, high_speed_end, 5, high_speed_end - self.height);
+
+            // draw low speed cue
+            ctx.fillStyle = "#FFFF00";
+            const low_speed_start = (-low_speed / 10) * alt_to_pix;
+            ctx.fillRect(self.width, low_speed_start, 5,  -low_speed_start);
+
+            // draw stall speed cue
+            ctx.fillStyle = "#FF6666"
+            const stall_speed_start = (-stall_speed / 10) * alt_to_pix;
+            ctx.fillRect(self.width, stall_speed_start, 5, -stall_speed_start);
+
             // speed digits & lines
             const line_count = 10;
             const line_width = 10; 
@@ -91,6 +117,7 @@ Item {
             // numbers
             ctx.beginPath();
             ctx.strokeStyle = '#000001';
+            ctx.fillStyle = "#FFFFFF";
             ctx.lineWidth = 1;
             ctx.lineJoin = "round";
             ctx.miterLimit = 2;
