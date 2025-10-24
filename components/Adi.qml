@@ -74,7 +74,7 @@ Rectangle {
 
     AdiAsel {
         objectName: "adi_asel"
-        x: 548
+        x: 547
         y: 14
     }
 
