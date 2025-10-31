@@ -6,6 +6,8 @@ Image {
     property real n2: 0
     property int state: 1
 
+    property bool failed_off: true
+
     width: 50
     height: 118
     source: "images/ELEC_GEN_NORMAL_OPERATION.svg"
@@ -39,6 +41,26 @@ Image {
     }
 
     states: [
+        State {
+            name: "failed_off"
+            when: self.failed_off == true
+
+            PropertyChanges {
+                target: self
+                source: "images/ELEC_GEN_GLC_CLOSED_WHEN.svg"
+            }
+
+            PropertyChanges {
+                target: text_
+                color: "#000000"
+            }
+
+            PropertyChanges {
+                target: off
+                visible: false
+            }
+        },
+
         State {
             name: "glc_closed"
             when: self.n2 < 51.9 

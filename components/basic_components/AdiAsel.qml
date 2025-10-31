@@ -1,6 +1,6 @@
 import QtQuick 2.15
 
-Rectangle {
+Item {
     id: self
 
     property int mode: 0
@@ -8,14 +8,17 @@ Rectangle {
 
     property string text_color: (mode != 0) ? "#00ffff" : "#ff66ff"
 
-    color: "transparent"
     width: 80
-    height: 55
-    radius: 4
-    border.color: "#55ffffff";
-    border.width: 2
+    height: 58
 
-    Text {
+    Image {
+        source: "../svg/ADI_ASEL.svg"
+
+        width: 80
+        height: 58
+    }
+
+    AdiMagentaText {
         id: text_
         text: "FL" + Math.round(self.target_alt_ft /  100);
         anchors.centerIn: parent
@@ -25,14 +28,13 @@ Rectangle {
         font.family: "Helvetica"
     }
 
-    Rectangle {
+    Item {
         anchors.horizontalCenter: parent.horizontalCenter
         y: -height / 2
         height: asel_text.height
         width: asel_text.width + 6
-        color: "#5887f6"
 
-        Text {
+        AdiMagentaText {
             id: asel_text
             text: "ASEL"
             anchors.centerIn: parent

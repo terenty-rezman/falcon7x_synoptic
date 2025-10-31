@@ -78,7 +78,9 @@ to_subscribe = [
     (Params["sim/cockpit2/gauges/indicators/pitch_electric_deg_pilot"], 24, "udp"), #  # max thrust degree of purple circle on synoptic indicator
     (Params["sim/cockpit2/gauges/indicators/roll_electric_deg_pilot"], 24, "udp"), #  # max thrust degree of purple circle on synoptic indicator
     (Params["sim/cockpit2/gauges/indicators/altitude_ft_pilot"], 20, "udp"), # altitude
+    (Params["sim/cockpit2/gauges/indicators/altitude_ft_copilot"], 20, "udp"), # altitude
     (Params["sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot"], 20, "udp"), # heading
+    (Params["sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_copilot"], 20, "udp"), # heading
     (Params["sim/cockpit2/gauges/indicators/airspeed_kts_pilot"], 20, "udp"), # airspeed
     (Params["sim/cockpit2/gauges/indicators/airspeed_kts_copilot"], 20, "udp"), # airspeed
     (Params["sim/cockpit2/gauges/indicators/vvi_fpm_pilot"], 20, "udp"), # vertical speed ft per min
@@ -114,7 +116,7 @@ to_subscribe = [
     (Params["sim/custom/7x/z_ra_copilot"], None, "tcp"), # curr ra
     (Params["sim/custom/7x/z_vor_pilot"], None, "tcp"), # curr vor
     (Params["sim/custom/7x/z_vor_copilot"], None, "tcp"), # curr vor
-    (Params["sim/custom/7x/z_no_slip_comp"], None, "tcp"), # no slip compensation
     (Params["sim/flightmodel/controls/flaprat"], 5, "udp"), # flaps pos
     (Params["sim/flightmodel/controls/sbrkrat"], 5, "udp"), # airbrakes pos
+    (Params["sim/custom/7x/z_no_slip_comp"], None, "tcp"), # yellow triangle beta bank
 ]

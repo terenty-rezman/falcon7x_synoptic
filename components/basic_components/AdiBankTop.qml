@@ -39,7 +39,7 @@ Item {
             height: 4
             x: parent.width/2 - width/2
             y: parent.height/2 - height/2 - 129
-            visible: no_slip_comp
+            visible: self.no_slip_comp
         }
 
         source: "../svg/ADI_BANK_ANGLE_TRIANGLE.svg"

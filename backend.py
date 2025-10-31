@@ -95,8 +95,10 @@ dref_indicators = [
     ("sim/cockpit2/gauges/indicators/pitch_electric_deg_pilot", None, "adi_horizon", "pitch_deg", None),
     ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_horizon", "bank_deg", None),
     ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_bank", "bank_deg", None),
-    ("sim/cockpit2/gauges/indicators/altitude_ft_pilot", None, "adi_alt", "altitude_ft", None),
-    ("sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot", None, "adi_heading", "heading_deg", None),
+    ("sim/cockpit2/gauges/indicators/altitude_ft_pilot", None, "adi_alt", "altitude_ft", "adi_left"),
+    ("sim/cockpit2/gauges/indicators/altitude_ft_copilot", None, "adi_alt", "altitude_ft", "adi_right"),
+    ("sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot", None, "adi_heading", "heading_deg", "adi_left"),
+    ("sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_copilot", None, "adi_heading", "heading_deg", "adi_right"),
     ("sim/cockpit2/gauges/indicators/airspeed_kts_pilot", None, "adi_airspeed", "speed", "adi_left"),
     ("sim/cockpit2/gauges/indicators/airspeed_kts_copilot", None, "adi_airspeed", "speed", "adi_right"),
     ("sim/cockpit2/gauges/indicators/mach_pilot", None, "adi_airspeed", "mach", None),
@@ -151,9 +153,8 @@ dref_indicators = [
     ("sim/custom/7x/z_vor_copilot", None, "adi_shared_data", "vor_self", "adi_right"),
     ("sim/custom/7x/z_vor_copilot", None, "adi_shared_data", "vor_partner", "adi_left"),
     ("sim/custom/7x/z_vor_pilot", None, "adi_shared_data", "vor_partner", "adi_right"),
-
-    ("sim/custom/7x/z_no_slip_comp", None, "adi_shared_data", "no_slip_comp_ads", None),
     ("sim/flightmodel/controls/sbrkrat", None, "adi_airspeed", "ab_pos", None),
+    ("sim/custom/7x/z_no_slip_comp", None, "adi_shared_data", "no_slip_comp", None),
 ]
 
 dref_nested_dict = defaultdict(list)
