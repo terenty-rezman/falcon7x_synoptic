@@ -119,6 +119,7 @@ Rectangle {
     }
 
     AdiFlapsSlats {
+        objectName: "adi_flaps_slats"
         x: 26
         y: 411
     }

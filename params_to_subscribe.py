@@ -119,4 +119,8 @@ to_subscribe = [
     (Params["sim/flightmodel/controls/flaprat"], 5, "udp"), # flaps pos
     (Params["sim/flightmodel/controls/sbrkrat"], 5, "udp"), # airbrakes pos
     (Params["sim/custom/7x/z_no_slip_comp"], None, "tcp"), # yellow triangle beta bank
+    (Params["sim/operation/failures/rel_genera0"], None, "tcp"), # generator failure 1
+    (Params["sim/operation/failures/rel_genera1"], None, "tcp"), # generator failure 2
+    (Params["sim/operation/failures/rel_genera2"], None, "tcp"), # generator failure 3
+    (Params["sim/custom/7x/valeurstall"], 5, "udp"), # vstall
 ]

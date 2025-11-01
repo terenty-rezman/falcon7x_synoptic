@@ -52,3 +52,7 @@ export function bisectLeft(arr, value, lo=0, hi=arr.length) {
 
   return lo;
 }
+
+export function isClose(a, b, epsilon = Number.EPSILON) {
+  return Math.abs(a - b) < epsilon;
+}

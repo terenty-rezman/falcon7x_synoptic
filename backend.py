@@ -58,11 +58,11 @@ dref_indicators = [
     # ("sim/cockpit2/electrical/battery_on", 0, "elec_bat_1", "state", None),
     ("sim/cockpit2/electrical/battery_on[0]", None, "elec_bat_1", "state", None),
     ("sim/cockpit2/electrical/battery_on", 1, "elec_bat_2", "state", None),
-    ("sim/cockpit2/electrical/generator_on", 0, "elec_gen_1", "state", None),
+    ("sim/cockpit2/electrical/generator_on", 0, "elec_gen_1", "on", None),
     ("sim/cockpit2/engine/indicators/N2_percent[0]", None, "elec_gen_1", "n2", None),
-    ("sim/cockpit2/electrical/generator_on", 1, "elec_gen_2", "state", None),
+    ("sim/cockpit2/electrical/generator_on", 1, "elec_gen_2", "on", None),
     ("sim/cockpit2/engine/indicators/N2_percent[1]", None, "elec_gen_2", "n2", None),
-    ("sim/cockpit2/electrical/generator_on", 2, "elec_gen_3", "state", None),
+    ("sim/cockpit2/electrical/generator_on", 2, "elec_gen_3", "on", None),
     ("sim/cockpit2/engine/indicators/N2_percent[2]", None, "elec_gen_3", "n2", None),
     ("sim/cockpit2/electrical/APU_generator_on", None, "elec_apu", "master_on", None),
     ("sim/cockpit2/electrical/APU_N1_percent", None, "elec_apu", "n1", None),
@@ -154,7 +154,14 @@ dref_indicators = [
     ("sim/custom/7x/z_vor_copilot", None, "adi_shared_data", "vor_partner", "adi_left"),
     ("sim/custom/7x/z_vor_pilot", None, "adi_shared_data", "vor_partner", "adi_right"),
     ("sim/flightmodel/controls/sbrkrat", None, "adi_airspeed", "ab_pos", None),
+    ("sim/flightmodel/controls/sbrkrat", None, "adi_flaps_slats", "airbrake_pos", None),
+    ("sim/flightmodel/controls/flaprat", None, "adi_flaps_slats", "flaps_pos", None),
     ("sim/custom/7x/z_no_slip_comp", None, "adi_shared_data", "no_slip_comp", None),
+    ("sim/operation/failures/rel_genera0", None, "elec_gen_1", "failed_off", None),
+    ("sim/operation/failures/rel_genera1", None, "elec_gen_2", "failed_off", None),
+    ("sim/operation/failures/rel_genera2", None, "elec_gen_3", "failed_off", None),
+
+    ("sim/custom/7x/valeurstall", None, "adi_airspeed", "stall_speed", None),
 ]
 
 dref_nested_dict = defaultdict(list)

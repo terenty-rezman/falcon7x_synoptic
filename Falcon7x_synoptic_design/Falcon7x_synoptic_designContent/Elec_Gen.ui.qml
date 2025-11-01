@@ -4,9 +4,25 @@ Image {
     id: self
     property alias text: text_.text
     property real n2: 0
-    property int state: 1
 
+    property int on: 1
     property bool failed_off: true
+
+    property int my_state: 0
+
+    onOnChanged: set_state() 
+    onFailed_offChanged: set_state() 
+
+    function set_state() {
+        if (failed_off) {
+            self.my_state = 2;
+        }
+        else if(on) {
+            self.my_state = 1
+        } else {
+            self.my_state = 0;
+        }
+    }
 
     width: 50
     height: 118
@@ -43,7 +59,7 @@ Image {
     states: [
         State {
             name: "failed_off"
-            when: self.failed_off == true
+            when: self.my_state == 2
 
             PropertyChanges {
                 target: self
@@ -83,7 +99,7 @@ Image {
 
         State {
             name: "normal"
-            when: self.state === 1
+            when: self.my_state == 1
 
             PropertyChanges {
                 target: self
@@ -103,7 +119,7 @@ Image {
 
         State {
             name: "open_not_ready"
-            when: self.state === 0
+            when: self.my_state == 0
 
             PropertyChanges {
                 target: self

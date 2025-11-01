@@ -14,15 +14,17 @@ Item {
         color: "transparent"
 
         AdiWhiteText {
+            id: clean_text
             text: "CLEAN"
             anchors.centerIn: parent
             horizontalAlignment: Text.AlignHCenter
-            visible: self.flaps_pos == 0 && self.airbrake_pos == 0
+            visible: self.flaps_pos < 0.1 && self.airbrake_pos < 0.1
         }
     }
 
     Item {
-        visible: self.flaps_pos != 0 || self.airbrake_pos != 0
+        visible: self.flaps_pos > 0.1 || self.airbrake_pos > 0.1
+
         Image {
             source: "../svg/ADI_SLAT_DIAL.svg"
 
@@ -42,7 +44,7 @@ Item {
             border.color: "#55000000";
             border.width: 1
 
-            visible: self.airbrake_pos > 0
+            visible: self.airbrake_pos > 0.1
 
             property var map_args: [0, 0.5, 1]
             property var map_vals: [7, -8, -26]
@@ -60,7 +62,7 @@ Item {
             width: 61
             height: 16
 
-            property var map_args: [0, 0.33, 0.66, 1]
+            property var map_args: [0, 0.225, 0.5, 1]
             property var map_vals: [0, 7, 19, 38]
             
             transform: Rotation { origin.x: 5; origin.y: 8; angle: map_flaps(self.flaps_pos) } // [0 7 19 38]
@@ -71,7 +73,7 @@ Item {
             x: 56
             y: -7
             text: "2"
-            color: (self.airbrake_pos == airbrake.map_args[2]) ? "#ff66ff" : "#ffffff"
+            color: (Helpers.isClose(self.airbrake_pos, airbrake.map_args[2], 0.01)) ? "#ff66ff" : "#ffffff"
             font.pixelSize: 12
             font.bold: true
             font.family: "Helvetica"
@@ -84,7 +86,7 @@ Item {
             x: 62
             y: 4
             text: "1"
-            color: (self.airbrake_pos == airbrake.map_args[1]) ? "#ff66ff" : "#ffffff"
+            color: (Helpers.isClose(self.airbrake_pos, airbrake.map_args[1], 0.01)) ? "#ff66ff" : "#ffffff"
             font.pixelSize: 12
             font.bold: true
             font.family: "Helvetica"
@@ -110,7 +112,7 @@ Item {
             x: 83
             y: 25
             text: "1"
-            color: (self.flaps_pos == flaps.map_args[1]) ? "#ff66ff" : "#ffffff"
+            color: (Helpers.isClose(self.flaps_pos, flaps.map_args[1], 0.01)) ? "#ff66ff" : "#ffffff"
             font.pixelSize: 12
             font.bold: true
             font.family: "Helvetica"
@@ -123,7 +125,7 @@ Item {
             x: 77
             y: 40
             text: "2"
-            color: (self.flaps_pos == flaps.map_args[2]) ? "#ff66ff" : "#ffffff"
+            color: (Helpers.isClose(self.flaps_pos, flaps.map_args[2], 0.01)) ? "#ff66ff" : "#ffffff"
             font.pixelSize: 12
             font.bold: true
             font.family: "Helvetica"
@@ -136,7 +138,7 @@ Item {
             x: 69
             y: 57
             text: "3"
-            color: (self.flaps_pos == flaps.map_args[3]) ? "#ff66ff" : "#ffffff"
+            color: (Helpers.isClose(self.flaps_pos, flaps.map_args[3], 0.01)) ? "#ff66ff" : "#ffffff"
             font.pixelSize: 12
             font.bold: true
             font.family: "Helvetica"
@@ -148,13 +150,15 @@ Item {
             x: -14
             y: 15
 
+            visible: (Helpers.isClose(flaps_pos, 0, 0.01)) ? false : true
+
             Image {
                 source: "../svg/ADI_SLAT_ARROW.svg"
 
                 width: 13
                 height: 24
                 
-                visible: false
+                visible: (0 < flaps_pos && flaps_pos < flaps.map_args[1]) ? true : false
             }
 
             Image {
@@ -162,6 +166,7 @@ Item {
 
                 width: 16
                 height: 35
+                visible: (flaps_pos >= flaps.map_args[1]) ? true : false
             }
         }
     }
