@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Studio.Components
-import QtCharts
 
 Item {
     id: _item
@@ -17,44 +16,167 @@ Item {
         enabled: true
         fillMode: Image.PreserveAspectFit
     }*/
-    Rectangle {
-        id: rectangle6
-        x: 116
+    GroupItem {
+        objectName: "fuel_pipe_t1t3"
+
+        property int state: 3
+
+        Fuel_rect_pipe {
+            x: 116
+            y: 25
+            width: 207
+            height: 5
+
+            state: parent.state
+        }
+
+        Fuel_rect_pipe {
+            x: 349
+            y: 25
+            width: 208
+            height: 5
+
+            state: parent.state
+        }
+    }
+
+    GroupItem {
+        objectName: "fuel_pipe_t1t2"
+
+        property int state: 0
+
+        Fuel_rect_pipe {
+            id: rectangle6
+            x: 116
+            y: 45
+            width: 89
+            height: 5
+
+            state: parent.state
+        }
+
+        Fuel_rect_pipe {
+            id: rectangle
+            x: 232
+            y: 45
+            width: 51
+            height: 5
+
+            state: parent.state
+        }
+
+        Fuel_rect_pipe {
+            id: rectangle1
+            x: 288
+            y: 55
+            width: 5
+            height: 85
+
+            state: parent.state
+        }
+
+        Fuel_arc_pipe {
+            id: arc
+            x: 273
+            y: 45
+            width: 20
+            height: 20
+            rotation: 0
+
+            state: parent.state
+        }
+
+        Fuel_arc_pipe {
+            id: arc1
+            x: 288
+            y: 130
+            width: 20
+            height: 20
+
+            rotation: 180
+
+            state: parent.state
+        }
+
+        Fuel_rect_pipe {
+            id: rectangle2
+            x: 298
+            y: 145
+            width: 22
+            height: 5
+
+            state: parent.state
+        }
+    }
+
+    GroupItem {
+        objectName: "fuel_pipe_t2t3"
+        x: 353
         y: 45
-        width: 89
-        height: 5
-        color: "#ffffff"
-        border.color: "#ffffff"
-    }
 
-    Rectangle {
-        id: rectangle7
-        x: 116
-        y: 25
-        width: 207
-        height: 5
-        color: "#ffffff"
-        border.color: "#ffffff"
-    }
+        property int state: 1
 
-    Rectangle {
-        id: rectangle8
-        x: 349
-        y: 25
-        width: 208
-        height: 5
-        color: "#ffffff"
-        border.color: "#ffffff"
-    }
+        Fuel_rect_pipe {
+            id: rectangle9
+            x: 117
+            y: 0
+            width: 87
+            height: 5
 
-    Rectangle {
-        id: rectangle9
-        x: 470
-        y: 45
-        width: 87
-        height: 5
-        color: "#ffffff"
-        border.color: "#ffffff"
+            state: parent.state
+        }
+
+        Fuel_rect_pipe {
+            id: rectangle3
+            x: 0
+            y: 100
+            width: 25
+            height: 5
+
+            state: parent.state
+        }
+
+        Fuel_rect_pipe {
+            id: rectangle5
+            x: 40
+            y: 0
+            width: 50
+            height: 5
+
+            state: parent.state
+        }
+
+        Fuel_rect_pipe {
+            id: rectangle4
+            x: 30
+            y: 10
+            width: 5
+            height: 85
+
+            state: parent.state
+        }
+
+        Fuel_arc_pipe {
+            id: arc2
+            x: 15
+            y: 85
+            width: 20
+            height: 20
+            rotation: 90
+
+            state: parent.state
+        }
+
+        Fuel_arc_pipe {
+            id: arc3
+            x: 30
+            y: 0
+            width: 20
+            height: 20
+            rotation: -90
+
+            state: parent.state
+        }
     }
 
     Rectangle {
@@ -275,65 +397,6 @@ Item {
         rotation: 0
     }
 
-    GroupItem {
-        x: 232
-        y: 45
-
-        Rectangle {
-            id: rectangle
-            x: 0
-            y: 0
-            width: 51
-            height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
-        }
-
-        Rectangle {
-            id: rectangle1
-            x: 56
-            y: 10
-            width: 5
-            height: 85
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
-        }
-
-        ArcItem {
-            id: arc
-            x: 41
-            y: 0
-            width: 20
-            height: 20
-            strokeWidth: 5
-            rotation: 0
-            strokeColor: "#4dd34b"
-            fillColor: "#00000000"
-        }
-
-        ArcItem {
-            id: arc1
-            x: 56
-            y: 85
-            width: 20
-            height: 20
-            strokeWidth: 5
-            strokeColor: "#4dd34b"
-            rotation: 180
-            fillColor: "#00000000"
-        }
-
-        Rectangle {
-            id: rectangle2
-            x: 66
-            y: 100
-            width: 22
-            height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
-        }
-    }
     Text {
         id: _text
         x: 38
@@ -384,66 +447,6 @@ Item {
         font.letterSpacing: 0.8
         font.pixelSize: 17
         font.family: "Arial"
-    }
-
-    GroupItem {
-        x: 353
-        y: 45
-
-        Rectangle {
-            id: rectangle3
-            x: 0
-            y: 100
-            width: 25
-            height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
-        }
-
-        ArcItem {
-            id: arc2
-            x: 15
-            y: 85
-            width: 20
-            height: 20
-            strokeWidth: 5
-            strokeColor: "#4dd34b"
-            rotation: 90
-            fillColor: "#00000000"
-        }
-
-        Rectangle {
-            id: rectangle4
-            x: 30
-            y: 10
-            width: 5
-            height: 85
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
-        }
-
-        ArcItem {
-            id: arc3
-            x: 30
-            y: 0
-            width: 20
-            height: 20
-            strokeWidth: 5
-            strokeColor: "#4dd34b"
-            rotation: -90
-            fillColor: "#00000000"
-        }
-
-        Rectangle {
-            id: rectangle5
-            x: 40
-            y: 0
-            width: 50
-            height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
-        }
     }
 
     GroupItem {

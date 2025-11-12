@@ -75,5 +75,9 @@ Item {
         ElecTab {
 
         }
+
+        FuelTab {
+
+        }
     }
 }

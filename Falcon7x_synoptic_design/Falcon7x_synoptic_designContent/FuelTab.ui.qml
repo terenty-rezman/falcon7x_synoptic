@@ -30,6 +30,15 @@ Rectangle {
         enabled: true
         fillMode: Image.PreserveAspectFit
     }
+
+    Fuel_pipes {
+        id: _item
+        height: 342
+        width: 684
+        x: 0
+        y: 0
+    }
+
     Fuel_Pump {
         id: fuel_Pump
         x: 94
@@ -454,14 +463,6 @@ Rectangle {
         font.family: "Arial"
     }
 
-    Fuel_pipes {
-        id: _item
-        height: 342
-        z: 1
-        width: 684
-        x: 0
-        y: 0
-    }
     Fuel_temp_indicator {
         id: fuel_temp_indicator
         x: 469

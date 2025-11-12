@@ -126,7 +126,7 @@ Item {
         x: 20 
         y: 22
         text: "START"
-        color: (self.start == 1) ? "#00FC00" : "#efd20f"
+        color: (self.start < 2) ? "#00FC00" : "#efd20f"
         font.pixelSize: 18
         font.bold: true
         visible: self.start > 0

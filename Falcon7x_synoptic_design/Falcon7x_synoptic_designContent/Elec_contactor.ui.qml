@@ -50,6 +50,21 @@ Image {
                 target: text_
                 visible: true
             }
+        },
+
+        State {
+            name: "open_yellow"
+            when: self.state === 2
+
+            PropertyChanges {
+                target: self
+                source: "images/ELEC_CONTACTOR_LH_ISOL_CONTACTOR_OPEN_AND_NO_FAULT.svg"
+            }
+
+            PropertyChanges {
+                target: text_
+                visible: true
+            }
         }
     ]
 }

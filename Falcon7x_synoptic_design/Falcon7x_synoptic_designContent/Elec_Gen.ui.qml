@@ -63,7 +63,7 @@ Image {
 
             PropertyChanges {
                 target: self
-                source: "images/ELEC_GEN_GLC_CLOSED_WHEN.svg"
+                source: "images/ELEC_GEN_FAULT_OR_READY_TO_LOAD_AND_NO_MAIN_BUS.svg"
             }
 
             PropertyChanges {
