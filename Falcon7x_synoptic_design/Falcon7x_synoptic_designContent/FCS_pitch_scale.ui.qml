@@ -83,7 +83,15 @@ Item {
         font.pixelSize: 19
         font.family: "Arial"
     }
-
+    Rectangle {
+        id: rectangle12
+        x: 38
+        y: 77
+        width: 18
+        height: 5
+        color: "#00ff00"
+        border.color: "#00555555"
+    }
     Rectangle {
         id: rectangle4
         x: 34
@@ -162,16 +170,6 @@ Item {
         width: 7
         height: 2
         color: "#555555"
-        border.color: "#00555555"
-    }
-
-    Rectangle {
-        id: rectangle12
-        x: 38
-        y: 77
-        width: 18
-        height: 5
-        color: "#00ff00"
         border.color: "#00555555"
     }
 
