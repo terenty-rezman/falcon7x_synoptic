@@ -31,6 +31,21 @@ Item {
 
     states: [
         State {
+            name: "fail"
+            when: self.state === 2
+
+            PropertyChanges {
+                target: rectangle1
+                color: self.yellow
+            }
+
+            PropertyChanges {
+                target: rectangle2
+                color: self.yellow
+            }
+        },
+
+        State {
             name: "on"
             when: self.state === 1
 

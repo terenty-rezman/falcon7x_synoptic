@@ -54,7 +54,7 @@ Image {
 
         State {
             name: "open_yellow"
-            when: self.state === 2
+            when: self.state === 3
 
             PropertyChanges {
                 target: self
@@ -63,7 +63,7 @@ Image {
 
             PropertyChanges {
                 target: text_
-                visible: true
+                visible: false
             }
         }
     ]

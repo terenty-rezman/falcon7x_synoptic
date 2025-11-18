@@ -79,7 +79,7 @@ Image {
 
         State {
             name: "glc_closed"
-            when: self.n2 < 51.9 
+            when: self.n2 < 48.0
 
             PropertyChanges {
                 target: self
