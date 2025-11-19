@@ -58,42 +58,69 @@ Rectangle {
     }
 
     Fuel_valve {
+        objectName: "fuel_xtk_13"
         id: fuel_valve
         x: 321
         y: 13
-        width: 30
-        height: 30
-        source: "images/FUEL_VALVE_CLOSED_31_31.svg"
+
+        text: "X-TK"
+        arrows_visible: true
+        text_above: true
     }
 
     Fuel_valve {
+        objectName: "fuel_xtk_23"
         id: fuel_valve1
         x: 442
         y: 33
+
+        text: "X-TK"
+        arrows_visible: true
+        text_above: false
     }
 
     Fuel_valve {
+        objectName: "fuel_xtk_12"
         id: fuel_valve2
         x: 204
         y: 33
+
+        text: "X-TK"
+        arrows_visible: true
+        text_above: false
     }
 
     Fuel_valve {
+        objectName: "fuel_xbp_12"
         id: fuel_valve3
         x: 196
         y: 211
+
+        text: "X-BP"
+        arrows_visible: false
+        text_above: true
     }
 
     Fuel_valve {
+        objectName: "fuel_xbp_13"
         id: fuel_valve4
         x: 321
         y: 305
+
+        text: "X-BP"
+        arrows_visible: false
+        text_above: true
     }
 
     Fuel_valve {
+        objectName: "fuel_xbp_23"
         id: fuel_valve5
         x: 448
         y: 211
+
+        text: "X-BP"
+        arrows_visible: false
+        text_above: true
     }
 
     Text {
@@ -491,5 +518,18 @@ Rectangle {
         color: "#00ffffff"
         border.color: "#ffffff"
         border.width: 2
+    }
+
+    Text {
+        id: _text22
+        x: 465
+        y: 121
+        color: "#828a7a"
+        text: qsTr("LB")
+        font.pixelSize: 13
+        font.weight: Font.Normal
+        font.styleName: "Narrow"
+        font.family: "Arial"
+        font.bold: false
     }
 }

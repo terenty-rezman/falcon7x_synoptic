@@ -15,7 +15,7 @@ ArcItem {
 
     outlineArc: true
     round: true
-    arcWidth: 5
+    arcWidth: 4
 
     states: [
         State {
