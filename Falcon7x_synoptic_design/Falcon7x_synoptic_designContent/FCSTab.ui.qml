@@ -17,7 +17,7 @@ Rectangle {
         id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
         x: 0
         y: -1
-        visible: true
+        visible: false
         source: "images/FCS.png"
         enabled: true
         fillMode: Image.PreserveAspectFit
@@ -50,17 +50,6 @@ Rectangle {
         end: 180
         strokeColor: "#555555"
         fillColor: "#00000000"
-    }
-    TriangleItem {
-        id: triangle
-        x: 67
-        y: 36
-        width: 10
-        height: 8
-        radius: 0
-        fillColor: "#00ff00"
-        strokeColor: "#00ff0000"
-        rotation: 90
     }
     Rectangle {
         id: rectangle2
@@ -209,27 +198,18 @@ Rectangle {
         y: 45
     }
 
-    Image {
-        id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok1
-        x: 0
-        y: -1
-        visible: true
-        source: "images/FCS.png"
-        fillMode: Image.PreserveAspectFit
-        enabled: true
-
-        FCS_mfcc_frame {
-            id: fCS_mfcc_frame
-            x: 21
-            y: 78
-        }
-
-        FCS_roll_scale {
-            id: fCS_roll_scale
-            x: 25
-            y: 199
-        }
+    FCS_mfcc_frame {
+        id: fCS_mfcc_frame
+        x: 21
+        y: 78
     }
+
+    FCS_roll_scale {
+        id: fCS_roll_scale
+        x: 25
+        y: 199
+    }
+
     FCS_sfcc_frame {
         id: fCS_sfcc_frame1
         x: 20

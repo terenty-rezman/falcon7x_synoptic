@@ -9,6 +9,26 @@ Image {
 
     property int state: 0
 
+    property bool rat_reset: false
+    property bool manual_on: false
+
+    onRat_resetChanged: {
+        update_state()
+    }
+
+    onManual_onChanged: {
+        update_state()
+    }
+
+    function update_state() {
+        if (rat_reset || manual_on) {
+            self.state = 1
+            return;
+        }
+
+        self.state = 0
+    }
+
     Text {
         id: text_
         x: 12

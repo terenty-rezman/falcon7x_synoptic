@@ -123,4 +123,38 @@ to_subscribe = [
     (Params["sim/operation/failures/rel_genera1"], None, "tcp"), # generator failure 2
     (Params["sim/operation/failures/rel_genera2"], None, "tcp"), # generator failure 3
     (Params["sim/custom/7x/valeurstall"], 5, "udp"), # vstall
+
+    # synoptic fuel tab
+    (Params["sim/custom/7x/z_fuel_xtk_13"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_xtk_23"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_xtk_12"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_xbp_12"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_xbp_13"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_xbp_23"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_boost1"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_boost2"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_boost3"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_pipe_t1t3"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_pipe_t1t2"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_pipe_t2t3"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_pipe_t2apu"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_pipe_xbp12"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_pipe_xbp23"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_pipe_xbp13"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_pipe_t1e1"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_pipe_t2e2"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_pipe_t3e3"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_eng1"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_eng2"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_eng3"], None, "tcp"),
+    (Params["sim/custom/7x/z_fuel_apu"], None, "tcp"),
+    (Params["sim/custom/7x/z_rat_manual"], None, "tcp"),
+    (Params["sim/flightmodel/weight/m_fuel1"], 4, "udp"), # fuel tab tank 1
+    (Params["sim/flightmodel/weight/m_fuel2"], 4, "udp"), # fuel tab tank fill 2
+    (Params["sim/flightmodel/weight/m_fuel3"], 4, "udp"), # fuel tab tank 3
+    (Params["sim/cockpit2/fuel/fuel_quantity[0]"], 4, "udp"), # fuel tab tank 1 number
+    (Params["sim/cockpit2/fuel/fuel_quantity[1]"], 4, "udp"), # fuel tab tank 2 number
+    (Params["sim/cockpit2/fuel/fuel_quantity[2]"], 4, "udp"), # fuel tab tank 3 number
+    (Params["sim/flightmodel/weight/m_fuel_total"], 4, "udp"), 
+    (Params["sim/custom/7x/fuel_used"], 4, "udp"),
 ]

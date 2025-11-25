@@ -586,7 +586,7 @@ Item {
     }
 
     Fuel_receiver {
-        objectName: "fuel_eng1"
+        objectName: "fuel_eng2"
         x: 223
         y: 245
 

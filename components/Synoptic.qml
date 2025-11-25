@@ -79,5 +79,25 @@ Item {
         FuelTab {
 
         }
+
+        HydTab {
+
+        }
+
+        Item {
+
+        }
+        
+        BleedTab {
+            
+        }
+
+        FCSTab {
+
+        }
+
+        Item {
+
+        }
     }
 }

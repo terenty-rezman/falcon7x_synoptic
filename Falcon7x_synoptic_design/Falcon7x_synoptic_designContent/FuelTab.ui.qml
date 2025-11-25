@@ -39,21 +39,34 @@ Rectangle {
         y: 0
     }
 
+    Fuel_wing_tank {
+        id: fuel_wing_tank
+
+        objectName: "fuel_tank1"
+        x: 14
+        y: 8
+        width: 103
+        height: 46
+    }
+
     Fuel_Pump {
+        objectName: "fuel_boost1"
         id: fuel_Pump
         x: 94
         y: 167
     }
 
     Fuel_Pump {
-        id: fuel_Pump1
-        x: 547
+        objectName: "fuel_boost2"
+        id: fuel_Pump2
+        x: 319
         y: 167
     }
 
     Fuel_Pump {
-        id: fuel_Pump2
-        x: 319
+        objectName: "fuel_boost3"
+        id: fuel_Pump1
+        x: 547
         y: 167
     }
 
@@ -315,7 +328,7 @@ Rectangle {
 
     Text {
         id: _text12
-        x: 477
+        x: 474
         y: 5
         color: "#b7c2b1"
         text: qsTr("LEVEL")
@@ -328,7 +341,7 @@ Rectangle {
     Text {
         id: _text13
         x: 359
-        y: 57
+        y: 53
         color: "#b7c2b1"
         text: qsTr("L\nE\nV\nE\nL")
         font.letterSpacing: 4.8
@@ -495,11 +508,15 @@ Rectangle {
         x: 469
         y: 144
     }
+
     Fuel_central_tank_level {
         id: fuel_central_tank_level
+
+        objectName: "fuel_tank2"
         x: 320
-        y: 81
+        y: 56
     }
+
     Rectangle {
         id: rectangle6
         x: 320
@@ -508,16 +525,6 @@ Rectangle {
         height: 1
         color: "#fbf704"
         border.color: "#00000000"
-    }
-    Rectangle {
-        id: rectangle4
-        x: 319
-        y: 56
-        width: 34
-        height: 99
-        color: "#00ffffff"
-        border.color: "#ffffff"
-        border.width: 2
     }
 
     Text {
@@ -531,5 +538,22 @@ Rectangle {
         font.styleName: "Narrow"
         font.family: "Arial"
         font.bold: false
+    }
+
+    Fuel_wing_tank {
+        id: fuel_wing_tank1
+        objectName: "fuel_tank3"
+        x: 659
+        y: 8
+        width: 103
+        height: 46
+        scale: 1
+        rotation: 0
+
+        transform: Scale {
+            origin.x: 0
+            origin.y: 0
+            xScale: -1
+        }
     }
 }
