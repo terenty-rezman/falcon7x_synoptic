@@ -6,16 +6,15 @@ Item {
     width: 16
     height: 75
 
-
-    /*Image {
+    Image {
         id: image
         x: 0
         y: 0
         width: 10
         height: 75
-        source: "images/HYD_pressure_indicator.png"
+        source: "images/HYD.png"
         fillMode: Image.PreserveAspectFit
-    }*/
+    }
     Rectangle {
         id: rectangle4
         x: 3
@@ -69,5 +68,28 @@ Item {
         rotation: -90
         fillColor: "#73db0c"
         strokeColor: "#00ff0000"
+    }
+    Text {
+        id: _text10
+        x: -9
+        y: 79
+        height: 15
+        color: "#00ff00"
+        text: qsTr("2900")
+        font.letterSpacing: -0.1
+        font.pixelSize: 12
+        font.family: "Arial"
+    }
+    Text {
+        id: _text11
+        x: -5
+        y: 91
+        width: 26
+        height: 15
+        color: "#a8b49e"
+        text: qsTr("PSI")
+        font.letterSpacing: 0.1
+        font.pixelSize: 12
+        font.family: "Arial"
     }
 }

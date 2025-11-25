@@ -29,59 +29,59 @@ Rectangle {
         source: "images/HYD.png"
         enabled: true
         fillMode: Image.PreserveAspectFit
-
-        Text {
-            id: _text6
-            x: 620
-            y: 293
-            width: 55
-            height: 20
-            color: "#a8b49e"
-            text: qsTr("EBHA")
-            font.letterSpacing: -0.7
-            font.pixelSize: 20
-            font.family: "Arial"
-        }
-
-        Text {
-            id: _text7
-            x: 637
-            y: 194
-            width: 26
-            height: 15
-            color: "#a8b49e"
-            text: qsTr("QTY")
-            font.letterSpacing: 0.1
-            font.pixelSize: 12
-            font.family: "Arial"
-        }
-
-        Text {
-            id: _text8
-            x: 494
-            y: 194
-            width: 26
-            height: 15
-            color: "#a8b49e"
-            text: qsTr("QTY")
-            font.letterSpacing: 0.1
-            font.pixelSize: 12
-            font.family: "Arial"
-        }
-
-        Text {
-            id: _text9
-            x: 12
-            y: 194
-            width: 26
-            height: 15
-            color: "#a8b49e"
-            text: qsTr("QTY")
-            font.letterSpacing: 0.1
-            font.pixelSize: 12
-            font.family: "Arial"
-        }
     }
+    Text {
+        id: _text6
+        x: 620
+        y: 293
+        width: 55
+        height: 20
+        color: "#a8b49e"
+        text: qsTr("EBHA")
+        font.letterSpacing: -0.7
+        font.pixelSize: 20
+        font.family: "Arial"
+    }
+
+    Text {
+        id: _text7
+        x: 637
+        y: 194
+        width: 26
+        height: 15
+        color: "#a8b49e"
+        text: qsTr("QTY")
+        font.letterSpacing: 0.1
+        font.pixelSize: 12
+        font.family: "Arial"
+    }
+
+    Text {
+        id: _text8
+        x: 494
+        y: 194
+        width: 26
+        height: 15
+        color: "#a8b49e"
+        text: qsTr("QTY")
+        font.letterSpacing: 0.1
+        font.pixelSize: 12
+        font.family: "Arial"
+    }
+
+    Text {
+        id: _text9
+        x: 12
+        y: 194
+        width: 26
+        height: 15
+        color: "#a8b49e"
+        text: qsTr("QTY")
+        font.letterSpacing: 0.1
+        font.pixelSize: 12
+        font.family: "Arial"
+    }
+
     Hyd_temp_indicator {
         id: hyd_temp_indicator2
         x: 598
@@ -170,6 +170,12 @@ Rectangle {
             id: hyd_pipes
             x: -32
             y: -15
+
+            Hyd_wheels {
+                id: hyd_wheels
+                x: 6
+                y: 304
+            }
         }
     }
 
