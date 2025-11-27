@@ -149,12 +149,15 @@ to_subscribe = [
     (Params["sim/custom/7x/z_fuel_eng3"], None, "tcp"),
     (Params["sim/custom/7x/z_fuel_apu"], None, "tcp"),
     (Params["sim/custom/7x/z_rat_manual"], None, "tcp"),
-    (Params["sim/flightmodel/weight/m_fuel1"], 4, "udp"), # fuel tab tank 1
-    (Params["sim/flightmodel/weight/m_fuel2"], 4, "udp"), # fuel tab tank fill 2
-    (Params["sim/flightmodel/weight/m_fuel3"], 4, "udp"), # fuel tab tank 3
-    (Params["sim/cockpit2/fuel/fuel_quantity[0]"], 4, "udp"), # fuel tab tank 1 number
-    (Params["sim/cockpit2/fuel/fuel_quantity[1]"], 4, "udp"), # fuel tab tank 2 number
-    (Params["sim/cockpit2/fuel/fuel_quantity[2]"], 4, "udp"), # fuel tab tank 3 number
-    (Params["sim/flightmodel/weight/m_fuel_total"], 4, "udp"), 
-    (Params["sim/custom/7x/fuel_used"], 4, "udp"),
+    (Params["sim/flightmodel/weight/m_fuel1"], 3, "udp"), # fuel tab tank 1
+    (Params["sim/flightmodel/weight/m_fuel2"], 3, "udp"), # fuel tab tank fill 2
+    (Params["sim/flightmodel/weight/m_fuel3"], 3, "udp"), # fuel tab tank 3
+    (Params["sim/cockpit2/fuel/fuel_quantity[0]"], 3, "udp"), # fuel tab tank 1 number
+    (Params["sim/cockpit2/fuel/fuel_quantity[1]"], 3, "udp"), # fuel tab tank 2 number
+    (Params["sim/cockpit2/fuel/fuel_quantity[2]"], 3, "udp"), # fuel tab tank 3 number
+    (Params["sim/flightmodel/weight/m_fuel_total"], 3, "udp"), 
+    (Params["sim/custom/7x/fuel_used"], 3, "udp"),
+    (Params["sim/custom/7x/fuel_used1"], 3, "udp"),
+    (Params["sim/custom/7x/fuel_used2"], 3, "udp"),
+    (Params["sim/custom/7x/fuel_used3"], 3, "udp"),
 ]

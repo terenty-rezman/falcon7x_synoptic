@@ -186,7 +186,7 @@ Rectangle {
         text: qsTr("DSTY:")
         font.pixelSize: 16
         horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignTop
+        verticalAlignment: Text.AlignVCenter
         font.weight: Font.Medium
         font.styleName: "Полужирный"
         font.family: "Arial"
@@ -353,62 +353,119 @@ Rectangle {
 
     Fuel_green_numbers {
         id: fuel_green_numbers
+        objectName: "fuel_fq"
         x: 199
         y: 81
 
-        Fuel_green_numbers {
-            id: fuel_green_numbers1
-            x: 0
-            y: 21
-        }
+        property int value: 0
+
+        text: value
+    }
+
+    Fuel_green_numbers {
+        id: fuel_green_numbers1
+
+        objectName: "fuel_fr"
+
+        x: 199
+        y: 103
+
+        property int value: 0
+
+        text: (value * 2.20400).toFixed(0)
     }
 
     Fuel_green_numbers {
         id: fuel_green_numbers2
+        objectName: "fuel_fu"
+
         x: 199
         y: 122
+
+        property int value: 0
+
+        text: (value * 2.20400).toFixed(0)
     }
 
     Fuel_green_numbers {
         id: fuel_green_numbers3
-        x: 216
-        y: 144
+        objectName: "fuel_dsty"
+        x: 217
+        y: 143
+
+        property int value: 0
+
+        text: (value * 2.20400).toFixed(0)
     }
 
     Fuel_green_text_bigger {
         id: fuel_green_text_bigger
+        objectName: "fuel_fu1"
         x: 35
         y: 291
+
+        property int value: 0
+
+        text: (value * 2.20400).toFixed(0)
     }
 
     Fuel_green_text_bigger {
         id: fuel_green_text_bigger1
+
+        objectName: "fuel_fu2"
+
         x: 248
         y: 271
+
+        property int value: 0
+
+        text: (value * 2.20400).toFixed(0)
     }
 
     Fuel_green_text_bigger {
         id: fuel_green_text_bigger2
+
+        objectName: "fuel_fu3"
+
         x: 594
         y: 291
+
+        property int value: 0
+
+        text: (value * 2.20400).toFixed(0)
     }
 
     Fuel_green_text_bigger {
         id: fuel_green_text_bigger3
+        objectName: "fuel_fq1"
         x: 27
         y: 119
+
+        property int value: 0
+
+        text: (value * 2.20400).toFixed(0)
     }
 
     Fuel_green_text_bigger {
         id: fuel_green_text_bigger4
+        objectName: "fuel_fq2"
         x: 418
         y: 119
+
+        property int value: 0
+
+        text: (value * 2.20400).toFixed(0)
     }
 
     Fuel_green_text_bigger {
         id: fuel_green_text_bigger5
+        objectName: "fuel_fq3"
         x: 608
         y: 121
+
+        property int value: 0
+
+        text: (value * 2.20400).toFixed(0)
     }
 
     Text {
@@ -447,7 +504,7 @@ Rectangle {
     Text {
         id: _text17
         x: 295
-        y: 275
+        y: 274
         color: "#828a7a"
         text: qsTr("LB")
         font.pixelSize: 13
@@ -471,7 +528,7 @@ Rectangle {
     Text {
         id: _text19
         x: 86
-        y: 295
+        y: 294
         color: "#828a7a"
         text: qsTr("LB")
         font.pixelSize: 13
@@ -484,7 +541,7 @@ Rectangle {
     Text {
         id: _text20
         x: 645
-        y: 295
+        y: 294
         color: "#828a7a"
         text: qsTr("LB")
         font.pixelSize: 13
@@ -495,7 +552,7 @@ Rectangle {
     Text {
         id: _text21
         x: 655
-        y: 123
+        y: 124
         color: "#828a7a"
         text: qsTr("LB")
         font.pixelSize: 13
@@ -503,10 +560,27 @@ Rectangle {
         font.family: "Arial"
     }
 
-    Fuel_temp_indicator {
+    Fuel_green_numbers {
         id: fuel_temp_indicator
-        x: 469
+        objectName: "fuel_temp"
+        x: 451
         y: 144
+
+        property int value: 0
+
+        text: value.toFixed(0)
+    }
+
+    Text {
+        id: unit
+        x: 495
+        y: 145
+        width: 13.575
+        height: 15
+        color: "#a8b49e"
+        text: qsTr("°C")
+        font.pixelSize: 13
+        font.family: "Arial"
     }
 
     Fuel_central_tank_level {

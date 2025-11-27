@@ -189,6 +189,16 @@ dref_indicators = [
     ("sim/flightmodel/weight/m_fuel1", None, "fuel_tank1", "fuel_weight", None),
     ("sim/flightmodel/weight/m_fuel2", None, "fuel_tank2", "fuel_weight", None),
     ("sim/flightmodel/weight/m_fuel3", None, "fuel_tank3", "fuel_weight", None),
+    ("sim/cockpit2/fuel/fuel_quantity[0]", None, "fuel_fq1", "value", None),
+    ("sim/cockpit2/fuel/fuel_quantity[1]", None, "fuel_fq2", "value", None),
+    ("sim/cockpit2/fuel/fuel_quantity[2]", None, "fuel_fq3", "value", None),
+    ("sim/flightmodel/weight/m_fuel_total", None, "fuel_fq", "value", None),
+    ("sim/flightmodel/weight/m_fuel_total", None, "fuel_fr", "value", None),
+    ("sim/custom/7x/fuel_used", None, "fuel_fu", "value", None),
+    ("sim/custom/7x/fuel_used1", None, "fuel_fu1", "value", None),
+    ("sim/custom/7x/fuel_used2", None, "fuel_fu2", "value", None),
+    ("sim/custom/7x/fuel_used3", None, "fuel_fu3", "value", None),
+    ("sim/custom/7X/TBAT", None, "fuel_temp", "value", None),
 ]
 
 dref_nested_dict = defaultdict(list)

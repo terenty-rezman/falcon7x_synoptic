@@ -10,5 +10,7 @@ Text {
     text: qsTr("2940")
     font.letterSpacing: 1
     font.pixelSize: 17
+    horizontalAlignment: Text.AlignRight
+    verticalAlignment: Text.AlignVCenter
     font.family: "Arial"
 }

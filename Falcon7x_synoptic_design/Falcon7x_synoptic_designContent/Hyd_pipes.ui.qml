@@ -7,6 +7,7 @@ Item {
     width: 684
     height: 342
 
+    // color: "black"
     // Image {
     //     id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
     //     x: 0
@@ -16,143 +17,59 @@ Item {
     //     enabled: true
     //     fillMode: Image.PreserveAspectFit
     // }
-    //-------
-    Rectangle {
-        id: rectangle28
-        x: 598
-        y: 249
-        width: 50
-        height: 0
-        color: "#ffffff"
-        border.color: "#ffffff"
-    }
-
-    // GroupItem {
-    //     x: 27
-    //     y: 223
-    // }
-    Rectangle {
+    Hyd_rect_pipe {
+        objectName: "hyd_pipe_b3"
         id: rectangle9
         x: 413
         y: 55
         width: 19
         height: 5
-        color: "#ffffff"
-        border.color: "#ffffff"
     }
 
-    Rectangle {
-        id: rectangle19
-        x: 302
-        y: 97
-        width: 106
-        height: 5
-        color: "#ffffff"
-        border.color: "#ffffff"
-    }
+    Hyd_big_text {
+        objectName: "hyd_text_om_slats"
 
-    Rectangle {
-        id: rectangle27
-        x: 302
-        y: 75
-        width: 5
-        height: 22
-        color: "#ffffff"
-        border.color: "#ffffff"
-        rotation: 0
-    }
-
-    Rectangle {
-        id: rectangle40
-        x: 241
-        y: 178
-        width: 130
-        height: 3
-        color: "#ffffff"
-        border.color: "#ffffff"
-    }
-
-    Rectangle {
-        id: rectangle41
-        x: 241
-        y: 181
-        width: 3
-        height: 43
-        color: "#ffffff"
-        border.color: "#ffffff"
-        rotation: 0
-    }
-
-    Text {
         id: _text1
         x: 128
         y: 218
         width: 96
         height: 78
-        color: "#00ff00"
+
         text: qsTr("O M SLATS\nLH ELEV\nLH AIL\nRUDDER")
-        font.letterSpacing: 0.3
-        font.pixelSize: 18
-        lineHeight: 0.9
-        font.family: "Arial"
     }
 
-    Text {
-        id: _text3
-        x: 246
-        y: 181
-        width: 122
-        height: 41
-        color: "#00ff00"
-        text: qsTr("BRAKE 2\nPARK BRAKE")
-        font.letterSpacing: 0.3
-        font.pixelSize: 18
-        lineHeight: 1.1
-        font.family: "Arial"
-    }
-
-    Text {
+    Hyd_big_text {
+        objectName: "hyd_text_rh_ail"
         id: _text5
         x: 460
         y: 245
         width: 63
         height: 19
-        color: "#00ff00"
         text: qsTr("RH AIL")
-        font.letterSpacing: 0.5
-        font.pixelSize: 18
-        lineHeight: 1.1
-        font.family: "Arial"
     }
 
-    Text {
+    Hyd_big_text {
         id: _text6
+        objectName: "hyd_text_rh_elev"
         x: 452
         y: 293
         width: 84
         height: 19
-        color: "#00ff00"
         text: qsTr("RH ELEV")
-        font.letterSpacing: 0.3
-        font.pixelSize: 18
-        lineHeight: 1.1
-        font.family: "Arial"
     }
 
-    Text {
+    Hyd_big_text {
+        objectName: "hyd_text_spoilers"
         id: _text7
         x: 586
         y: 256
         width: 84
         height: 19
-        color: "#00ff00"
         text: qsTr("SPOILERS")
-        font.letterSpacing: 0.3
-        font.pixelSize: 18
-        lineHeight: 1.1
-        font.family: "Arial"
     }
+
     Rectangle {
+        objectName: "hyd_accum"
         id: rectangle
         x: 386
         y: 193
@@ -163,440 +80,371 @@ Item {
         border.color: "#297921"
     }
 
-    Rectangle {
+    Hyd_rect_pipe {
         id: rectangle7
+
+        objectName: "hyd_pipe_a3"
+
         x: 100
         y: 55
         width: 20
         height: 5
-        color: "#ffffff"
-        border.color: "#ffffff"
     }
 
-    Rectangle {
+    Hyd_rect_pipe {
         id: rectangle60
+
+        objectName: "hyd_pipe_a1"
+
         x: 75
         y: 55
         width: 20
         height: 5
-        color: "#ffffff"
-        border.color: "#ffffff"
     }
 
-    Rectangle {
+    Hyd_rect_pipe {
+        objectName: "hyd_pipe_b2"
         id: rectangle62
         x: 387
         y: 55
         width: 21
         height: 5
-        color: "#ffffff"
-        border.color: "#ffffff"
-    }
-
-    Rectangle {
-        id: rectangle63
-        x: 408
-        y: 55
-        width: 5
-        height: 5
-        color: "#00ff00"
-        border.color: "#ffffff"
-        border.width: 1
-    }
-
-    Rectangle {
-        id: rectangle65
-        x: 408
-        y: 60
-        width: 5
-        height: 37
-        color: "#ffffff"
-        border.color: "#ffffff"
-        rotation: 0
     }
 
     GroupItem {
+
+        objectName: "hyd_pipe_a1a3"
         x: 95
         y: 55
 
-        Text {
+        property int state: 0
+
+        Hyd_big_text {
             id: _text
             x: 33
             y: 72
             width: 75
             height: 78
-            color: "#00ff00"
             text: qsTr("BRAKE 1\nI SLATS\nGEARS\nNWS")
-            font.letterSpacing: 0.3
-            font.pixelSize: 18
-            lineHeight: 0.9
-            font.family: "Arial"
+
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle53
             x: 350
             y: 234
+
             width: 97
             height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
+
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle54
             x: 347
             y: 234
             width: 3
             height: 28
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle24
             x: 0
-            y: 5
+            y: 0
             width: 5
-            height: 246
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+            height: 251
+
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle8
             x: 4
             y: 107
             width: 22
             height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
+
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle34
             x: 132
             y: 67
             width: 3
             height: 81
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle10
             x: 4
             y: 246
             width: 343
             height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle12
             x: 4
             y: 209
             width: 21
             height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle22
             x: 28
             y: 157
             width: 107
             height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle31
             x: 25
             y: 157
             width: 3
             height: 85
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle23
             x: 28
             y: 67
             width: 107
             height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle32
             x: 25
             y: 67
             width: 3
             height: 84
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle33
             x: 28
             y: 148
             width: 107
             height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
-        }
-
-        Rectangle {
-            id: rectangle61
-            x: 0
-            y: 0
-            width: 5
-            height: 5
-            color: "#00ff00"
-            border.color: "#ffffff"
+            state: parent.state
         }
     }
 
     GroupItem {
+        objectName: "hyd_pipe_b2b3"
+
         x: 123
         y: 97
 
-        Rectangle {
+        property int state: 0
+
+        Hyd_rect_pipe {
+            id: rectangle29
+            x: 285
+            y: -42
+            width: 5
+            height: 47
+
+            state: parent.state
+        }
+
+        Hyd_rect_pipe {
             id: rectangle14
             x: 289
             y: 156
             width: 30
             height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle26
             x: 285
             y: 5
             width: 5
             height: 162
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle15
             x: 107
             y: 167
             width: 183
             height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle16
             x: 248
             y: 146
             width: 37
             height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle17
             x: 269
             y: 113
             width: 16
             height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle18
             x: 248
             y: 52
             width: 37
             height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle21
             x: 0
             y: 197
             width: 107
             height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle30
             x: 104
             y: 118
             width: 3
             height: 79
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle35
             x: 121
             y: 68
             width: 127
             height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle36
             x: 118
             y: 26
             width: 127
             height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
-            id: rectangle43
-            x: 120
-            y: 159
-            width: 125
-            height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
-        }
-
-        Rectangle {
-            id: rectangle44
-            x: 117
-            y: 134
-            width: 131
-            height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
-        }
-
-        Rectangle {
-            id: rectangle45
-            x: 117
-            y: 137
-            width: 3
-            height: 25
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
-        }
-
-        Rectangle {
-            id: rectangle46
-            x: 245
-            y: 137
-            width: 3
-            height: 25
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
-        }
-
-        Text {
+        Hyd_big_text {
             id: _text2
             x: 123
             y: 29
             width: 96
             height: 41
-            color: "#00ff00"
             text: qsTr("FLAPS\nAB")
-            font.letterSpacing: 0.3
-            font.pixelSize: 18
-            lineHeight: 0.9
-            font.family: "Arial"
+
+            state: parent.state
         }
 
-        Text {
+        Hyd_rect_pipe {
+            id: rectangle43
+            x: 120
+            y: 159
+            width: 125
+            height: 3
+            state: parent.state
+        }
+
+        Hyd_rect_pipe {
+            id: rectangle44
+            x: 117
+            y: 134
+            width: 131
+            height: 3
+            state: parent.state
+        }
+
+        Hyd_big_text {
             id: _text4
             x: 123
             y: 138
             width: 31
             height: 19
-            color: "#00ff00"
             text: qsTr("T/R")
-            font.letterSpacing: 0.3
-            font.pixelSize: 18
-            lineHeight: 1.1
-            font.family: "Arial"
+
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
+            id: rectangle45
+            x: 117
+            y: 137
+            width: 3
+            height: 25
+            state: parent.state
+        }
+
+        Hyd_rect_pipe {
+            id: rectangle46
+            x: 245
+            y: 137
+            width: 3
+            height: 25
+            state: parent.state
+        }
+
+        Hyd_rect_pipe {
             id: rectangle49
             x: 322
             y: 144
             width: 97
             height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle50
             x: 319
             y: 144
             width: 3
             height: 28
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle37
             x: 118
             y: 28
             width: 3
             height: 43
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle38
             x: 245
             y: 26
             width: 3
             height: 42
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
-        }
-
-        Rectangle {
-            id: rectangle64
-            x: 285
-            y: 0
-            width: 5
-            height: 5
-            color: "#00ff00"
-            border.color: "#ffffff"
-            border.width: 1
+            state: parent.state
         }
     }
 
@@ -604,108 +452,98 @@ Item {
         x: 445
         y: 75
 
-        Rectangle {
+        property int state: 0
+
+        objectName: "hyd_pipe_c2"
+
+        Hyd_rect_pipe {
             id: rectangle11
             x: 97
             y: 226
             width: 26
             height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle25
             x: 123
             y: 0
             width: 5
             height: 231
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle13
             x: 97
             y: 178
             width: 26
             height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle20
             x: 128
             y: 189
             width: 6
             height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle47
             x: 0
             y: 191
             width: 97
             height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle48
             x: 94
             y: 169
             width: 3
             height: 22
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle51
             x: 0
             y: 239
             width: 97
             height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle52
             x: 94
             y: 217
             width: 3
             height: 22
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle57
             x: 137
             y: 177
             width: 98
             height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle58
             x: 134
             y: 177
             width: 3
             height: 28
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+            state: parent.state
         }
     }
 
@@ -713,72 +551,125 @@ Item {
         x: 582
         y: 255
 
-        Rectangle {
-            id: rectangle29
-            x: 19
-            y: 25
-            width: 5
-            height: 12
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
-        }
+        objectName: "hyd_pipe_ebha"
 
-        Rectangle {
+        property int state: 0
+
+        Hyd_rect_pipe {
             id: rectangle55
             x: 0
             y: 22
             width: 98
             height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle56
             x: 95
             y: 0
             width: 3
             height: 22
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+            state: parent.state
+        }
+
+        Hyd_rect_pipe {
+            id: rectangle61
+            x: 19
+            y: 25
+            width: 5
+            height: 11
+            state: parent.state
         }
     }
 
     GroupItem {
+        objectName: "hyd_pipe_brake2"
         x: 244
         y: 181
 
-        Rectangle {
+        property int state: 0
+
+        Hyd_rect_pipe {
             id: rectangle39
             x: 0
             y: 40
             width: 127
             height: 3
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle42
             x: 124
             y: 0
             width: 3
             height: 43
-            color: "#ffffff"
-            border.color: "#ffffff"
-            rotation: 0
+            state: parent.state
         }
 
-        Rectangle {
+        Hyd_rect_pipe {
             id: rectangle59
             x: 127
             y: 29
             width: 21
             height: 5
-            color: "#ffffff"
-            border.color: "#ffffff"
+            state: parent.state
+        }
+
+        Hyd_rect_pipe {
+            id: rectangle40
+            x: -3
+            y: -2
+            width: 130
+            height: 3
+            state: parent.state
+        }
+
+        Hyd_rect_pipe {
+            id: rectangle41
+            x: -3
+            y: 0
+            width: 3
+            height: 43
+            state: parent.state
+        }
+
+        Hyd_big_text {
+            id: _text3
+            x: 1
+            y: 1
+            width: 122
+            height: 40
+            text: qsTr("BRAKE 2\nPARK BRAKE")
+
+            state: parent.state
+        }
+    }
+
+    GroupItem {
+        objectName: "hyd_pipe_bu"
+        x: 302
+        y: 75
+
+        property int state: 0
+
+        Hyd_rect_pipe {
+            id: rectangle19
+            x: 0
+            y: 22
+            width: 106
+            height: 5
+            state: parent.state
+        }
+
+        Hyd_rect_pipe {
+            id: rectangle27
+            x: 0
+            y: 0
+            width: 5
+            height: 22
+            state: parent.state
         }
     }
 }

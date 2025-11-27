@@ -9,5 +9,7 @@ Text {
     color: "#478340"
     text: qsTr("14612")
     font.pixelSize: 15
+    horizontalAlignment: Text.AlignRight
+    verticalAlignment: Text.AlignVCenter
     font.family: "Arial"
 }
