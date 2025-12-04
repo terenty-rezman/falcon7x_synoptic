@@ -109,12 +109,6 @@ Rectangle {
     }
 
     Hyd_pump {
-        id: hyd_pump3
-        x: 552
-        y: 39
-    }
-
-    Hyd_pump {
         id: hyd_pump4
         x: 119
         y: 39
@@ -316,5 +310,10 @@ Rectangle {
         font.weight: Font.Medium
         font.styleName: "Полужирный"
         font.family: "Arial"
+    }
+    Hyd_pump {
+        id: hyd_pump3
+        x: 552
+        y: 39
     }
 }
