@@ -124,8 +124,8 @@ if __name__ == "__main__":
     view_helper.all_views.append(synoptic)
 
     single_synoptic = create_toplevel_qml_view(
-        "components/synoptic_single.qml", "synoptic_single", "synoptic - falcon7x",
-        s.SYNOPTIC_WINDOW_WIDTH, s.SYNOPTIC_WINDOW_HEIGHT
+        "components/synoptic_app.qml", "synoptic_single", "synoptic - falcon7x",
+        s.SYNOPTIC_WINDOW_WIDTH, s.SYNOPTIC_WINDOW_HEIGHT * 2
     )
     single_synoptic.show()
     view_helper.all_views.append(single_synoptic)
