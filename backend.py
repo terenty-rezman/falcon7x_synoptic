@@ -28,6 +28,7 @@ dref_indicators = [
     ("sim/custom/7x/z_syn_eng_ab3", None, "eng_engn3", "ab", None),
     ("sim/cockpit2/electrical/APU_N1_percent", None, "eng_apun1t5", "n1", None),
     ("sim/cockpit2/electrical/APU_EGT_c", None, "eng_apun1t5", "t5", None),
+    ("sim/cockpit2/electrical/APU_generator_on", None, "eng_apun1t5", "master_on", None),
     ("sim/cockpit2/engine/indicators/ITT_deg_C[0]", None, "eng_itt1", "rotation_green_arrow_deg", None),
     ("sim/custom/7x/z_syn_eng_ign1", None, "eng_itt1", "ign", None),
     ("sim/cockpit2/engine/indicators/ITT_deg_C[1]", None, "eng_itt2", "rotation_green_arrow_deg", None),
