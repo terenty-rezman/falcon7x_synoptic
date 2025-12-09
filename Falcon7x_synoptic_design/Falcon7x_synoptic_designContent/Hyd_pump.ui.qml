@@ -1,7 +1,7 @@
 import QtQuick
 
 Image {
-    id: image
+    id: self
     x: 287
     y: 39
     width: 37

@@ -2,10 +2,11 @@
 import QtQuick 2.15
 
 Item {
-    id: apu_n1
+    id: self
 
     property int n1: 0
     property int t5: 0
+    property int master_on: 0
 
     Text {
         text: "APU N1"
@@ -17,11 +18,12 @@ Item {
     Text {
         x: 65
         width: 27
-        text: apu_n1.n1
+        text: self.n1
         color: "#00FC00"
         font.pixelSize: 18
         // font.bold: true
         horizontalAlignment: Text.AlignRight
+        visible: self.master_on == 1
     }
 
     Text {
@@ -35,11 +37,12 @@ Item {
     Text {
         x: 139
         width: 32
-        text: apu_n1.t5
+        text: self.t5
         color: "#00FC00"
         font.pixelSize: 18
         // font.bold: true
         horizontalAlignment: Text.AlignRight
+        visible: self.master_on == 1
     }
 
     Text {
