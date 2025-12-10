@@ -186,11 +186,11 @@ Rectangle {
         y: 318
     }
 
-    AdiReverseSymbol {
-        objectName: "adi_reverse_symbol"
-        x: 115
-        y: 165
-    }
+    // AdiReverseSymbol {
+    //     objectName: "adi_reverse_symbol"
+    //     x: 115
+    //     y: 165
+    // }
 
     AdiFmsSymbol {
         objectName: "adi_fms_symbol"
@@ -241,9 +241,36 @@ Rectangle {
         }
 
         AdiWhiteText {
-            text: "00:00"
+            objectName: "et_timer"
+
             x: 45
             y: 22
+
+            property int secs: 0
+
+            text: mins_part(secs) + ":" + secs_part(secs)
+
+            function mins_part(secs) {
+                const mins = (secs / 60).toFixed(0)
+
+                if (mins < 10) {
+                    return "0" + mins;
+                }
+                else {
+                    return mins;
+                }
+            }
+
+            function secs_part(secs) {
+                const sec = (secs % 60)
+
+                if (sec < 10) {
+                    return "0" + sec;
+                }
+                else {
+                    return sec;
+                }
+            }
         }
        
         AdiWhiteText {

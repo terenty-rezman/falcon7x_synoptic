@@ -104,7 +104,8 @@ dref_indicators = [
     ("sim/cockpit2/gauges/indicators/airspeed_kts_copilot", None, "adi_airspeed", "speed", "adi_right"),
     ("sim/cockpit2/gauges/indicators/mach_pilot", None, "adi_airspeed", "mach", None),
     ("sim/cockpit2/gauges/indicators/vvi_fpm_pilot", None, "adi_vertical_speed", "vy_ft_per_min", None),
-    ("sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot", None, "adi_alt", "baro_settings", None),
+    ("sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot", None, "adi_alt", "baro_settings", "adi_left"),
+    ("sim/cockpit2/gauges/actuators/barometer_setting_in_hg_copilot", None, "adi_alt", "baro_settings", "adi_right"),
     ("sim/cockpit2/clock_timer/local_time_hours", None, "adi_current_time", "hours", None),
     ("sim/cockpit2/clock_timer/local_time_minutes", None, "adi_current_time", "minutes", None),
     ("sim/cockpit2/switches/ram_air_turbine_on", None, "elec_rat_gen", "rat_reset", None),
@@ -135,7 +136,8 @@ dref_indicators = [
     ("sim/cockpit2/autopilot/altitude_dial_ft", None, "adi_alt_symbol", "target_alt_ft", None),
     ("sim/cockpit2/autopilot/altitude_hold_armed", None, "adi_alt_symbol", "altitude_mode", None),
     ("sim/cockpit2/autopilot/vvi_status", None, "adi_alt_symbol", "vs_mode", None),
-    ("sim/cockpit2/annunciators/reverser_deployed", None, "adi_reverse_symbol", "mode", None),
+    # ("sim/cockpit2/annunciators/reverser_deployed", None, "adi_reverse_symbol", "mode", None),
+    ("sim/cockpit2/annunciators/reverser_deployed", None, "eng_engn2", "reverse_deployed", None),
     ("sim/cockpit2/autopilot/altitude_dial_ft", None, "adi_asel", "target_alt_ft", None),
     ("sim/cockpit2/autopilot/altitude_hold_armed", None, "adi_asel", "mode", None),
     ("sim/cockpit2/gauges/indicators/radio_altimeter_height_ft_pilot", None, "adi_alt", "radio_alt_ft", None),
@@ -200,6 +202,8 @@ dref_indicators = [
     ("sim/custom/7x/fuel_used2", None, "fuel_fu2", "value", None),
     ("sim/custom/7x/fuel_used3", None, "fuel_fu3", "value", None),
     ("sim/custom/7X/TBAT", None, "fuel_temp", "value", None),
+    ("sim/custom/7x/z_et_timer_left", None, "et_timer", "secs", "adi_left"),
+    ("sim/custom/7x/z_et_timer_right", None, "et_timer", "secs", "adi_right"),
 ]
 
 dref_nested_dict = defaultdict(list)

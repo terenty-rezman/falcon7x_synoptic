@@ -85,6 +85,7 @@ to_subscribe = [
     (Params["sim/cockpit2/gauges/indicators/airspeed_kts_copilot"], 20, "udp"), # airspeed
     (Params["sim/cockpit2/gauges/indicators/vvi_fpm_pilot"], 20, "udp"), # vertical speed ft per min
     (Params["sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot"], 15, "udp"), # adi alt baro settings
+    (Params["sim/cockpit2/gauges/actuators/barometer_setting_in_hg_copilot"], 15, "udp"), # adi alt baro settings
     (Params["sim/cockpit2/clock_timer/local_time_hours"], None, "tcp"), # hours
     (Params["sim/cockpit2/clock_timer/local_time_minutes"], None, "tcp"), # minutes
     (Params["sim/flightmodel/position/true_airspeed"], 10, "udp"), # adi tas
@@ -160,4 +161,6 @@ to_subscribe = [
     (Params["sim/custom/7x/fuel_used1"], 3, "udp"),
     (Params["sim/custom/7x/fuel_used2"], 3, "udp"),
     (Params["sim/custom/7x/fuel_used3"], 3, "udp"),
+    (Params["sim/custom/7x/z_et_timer_left"], None, "tcp"), # et timer left
+    (Params["sim/custom/7x/z_et_timer_right"], None, "tcp"), # et timer left
 ]

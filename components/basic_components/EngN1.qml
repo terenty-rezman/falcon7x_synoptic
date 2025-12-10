@@ -14,6 +14,7 @@ Item {
     property int start: 0
     property int ab: 0
     property bool ab_visible: true
+    property bool reverse_deployed: false
 
     property real top_digit: 75
     property real bottom_digit: 86
@@ -30,6 +31,24 @@ Item {
         }
     }
 
+    onReverse_deployedChanged: {
+        if (start_text.visible == false) {
+            transit_text.visible = true
+        }
+        transit_timer.restart();
+    }
+
+    Timer {
+        id: transit_timer
+        interval: 2000
+        running: false
+        repeat: false
+
+        onTriggered: {
+            transit_text.visible = false
+        }
+    }
+
     Canvas {
         id: canvas
         // width: 100
@@ -37,7 +56,7 @@ Item {
         anchors.fill: parent
 
         onPaint: {
-            const map_n1_to_linear = new Helpers.Interp1d([22, 30, 60, 82, 89, 90.8], [0, 0.125, 0.375, 0.625, 0.875, 1]);
+            const map_n1_to_linear = new Helpers.Interp1d([0, 22, 30, 60, 82, 89, 90.8], [0, 0.05, 0.125, 0.375, 0.625, 0.875, 1]);
             const map_n1 = new Helpers.Interp1d([0, 1], [-120 - 90, 30 - 90]); 
 
             const map_throttle = new Helpers.Interp1d([0, 1], [-120 - 90, 30 - 90]); 
@@ -123,6 +142,7 @@ Item {
     }
 
     Text {
+        id: start_text
         x: 20 
         y: 22
         text: "START"
@@ -130,6 +150,28 @@ Item {
         font.pixelSize: 18
         font.bold: true
         visible: self.start > 0
+    }
+
+    Text {
+        id: reverse_text
+        x: 20 
+        y: 22
+        text: "DEPLOY"
+        color: "#00FC00"
+        font.pixelSize: 16
+        font.bold: true
+        visible: transit_text.visible == false && start_text.visible == false && self.reverse_deployed == true
+    }
+
+    Text {
+        id: transit_text
+        x: 20 
+        y: 22
+        text: "TRANS"
+        color: "#efd20f"
+        font.pixelSize: 18
+        font.bold: true
+        visible: false
     }
 
     Rectangle {
