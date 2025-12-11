@@ -2,14 +2,14 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="52"
-   height="33"
-   viewBox="0 0 13.758333 8.7312498"
+   width="34.844376"
+   height="8.2058458"
+   viewBox="0 0 9.2192407 2.17113"
    version="1.1"
    id="svg1"
    xml:space="preserve"
    inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
-   sodipodi:docname="BLEED_VALVE_INVALID_DATA.svg"
+   sodipodi:docname="BLEED_ENG2_INLET_OFF.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="1"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
-     inkscape:zoom="7.9999999"
-     inkscape:cx="11.3125"
-     inkscape:cy="-6.6875001"
+     inkscape:zoom="5.6568544"
+     inkscape:cx="32.173358"
+     inkscape:cy="5.2149124"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -34,22 +34,20 @@
      inkscape:current-layer="layer1"><inkscape:page
        x="0"
        y="0"
-       width="13.758333"
-       height="8.7312498"
-       id="page2"
+       width="9.2192411"
+       height="2.1711299"
+       id="page1"
        margin="0"
        bleed="0" /></sodipodi:namedview><defs
      id="defs1" /><g
      inkscape:label="Слой 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-167.07018,-112.84863)"><circle
-       style="fill:none;stroke:#a8b49e;stroke-width:1.35008;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:6.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
-       id="path6"
-       cx="173.99246"
-       cy="117.21425"
-       r="3.6905861" /><path
-       style="fill:none;stroke:#dfd229;stroke-width:1.11125;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4.44500017,1.11125004;stroke-dashoffset:19.22462574;stroke-opacity:1"
-       d="m 168.82304,117.21425 10.45104,0"
-       id="path7"
-       sodipodi:nodetypes="cc" /></g></svg>
+     transform="translate(-121.81918,-99.958035)"><path
+       style="fill:none;fill-opacity:1;stroke:#00ff00;stroke-width:0.25275;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="m 121.94582,102.00279 h 8.9512 c 0,0 0.0334,-0.48411 0,-0.87595 -0.0332,-0.39183 -0.56122,-1.04243 -0.56122,-1.04243 h -7.73963 c 0,0 -0.52023,0.67398 -0.58281,1.04243 -0.0759,0.44694 -0.0675,0.87595 -0.0675,0.87595 z"
+       id="path13"
+       sodipodi:nodetypes="ccsccscc"
+       inkscape:export-filename="BLEED_ENG2_INLET_TOP_PREPARE.svg"
+       inkscape:export-xdpi="93.669998"
+       inkscape:export-ydpi="93.669998" /></g></svg>

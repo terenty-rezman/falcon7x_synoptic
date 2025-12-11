@@ -22,15 +22,33 @@ Rectangle {
 
     color: Constants.backgroundColor
 
-    Image {
-        id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
-        x: 0
-        y: 0
-        visible: false
-        source: "images/BLEED.png"
-        enabled: true
-        fillMode: Image.PreserveAspectFit
+    // Image {
+    //     id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
+    //     x: 0
+    //     y: 0
+    //     visible: true
+    //     source: "images/BLEED.png"
+    //     enabled: true
+    //     fillMode: Image.PreserveAspectFit
+    // }
+    Bleed_nacelles {
+        id: bleed_nacelles
+        x: 240
+        y: 163
     }
+
+    Bleed_wing {
+        id: bleed_wing
+        x: 417
+        y: 4
+    }
+
+    Bleed_brake {
+        id: bleed_brake
+        x: 465
+        y: 144
+    }
+
     Bleed_valve {
         id: bleed_valve
         x: 164
@@ -136,18 +154,6 @@ Rectangle {
         id: bleed_apu
         x: 424
         y: 249
-    }
-
-    Bleed_engine {
-        id: bleed_engine
-        x: 81
-        y: 220
-    }
-
-    Bleed_engine {
-        id: bleed_engine1
-        x: 238
-        y: 221
     }
 
     Bleed_engine {
@@ -307,9 +313,9 @@ Rectangle {
         y: 136
         width: 46
         height: 20
-        color: "#a8b49e"
+        color: "#555555"
         text: qsTr("1 ↔ 2")
-        font.letterSpacing: -1.6
+        font.letterSpacing: -1.5
         font.pixelSize: 14
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignTop
@@ -340,5 +346,74 @@ Rectangle {
         x: 28
         y: 8
         text: "PAX"
+    }
+
+    Bleed_pipes {
+        id: bleed_pipes
+        x: 0
+        y: 0
+
+        Text {
+            id: _text11
+            x: 160
+            y: 119
+            color: "#555555"
+            text: qsTr("XBLEED")
+            font.letterSpacing: -1.2
+            font.pixelSize: 14
+            horizontalAlignment: Text.AlignHCenter
+            lineHeight: 0.9
+            font.styleName: "Narrow Bold"
+            font.family: "Arial"
+        }
+
+        Text {
+            id: _text12
+            x: 361
+            y: 119
+            color: "#555555"
+            text: qsTr("XBLEED")
+            font.letterSpacing: -1.2
+            font.pixelSize: 14
+            horizontalAlignment: Text.AlignHCenter
+            lineHeight: 0.9
+            font.styleName: "Narrow Bold"
+            font.family: "Arial"
+        }
+
+        Bleed_inlet_1 {
+            id: bleed_inlet_1
+            x: 81
+            y: 180
+        }
+
+        Bleed_inlet_3 {
+            id: bleed_inlet_3
+            x: 521
+            y: 180
+        }
+
+        Bleed_inlet_2 {
+            id: bleed_inlet_2
+            x: 207
+            y: 125
+        }
+    }
+
+    Text {
+        id: _text13
+        x: 358
+        y: 136
+        width: 46
+        height: 20
+        color: "#555555"
+        text: qsTr("2 ↔ 3")
+        font.letterSpacing: -1.5
+        font.pixelSize: 14
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignTop
+        font.weight: Font.Medium
+        font.styleName: "Обычный"
+        font.family: "Arial"
     }
 }

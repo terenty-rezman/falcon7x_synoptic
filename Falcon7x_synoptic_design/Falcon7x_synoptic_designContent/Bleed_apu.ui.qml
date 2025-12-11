@@ -2,12 +2,22 @@ import QtQuick
 
 Image {
     id: self
-    source: "images/BLEED_VALVE_OPERATING.svg"
+    source: "images/BLEED_APU_OPERATING.svg"
     fillMode: Image.PreserveAspectFit
     width: 28
     height: 57
 
     property int state: 1
+
+    Rectangle {
+        id: rectangle
+        x: 12
+        y: -13
+        width: 5
+        height: 13
+        color: "#ffbf00"
+        border.color: "#ffbf00"
+    }
 
     states: [
         State {
@@ -16,7 +26,7 @@ Image {
 
             PropertyChanges {
                 target: self
-                source: "images/BLEED_VALVE_OPERATING.svg"
+                source: "images/BLEED_APU_OPERATING.svg"
             }
         },
 
@@ -26,7 +36,7 @@ Image {
 
             PropertyChanges {
                 target: self
-                source: "images/BLEED_VALVE_STOPPED.svg"
+                source: "images/BLEED_APU_STOPPED.svg"
             }
         },
 
@@ -36,7 +46,7 @@ Image {
 
             PropertyChanges {
                 target: self
-                source: "images/BLEED_VALVE_INVALID_DATA.svg"
+                source: "images/BLEED_APU_INVALID_DATA.svg"
             }
         }
     ]
