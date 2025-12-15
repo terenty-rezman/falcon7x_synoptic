@@ -87,6 +87,9 @@ class BlackScreen(QQuickView):
         else:
             super().show()
 
+        self.setFlags(self.flags() | Qt.WindowStaysOnTopHint)
+
+
 class Screens:
     left_black_screen = None
     right_black_screen = None

@@ -30,7 +30,7 @@ Item {
     //     enabled: true
     //     fillMode: Image.PreserveAspectFit
     // }
-    property int status: 1
+    property int state: 6
 
     Rectangle {
         id: streak
@@ -52,6 +52,17 @@ Item {
         fillColor: "#00000000"
     }
 
+    Image {
+        id: valve_inv_data
+        x: -10
+        y: 0
+        source: "images/BLEED_VALVE_INVALID_DATA.svg"
+        rotation: 90
+        visible: false
+        width: 52
+        height: 33
+    }
+
     states: [
         State {
             name: "valve_open"
@@ -60,58 +71,112 @@ Item {
             PropertyChanges {
                 target: streak
                 color: "#00ff00"
+                visible: true
             }
             PropertyChanges {
                 target: arc
                 strokeColor: "#00ff00"
+                visible: true
+            }
+            PropertyChanges {
+                target: valve_inv_data
+                visible: false
             }
         },
         State {
             name: "valve_closed"
-            when: self.state === 1
+            when: self.state === 2
 
             PropertyChanges {
                 target: streak
                 color: "#a8b49e"
                 rotation: 90
+                visible: true
             }
             PropertyChanges {
                 target: arc
                 strokeColor: "#a8b49e"
+                visible: true
+            }
+            PropertyChanges {
+                target: valve_inv_data
+                visible: false
             }
         },
         State {
             name: "valve_failed"
+            when: self.state === 3
+
             PropertyChanges {
                 target: streak
                 color: "transparent"
+                visible: true
             }
             PropertyChanges {
                 target: arc
                 strokeColor: "#dfd229"
+                visible: true
+            }
+            PropertyChanges {
+                target: valve_inv_data
+                visible: false
             }
         },
         State {
             name: "valve_failed_closed"
+            when: self.state === 4
+
             PropertyChanges {
                 target: streak
                 color: "#dfd229"
                 rotation: 90
+                visible: true
             }
             PropertyChanges {
                 target: arc
                 strokeColor: "#dfd229"
+                visible: true
+            }
+            PropertyChanges {
+                target: valve_inv_data
+                visible: false
             }
         },
         State {
             name: "valve_failed_opened"
+            when: self.state === 5
+
             PropertyChanges {
                 target: streak
                 color: "#dfd229"
+                visible: true
             }
             PropertyChanges {
                 target: arc
                 strokeColor: "#dfd229"
+                visible: true
+            }
+            PropertyChanges {
+                target: valve_inv_data
+                visible: false
+            }
+        },
+
+        State {
+            name: "valve_invalid_data"
+            when: self.state === 6
+
+            PropertyChanges {
+                target: valve_inv_data
+                visible: true
+            }
+            PropertyChanges {
+                target: streak
+                visible: false
+            }
+            PropertyChanges {
+                target: arc
+                visible: false
             }
         }
     ]
