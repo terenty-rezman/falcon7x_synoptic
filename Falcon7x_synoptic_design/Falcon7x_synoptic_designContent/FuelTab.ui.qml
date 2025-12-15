@@ -316,6 +316,7 @@ Rectangle {
 
     Text {
         id: _text8
+        objectName: "fuel_level_t1"
         x: 120
         y: 5
         color: "#b7c2b1"
@@ -324,10 +325,15 @@ Rectangle {
         font.pixelSize: 18
         font.weight: Font.Bold
         font.family: "Arial"
+
+        property int fuel_weight: 1000
+
+        visible: fuel_weight < 1001
     }
 
     Text {
         id: _text12
+        objectName: "fuel_level_t3"
         x: 474
         y: 5
         color: "#b7c2b1"
@@ -336,10 +342,15 @@ Rectangle {
         font.pixelSize: 18
         font.weight: Font.Bold
         font.family: "Arial"
+
+        property int fuel_weight: 1000
+
+        visible: fuel_weight < 1001
     }
 
     Text {
         id: _text13
+        objectName: "fuel_level_t2"
         x: 359
         y: 53
         color: "#b7c2b1"
@@ -349,6 +360,10 @@ Rectangle {
         lineHeight: 0.85
         font.weight: Font.Bold
         font.family: "Arial"
+
+        property int fuel_weight: 1000
+
+        visible: fuel_weight < 850
     }
 
     Fuel_green_numbers {
