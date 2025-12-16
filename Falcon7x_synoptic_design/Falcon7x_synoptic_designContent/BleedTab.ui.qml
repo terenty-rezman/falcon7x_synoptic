@@ -156,12 +156,6 @@ Rectangle {
         y: 249
     }
 
-    Bleed_engine {
-        id: bleed_engine2
-        x: 552
-        y: 221
-    }
-
     Bleed_pax {
         id: bleed_pax1
         x: 599
