@@ -36,7 +36,7 @@ Item {
     }
     Rectangle {
         id: middle_inlet
-        x: 37
+        x: 38
         y: 37
         width: 28
         height: 45
