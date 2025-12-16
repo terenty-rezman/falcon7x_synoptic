@@ -307,7 +307,7 @@ Rectangle {
         y: 136
         width: 46
         height: 20
-        color: "#555555"
+        color: "#a8b49e"
         text: qsTr("1 ↔ 2")
         font.letterSpacing: -1.5
         font.pixelSize: 14
@@ -347,34 +347,6 @@ Rectangle {
         x: 0
         y: 0
 
-        Text {
-            id: _text11
-            x: 160
-            y: 119
-            color: "#555555"
-            text: qsTr("XBLEED")
-            font.letterSpacing: -1.2
-            font.pixelSize: 14
-            horizontalAlignment: Text.AlignHCenter
-            lineHeight: 0.9
-            font.styleName: "Narrow Bold"
-            font.family: "Arial"
-        }
-
-        Text {
-            id: _text12
-            x: 361
-            y: 119
-            color: "#555555"
-            text: qsTr("XBLEED")
-            font.letterSpacing: -1.2
-            font.pixelSize: 14
-            horizontalAlignment: Text.AlignHCenter
-            lineHeight: 0.9
-            font.styleName: "Narrow Bold"
-            font.family: "Arial"
-        }
-
         Bleed_inlet_1 {
             id: bleed_inlet_1
             x: 81
@@ -392,22 +364,5 @@ Rectangle {
             x: 207
             y: 125
         }
-    }
-
-    Text {
-        id: _text13
-        x: 358
-        y: 136
-        width: 46
-        height: 20
-        color: "#555555"
-        text: qsTr("2 ↔ 3")
-        font.letterSpacing: -1.5
-        font.pixelSize: 14
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignTop
-        font.weight: Font.Medium
-        font.styleName: "Обычный"
-        font.family: "Arial"
     }
 }
