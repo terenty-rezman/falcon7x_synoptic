@@ -28,7 +28,6 @@ Rectangle {
         y: 0
         visible: false
         source: "images/HYD.png"
-        enabled: true
         fillMode: Image.PreserveAspectFit
     }
     Text {
@@ -85,12 +84,14 @@ Rectangle {
 
     Hyd_temp_indicator {
         id: hyd_temp_indicator2
+        objectName: "hyd_pump_c2_temp"
         x: 598
         y: 49
     }
 
     Hyd_pump {
         id: hyd_pump6
+        objectName: "hyd_pump_ebha"
         x: 591
         y: 291
         width: 26
@@ -98,24 +99,30 @@ Rectangle {
     }
     Hyd_pump {
         id: hyd_pump1
+        objectName: "hyd_pump_b2"
         x: 350
         y: 39
     }
 
     Hyd_pump {
         id: hyd_pump2
+        objectName: "hyd_pump_b3"
         x: 432
         y: 39
     }
 
     Hyd_pump {
         id: hyd_pump4
+        objectName: "hyd_pump_a3"
         x: 119
         y: 39
     }
 
     Hyd_pump {
         id: hyd_pump5
+
+        objectName: "hyd_pump_a1"
+
         x: 38
         y: 39
     }
@@ -158,66 +165,75 @@ Rectangle {
 
     Hyd_pump_status_text {
         id: hyd_pump_status_text
+        objectName: "hyd_pump_a1_text"
         x: 32
         y: 15
+        text: "- - - -"
+    }
 
-        Hyd_pipes {
-            id: hyd_pipes
-            x: -32
-            y: -15
+    Hyd_pipes {
+        id: hyd_pipes
+        x: 0
+        y: 0
+    }
 
-            Hyd_wheels {
-                id: hyd_wheels
-                x: 6
-                y: 304
-            }
-        }
+    Hyd_wheels {
+        id: hyd_wheels
+        x: 6
+        y: 304
     }
 
     Hyd_pump_status_text {
         id: hyd_pump_status_text1
+        objectName: "hyd_pump_a3_text"
         x: 114
         y: 15
     }
 
     Hyd_pump_status_text {
         id: hyd_pump_status_text2
+        objectName: "hyd_pump_b2_text"
         x: 344
         y: 15
+    }
 
-        Hyd_temp_indicator {
-            id: hyd_temp_indicator1
-            x: 49
-            y: 20
-        }
+    Hyd_temp_indicator {
+        id: hyd_temp_indicator1
+        objectName: "hyd_pump_b2_temp"
+        x: 393
+        y: 35
     }
 
     Hyd_pump_status_text {
         id: hyd_pump_status_text3
+        objectName: "hyd_pump_b3_text"
         x: 426
         y: 15
     }
 
     Hyd_pump_status_text {
         id: hyd_pump_status_text4
+        objectName: "hyd_pump_c2_text"
         x: 544
         y: 15
     }
 
-    Hyd_pump_status_text {
+    Hyd_pump_bu_status_text {
         id: hyd_pump_status_text5
+        objectName: "hyd_pump_bu_text"
         x: 279
         y: 15
-        text: "AUTO"
     }
 
     Hyd_temp_indicator {
         id: hyd_temp_indicator
+        objectName: "hyd_pump_a1_temp"
         x: 80
         y: 35
     }
     Hyd_pump {
         id: hyd_pump
+        objectName: "hyd_pump_bu"
         x: 286
         y: 39
     }
@@ -313,6 +329,7 @@ Rectangle {
     }
     Hyd_pump {
         id: hyd_pump3
+        objectName: "hyd_pump_c2"
         x: 552
         y: 39
     }

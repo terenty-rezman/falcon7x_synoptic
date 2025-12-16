@@ -3,7 +3,7 @@ import QtQuick
 Text {
     id: self
 
-    property int state: 3
+    property int state: 4
 
     width: 50
     height: 21
@@ -21,7 +21,7 @@ Text {
 
             PropertyChanges {
                 target: self
-                text: "CLSD"
+                text: "OFF"
                 color: "#d2b60c"
             }
         },
@@ -31,7 +31,7 @@ Text {
 
             PropertyChanges {
                 target: self
-                text: "OPEN"
+                text: "AUTO"
                 color: "#6fa533"
             }
         },
@@ -41,13 +41,23 @@ Text {
 
             PropertyChanges {
                 target: self
-                text: "TRNSN"
+                text: "ON"
                 color: "#d2b60c"
             }
         },
 
         State {
             when: self.state == 3
+
+            PropertyChanges {
+                target: self
+                text: "TEST"
+                color: "#d2b60c"
+            }
+        },
+
+        State {
+            when: self.state == 4
 
             PropertyChanges {
                 target: self

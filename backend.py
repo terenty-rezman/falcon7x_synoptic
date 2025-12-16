@@ -207,6 +207,30 @@ dref_indicators = [
     ("sim/custom/7X/TBAT", None, "fuel_temp", "value", None),
     ("sim/custom/7x/z_et_timer_left", None, "et_timer", "secs", "adi_left"),
     ("sim/custom/7x/z_et_timer_right", None, "et_timer", "secs", "adi_right"),
+    
+    # hyd tab
+    ("sim/custom/7x/z_hyd_pump_a1", None, "hyd_pump_a1", "state", None),
+    ("sim/custom/7x/z_hyd_pump_a3", None, "hyd_pump_a3", "state", None),
+    ("sim/custom/7x/z_hyd_pump_bu", None, "hyd_pump_bu", "state", None),
+    ("sim/custom/7x/z_hyd_pump_b2", None, "hyd_pump_b2", "state", None),
+    ("sim/custom/7x/z_hyd_pump_b3", None, "hyd_pump_b3", "state", None),
+    ("sim/custom/7x/z_hyd_pump_c2", None, "hyd_pump_c2", "state", None),
+    ("sim/custom/7x/z_hyd_pump_a1_text", None, "hyd_pump_a1_text", "state", None),
+    ("sim/custom/7x/z_hyd_pump_a3_text", None, "hyd_pump_a3_text", "state", None),
+    ("sim/custom/7x/z_hyd_pump_bu_text", None, "hyd_pump_bu_text", "state", None),
+    ("sim/custom/7x/z_hyd_pump_b2_text", None, "hyd_pump_b2_text", "state", None),
+    ("sim/custom/7x/z_hyd_pump_b3_text", None, "hyd_pump_b3_text", "state", None),
+    ("sim/custom/7x/z_hyd_pump_c2_text", None, "hyd_pump_c2_text", "state", None),
+    ("sim/custom/7x/z_hyd_pipe_a1", None, "hyd_pipe_a1", "state", None),
+    ("sim/custom/7x/z_hyd_pipe_a3", None, "hyd_pipe_a3", "state", None),
+    ("sim/custom/7x/z_hyd_pipe_a1a3", None, "hyd_pipe_a1a3", "state", None),
+    ("sim/custom/7x/z_hyd_pipe_b2", None, "hyd_pipe_b2", "state", None),
+    ("sim/custom/7x/z_hyd_pipe_b3", None, "hyd_pipe_b3", "state", None),
+    ("sim/custom/7x/z_hyd_pipe_b2b3", None, "hyd_pipe_b2b3", "state", None),
+    ("sim/custom/7x/z_hyd_pipe_c2", None, "hyd_pipe_c2", "state", None),
+    ("sim/custom/7x/z_hyd_pipe_ebha", None, "hyd_pipe_ebha", "state", None),
+    ("sim/custom/7x/z_hyd_pipe_brake2", None, "hyd_pipe_brake2", "state", None),
+    ("sim/custom/7x/z_hyd_pipe_bu", None, "hyd_pipe_bu", "state", None),
 ]
 
 dref_nested_dict = defaultdict(list)

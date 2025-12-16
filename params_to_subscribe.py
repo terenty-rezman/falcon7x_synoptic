@@ -163,4 +163,27 @@ to_subscribe = [
     (Params["sim/custom/7x/fuel_used3"], 3, "udp"),
     (Params["sim/custom/7x/z_et_timer_left"], None, "tcp"), # et timer left
     (Params["sim/custom/7x/z_et_timer_right"], None, "tcp"), # et timer left
+
+    (Params["sim/custom/7x/z_hyd_pump_a1"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pump_a3"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pump_bu"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pump_b2"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pump_b3"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pump_c2"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pump_a1_text"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pump_a3_text"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pump_bu_text"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pump_b2_text"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pump_b3_text"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pump_c2_text"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pipe_a1"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pipe_a3"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pipe_a1a3"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pipe_b2"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pipe_b3"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pipe_b2b3"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pipe_c2"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pipe_ebha"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pipe_brake2"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_pipe_bu"], None, "tcp"),
 ]

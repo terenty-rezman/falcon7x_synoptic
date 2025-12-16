@@ -8,7 +8,7 @@ Image {
     height: 37
     source: "images/HYD_PUMP_INVALID_DATA_37_37.svg"
 
-    property int state: 0
+    property int state: 3
 
     states: [
         State {
