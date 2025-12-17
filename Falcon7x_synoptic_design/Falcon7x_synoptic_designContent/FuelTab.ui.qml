@@ -328,7 +328,7 @@ Rectangle {
 
         property int fuel_weight: 1000
 
-        visible: fuel_weight < 1001
+        visible: (fuel_weight * 2.20400) < 1001
     }
 
     Text {
@@ -345,7 +345,7 @@ Rectangle {
 
         property int fuel_weight: 1000
 
-        visible: fuel_weight < 1001
+        visible: (fuel_weight * 2.20400) < 1001
     }
 
     Text {
@@ -363,7 +363,7 @@ Rectangle {
 
         property int fuel_weight: 1000
 
-        visible: fuel_weight < 850
+        visible: (fuel_weight * 2.20400) < 1000
     }
 
     Fuel_green_numbers {
@@ -374,7 +374,7 @@ Rectangle {
 
         property int value: 0
 
-        text: value
+        text: (value * 2.20400).toFixed(0)
     }
 
     Fuel_green_numbers {

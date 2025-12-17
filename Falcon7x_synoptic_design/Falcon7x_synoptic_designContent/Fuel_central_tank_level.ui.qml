@@ -8,15 +8,16 @@ Rectangle {
     width: 32
     height: 99
     color: "transparent"
-    border.color: "#ffffff"
+    border.color: (self.fuel_weight > 250 / 2.2 ) ? "#fff" : "#dfd229"
+    
     border.width: 2
 
     property int fuel_weight: 0
-    property int max_fuel_weight: 4942
+    property int max_fuel_weight: 10895 / 2.20
 
     Rectangle {
-        color: "#44dc3a"
-        height: self.fuel_weight / self.max_fuel_weight * parent.height
+        color: (self.fuel_weight > 250 / 2.2 ) ? "#44dc3a" : "#dfd229"
+        height: (self.fuel_weight < 250 / 2.2 ) ? (self.fuel_weight / (250 / 2.2) * 14) : ((self.fuel_weight - 250 / 2.2) / self.max_fuel_weight * (parent.height - 14) + 14)
         anchors.left: parent.left
         anchors.bottom: parent.bottom
         anchors.right: parent.right
