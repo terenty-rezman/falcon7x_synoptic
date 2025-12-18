@@ -472,6 +472,7 @@ Rectangle {
         text: (value * 2.20400).toFixed(0)
     }
 
+    // ZoneText {
     Fuel_green_text_bigger {
         id: fuel_green_text_bigger5
         objectName: "fuel_fq3"

@@ -29,7 +29,7 @@ import settings as s
 
 def on_new_xp_data(type, dataref, value):
     backend.backend.set_data_http({"data": {Params[dataref]: value}})
-    black_screen.set_data_http({"data": {Params[dataref]: value}}, synoptic)
+    black_screen.set_data_http({"data": {Params[dataref]: value}}, synoptic_down)
 
 
 def on_data_exception(ex: Exception):
@@ -117,19 +117,19 @@ def create_toplevel_qml_view(app_qml_url: str, view_name: str, window_title: str
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
 
-    synoptic = create_toplevel_qml_view(
-        "components/synoptic_app.qml", "synoptic", "synoptic - falcon7x",
+    synoptic_down = create_toplevel_qml_view(
+        "components/synoptic_down.qml", "synoptic", "synoptic - falcon7x",
         s.SYNOPTIC_WINDOW_WIDTH, s.SYNOPTIC_WINDOW_HEIGHT * 2
     )
-    synoptic.show()
-    view_helper.all_views.append(synoptic)
+    synoptic_down.show()
+    view_helper.all_views.append(synoptic_down)
 
-    single_synoptic = create_toplevel_qml_view(
-        "components/synoptic_app.qml", "synoptic_single", "synoptic - falcon7x",
+    synoptic_up = create_toplevel_qml_view(
+        "components/synoptic_up.qml", "synoptic_single", "synoptic - falcon7x",
         s.SYNOPTIC_WINDOW_WIDTH, s.SYNOPTIC_WINDOW_HEIGHT * 2
     )
-    single_synoptic.show()
-    view_helper.all_views.append(single_synoptic)
+    synoptic_up.show()
+    view_helper.all_views.append(synoptic_up)
 
     under_cas_1 = create_toplevel_qml_view(
         "components/under_cas_app.qml", "under_cas_1", "under cas 1 - falcon 7x",
