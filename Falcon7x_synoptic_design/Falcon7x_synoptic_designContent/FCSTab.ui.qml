@@ -17,7 +17,7 @@ Rectangle {
         id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
         x: 0
         y: -1
-        visible: false
+        visible: true
         source: "images/FCS.png"
         enabled: true
         fillMode: Image.PreserveAspectFit
@@ -580,5 +580,17 @@ Rectangle {
         id: fCS_spoil1
         x: 540
         y: 69
+    }
+
+    Text {
+        id: _text3
+        x: 285
+        y: 185
+        color: "#555555"
+        text: qsTr("PITCH")
+        font.letterSpacing: 1.3
+        font.pixelSize: 17
+        font.styleName: "Narrow"
+        font.family: "Arial"
     }
 }

@@ -19,18 +19,6 @@ Item {
         fillMode: Image.PreserveAspectFit
     }*/
     Text {
-        id: _text1
-        x: 19
-        y: -4
-        color: "#555555"
-        text: qsTr("PITCH")
-        font.letterSpacing: 1.3
-        font.pixelSize: 17
-        font.styleName: "Narrow"
-        font.family: "Arial"
-    }
-
-    Text {
         id: _text2
         x: 58
         y: 27

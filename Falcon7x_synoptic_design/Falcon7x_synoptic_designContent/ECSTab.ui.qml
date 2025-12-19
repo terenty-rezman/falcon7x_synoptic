@@ -30,6 +30,12 @@ Rectangle {
         source: "images/ECS.png"
         enabled: true
         fillMode: Image.PreserveAspectFit
+
+        ECS_valve {
+            id: eCS_valve
+            x: 217
+            y: 266
+        }
     }
     Rectangle {
         id: rectangle1
@@ -46,16 +52,15 @@ Rectangle {
         x: 2
         y: 51
         text_state: 3
-
-        Rectangle {
-            id: rectangle2
-            x: 102
-            y: -45
-            width: 4
-            height: 335
-            color: "#a8b49e"
-            border.width: 0
-        }
+    }
+    Rectangle {
+        id: rectangle2
+        x: 102
+        y: -45
+        width: 4
+        height: 335
+        color: "#a8b49e"
+        border.width: 0
     }
 
     ECS_vol_qty {
@@ -249,5 +254,11 @@ Rectangle {
         font.weight: Font.Medium
         font.styleName: "Полужирный"
         font.family: "Arial"
+    }
+
+    ECS_NORM_FL {
+        id: eCS_NORM_FL
+        x: 360
+        y: -68
     }
 }
