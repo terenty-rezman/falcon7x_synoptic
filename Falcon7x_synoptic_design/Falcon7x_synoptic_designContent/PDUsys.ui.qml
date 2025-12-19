@@ -21,34 +21,34 @@ Rectangle {
     height: 382
     visible: true
 
-    color: Constants.backgroundColor
-    Image {
-        id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
-        x: 0
-        y: 0
-        visible: true
-        source: "images/PDU/PDU_part.jpg"
-        enabled: true
-        fillMode: Image.PreserveAspectFit
-
-        Fuel_green_numbers {
-            id: fuel_green_numbers6
-            x: 68
-            y: 9
-        }
-
-        Fuel_green_numbers {
-            id: fuel_green_numbers7
-            x: 171
-            y: 9
-        }
-
-        Fuel_green_numbers {
-            id: fuel_green_numbers8
-            x: 275
-            y: 9
-        }
+    // color: Constants.backgroundColor
+    // Image {
+    //     id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
+    //     x: 0
+    //     y: 0
+    //     visible: true
+    //     source: "images/PDU/PDU_part.jpg"
+    //     enabled: true
+    //     fillMode: Image.PreserveAspectFit
+    // }
+    Fuel_green_numbers {
+        id: fuel_green_numbers6
+        x: 68
+        y: 9
     }
+
+    Fuel_green_numbers {
+        id: fuel_green_numbers7
+        x: 171
+        y: 9
+    }
+
+    Fuel_green_numbers {
+        id: fuel_green_numbers8
+        x: 275
+        y: 9
+    }
+
     Fuel_green_numbers {
         id: fuel_green_numbers
         x: 66
@@ -99,7 +99,7 @@ Rectangle {
 
     FCS_pitch_scale {
         id: fCS_pitch_scale
-        x: 255
+        x: 249
         y: 177
     }
 
@@ -220,7 +220,7 @@ Rectangle {
         id: _text3
         x: 324
         y: 207
-        color: "#555555"
+        color: "#a8b49e"
         text: qsTr("P\nI\nT\nC\nH")
         font.letterSpacing: 1.3
         font.pixelSize: 18

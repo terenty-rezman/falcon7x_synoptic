@@ -22,7 +22,7 @@ Item {
         id: _text2
         x: 58
         y: 27
-        color: "#555555"
+        color: "#a8b49e"
         text: qsTr("0")
         font.letterSpacing: 0
         font.pixelSize: 19
@@ -46,7 +46,7 @@ Item {
         y: 22
         width: 11
         height: 2
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
     }
 
@@ -54,7 +54,7 @@ Item {
         id: _text3
         x: 58
         y: 56
-        color: "#555555"
+        color: "#a8b49e"
         text: qsTr("4")
         font.letterSpacing: 0
         font.pixelSize: 19
@@ -65,7 +65,7 @@ Item {
         id: _text4
         x: 58
         y: 84
-        color: "#555555"
+        color: "#a8b49e"
         text: qsTr("8")
         font.letterSpacing: 0
         font.pixelSize: 19
@@ -86,7 +86,7 @@ Item {
         y: 121
         width: 11
         height: 2
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
     }
 
@@ -96,7 +96,7 @@ Item {
         y: 72
         width: 100
         height: 2
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
         rotation: 90
     }
@@ -107,7 +107,7 @@ Item {
         y: 36
         width: 10
         height: 2
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
     }
 
@@ -117,7 +117,7 @@ Item {
         y: 64
         width: 10
         height: 2
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
     }
 
@@ -127,7 +127,7 @@ Item {
         y: 93
         width: 10
         height: 2
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
     }
 
@@ -137,7 +137,7 @@ Item {
         y: 50
         width: 7
         height: 2
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
     }
 
@@ -147,7 +147,7 @@ Item {
         y: 78
         width: 7
         height: 2
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
     }
 
@@ -157,7 +157,7 @@ Item {
         y: 107
         width: 7
         height: 2
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
     }
 
@@ -165,7 +165,7 @@ Item {
         id: _text5
         x: 9
         y: 14
-        color: "#555555"
+        color: "#a8b49e"
         text: qsTr("NO")
         font.letterSpacing: -1.6
         font.pixelSize: 15
@@ -177,7 +177,7 @@ Item {
         id: _text6
         x: 10
         y: 114
-        color: "#555555"
+        color: "#a8b49e"
         text: qsTr("NU")
         font.letterSpacing: -1.6
         font.pixelSize: 15

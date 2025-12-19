@@ -22,7 +22,7 @@ Item {
         id: _text1
         x: 24
         y: 13
-        color: "#555555"
+        color: "#a8b49e"
         text: qsTr("YAW")
         font.letterSpacing: -0.3
         font.pixelSize: 19
@@ -35,7 +35,7 @@ Item {
         y: 38
         width: 10
         height: 15
-        color: "#555555"
+        color: "#a8b49e"
         text: qsTr("L")
         font.pixelSize: 13
         font.family: "Arial"
@@ -45,7 +45,7 @@ Item {
         id: _text2
         x: 92
         y: 38
-        color: "#555555"
+        color: "#a8b49e"
         text: qsTr("R")
         font.letterSpacing: 0
         font.pixelSize: 13
@@ -57,7 +57,7 @@ Item {
         y: 3
         width: 80
         height: 80
-        strokeColor: "#555555"
+        strokeColor: "#a8b49e"
         rotation: 90
         fillColor: "#00000000"
         end: 180
@@ -80,7 +80,7 @@ Item {
         y: 43
         width: 11
         height: 3
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
     }
 
@@ -90,7 +90,7 @@ Item {
         y: 43
         width: 11
         height: 3
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
     }
 
@@ -100,7 +100,7 @@ Item {
         y: 83
         width: 10
         height: 3
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
         rotation: 90
     }
@@ -111,7 +111,7 @@ Item {
         y: 72
         width: 10
         height: 3
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
         rotation: 45
     }
@@ -122,7 +122,7 @@ Item {
         y: 72
         width: 10
         height: 3
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
         rotation: -45
     }

@@ -22,7 +22,7 @@ Item {
         id: _text1
         x: 18
         y: 10
-        color: "#555555"
+        color: "#a8b49e"
         text: qsTr("ROLL")
         font.letterSpacing: -0.3
         font.pixelSize: 19
@@ -36,7 +36,7 @@ Item {
         y: 0
         width: 80
         height: 80
-        strokeColor: "#555555"
+        strokeColor: "#a8b49e"
         rotation: 90
         fillColor: "#00000000"
         end: 180
@@ -59,7 +59,7 @@ Item {
         y: 40
         width: 11
         height: 3
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
     }
 
@@ -69,7 +69,7 @@ Item {
         y: 40
         width: 11
         height: 3
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
     }
 
@@ -79,7 +79,7 @@ Item {
         y: 80
         width: 10
         height: 3
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
         rotation: 90
     }
@@ -90,7 +90,7 @@ Item {
         y: 69
         width: 10
         height: 3
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
         rotation: 45
     }
@@ -101,7 +101,7 @@ Item {
         y: 69
         width: 10
         height: 3
-        color: "#555555"
+        color: "#a8b49e"
         border.color: "#00555555"
         rotation: -45
     }
