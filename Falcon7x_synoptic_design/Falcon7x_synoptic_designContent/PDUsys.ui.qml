@@ -400,7 +400,6 @@ Item {
 
     EngOilPdu {
         objectName: "eng_oil2"
-        x: 61
         x: 163
         y: 31
         width: 100
@@ -408,7 +407,6 @@ Item {
 
     EngOilPdu {
         objectName: "eng_oil3"
-        x: 61
         x: 268
         y: 31
         width: 100
