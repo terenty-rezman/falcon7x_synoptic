@@ -375,6 +375,7 @@ Item {
     }
 
     EngOilPdu {
+        objectName: "eng_oil1"
         x: 61
         y: 31
         width: 100
@@ -396,12 +397,18 @@ Item {
         font.styleName: "Обычный"
         font.family: "Arial"
     }
+
     EngOilPdu {
+        objectName: "eng_oil2"
+        x: 61
         x: 163
         y: 31
         width: 100
     }
+
     EngOilPdu {
+        objectName: "eng_oil3"
+        x: 61
         x: 268
         y: 31
         width: 100
