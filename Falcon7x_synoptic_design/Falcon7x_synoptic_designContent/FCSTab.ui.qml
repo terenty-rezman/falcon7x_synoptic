@@ -17,9 +17,8 @@ Rectangle {
         id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
         x: 0
         y: -1
-        visible: true
+        visible: false
         source: "images/FCS.png"
-        enabled: true
         fillMode: Image.PreserveAspectFit
     }
     FCS_sfcc_frame {
@@ -214,18 +213,6 @@ Rectangle {
         id: fCS_sfcc_frame1
         x: 20
         y: 137
-    }
-
-    Text {
-        id: _text2
-        x: 43
-        y: 209
-        color: "#555555"
-        text: qsTr("ROLL")
-        font.letterSpacing: -0.3
-        font.pixelSize: 19
-        font.styleName: "Narrow"
-        font.family: "Arial"
     }
 
     FCS_yaw_scale {
@@ -586,7 +573,7 @@ Rectangle {
         id: _text3
         x: 285
         y: 185
-        color: "#555555"
+        color: "#ffffff"
         text: qsTr("PITCH")
         font.letterSpacing: 1.3
         font.pixelSize: 17

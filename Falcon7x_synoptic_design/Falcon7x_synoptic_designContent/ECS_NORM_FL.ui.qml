@@ -78,7 +78,6 @@ Item {
 
         contentItem: Text {
             x: -60
-            font: norm.font
             //opacity: enabled ? 1.0 : 0.3
             color: norm.checked ? "#21be2b" : "#ffffff"
             text: "NORM"
@@ -127,7 +126,6 @@ Item {
 
         contentItem: Text {
             x: -60
-            font: fl.font
             opacity: enabled
             color: fl.checked ? "#17a81a" : "#ffffff"
             text: "   FL"

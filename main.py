@@ -29,7 +29,7 @@ import settings as s
 
 def on_new_xp_data(type, dataref, value):
     backend.backend.set_data_http({"data": {Params[dataref]: value}})
-    black_screen.set_data_http({"data": {Params[dataref]: value}}, synoptic_down)
+    black_screen.set_data_http({"data": {Params[dataref]: value}}, mdu_down)
 
 
 def on_data_exception(ex: Exception):
@@ -117,47 +117,33 @@ def create_toplevel_qml_view(app_qml_url: str, view_name: str, window_title: str
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
 
-    synoptic_down = create_toplevel_qml_view(
-        "components/synoptic_down.qml", "synoptic", "synoptic - falcon7x",
-        s.SYNOPTIC_WINDOW_WIDTH, s.SYNOPTIC_WINDOW_HEIGHT * 2
+    mdu_down = create_toplevel_qml_view(
+        "components/mdu_down.qml", "mdu_down", "mdu - falcon7x",
+        s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
     )
-    synoptic_down.show()
-    view_helper.all_views.append(synoptic_down)
+    mdu_down.show()
+    view_helper.all_views.append(mdu_down)
 
-    synoptic_up = create_toplevel_qml_view(
-        "components/synoptic_up.qml", "synoptic_single", "synoptic - falcon7x",
-        s.SYNOPTIC_WINDOW_WIDTH, s.SYNOPTIC_WINDOW_HEIGHT * 2
+    mdu_up = create_toplevel_qml_view(
+        "components/mdu_up.qml", "mdu up", "mdu - falcon7x",
+        s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
     )
-    synoptic_up.show()
-    view_helper.all_views.append(synoptic_up)
+    mdu_up.show()
+    view_helper.all_views.append(mdu_up)
 
-    under_cas_1 = create_toplevel_qml_view(
-        "components/under_cas_app.qml", "under_cas_1", "under cas 1 - falcon 7x",
-        s.UNDER_CAS_WINDOW_WIDTH, s.UNDER_CAS_WINDOW_HEIGHT
+    pdu_left = create_toplevel_qml_view(
+        "components/pdu_left.qml", "pdu_left", "pdu left - falcon7x", 
+        s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
     )
-    under_cas_1.show()
-    view_helper.all_views.append(under_cas_1)
+    pdu_left.show()
+    view_helper.all_views.append(pdu_left)
 
-    under_cas_2 = create_toplevel_qml_view(
-        "components/under_cas_app.qml", "under_cas_2", "under cas 2 - falcon 7x",
-        s.UNDER_CAS_WINDOW_WIDTH, s.UNDER_CAS_WINDOW_HEIGHT
+    pdu_right = create_toplevel_qml_view(
+        "components/pdu_right.qml", "pdu_right", "pdu right - falcon7x", 
+        s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
     )
-    under_cas_2.show()
-    view_helper.all_views.append(under_cas_2)
-
-    adi_left = create_toplevel_qml_view(
-        "components/adi_left.qml", "adi_left", "adi left - falcon7x", 
-        s.ADI_WINDOW_WIDTH, s.ADI_WINDOW_HEIGHT
-    )
-    adi_left.show()
-    view_helper.all_views.append(adi_left)
-
-    adi_right = create_toplevel_qml_view(
-        "components/adi_right.qml", "adi_right", "adi right - falcon7x", 
-        s.ADI_WINDOW_WIDTH, s.ADI_WINDOW_HEIGHT
-    )
-    adi_right.show()
-    view_helper.all_views.append(adi_right)
+    pdu_right.show()
+    view_helper.all_views.append(pdu_right)
 
     black_screen.create_black_screens()
 
@@ -170,4 +156,3 @@ if __name__ == "__main__":
     with event_loop:
         main_future = asyncio.Task(main())
         event_loop.run_until_complete(main_future)
-

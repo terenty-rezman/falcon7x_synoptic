@@ -6,7 +6,6 @@ import QtQuick.Layouts
 import "basic_components"
 
 Rectangle {
-    anchors.fill: parent
     color: "#c47a2c"
 
     property string side: "left" || "right" // set it from where component is instantiated
@@ -449,9 +448,5 @@ Rectangle {
             y: 198
             horizontalAlignment: Text.AlignRight
         }
-    }
-
-    Text {
-        text: side
     }
 }
