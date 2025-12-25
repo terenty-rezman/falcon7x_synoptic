@@ -16,8 +16,9 @@ import "../../components/basic_components"
 //import Falcon7x_synoptic_design 1.0
 Item {
     id: self
-    width: 113
-    height: 82
+    width: 65
+    height: 37
+
     // visible: true
 
     //color: Constants.backgroundColor
@@ -34,24 +35,23 @@ Item {
     // }
     Rectangle {
         id: rectangle
-        x: 3
-        y: 41
+        x: 0
+        y: 0
         width: 64
         height: 36
         color: "#a8b49e"
         radius: 2
     }
-
     RadioButton {
         id: norm
-        x: 50
-        y: 33
+        x: 0
+        y: 0
 
         rightPadding: 0
         bottomPadding: 0
         leftPadding: 0
         topPadding: 0
-        autoExclusive: false
+        autoExclusive: true
         checkable: true
         checked: true
         autoRepeat: false
@@ -59,7 +59,7 @@ Item {
         indicator: Rectangle {
             implicitWidth: 15
             implicitHeight: 15
-            x: norm.leftPadding
+            x: norm.width - width - norm.rightPadding
             y: parent.height / 2 - height / 2
             radius: 7
             border.color: "#ffffff"
@@ -77,39 +77,37 @@ Item {
         }
 
         contentItem: Text {
-            x: -60
+            x: 0
             font: norm.font
-            //opacity: enabled ? 1.0 : 0.3
             color: norm.checked ? "#21be2b" : "#ffffff"
             text: "NORM"
-            elide: Text.ElideLeft
+            elide: Text.ElideRight
             verticalAlignment: Text.AlignVCenter
-            font.family: "Arial"
-            font.pointSize: 10
-            bottomPadding: 8
-            topPadding: 8
-            leftPadding: 17
+            renderTypeQuality: Text.VeryHighRenderTypeQuality
+            rightPadding: 18
+            bottomPadding: 0
+            topPadding: 0
+            leftPadding: 3
         }
     }
     RadioButton {
         id: fl
-        x: 50
-        y: 50
-
+        x: 18
+        y: 19
         rightPadding: 0
         bottomPadding: 0
         leftPadding: 0
         topPadding: 0
-        autoExclusive: false
+        autoExclusive: true
         checkable: true
         checked: false
         autoRepeat: false
 
         indicator: Rectangle {
+            x: 30
+            y: 0
             implicitWidth: 15
             implicitHeight: 15
-            x: fl.leftPadding
-            y: parent.height / 2 - height / 2
             radius: 7
             border.color: "#ffffff"
             color: "#000000"
@@ -117,8 +115,8 @@ Item {
             Rectangle {
                 width: 13
                 height: 13
-                x: 1
-                y: 1
+                x: 0
+                y: 0
                 radius: 6
                 color: "#17a81a"
                 visible: fl.checked
@@ -126,19 +124,18 @@ Item {
         }
 
         contentItem: Text {
-            x: -60
+            y: -3
             font: fl.font
-            opacity: enabled
             color: fl.checked ? "#17a81a" : "#ffffff"
-            text: "   FL"
-            elide: Text.ElideLeft
-            horizontalAlignment: Text.AlignHCenter
+            text: "FL"
+            elide: Text.ElideRight
+            horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
-            font.family: "Arial"
-            font.pointSize: 10
-            bottomPadding: 8
-            topPadding: 8
-            leftPadding: 17
+            rightPadding: 0
+
+            bottomPadding: 0
+            topPadding: 0
+            leftPadding: 0
         }
     }
 

@@ -31,18 +31,41 @@ Rectangle {
         enabled: true
         fillMode: Image.PreserveAspectFit
 
-        ECS_valve {
-            id: eCS_valve
-            x: 217
-            y: 266
+        ECS_landing_field_elev {
+            id: eCS_landing_field_elev
+            x: 457
+            y: 40
         }
+
+        ECS_NORM_FL {
+            id: eCS_NORM_FL
+            x: 368
+            y: 41
+        }
+
+        ECS_cabin_scale {
+            id: eCS_cabin_scale
+            x: 362
+            y: 94
+        }
+    }
+    ECS_valve {
+        id: eCS_valve
+        x: 217
+        y: 266
+    }
+
+    ECS_low_cabin_rate_sel {
+        id: eCS_low_cabin_rate_sel
+        x: 584
+        y: 40
     }
     Rectangle {
         id: rectangle1
         x: 7
-        y: 247
+        y: 248
         width: 97
-        height: 4
+        height: 2
         color: "#a8b49e"
         border.width: 0
     }
@@ -55,9 +78,9 @@ Rectangle {
     }
     Rectangle {
         id: rectangle2
-        x: 102
-        y: -45
-        width: 4
+        x: 105
+        y: 6
+        width: 2
         height: 335
         color: "#a8b49e"
         border.width: 0
@@ -73,7 +96,7 @@ Rectangle {
         id: eCS_vol_qty1
         x: 48
         y: 166
-        value: "3100"
+        value: 3100
     }
 
     Text {
@@ -224,6 +247,13 @@ Rectangle {
         font.weight: Font.Medium
         font.styleName: "Обычный"
         font.family: "Arial"
+
+        ECS_pressure_status {
+            id: eCS_pressure_status
+            x: 184
+            y: 0
+            text_state: 1
+        }
     }
 
     Text {
@@ -256,9 +286,35 @@ Rectangle {
         font.family: "Arial"
     }
 
-    ECS_NORM_FL {
-        id: eCS_NORM_FL
-        x: 360
-        y: -68
+    Rectangle {
+        id: rectangle3
+        x: 353
+        y: 6
+        width: 2
+        height: 335
+        color: "#a8b49e"
+        border.width: 0
+    }
+
+    Text {
+        id: _text21
+        x: 1
+        y: 291
+        color: "#a8b49e"
+        text: qsTr("HUMID:")
+        font.letterSpacing: -0.3
+        font.pixelSize: 16
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignTop
+        font.weight: Font.Medium
+        font.styleName: "Обычный"
+        font.family: "Arial"
+
+        ECS_humid_status {
+            id: eCS_humid_status
+            x: 58
+            y: 0
+            text_state: 1
+        }
     }
 }
