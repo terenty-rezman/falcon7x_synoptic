@@ -3,9 +3,16 @@ import QtQuick.Controls
 import QtQuick
 import QtQuick.Layouts
 
-Rectangle {
-    anchors.fill: parent
-    color: "#000000"
+import "basic_components"
+import "../Falcon7x_synoptic_design/Falcon7x_synoptic_designContent"
+
+Item {
+    objectName: "pdu_left"
+
+    Rectangle {
+        anchors.fill: parent
+        color: "#545454"
+    }
 
     MouseArea {
         anchors.fill: parent
@@ -30,19 +37,27 @@ Rectangle {
         }
     }
 
-    Synoptic {
-        id: synoptic_1
-        width: parent.width
-        height: parent.height / 2
-        currentIndex: 2
+    Adi {
+        x: 0
+        y: 0
+        side: "left"
+
+        width: 684
+        height: 768
     }
 
-    Synoptic {
-        id: synoptic_2
-        objectName: "synoptic_tab_bar"
-        y: parent.height / 2
-        width: parent.width
-        height: parent.height / 2
-        currentIndex: 1
+    EngUnderCas {
+        x: 1024 * 2 / 3
+        y: 768 / 4
+    }
+
+    PDUsys {
+        x: 1024 * 2 / 3
+        y: 768 / 2
+    }
+
+    Text {
+        text: "left"
+        color: "#fff"
     }
 }

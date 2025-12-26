@@ -52,21 +52,6 @@ Item {
         font.family: "Arial"
     }
     Text {
-        id: _text2
-        x: 12
-        y: 19
-        width: 55
-        height: 14
-        color: "#00ff00"
-        text: qsTr("220")
-        font.letterSpacing: -0.2
-        font.pixelSize: 17
-        horizontalAlignment: Text.AlignRight
-        verticalAlignment: Text.AlignVCenter
-        font.weight: Font.Thin
-        font.family: "SegoeUI"
-    }
-    Text {
         id: _text1
         x: 78
         y: 18
@@ -75,5 +60,20 @@ Item {
         font.letterSpacing: 0.1
         font.pixelSize: 15
         font.family: "Arial"
+    }
+
+    TextInput {
+        id: textInput
+        x: 9
+        y: 18
+        width: 58
+        height: 19
+        color: "#00ff00"
+        text: qsTr("220")
+        font.letterSpacing: -0.3
+        font.pixelSize: 17
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
+        selectedTextColor: "#00ff00"
     }
 }

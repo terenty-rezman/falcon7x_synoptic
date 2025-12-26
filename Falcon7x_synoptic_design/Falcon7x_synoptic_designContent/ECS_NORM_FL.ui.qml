@@ -77,8 +77,11 @@ Item {
         }
 
         contentItem: Text {
+
             x: 0
             font: norm.font
+
+            //opacity: enabled ? 1.0 : 0.3
             color: norm.checked ? "#21be2b" : "#ffffff"
             text: "NORM"
             elide: Text.ElideRight
@@ -124,8 +127,10 @@ Item {
         }
 
         contentItem: Text {
+
             y: -3
             font: fl.font
+
             color: fl.checked ? "#17a81a" : "#ffffff"
             text: "FL"
             elide: Text.ElideRight

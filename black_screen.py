@@ -121,6 +121,7 @@ def create_black_sreen(name):
     black_qml_url = QUrl("components/black_screen.qml")
 
     black_screen = BlackScreen(300, 150, name=name)
+    black_screen.rootContext().setContextProperty("window_name", name)
     black_screen.rootContext().setContextProperty("view", black_screen)
     black_screen.engine().addImportPath("./Falcon7x_synoptic_design")
     black_screen.setSource(black_qml_url)

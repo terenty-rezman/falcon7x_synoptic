@@ -413,75 +413,139 @@ Rectangle {
         text: (value * 2.20400).toFixed(0)
     }
 
-    Fuel_green_text_bigger {
-        id: fuel_green_text_bigger
+    ZoneText {
+        id: fuel_fu1
         objectName: "fuel_fu1"
-        x: 35
+        x: 70
         y: 291
 
+        anchors.right: fuel_fu1_lb.left
+
         property int value: 0
+
+        state: fuel_fq1.state
+
+        value_zones: [0, 250 / 2.2]
+        state_zones: ["yellow", "green"]
+
+        font.letterSpacing: 1
+        font.pixelSize: 17
+        font.family: "Arial"
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
 
         text: (value * 2.20400).toFixed(0)
     }
 
-    Fuel_green_text_bigger {
-        id: fuel_green_text_bigger1
+    ZoneText {
+        id: fuel_fu2
 
         objectName: "fuel_fu2"
 
-        x: 248
+        x: 279
         y: 271
 
+        anchors.right: fuel_fu2_lb.left
+
         property int value: 0
+
+        state: fuel_fq2.state
+
+        value_zones: [0, 250 / 2.2]
+        state_zones: ["yellow", "green"]
+
+        font.letterSpacing: 1
+        font.pixelSize: 17
+        font.family: "Arial"
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
 
         text: (value * 2.20400).toFixed(0)
     }
 
-    Fuel_green_text_bigger {
-        id: fuel_green_text_bigger2
+    ZoneText {
+        id: fuel_fu3
 
         objectName: "fuel_fu3"
 
-        x: 594
+        x: 630
         y: 291
 
+        anchors.right: fuel_fu3_lb.left
+
         property int value: 0
 
+        state: fuel_fq3.state
+
         text: (value * 2.20400).toFixed(0)
+
+        value_zones: [0, 250 / 2.2]
+        state_zones: ["yellow", "green"]
+
+        font.letterSpacing: 1
+        font.pixelSize: 17
+        font.family: "Arial"
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
     }
 
-    Fuel_green_text_bigger {
-        id: fuel_green_text_bigger3
+    ZoneText {
+        id: fuel_fq1
         objectName: "fuel_fq1"
-        x: 27
+        x: 58
         y: 119
-
-        property int value: 0
+        anchors.right: fuel_fq1_lb.left
 
         text: (value * 2.20400).toFixed(0)
+
+        value_zones: [0, 250 / 2.2]
+        state_zones: ["yellow", "green"]
+
+        font.letterSpacing: 1
+        font.pixelSize: 17
+        font.family: "Arial"
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
     }
 
-    Fuel_green_text_bigger {
-        id: fuel_green_text_bigger4
+    ZoneText {
+        id: fuel_fq2
         objectName: "fuel_fq2"
-        x: 418
+        x: 448
         y: 119
 
-        property int value: 0
+        anchors.right: fuel_fq2_lb.left
 
         text: (value * 2.20400).toFixed(0)
+
+        value_zones: [0, 250 / 2.2]
+        state_zones: ["yellow", "green"]
+
+        font.letterSpacing: 1
+        font.pixelSize: 17
+        font.family: "Arial"
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
     }
 
-    // ZoneText {
-    Fuel_green_text_bigger {
-        id: fuel_green_text_bigger5
+    ZoneText {
+        id: fuel_fq3
         objectName: "fuel_fq3"
-        x: 608
+        x: 638
         y: 121
 
-        property int value: 0
+        anchors.right: fuel_fq3_lb.left
 
         text: (value * 2.20400).toFixed(0)
+
+        value_zones: [0, 250 / 2.2]
+        state_zones: ["yellow", "green"]
+
+        font.letterSpacing: 1
+        font.pixelSize: 17
+        font.family: "Arial"
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
     }
 
     Text {
@@ -518,7 +582,7 @@ Rectangle {
     }
 
     Text {
-        id: _text17
+        id: fuel_fu2_lb
         x: 295
         y: 274
         color: "#828a7a"
@@ -529,7 +593,7 @@ Rectangle {
     }
 
     Text {
-        id: _text18
+        id: fuel_fq1_lb
         x: 75
         y: 121
         color: "#828a7a"
@@ -542,7 +606,7 @@ Rectangle {
     }
 
     Text {
-        id: _text19
+        id: fuel_fu1_lb
         x: 86
         y: 294
         color: "#828a7a"
@@ -555,7 +619,7 @@ Rectangle {
     }
 
     Text {
-        id: _text20
+        id: fuel_fu3_lb
         x: 645
         y: 294
         color: "#828a7a"
@@ -566,7 +630,7 @@ Rectangle {
     }
 
     Text {
-        id: _text21
+        id: fuel_fq3_lb
         x: 655
         y: 124
         color: "#828a7a"
@@ -618,7 +682,7 @@ Rectangle {
     }
 
     Text {
-        id: _text22
+        id: fuel_fq2_lb
         x: 465
         y: 121
         color: "#828a7a"

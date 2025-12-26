@@ -129,38 +129,47 @@ Item {
         // font.bold: true
     }
 
-    ZoneText {
-        id: oil_psi_text
-
+    Item {
         x: -11
-        y: 36
-        // width: 25
+        y: 63
 
-        value_zones: self.oil_psi_zones
-        state_zones:  ["red", "yellow", "green", "green", "yellow", "red"]
+        ZoneText {
+            id: oil_psi_text
+            anchors.right: parent.left
+            anchors.rightMargin: -36
 
-        value: self.psi.toFixed(0)
+            value_zones: self.oil_psi_zones
+            state_zones:  ["red", "yellow", "green", "green", "yellow", "red"]
 
-        font.pixelSize: 18
-        horizontalAlignment: Text.AlignRight
+            value: self.psi.toFixed(0)
+
+            font.pixelSize: 18
+            horizontalAlignment: Text.AlignRight
+        }
+    }
+
+    Item {
+        x: 55
+        y: 63
+
+        ZoneText {
+            id: oil_temp_text
+
+            anchors.right: parent.left
+            anchors.rightMargin: -15
+
+            value_zones: self.oil_temp_zones
+            state_zones: ["yellow", "green", "yellow", "red", "red"]
+
+            value: self.temp.toFixed(0)
+
+            font.pixelSize: 18
+        }
     }
 
     onOil_min_tempChanged: () => {
         self.oil_temp_zones[1] = self.oil_min_temp;
         oil_temp_text.value_zones = self.oil_temp_zones;
         oil_temp_text.valueChanged();
-    }
-
-    ZoneText {
-        id: oil_temp_text
-        x: 62 
-        y: 36
-
-        value_zones: self.oil_temp_zones
-        state_zones: ["yellow", "green", "yellow", "red", "red"]
-
-        value: self.temp.toFixed(0)
-
-        font.pixelSize: 18
     }
 }

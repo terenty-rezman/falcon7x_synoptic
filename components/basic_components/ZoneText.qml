@@ -7,6 +7,9 @@ Text {
     property real value: 0
     property var value_zones: [0, 25, 146, 149, 152]
     property var state_zones: ["yellow", "green", "yellow", "red", "red"]
+
+    anchors.leftMargin: 4
+    anchors.rightMargin: 4
     
     text: self.value
 
@@ -14,12 +17,10 @@ Text {
 
     Rectangle {
         id: rect_
-        color: "#000000"
-        // anchors.fill: parent
-        x: 0
-        y: +3
-        width: self.width + 2
-        height: self.height - 3
+        color: "transparent"
+        anchors.fill: parent
+        anchors.leftMargin: -2
+        anchors.rightMargin: -2
         z: -1
     }
 
@@ -40,7 +41,7 @@ Text {
 
             PropertyChanges {
                 target: rect_
-                color: "#000000"
+                color: "transparent"
             }
         },
 

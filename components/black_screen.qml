@@ -49,5 +49,12 @@ Rectangle {
                 view.showNormal()
             }
         }
+
+    }
+
+    Text {
+        text: window_name
+        color: "#fff"
+        anchors.right: parent.right
     }
 }

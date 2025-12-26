@@ -21,21 +21,21 @@ Item {
 
     EngN1 {
         objectName: "eng_engn1"
-        x: 23
+        x: 28
         y: 13
         ab_visible: false
     }
 
     EngN1 {
         objectName: "eng_engn2"
-        x: 121
+        x: 131
         y: 13
         ab_visible: false
     }
 
     EngN1 {
         objectName: "eng_engn3"
-        x: 228
+        x: 233
         y: 13
         ab_visible: false
     }
@@ -52,19 +52,19 @@ Item {
 
     EngITT {
         objectName: "eng_itt1"
-        x: 23
+        x: 28
         y: 87
     }
 
     EngITT {
         objectName: "eng_itt2"
-        x: 121
+        x: 131
         y: 87
     }
 
     EngITT {
         objectName: "eng_itt3"
-        x: 228
+        x: 233
         y: 87
     }
 
@@ -81,21 +81,21 @@ Item {
     MappedValueText {
         objectName: "eng_n2_1"
         
-        x: 57
+        x: 63
         y: 160
     }
 
     MappedValueText {
         objectName: "eng_n2_2"
         
-        x: 157
+        x: 168
         y: 160
     }
 
     MappedValueText {
         objectName: "eng_n2_3"
         
-        x: 257
+        x: 263
         y: 160
     }
 }

@@ -32,8 +32,22 @@ Rectangle {
 
     Synoptic {
         id: synoptic_1
-        width: parent.width
+        width: 2 * parent.width / 3 
         height: parent.height / 2
-        currentIndex: 2
+        currentIndex: 4
+    }
+
+    Synoptic {
+        id: synoptic_2
+        y: parent.height / 2
+        width: 2 * parent.width / 3
+        height: parent.height / 2
+        currentIndex: 3
+    }
+
+    Text {
+        text: "up"
+        color: "#fff"
+        anchors.right: parent.right
     }
 }

@@ -22,33 +22,33 @@ Rectangle {
 
     color: Constants.backgroundColor
 
-    Image {
-        id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
-        x: 0
-        y: 0
-        visible: true
-        source: "images/ECS.png"
-        enabled: true
-        fillMode: Image.PreserveAspectFit
-
-        ECS_landing_field_elev {
-            id: eCS_landing_field_elev
-            x: 457
-            y: 40
-        }
-
-        ECS_NORM_FL {
-            id: eCS_NORM_FL
-            x: 368
-            y: 41
-        }
-
-        ECS_cabin_scale {
-            id: eCS_cabin_scale
-            x: 362
-            y: 94
-        }
+    // Image {
+    //     id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
+    //     x: 0
+    //     y: 0
+    //     visible: true
+    //     source: "images/ECS.png"
+    //     enabled: true
+    //     fillMode: Image.PreserveAspectFit
+    // }
+    ECS_landing_field_elev {
+        id: eCS_landing_field_elev
+        x: 457
+        y: 40
     }
+
+    ECS_NORM_FL {
+        id: eCS_NORM_FL
+        x: 368
+        y: 41
+    }
+
+    ECS_cabin_scale {
+        id: eCS_cabin_scale
+        x: 362
+        y: 94
+    }
+
     ECS_valve {
         id: eCS_valve
         x: 217
@@ -316,5 +316,39 @@ Rectangle {
             y: 0
             text_state: 1
         }
+    }
+
+    ECS_crew_and_pax_temp {
+        id: eCS_crew_and_pax_temp
+        x: 0
+        y: 0
+
+        ECS_pipes {
+            id: eCS_pipes
+            x: 0
+            y: 1
+
+            ECS_pack {
+                id: eCS_pack
+                x: 194
+                y: 219
+                text_state: 1
+            }
+        }
+    }
+
+    Text {
+        id: _text22
+        x: 7
+        y: 166
+        color: "#a8b49e"
+        text: qsTr("VOL:")
+        font.letterSpacing: -0.3
+        font.pixelSize: 18
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignTop
+        font.weight: Font.Medium
+        font.styleName: "Обычный"
+        font.family: "Arial"
     }
 }

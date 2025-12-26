@@ -15,74 +15,225 @@ import "../../components/basic_components"
 import "../../components"
 import Falcon7x_synoptic_design 1.0
 
-Rectangle {
+Item {
     id: rectangle
     width: 340
     height: 382
-    visible: true
 
-    // color: Constants.backgroundColor
     // Image {
     //     id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
     //     x: 0
     //     y: 0
-    //     visible: true
+    //     visible: false
     //     source: "images/PDU/PDU_part.jpg"
-    //     enabled: true
     //     fillMode: Image.PreserveAspectFit
     // }
-    Fuel_green_numbers {
-        id: fuel_green_numbers6
-        x: 68
-        y: 9
+    ZoneText {
+        id: fuel_fu1
+        objectName: "fuel_fu1"
+        x: 98
+        y: 125
+
+        anchors.right: fq1_anch.left
+        anchors.rightMargin: 4
+
+        property int value: 0
+
+        state: fuel_fq1.state
+
+        value_zones: [0, 250 / 2.2]
+        state_zones: ["yellow", "green"]
+
+        font.letterSpacing: 1
+        font.pixelSize: 17
+        font.family: "Arial"
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
+
+        text: (value * 2.20400).toFixed(0)
     }
 
-    Fuel_green_numbers {
-        id: fuel_green_numbers7
-        x: 171
-        y: 9
+    ZoneText {
+        id: fuel_fu2
+        objectName: "fuel_fu2"
+        x: 98
+        y: 125
+
+        anchors.right: fq2_anch.left
+        anchors.rightMargin: 4
+
+        property int value: 0
+
+        state: fuel_fq2.state
+
+        value_zones: [0, 250 / 2.2]
+        state_zones: ["yellow", "green"]
+
+        font.letterSpacing: 1
+        font.pixelSize: 17
+        font.family: "Arial"
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
+
+        text: (value * 2.20400).toFixed(0)
     }
 
-    Fuel_green_numbers {
-        id: fuel_green_numbers8
-        x: 275
-        y: 9
+    ZoneText {
+        id: fuel_fu3
+        objectName: "fuel_fu3"
+        x: 98
+        y: 117
+        height: 35
+
+        anchors.right: fq3_anch.left
+        anchors.rightMargin: 4
+
+        property int value: 0
+
+        state: fuel_fq3.state
+
+        value_zones: [0, 250 / 2.2]
+        state_zones: ["yellow", "green"]
+
+        font.letterSpacing: 1
+        font.pixelSize: 17
+        font.family: "Arial"
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
+
+        text: (value * 2.20400).toFixed(0)
     }
 
-    Fuel_green_numbers {
-        id: fuel_green_numbers
-        x: 66
-        y: 127
+    Item {
+        id: fq1_anch
+        x: 112
+        y: 146
+        height: 20
+        width: 3
     }
 
-    Fuel_green_numbers {
-        id: fuel_green_numbers1
-        x: 66
-        y: 147
+    ZoneText {
+        id: fuel_fq1
+        objectName: "fuel_fq1"
+        x: 97
+        y: 145
+        anchors.right: fq1_anch.left
+
+        text: (value * 2.20400).toFixed(0)
+
+        value_zones: [0, 250 / 2.2]
+        state_zones: ["yellow", "green"]
+
+        font.letterSpacing: 1
+        font.pixelSize: 17
+        font.family: "Arial"
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
     }
 
-    Fuel_green_numbers {
-        id: fuel_green_numbers2
-        x: 170
-        y: 127
+    Item {
+        id: fq2_anch
+        x: 216
+        y: 146
+        height: 20
+        width: 2
     }
 
-    Fuel_green_numbers {
-        id: fuel_green_numbers3
-        x: 170
-        y: 147
+    ZoneText {
+        id: fuel_fq2
+        objectName: "fuel_fq2"
+        x: 135
+        y: 145
+        anchors.right: fq2_anch.left
+
+        text: (value * 2.20400).toFixed(0)
+
+        value_zones: [0, 250 / 2.2]
+        state_zones: ["yellow", "green"]
+
+        font.letterSpacing: 1
+        font.pixelSize: 17
+        font.family: "Arial"
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
     }
 
-    Fuel_green_numbers {
-        id: fuel_green_numbers4
-        x: 273
-        y: 127
+    Item {
+        id: fq3_anch
+        x: 319
+        y: 146
+        height: 20
+        width: 2
     }
 
-    Fuel_green_numbers {
-        id: fuel_green_numbers5
-        x: 273
-        y: 147
+    ZoneText {
+        id: fuel_fq3
+        objectName: "fuel_fq3"
+        x: 135
+        y: 145
+        anchors.right: fq3_anch.left
+
+        text: (value * 2.20400).toFixed(0)
+
+        value_zones: [0, 250 / 2.2]
+        state_zones: ["yellow", "green"]
+
+        font.letterSpacing: 1
+        font.pixelSize: 17
+        font.family: "Arial"
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    MappedValueText {
+        objectName: "eng_ff_1"
+
+        precision: 0
+        map_args: [0, 1]
+        map_vals: [0, 7936]
+
+        y: 5
+
+        anchors.right: fq1_anch.left
+        anchors.rightMargin: 4
+        horizontalAlignment: Text.AlignRight
+
+        font.pixelSize: 16
+        font.bold: false
+    }
+
+    MappedValueText {
+        objectName: "eng_ff_2"
+
+        precision: 0
+        map_args: [0, 1]
+        map_vals: [0, 7936]
+
+        y: 5
+
+        anchors.right: fq2_anch.left
+        anchors.rightMargin: 4
+
+        font.pixelSize: 16
+        font.bold: false
+        horizontalAlignment: Text.AlignRight
+    }
+
+    MappedValueText {
+        objectName: "eng_ff_3"
+
+        precision: 0
+        map_args: [0, 1]
+        map_vals: [0, 7936]
+
+        y: 5
+
+        anchors.right: fq3_anch.left
+        anchors.rightMargin: 4
+
+        font.pixelSize: 16
+        font.bold: false
+        horizontalAlignment: Text.AlignRight
     }
 
     FCS_yaw_scale {
@@ -109,34 +260,28 @@ Rectangle {
         y: 10
         width: 19
         height: 17
-        color: "#a8b49e"
+        color: "#fff"
         text: qsTr("FF")
         font.letterSpacing: -0.3
         font.pixelSize: 16
-        horizontalAlignment: Text.AlignHCenter
+        horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignTop
         font.weight: Font.Medium
         font.styleName: "Обычный"
         font.family: "Arial"
     }
 
-    ECS_NORM_FL {
-        id: eCS_NORM_FL
-        x: 360
-        y: -68
-    }
-
     Text {
         id: _text18
-        x: 1
+        x: 6
         y: 45
         width: 36
         height: 17
-        color: "#a8b49e"
+        color: "#fff"
         text: qsTr("OIL")
         font.letterSpacing: 1
         font.pixelSize: 16
-        horizontalAlignment: Text.AlignHCenter
+        horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignTop
         font.weight: Font.Medium
         font.styleName: "Обычный"
@@ -149,7 +294,7 @@ Rectangle {
         y: 128
         width: 36
         height: 17
-        color: "#a8b49e"
+        color: "#fff"
         text: qsTr("FU")
         font.letterSpacing: -0.3
         font.pixelSize: 14
@@ -166,7 +311,7 @@ Rectangle {
         y: 148
         width: 36
         height: 17
-        color: "#a8b49e"
+        color: "#fff"
         text: qsTr("FQ")
         font.letterSpacing: -0.3
         font.pixelSize: 14
@@ -183,7 +328,7 @@ Rectangle {
         y: 174
         width: 36
         height: 17
-        color: "#a8b49e"
+        color: "#fff"
         text: qsTr("TRIMS")
         font.letterSpacing: -0.3
         font.pixelSize: 14
@@ -198,7 +343,7 @@ Rectangle {
         id: _text15
         x: 319
         y: 128
-        color: "#828a7a"
+        color: "#fff"
         text: qsTr("LB")
         font.pixelSize: 13
         font.styleName: "Narrow"
@@ -209,7 +354,7 @@ Rectangle {
         id: _text16
         x: 319
         y: 147
-        color: "#828a7a"
+        color: "#fff"
         text: qsTr("LB")
         font.pixelSize: 13
         font.styleName: "Narrow"
@@ -220,7 +365,7 @@ Rectangle {
         id: _text3
         x: 324
         y: 207
-        color: "#a8b49e"
+        color: "#fff"
         text: qsTr("P\nI\nT\nC\nH")
         font.letterSpacing: 1.3
         font.pixelSize: 18
@@ -229,7 +374,8 @@ Rectangle {
         font.family: "Arial"
     }
 
-    EngOil {
+    EngOilPdu {
+        objectName: "eng_oil1"
         x: 61
         y: 31
         width: 100
@@ -241,7 +387,7 @@ Rectangle {
         y: 11
         width: 19
         height: 17
-        color: "#a8b49e"
+        color: "#fff"
         text: qsTr("PPH")
         font.letterSpacing: -0.3
         font.pixelSize: 10
@@ -251,12 +397,16 @@ Rectangle {
         font.styleName: "Обычный"
         font.family: "Arial"
     }
-    EngOil {
+
+    EngOilPdu {
+        objectName: "eng_oil2"
         x: 163
         y: 31
         width: 100
     }
-    EngOil {
+
+    EngOilPdu {
+        objectName: "eng_oil3"
         x: 268
         y: 31
         width: 100
@@ -267,8 +417,8 @@ Rectangle {
         x: 1
         y: 120
         width: 339
-        height: 4
-        color: "#a8b49e"
+        height: 1
+        color: "#fff"
         border.width: 0
     }
 
@@ -277,8 +427,8 @@ Rectangle {
         x: 1
         y: 168
         width: 339
-        height: 4
-        color: "#a8b49e"
+        height: 1
+        color: "#fff"
         border.width: 0
     }
 
@@ -287,8 +437,15 @@ Rectangle {
         x: 1
         y: 337
         width: 339
-        height: 4
-        color: "#a8b49e"
+        height: 1
+        color: "#fff"
         border.width: 0
+    }
+
+    ApuN1T5Pdu {
+        objectName: "eng_apun1t5"
+        x: 0
+
+        y: 347
     }
 }
