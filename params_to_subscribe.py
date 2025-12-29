@@ -124,6 +124,11 @@ to_subscribe = [
     (Params["sim/operation/failures/rel_genera1"], None, "tcp"), # generator failure 2
     (Params["sim/operation/failures/rel_genera2"], None, "tcp"), # generator failure 3
     (Params["sim/custom/7x/valeurstall"], 5, "udp"), # vstall
+    (Params["sim/cockpit2/hydraulics/indicators/hydraulic_fluid_ratio_1"], 2, "udp"), # hyd tab 
+    (Params["sim/cockpit2/hydraulics/indicators/hydraulic_fluid_ratio_2"], 2, "udp"), # hyd tab 
+    (Params["sim/custom/7x/hyd11"], 2, "udp"), # hyd tab
+    (Params["sim/custom/7x/hyd22"], 2, "udp"), # hyd tab
+    (Params["sim/custom/7x/hyd3"], 2, "udp"), # hyd tab
 
     # synoptic fuel tab
     (Params["sim/custom/7x/z_fuel_xtk_13"], None, "tcp"),
@@ -186,4 +191,9 @@ to_subscribe = [
     (Params["sim/custom/7x/z_hyd_pipe_ebha"], None, "tcp"),
     (Params["sim/custom/7x/z_hyd_pipe_brake2"], None, "tcp"),
     (Params["sim/custom/7x/z_hyd_pipe_bu"], None, "tcp"),
+    (Params["sim/custom/7x/z_flight_regime"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_text_om_slats"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_text_rh_ail"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_text_rh_elev"], None, "tcp"),
+    (Params["sim/custom/7x/z_hyd_text_spoilers"], None, "tcp"),
 ]

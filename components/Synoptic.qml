@@ -84,7 +84,7 @@ Item {
 
         }
 
-        Item {
+        ECSTab {
 
         }
         

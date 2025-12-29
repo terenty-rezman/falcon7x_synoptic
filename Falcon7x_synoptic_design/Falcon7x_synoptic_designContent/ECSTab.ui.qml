@@ -88,14 +88,18 @@ Rectangle {
 
     ECS_vol_qty {
         id: eCS_vol_qty
-        x: 50
-        y: 210
+        x: 51
+        y: 211
+        width: 37
+        height: 19
     }
 
     ECS_vol_qty {
         id: eCS_vol_qty1
         x: 48
         y: 166
+        width: 43
+        height: 19
         value: 3100
     }
 
@@ -221,7 +225,7 @@ Rectangle {
 
     Text {
         id: _text17
-        x: 8
+        x: 7
         y: 210
         color: "#a8b49e"
         text: qsTr("QTY:")
@@ -272,9 +276,9 @@ Rectangle {
     }
 
     Text {
-        id: _text20
-        x: 86
-        y: 211
+        id: qty_percent_text
+        x: 89
+        y: 210
         color: "#a8b49e"
         text: qsTr("%")
         font.letterSpacing: -0.3

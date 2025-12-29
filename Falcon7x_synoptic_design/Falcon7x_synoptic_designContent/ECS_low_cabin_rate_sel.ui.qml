@@ -3,6 +3,7 @@ import QtQuick.Controls
 import Falcon7x_synoptic_design
 import QtQuick.Studio.Components
 import QtQuick.VectorImage
+import QtQuick.Controls.Material 
 import "../../components/basic_components"
 
 //import Falcon7x_synoptic_design 1.0

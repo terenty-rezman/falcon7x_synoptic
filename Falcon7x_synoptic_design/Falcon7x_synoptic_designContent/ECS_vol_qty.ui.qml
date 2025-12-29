@@ -8,10 +8,19 @@ Check out https://doc.qt.io/qtcreator/creator-quick-ui-forms.html for details on
 */
 import QtQuick
 
-Item {
+Text {
     id: self
     width: 49
     height: 19
+
+    property int value: 100
+
+    visible: true
+    color: "#00ff00"
+    text: self.value
+    font.pixelSize: 18
+    horizontalAlignment: Text.AlignRight
+    font.family: "Arial"
 
     // visible: true
 
@@ -25,20 +34,4 @@ Item {
     //     enabled: true
     //     fillMode: Image.PreserveAspectFit
     // }
-    property int value: 100
-    Text {
-        id: _text
-        x: 0
-        y: 0
-        width: 49
-        height: 19
-        visible: true
-        color: "#00ff00"
-        text: self.value
-        font.letterSpacing: -0.3
-        font.pixelSize: 18
-        horizontalAlignment: Text.AlignLeft
-        lineHeight: 0.9
-        font.family: "Arial"
-    }
 }

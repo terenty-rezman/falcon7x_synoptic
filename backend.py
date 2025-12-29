@@ -103,6 +103,7 @@ dref_indicators = [
     ("sim/cockpit2/gauges/indicators/airspeed_kts_pilot", None, "adi_airspeed", "speed", "pdu_left"),
     ("sim/cockpit2/gauges/indicators/airspeed_kts_copilot", None, "adi_airspeed", "speed", "pdu_right"),
     ("sim/cockpit2/gauges/indicators/mach_pilot", None, "adi_airspeed", "mach", None),
+    ("sim/custom/7x/z_flight_regime", None, "adi_airspeed", "flight_regime", None),
     ("sim/cockpit2/gauges/indicators/vvi_fpm_pilot", None, "adi_vertical_speed", "vy_ft_per_min", None),
     ("sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot", None, "adi_alt", "baro_settings", "pdu_left"),
     ("sim/cockpit2/gauges/actuators/barometer_setting_in_hg_copilot", None, "adi_alt", "baro_settings", "pdu_right"),
@@ -231,6 +232,10 @@ dref_indicators = [
     ("sim/custom/7x/z_hyd_pipe_ebha", None, "hyd_pipe_ebha", "state", None),
     ("sim/custom/7x/z_hyd_pipe_brake2", None, "hyd_pipe_brake2", "state", None),
     ("sim/custom/7x/z_hyd_pipe_bu", None, "hyd_pipe_bu", "state", None),
+    ("sim/custom/7x/z_hyd_text_om_slats", None, "hyd_text_om_slats", "state", None),
+    ("sim/custom/7x/z_hyd_text_rh_ail", None, "hyd_text_rh_ail", "state", None),
+    ("sim/custom/7x/z_hyd_text_rh_elev", None, "hyd_text_rh_elev", "state", None),
+    ("sim/custom/7x/z_hyd_text_spoilers", None, "hyd_text_spoilers", "state", None),
 ]
 
 dref_nested_dict = defaultdict(list)

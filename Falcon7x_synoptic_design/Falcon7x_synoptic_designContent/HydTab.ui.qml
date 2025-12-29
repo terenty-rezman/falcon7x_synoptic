@@ -129,18 +129,21 @@ Rectangle {
 
     Hyd_Hydraulic_level_indicator {
         id: hyd_Hydraulic_level_indicator
+        objectName: "hyd_qty_3"
         x: 639
         y: 117
     }
 
     Hyd_Hydraulic_level_indicator {
         id: hyd_Hydraulic_level_indicator1
+        objectName: "hyd_qty_2"
         x: 497
         y: 117
     }
 
     Hyd_Hydraulic_level_indicator {
         id: hyd_Hydraulic_level_indicator2
+        objectName: "hyd_qty_1"
         x: 14
         y: 115
     }

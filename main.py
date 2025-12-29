@@ -128,21 +128,21 @@ if __name__ == "__main__":
         "components/mdu_up.qml", "mdu up", "mdu - falcon7x",
         s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
     )
-    mdu_up.show()
+    # mdu_up.show()
     view_helper.all_views.append(mdu_up)
 
     pdu_left = create_toplevel_qml_view(
         "components/pdu_left.qml", "pdu_left", "pdu left - falcon7x", 
         s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
     )
-    pdu_left.show()
+    # pdu_left.show()
     view_helper.all_views.append(pdu_left)
 
     pdu_right = create_toplevel_qml_view(
         "components/pdu_right.qml", "pdu_right", "pdu right - falcon7x", 
         s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
     )
-    pdu_right.show()
+    # pdu_right.show()
     view_helper.all_views.append(pdu_right)
 
     black_screen.create_black_screens()

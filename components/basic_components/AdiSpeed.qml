@@ -14,6 +14,7 @@ Item {
     property real high_speed: 380
     property real stall_speed: 100
     property real low_speed: stall_speed + 10
+    property int flight_regime: 0
 
     property string fonts: "bold 26px sans-serif"
     property string small_fonts: "bold 20px sans-serif"
@@ -88,15 +89,19 @@ Item {
             ctx.fillRect(self.width, high_speed_end, 5, high_speed_end - self.height);
             ctx.strokeRect(self.width, high_speed_end, 5, high_speed_end - self.height);
 
-            // draw low speed cue
-            ctx.fillStyle = "#FFFF00";
-            const low_speed_start = (-low_speed / 10) * alt_to_pix;
-            ctx.fillRect(self.width, low_speed_start, 5,  -low_speed_start);
+            console.log(self.flight_regime);
 
-            // draw stall speed cue
-            ctx.fillStyle = "#FF6666"
-            const stall_speed_start = (-stall_speed / 10) * alt_to_pix;
-            ctx.fillRect(self.width, stall_speed_start, 5, -stall_speed_start);
+            if (self.flight_regime > 1) { // 0 - park; 1 - taxi; 2 - cruise; 3 - to; 4 - land;
+                // draw low speed cue
+                ctx.fillStyle = "#FFFF00";
+                const low_speed_start = (-low_speed / 10) * alt_to_pix;
+                ctx.fillRect(self.width, low_speed_start, 5,  -low_speed_start);
+
+                // draw stall speed cue
+                ctx.fillStyle = "#FF6666"
+                const stall_speed_start = (-stall_speed / 10) * alt_to_pix;
+                ctx.fillRect(self.width, stall_speed_start, 5, -stall_speed_start);
+            }
 
             // speed digits & lines
             const line_count = 10;

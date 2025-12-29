@@ -11,6 +11,7 @@ import QtQuick.Controls
 import Falcon7x_synoptic_design
 import QtQuick.Studio.Components
 import QtQuick.VectorImage
+import QtQuick.Controls.Material
 import "../../components/basic_components"
 
 //import Falcon7x_synoptic_design 1.0
@@ -42,10 +43,13 @@ Item {
         color: "#a8b49e"
         radius: 2
     }
+
     RadioButton {
         id: norm
-        x: 0
-        y: 0
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: parent.height / 2
 
         rightPadding: 0
         bottomPadding: 0
@@ -59,8 +63,10 @@ Item {
         indicator: Rectangle {
             implicitWidth: 15
             implicitHeight: 15
-            x: norm.width - width - norm.rightPadding
-            y: parent.height / 2 - height / 2
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.rightMargin: 3
+
             radius: 7
             border.color: "#ffffff"
             color: "#000000"
@@ -77,8 +83,10 @@ Item {
         }
 
         contentItem: Text {
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
 
-            x: 0
             font: norm.font
 
             //opacity: enabled ? 1.0 : 0.3
@@ -86,17 +94,15 @@ Item {
             text: "NORM"
             elide: Text.ElideRight
             verticalAlignment: Text.AlignVCenter
-            renderTypeQuality: Text.VeryHighRenderTypeQuality
-            rightPadding: 18
-            bottomPadding: 0
-            topPadding: 0
             leftPadding: 3
         }
     }
     RadioButton {
         id: fl
-        x: 18
-        y: 19
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+
         rightPadding: 0
         bottomPadding: 0
         leftPadding: 0
@@ -106,9 +112,14 @@ Item {
         checked: false
         autoRepeat: false
 
+        height: parent.height / 2
+
         indicator: Rectangle {
-            x: 30
-            y: 0
+
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 3
+            anchors.rightMargin: 3
             implicitWidth: 15
             implicitHeight: 15
             radius: 7
@@ -118,8 +129,8 @@ Item {
             Rectangle {
                 width: 13
                 height: 13
-                x: 0
-                y: 0
+                x: 1
+                y: 1
                 radius: 6
                 color: "#17a81a"
                 visible: fl.checked
@@ -127,20 +138,21 @@ Item {
         }
 
         contentItem: Text {
-
-            y: -3
             font: fl.font
+
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
 
             color: fl.checked ? "#17a81a" : "#ffffff"
             text: "FL"
             elide: Text.ElideRight
-            horizontalAlignment: Text.AlignLeft
+            horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            rightPadding: 0
-
+            rightPadding: 16
+            leftPadding: 3
             bottomPadding: 0
             topPadding: 0
-            leftPadding: 0
         }
     }
 

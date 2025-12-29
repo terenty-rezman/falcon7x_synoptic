@@ -1,17 +1,23 @@
 import QtQuick
 
 Item {
+    id: self
+
     width: 21
     height: 74
 
+    property real fluid_ratio: 0
+
     Rectangle {
-        id: rectangle
+        id: green_rect
         x: 3
-        y: 13
+        y: 63
         width: 15
-        height: 60
-        color: "#73db0d"
+        height: (parent.height - 2) * fluid_ratio
+        color: (fluid_ratio > 0.15) ? "#73db0d" : "#dfd229"
         border.color: "#00000000"
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 1
     }
 
     Rectangle {
@@ -87,5 +93,7 @@ Item {
         height: 1
         color: "#dfd229"
         border.color: "#00000000"
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: (parent.height - 2) * 0.15
     }
 }
