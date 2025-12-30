@@ -355,4 +355,18 @@ Rectangle {
         font.styleName: "Обычный"
         font.family: "Arial"
     }
+
+    ECSAlt {
+        objectName: "adi_alt"
+        x: 487
+        y: 94
+        width: 63
+        height: 197
+        visible: true
+    }
+
+    ECSVerticalSpeed {
+        x: 574
+        y: 74
+    }
 }

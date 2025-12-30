@@ -236,6 +236,12 @@ dref_indicators = [
     ("sim/custom/7x/z_hyd_text_rh_ail", None, "hyd_text_rh_ail", "state", None),
     ("sim/custom/7x/z_hyd_text_rh_elev", None, "hyd_text_rh_elev", "state", None),
     ("sim/custom/7x/z_hyd_text_spoilers", None, "hyd_text_spoilers", "state", None),
+    ("sim/custom/7x/hyd11", None, "hyd_psi_1", "psi", None),
+    ("sim/custom/7x/hyd22", None, "hyd_psi_2", "psi", None),
+    ("sim/custom/7x/hyd3", None, "hyd_psi_3", "psi", None),
+    ("sim/cockpit2/hydraulics/indicators/hydraulic_fluid_ratio_1", None, "hyd_qty_1", "fluid_ratio", None),
+    ("sim/cockpit2/hydraulics/indicators/hydraulic_fluid_ratio_2", None, "hyd_qty_2", "fluid_ratio", None),
+    ("sim/cockpit2/hydraulics/indicators/hydraulic_fluid_ratio_2", None, "hyd_qty_3", "fluid_ratio", None),
 ]
 
 dref_nested_dict = defaultdict(list)

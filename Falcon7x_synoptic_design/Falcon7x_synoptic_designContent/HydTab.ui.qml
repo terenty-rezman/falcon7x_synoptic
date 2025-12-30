@@ -149,18 +149,21 @@ Rectangle {
     }
 
     Hyd_pressure_indicator {
+        objectName: "hyd_psi_2"
         id: hyd_pressure_indicator
         x: 468
         y: 115
     }
 
     Hyd_pressure_indicator {
+        objectName: "hyd_psi_3"
         id: hyd_pressure_indicator1
         x: 611
         y: 115
     }
 
     Hyd_pressure_indicator {
+        objectName: "hyd_psi_1"
         id: hyd_pressure_indicator2
         x: 57
         y: 114

@@ -9,11 +9,11 @@ Item {
     width: 16
     height: 75
 
-    property real psi: 1000
+    property int psi: 1000
 
-    property real max_psi: 4000
-    property real low_level: 1800
-    property real high_level: 3300
+    property int max_psi: 4000
+    property int low_level: 1800
+    property int high_level: 3300
 
     // Image {
     //     id: image

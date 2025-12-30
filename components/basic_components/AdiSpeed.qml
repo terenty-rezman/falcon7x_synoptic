@@ -89,8 +89,6 @@ Item {
             ctx.fillRect(self.width, high_speed_end, 5, high_speed_end - self.height);
             ctx.strokeRect(self.width, high_speed_end, 5, high_speed_end - self.height);
 
-            console.log(self.flight_regime);
-
             if (self.flight_regime > 1) { // 0 - park; 1 - taxi; 2 - cruise; 3 - to; 4 - land;
                 // draw low speed cue
                 ctx.fillStyle = "#FFFF00";
