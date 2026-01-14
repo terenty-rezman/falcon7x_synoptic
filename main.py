@@ -22,14 +22,14 @@ from falcon7x_core.xplane.params import Params
 import falcon7x_core.common.sane_tasks as sane_tasks
 
 import params_to_subscribe
-import black_screen
+import screen_control
 
 import settings as s
 
 
 def on_new_xp_data(type, dataref, value):
     backend.backend.set_data_http({"data": {Params[dataref]: value}})
-    black_screen.set_data_http({"data": {Params[dataref]: value}}, mdu_down)
+    screen_control.set_data_http_tcp({"data": {Params[dataref]: value}}, mdu_down)
 
 
 def on_data_exception(ex: Exception):
@@ -38,6 +38,7 @@ def on_data_exception(ex: Exception):
 
 def on_new_xp_data_udp(received_vals):
     backend.backend.set_data_http({"data": received_vals})
+    screen_control.set_data_http_udp({"data": received_vals})
     pass
 
 
@@ -96,6 +97,7 @@ async def main():
 
 def quit():
     main_future.cancel()
+    screen_control.restore_brightness()
     app.quit()
 
 
@@ -128,24 +130,24 @@ if __name__ == "__main__":
         "components/mdu_up.qml", "mdu up", "mdu - falcon7x",
         s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
     )
-    # mdu_up.show()
+    mdu_up.show()
     view_helper.all_views.append(mdu_up)
 
     pdu_left = create_toplevel_qml_view(
         "components/pdu_left.qml", "pdu_left", "pdu left - falcon7x", 
         s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
     )
-    # pdu_left.show()
+    pdu_left.show()
     view_helper.all_views.append(pdu_left)
 
     pdu_right = create_toplevel_qml_view(
         "components/pdu_right.qml", "pdu_right", "pdu right - falcon7x", 
         s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
     )
-    # pdu_right.show()
+    pdu_right.show()
     view_helper.all_views.append(pdu_right)
 
-    black_screen.create_black_screens()
+    screen_control.create_black_screens()
 
     event_loop = QEventLoop(app)
     asyncio.set_event_loop(event_loop)

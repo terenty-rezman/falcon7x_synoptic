@@ -196,4 +196,10 @@ to_subscribe = [
     (Params["sim/custom/7x/z_hyd_text_rh_ail"], None, "tcp"),
     (Params["sim/custom/7x/z_hyd_text_rh_elev"], None, "tcp"),
     (Params["sim/custom/7x/z_hyd_text_spoilers"], None, "tcp"),
+
+    (Params["sim/custom/7x/z_left_screen_brightness"], 3, "udp"),
+    (Params["sim/custom/7x/z_right_screen_brightness"], 3, "udp"),
+    (Params["sim/custom/7x/z_up_screen_brightness"], 3, "udp"),
+    (Params["sim/custom/7x/z_down_screen_brightness"], 3, "udp"),
+    (Params["sim/custom/7x/z_mini_screen_brightness"], 3, "udp"),
 ]
