@@ -5,40 +5,38 @@ Item {
     id: fcs_sfcc_num
     x: 0
     y: 0
-    width: 51
-    height: 13
+    width: 14
 
+    height: 43
     Rectangle {
-        id: rectangle16
-        x: 26
-        y: 1
-        width: 18
-        height: 11
+        id: rectangle4
+        x: 2
+        y: 22
+        width: 10
+        height: 15
         color: "#00ff00"
         border.color: "#00000000"
     }
 
     Rectangle {
-        id: rectangle37
-        x: 18
-        y: -19
+        id: rectangle28
+        x: 0
+        y: 0
         width: 14
-        height: 51
+        height: 43
         color: "#00ffffff"
         radius: 2
         border.color: "#919b8a"
         border.width: 2
-        rotation: 90
     }
 
     Rectangle {
-        id: rectangle38
-        x: 19
-        y: 5
-        width: 13
+        id: rectangle36
+        x: 0
+        y: 21
+        width: 14
         height: 2
         color: "#919b8a"
         border.color: "#00000000"
-        rotation: 90
     }
 }

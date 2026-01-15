@@ -13,13 +13,80 @@ Rectangle {
 
     color: Constants.backgroundColor
 
-    Image {
-        id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
-        x: 0
-        y: -1
-        visible: false
-        source: "images/FCS.png"
-        fillMode: Image.PreserveAspectFit
+    // Image {
+    //     id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
+    //     x: 0
+    //     y: -1
+    //     visible: true
+    //     source: "images/FCS.png"
+    //     fillMode: Image.PreserveAspectFit
+    // }
+    FCS_elev_strip {
+        id: fCS_elev_strip
+        x: 393
+        y: 169
+    }
+
+    FCS_elev_strip {
+        id: fCS_elev_strip1
+        x: 528
+        y: 169
+    }
+    FCS_control_surf_label {
+        id: fCS_control_surf_label4
+        x: 442
+        y: 264
+        width: 53
+        height: 17
+        text: "RUDDER"
+        fontSize: 12
+    }
+
+    FCS_rudder {
+        id: fCS_rudder1
+        x: 443
+        y: 289
+    }
+    FCS_control_surf_label {
+        id: fCS_control_surf_label1
+        x: 611
+        y: 125
+        text: "RH AIL"
+    }
+
+    FCS_control_surf_label {
+        id: fCS_control_surf_label2
+        x: 342
+        y: 98
+        width: 66
+        height: 18
+        text: "LH SPOIL"
+    }
+
+    FCS_control_surf_label {
+        id: fCS_control_surf_label3
+        x: 537
+        y: 99
+        width: 68
+        height: 18
+        text: "RH SPOIL"
+    }
+    FCS_control_surf_label {
+        id: fCS_control_surf_label
+        x: 283
+        y: 125
+    }
+
+    FCS_ail_strip {
+        id: fCS_ail_elev_strip
+        x: 299
+        y: 69
+    }
+
+    FCS_ail_strip {
+        id: fCS_ail_elev_strip1
+        x: 627
+        y: 69
     }
     FCS_sfcc_frame {
         id: fCS_sfcc_frame
@@ -126,28 +193,6 @@ Rectangle {
     }
 
     Rectangle {
-        id: rectangle7
-        x: 299
-        y: 70
-        width: 14
-        height: 50
-        color: "#00ffffff"
-        radius: 2
-        border.color: "#555555"
-        border.width: 2
-    }
-
-    Rectangle {
-        id: rectangle8
-        x: 299
-        y: 94
-        width: 14
-        height: 2
-        color: "#555555"
-        border.color: "#00000000"
-    }
-
-    Rectangle {
         id: rectangle9
         x: 259
         y: 84
@@ -233,35 +278,7 @@ Rectangle {
         y: 97
         width: 27
         height: 2
-        color: "#555555"
-        border.color: "#00000000"
-
-        FCS_ail_elev {
-            id: fCS_ail_elev
-            x: 10
-            y: -2
-        }
-    }
-
-    Rectangle {
-        id: rectangle18
-        x: 299
-        y: 70
-        width: 14
-        height: 50
-        color: "#00ffffff"
-        radius: 2
-        border.color: "#555555"
-        border.width: 2
-    }
-
-    Rectangle {
-        id: rectangle19
-        x: 299
-        y: 94
-        width: 14
-        height: 2
-        color: "#555555"
+        color: "#919b8a"
         border.color: "#00000000"
     }
 
@@ -271,7 +288,7 @@ Rectangle {
         y: 84
         width: 28
         height: 2
-        color: "#555555"
+        color: "#919b8a"
         border.color: "#00000000"
         rotation: 90
     }
@@ -282,7 +299,7 @@ Rectangle {
         y: 48
         width: 172
         height: 2
-        color: "#555555"
+        color: "#919b8a"
         border.color: "#00000000"
         rotation: -15.5
     }
@@ -293,7 +310,7 @@ Rectangle {
         y: 48
         width: 172
         height: 2
-        color: "#555555"
+        color: "#919b8a"
         border.color: "#00000000"
         rotation: 15.5
     }
@@ -304,33 +321,7 @@ Rectangle {
         y: 97
         width: 27
         height: 2
-        color: "#555555"
-        border.color: "#00000000"
-    }
-    FCS_ail_elev {
-        id: fCS_ail_elev1
-        x: 611
-        y: 95
-    }
-    Rectangle {
-        id: rectangle24
-        x: 627
-        y: 70
-        width: 14
-        height: 50
-        color: "#00ffffff"
-        radius: 2
-        border.color: "#555555"
-        border.width: 2
-    }
-
-    Rectangle {
-        id: rectangle25
-        x: 627
-        y: 94
-        width: 14
-        height: 2
-        color: "#555555"
+        color: "#919b8a"
         border.color: "#00000000"
     }
 
@@ -340,7 +331,7 @@ Rectangle {
         y: 84
         width: 28
         height: 2
-        color: "#555555"
+        color: "#919b8a"
         border.color: "#00000000"
         rotation: 90
     }
@@ -351,30 +342,26 @@ Rectangle {
         y: 201
         width: 28
         height: 2
-        color: "#555555"
+        color: "#919b8a"
         border.color: "#00000000"
     }
-    FCS_ail_elev {
+    FCS_control_surf_label {
         id: fCS_ail_elev2
-        x: 377
-        y: 191
+        x: 371
+        y: 217
+        width: 60
+        height: 18
+        text: "LH ELEV"
+        fontSize: 13
     }
-
-    FCS_ail_elev {
+    FCS_control_surf_label {
         id: fCS_ail_elev3
-        x: 511
-        y: 191
-    }
-    Rectangle {
-        id: rectangle28
-        x: 393
-        y: 169
-        width: 14
-        height: 43
-        color: "#00ffffff"
-        radius: 2
-        border.color: "#555555"
-        border.width: 2
+        x: 506
+        y: 217
+        width: 60
+        height: 18
+        text: "RH ELEV"
+        fontSize: 13
     }
 
     Rectangle {
@@ -383,7 +370,7 @@ Rectangle {
         y: 186
         width: 32
         height: 2
-        color: "#555555"
+        color: "#919b8a"
         border.color: "#00000000"
         rotation: 90
     }
@@ -394,7 +381,7 @@ Rectangle {
         y: 159
         width: 80
         height: 2
-        color: "#555555"
+        color: "#919b8a"
         border.color: "#00000000"
         rotation: -17.1
     }
@@ -405,7 +392,7 @@ Rectangle {
         y: 159
         width: 80
         height: 2
-        color: "#555555"
+        color: "#919b8a"
         border.color: "#00000000"
         rotation: 17.1
     }
@@ -416,20 +403,8 @@ Rectangle {
         y: 201
         width: 31
         height: 2
-        color: "#555555"
+        color: "#919b8a"
         border.color: "#00000000"
-    }
-
-    Rectangle {
-        id: rectangle33
-        x: 528
-        y: 169
-        width: 14
-        height: 43
-        color: "#00ffffff"
-        radius: 2
-        border.color: "#555555"
-        border.width: 2
     }
 
     Rectangle {
@@ -438,69 +413,9 @@ Rectangle {
         y: 186
         width: 32
         height: 2
-        color: "#555555"
+        color: "#919b8a"
         border.color: "#00000000"
         rotation: 90
-    }
-
-    Rectangle {
-        id: rectangle35
-        x: 528
-        y: 190
-        width: 14
-        height: 2
-        color: "#555555"
-        border.color: "#00000000"
-    }
-
-    Rectangle {
-        id: rectangle36
-        x: 393
-        y: 190
-        width: 14
-        height: 2
-        color: "#555555"
-        border.color: "#00000000"
-    }
-    FCS_rudder {
-        id: fCS_rudder
-        x: 442
-        y: 265
-    }
-    Rectangle {
-        id: rectangle37
-        x: 461
-        y: 270
-        width: 14
-        height: 51
-        color: "#00ffffff"
-        radius: 2
-        border.color: "#555555"
-        border.width: 2
-        rotation: 90
-    }
-
-    Rectangle {
-        id: rectangle38
-        x: 462
-        y: 295
-        width: 13
-        height: 2
-        color: "#555555"
-        border.color: "#00000000"
-        rotation: 90
-    }
-
-    Rectangle {
-        id: rectangle39
-        x: 364
-        y: 50
-        width: 15
-        height: 44
-        color: "#00ffffff"
-        radius: 2
-        border.color: "#555555"
-        border.width: 2
     }
 
     Rectangle {
@@ -557,16 +472,16 @@ Rectangle {
         rotation: 15
     }
 
-    FCS_spoil {
+    FCS_spoil_strip {
         id: fCS_spoil
-        x: 341
-        y: 69
+        x: 364
+        y: 49
     }
 
-    FCS_spoil {
+    FCS_spoil_strip {
         id: fCS_spoil1
-        x: 540
-        y: 69
+        x: 563
+        y: 49
     }
 
     Text {

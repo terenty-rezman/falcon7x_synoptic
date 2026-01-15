@@ -6,20 +6,12 @@ Item {
     x: 0
     y: 0
     width: 50
-    height: 48
-    Rectangle {
-        id: rectangle4
-        x: 18
-        y: 0
-        width: 11
-        height: 15
-        color: "#00ff00"
-        border.color: "#00000000"
-    }
+    height: 18
+    property alias text: _text.text
+    property alias fontSize: _text.font.pixelSize
     Text {
         id: _text
-        x: 3
-        y: 30
+        anchors.centerIn: parent
         color: "#00ff00"
         text: qsTr("LH AIL")
         font.letterSpacing: 0.5
@@ -30,10 +22,7 @@ Item {
 
     Rectangle {
         id: rectangle
-        x: 0
-        y: 30
-        width: 50
-        height: 18
+        anchors.fill: parent
         color: "#00ffffff"
         border.color: "#d2b60c"
     }

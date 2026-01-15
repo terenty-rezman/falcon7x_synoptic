@@ -1,6 +1,7 @@
 import QtQuick 2.15
 
 Item {
+    id: self
     property real altitude_ft: 0
     property bool fail: false
 

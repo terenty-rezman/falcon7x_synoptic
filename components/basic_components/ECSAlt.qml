@@ -25,7 +25,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: "transparent"
+        color: "#919B8A"
         border.color: "#55ffffff"
         border.width: 2
         radius: 3
@@ -124,23 +124,9 @@ Item {
         }
     }
 
-    AltCurrent {
+    ECSAltCurrent {
         y: self.center_y
         altitude_ft: self.altitude_ft
         fail: self.fail
-    }
-
-    AdiGreenText {
-        Rectangle {
-            anchors.fill: parent
-            color: "#ff000055"
-            visible: false
-        }
-
-        text: (self.baro_settings.toFixed(2) == 29.92) ? "STD" : self.baro_settings.toFixed(2); 
-        x: self.width - width
-        y: 292
-
-        horizontalAlignment: Text.AlignRight
     }
 }
