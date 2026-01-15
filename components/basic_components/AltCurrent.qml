@@ -36,7 +36,7 @@ Item {
         font.family: "Helvetica"
     }
 
-    RollNumber1Digit {
+    RollNumber1DigitJump {
         x: 38
         value: (altitude_ft / 100) * 10 % 100 / 10
         color: "#00FC00"

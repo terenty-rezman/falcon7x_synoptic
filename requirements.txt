@@ -1,3 +1,4 @@
 qasync
 pyside6
 pyside6_ds
+screen-brightness-control
