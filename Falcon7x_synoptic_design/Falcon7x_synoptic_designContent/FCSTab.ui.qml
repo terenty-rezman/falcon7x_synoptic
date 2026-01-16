@@ -430,48 +430,6 @@ Rectangle {
         border.width: 2
     }
 
-    FCS_slats_spoil_extended {
-        id: fCS_slats_spoil_extended
-        x: 276
-        y: 46
-        rotation: -15
-    }
-
-    FCS_slats_spoil_extended {
-        id: fCS_slats_spoil_extended1
-        x: 333
-        y: 30
-        rotation: -15
-    }
-
-    FCS_slats_spoil_extended {
-        id: fCS_slats_spoil_extended2
-        x: 389
-        y: 15
-        rotation: -15
-    }
-
-    FCS_slats_spoil_extended {
-        id: fCS_slats_spoil_extended3
-        x: 509
-        y: 14
-        rotation: 15
-    }
-
-    FCS_slats_spoil_extended {
-        id: fCS_slats_spoil_extended4
-        x: 563
-        y: 29
-        rotation: 15
-    }
-
-    FCS_slats_spoil_extended {
-        id: fCS_slats_spoil_extended5
-        x: 621
-        y: 45
-        rotation: 15
-    }
-
     FCS_spoil_strip {
         id: fCS_spoil
         x: 364
@@ -494,5 +452,47 @@ Rectangle {
         font.pixelSize: 17
         font.styleName: "Narrow"
         font.family: "Arial"
+    }
+
+    FCS_slats_spoil_status {
+        id: fCS_slats_spoil_status
+        x: 275
+        y: 33
+        rotation: -15
+    }
+
+    FCS_slats_spoil_status {
+        id: fCS_slats_spoil_status1
+        x: 332
+        y: 17
+        rotation: -15
+    }
+
+    FCS_slats_spoil_status {
+        id: fCS_slats_spoil_status2
+        x: 387
+        y: 2
+        rotation: -15
+    }
+
+    FCS_slats_spoil_status {
+        id: fCS_slats_spoil_status3
+        x: 510
+        y: 2
+        rotation: 15
+    }
+
+    FCS_slats_spoil_status {
+        id: fCS_slats_spoil_status4
+        x: 565
+        y: 17
+        rotation: 15
+    }
+
+    FCS_slats_spoil_status {
+        id: fCS_slats_spoil_status5
+        x: 622
+        y: 34
+        rotation: 15
     }
 }

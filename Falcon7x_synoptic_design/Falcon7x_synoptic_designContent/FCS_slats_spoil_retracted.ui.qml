@@ -6,29 +6,17 @@ Item {
     x: 0
     y: 0
     width: 43
-    height: 11
+    height: 2
 
     Rectangle {
         id: rectangle13
-        x: -1
-        y: 5
-        width: 45
-        height: 1
-        color: "#d2b60c"
+        x: 0
+        y: 0
+        width: 43
+        height: 2
+        color: "#00ff00"
         radius: 1
         border.color: "#00000000"
-        rotation: 13
-    }
-
-    Rectangle {
-        id: rectangle14
-        x: -1
-        y: 5
-        width: 45
-        height: 1
-        color: "#d2b60c"
-        radius: 1
-        border.color: "#00000000"
-        rotation: -13
+        rotation: 0
     }
 }

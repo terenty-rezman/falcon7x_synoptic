@@ -9,6 +9,7 @@ Item {
     height: 18
     property alias text: _text.text
     property alias fontSize: _text.font.pixelSize
+    property int state: 1
     Text {
         id: _text
         anchors.centerIn: parent
@@ -24,6 +25,58 @@ Item {
         id: rectangle
         anchors.fill: parent
         color: "#00ffffff"
-        border.color: "#d2b60c"
+        border.color: "#FFBF00"
+        visible: false
     }
+
+    states: [
+        State {
+            name: "normal"
+            when: fcs_sfcc_num.state == 1
+            PropertyChanges {
+                target: rectangle
+                visible: false
+            }
+            PropertyChanges {
+                target: _text
+                color: "#00ff00"
+            }
+        },
+        State {
+            name: "actuator_degraded"
+            when: fcs_sfcc_num.state == 2
+            PropertyChanges {
+                target: rectangle
+                visible: true
+            }
+            PropertyChanges {
+                target: _text
+                color: "#00ff00"
+            }
+        },
+        State {
+            name: "actuator_failed"
+            when: fcs_sfcc_num.state == 3
+            PropertyChanges {
+                target: rectangle
+                visible: false
+            }
+            PropertyChanges {
+                target: _text
+                color: "#FFBF00"
+            }
+        },
+        State {
+            name: "unknown"
+            when: fcs_sfcc_num.state == 4
+            PropertyChanges {
+                target: rectangle
+                visible: false
+            }
+            PropertyChanges {
+                target: _text
+                color: "#919B8A"
+            }
+        }
+    ]
 }
