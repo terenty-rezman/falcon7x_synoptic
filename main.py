@@ -38,7 +38,7 @@ def on_data_exception(ex: Exception):
 
 def on_new_xp_data_udp(received_vals):
     backend.backend.set_data_http({"data": received_vals})
-    screen_control.set_data_http_udp({"data": received_vals})
+    # screen_control.set_data_http_udp({"data": received_vals})
     pass
 
 
