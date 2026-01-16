@@ -121,7 +121,7 @@ if __name__ == "__main__":
 
     mdu_down = create_toplevel_qml_view(
         "components/mdu_down.qml", "mdu_down", "mdu - falcon7x",
-        s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
+        s.SYNOPTIC_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
     )
     mdu_down.show()
     view_helper.all_views.append(mdu_down)
