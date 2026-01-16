@@ -22,17 +22,20 @@ Rectangle {
     //     fillMode: Image.PreserveAspectFit
     // }
     FCS_elev_strip {
+        objectName: "fcs_lh_elev"
         id: fCS_elev_strip
         x: 393
         y: 169
     }
 
     FCS_elev_strip {
+        objectName: "fcs_rh_elev"
         id: fCS_elev_strip1
         x: 528
         y: 169
     }
     FCS_control_surf_label {
+        objectName: "fcs_rudder_text"
         id: fCS_control_surf_label4
         x: 442
         y: 264
@@ -43,11 +46,14 @@ Rectangle {
     }
 
     FCS_rudder {
+        objectName: "fcs_rudder"
         id: fCS_rudder1
         x: 443
         y: 289
     }
+
     FCS_control_surf_label {
+        objectName: "fcs_rh_ail_text"
         id: fCS_control_surf_label1
         x: 611
         y: 125
@@ -55,6 +61,7 @@ Rectangle {
     }
 
     FCS_control_surf_label {
+        objectName: "fcs_lh_spoil_text"
         id: fCS_control_surf_label2
         x: 342
         y: 98
@@ -64,6 +71,7 @@ Rectangle {
     }
 
     FCS_control_surf_label {
+        objectName: "fcs_rh_spoil_text"
         id: fCS_control_surf_label3
         x: 537
         y: 99
@@ -72,18 +80,22 @@ Rectangle {
         text: "RH SPOIL"
     }
     FCS_control_surf_label {
+        objectName: "fcs_lh_ail_text"
         id: fCS_control_surf_label
         x: 283
         y: 125
+        text: "LH AIL"
     }
 
     FCS_ail_strip {
+        objectName: "fcs_lh_ail"
         id: fCS_ail_elev_strip
         x: 299
         y: 69
     }
 
     FCS_ail_strip {
+        objectName: "fcs_rh_ail"
         id: fCS_ail_elev_strip1
         x: 627
         y: 69
@@ -243,6 +255,7 @@ Rectangle {
     }
 
     FCS_mfcc_frame {
+        objectName: "fcs_mfcc"
         id: fCS_mfcc_frame
         x: 21
         y: 78
@@ -250,23 +263,27 @@ Rectangle {
 
     FCS_roll_scale {
         id: fCS_roll_scale
+        objectName: "fcs_roll"
         x: 25
         y: 199
     }
 
     FCS_sfcc_frame {
         id: fCS_sfcc_frame1
+        objectName: "fcs_sfcc"
         x: 20
         y: 137
     }
 
     FCS_yaw_scale {
         id: fCS_yaw_scale1
+        objectName: "fcs_yaw"
         x: 154
         y: 196
     }
 
     FCS_pitch_scale {
+        objectName: "fcs_pitch"
         id: fCS_pitch_scale1
         x: 266
         y: 190
@@ -346,6 +363,7 @@ Rectangle {
         border.color: "#00000000"
     }
     FCS_control_surf_label {
+        objectName: "fcs_lh_elev_text"
         id: fCS_ail_elev2
         x: 371
         y: 217
@@ -355,6 +373,7 @@ Rectangle {
         fontSize: 13
     }
     FCS_control_surf_label {
+        objectName: "fcs_rh_elev_text"
         id: fCS_ail_elev3
         x: 506
         y: 217
@@ -432,11 +451,13 @@ Rectangle {
 
     FCS_spoil_strip {
         id: fCS_spoil
+        objectName: "fcs_lh_spoil"
         x: 364
         y: 49
     }
 
     FCS_spoil_strip {
+        objectName: "fcs_rh_spoil"
         id: fCS_spoil1
         x: 563
         y: 49

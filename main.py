@@ -38,7 +38,7 @@ def on_data_exception(ex: Exception):
 
 def on_new_xp_data_udp(received_vals):
     backend.backend.set_data_http({"data": received_vals})
-    screen_control.set_data_http_udp({"data": received_vals})
+    # screen_control.set_data_http_udp({"data": received_vals})
     pass
 
 
@@ -111,8 +111,8 @@ def create_toplevel_qml_view(app_qml_url: str, view_name: str, window_title: str
     view.setResizeMode(QQuickView.SizeRootObjectToView)
     view.engine().quit.connect(quit)
     view.readSettings()
-    view.setFlags(view.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
-    # view.setFlags(view.flags() | Qt.FramelessWindowHint)
+    # view.setFlags(view.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+    view.setFlags(view.flags() | Qt.FramelessWindowHint)
     return view
 
 
@@ -121,7 +121,7 @@ if __name__ == "__main__":
 
     mdu_down = create_toplevel_qml_view(
         "components/mdu_down.qml", "mdu_down", "mdu - falcon7x",
-        s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
+        s.SYNOPTIC_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
     )
     mdu_down.show()
     view_helper.all_views.append(mdu_down)

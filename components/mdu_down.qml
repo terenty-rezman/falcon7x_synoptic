@@ -32,7 +32,7 @@ Rectangle {
 
     Synoptic {
         id: synoptic_1
-        width: 2 * parent.width / 3
+        width: 3 * parent.width / 3
         height: parent.height / 2
         currentIndex: 2
     }
@@ -41,7 +41,7 @@ Rectangle {
         id: synoptic_2
         objectName: "synoptic_tab_bar"
         y: parent.height / 2
-        width: 2 * parent.width / 3
+        width: 3 * parent.width / 3
         height: parent.height / 2
         currentIndex: 1
     }

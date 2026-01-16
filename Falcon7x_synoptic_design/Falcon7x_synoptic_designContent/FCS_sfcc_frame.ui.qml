@@ -7,9 +7,9 @@ Item {
     width: 115
     height: 42
 
-    property bool sys1_ok: true
-    property bool sys2_ok: true
-    property bool sys3_ok: true
+    property int sys1_ok: 0
+    property int sys2_ok: 1
+    property int sys3_ok: 1
 
 
     /*Image {
@@ -111,7 +111,7 @@ Item {
         id: _text
         x: 40
         y: -8
-        color: "#00ff00"
+        color: (sys1_ok && sys2_ok && sys3_ok) ? "#00ff00" : "#d2b60c"
         text: qsTr("SFCC")
         font.letterSpacing: -0.9
         font.pixelSize: 17
