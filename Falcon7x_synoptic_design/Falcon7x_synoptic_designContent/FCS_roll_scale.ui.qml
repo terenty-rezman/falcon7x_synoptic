@@ -2,11 +2,12 @@ import QtQuick
 import QtQuick.Studio.Components
 
 Item {
-    id: fcs_sfcc_num
+    id: self
     x: 0
     y: 0
     width: 80
     height: 80
+    property real value: 1
 
 
     /*Image {
@@ -41,16 +42,27 @@ Item {
         fillColor: "#00000000"
         end: 180
     }
-    TriangleItem {
-        id: triangle
+
+    Item {
         x: 35
-        y: 68
+        y: 41
         width: 10
-        height: 8
-        radius: 0
-        strokeColor: "#00ff0000"
-        rotation: 180
-        fillColor: "#00ff00"
+        height: 50
+
+        transformOrigin: Item.Top
+        rotation: self.value * (-90)
+
+        TriangleItem {
+            id: triangle
+            x: 0
+            y: 27
+            width: 10
+            height: 8
+            radius: 0
+            strokeColor: "#00ff0000"
+            rotation: 180
+            fillColor: "#00ff00"
+        }
     }
 
     Rectangle {

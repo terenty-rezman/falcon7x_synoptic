@@ -111,8 +111,8 @@ def create_toplevel_qml_view(app_qml_url: str, view_name: str, window_title: str
     view.setResizeMode(QQuickView.SizeRootObjectToView)
     view.engine().quit.connect(quit)
     view.readSettings()
-    view.setFlags(view.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
-    # view.setFlags(view.flags() | Qt.FramelessWindowHint)
+    # view.setFlags(view.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+    view.setFlags(view.flags() | Qt.FramelessWindowHint)
     return view
 
 

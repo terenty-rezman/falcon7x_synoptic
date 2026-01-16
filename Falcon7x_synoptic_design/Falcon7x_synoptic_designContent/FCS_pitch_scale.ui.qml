@@ -2,11 +2,13 @@ import QtQuick
 import QtQuick.Studio.Components
 
 Item {
-    id: fcs_sfcc_num
+    id: self
     x: 0
     y: 0
     width: 80
     height: 130
+
+    property real value: 0
 
     property string white: "#fff"
 
@@ -29,17 +31,6 @@ Item {
         font.letterSpacing: 0
         font.pixelSize: 19
         font.family: "Arial"
-    }
-    TriangleItem {
-        id: triangle
-        x: 29
-        y: 53
-        width: 10
-        height: 9
-        radius: 0
-        strokeColor: "#00ff0000"
-        rotation: 90
-        fillColor: "#00ff00"
     }
 
     Rectangle {
@@ -185,5 +176,17 @@ Item {
         font.pixelSize: 15
         font.styleName: "Narrow"
         font.family: "Arial"
+    }
+
+    TriangleItem {
+        id: triangle
+        x: 29
+        y: 32 + ((self.value >= 0) ? (self.value * 85) : (self.value * 13))
+        width: 10
+        height: 9
+        radius: 0
+        strokeColor: "#00ff0000"
+        rotation: 90
+        fillColor: "#00ff00"
     }
 }

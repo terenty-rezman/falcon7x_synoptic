@@ -202,4 +202,25 @@ to_subscribe = [
     (Params["sim/custom/7x/z_up_screen_brightness"], 3, "udp"),
     (Params["sim/custom/7x/z_down_screen_brightness"], 3, "udp"),
     (Params["sim/custom/7x/z_mini_screen_brightness"], 3, "udp"),
+
+    # fcs synoptic page
+    (Params["sim/flightmodel/controls/wing1l_ail1def"], 3, "udp"),
+    (Params["sim/flightmodel/controls/lsplrdef"], 3, "udp"),
+    (Params["sim/flightmodel/controls/wing1r_ail1def"], 3, "udp"),
+    (Params["sim/flightmodel/controls/wing1r_spo1def"], 3, "udp"),
+    (Params["sim/flightmodel/controls/hstab1_elv1def"], 3, "udp"),
+    (Params["sim/flightmodel/controls/vstab1_rud1def"], 3, "udp"),
+    (Params["sim/flightmodel/controls/slatrat"], 3, "udp"),
+    (Params["sim/cockpit2/controls/aileron_trim"], 3, "udp"),
+    (Params["sim/cockpit2/controls/rudder_trim"], 3, "udp"),
+    (Params["sim/cockpit2/controls/elevator_trim"], 3, "udp"),
+
+    (Params["sim/custom/7x/z_fcs_mfcc_1"], None, "tcp"),
+    (Params["sim/custom/7x/z_fcs_mfcc_2"], None, "tcp"),
+    (Params["sim/custom/7x/z_fcs_mfcc_3"], None, "tcp"),
+    (Params["sim/custom/7x/z_fcs_mfcc"], None, "tcp"),
+    (Params["sim/custom/7x/z_fcs_sfcc_1"], None, "tcp"),
+    (Params["sim/custom/7x/z_fcs_sfcc_2"], None, "tcp"),
+    (Params["sim/custom/7x/z_fcs_sfcc_3"], None, "tcp"),
+    (Params["sim/custom/7x/z_fcs_sfcc"], None, "tcp"),
 ]
