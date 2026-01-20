@@ -12,7 +12,7 @@ Rectangle {
     property int state: 0
 
     property int fuel_weight: 4000
-    property int max_fuel_weight: 10522 / 2.20
+    property int max_fuel_weight: 0
 
     Image {
         id: fill

@@ -101,15 +101,17 @@ async def cas_show_message():
 @app.post("/api/cas/read_message")
 async def cas_read_message():
     cas.read_message()
+    return {"result": "ok"}
 
 
 @app.post("/api/cas/scroll_up")
 async def cas_scroll_up():
     cas.scroll_up()
+    return {"result": "ok"}
 
 
 @app.post("/api/cas/remove_message")
-async def cas_remove_message(message):
+async def cas_remove_message():
     data = await request.json
     message = data["message"]
 
@@ -121,12 +123,14 @@ async def cas_remove_message(message):
 
 
 @app.post("/api/cas/remove_all_messages")
-async def cas_remove_all_messages(message):
+async def cas_remove_all_messages():
     cas.remove_all_messages()
+    return {"result": "ok"}
 
 
 @app.post("/api/cas/set_regime")
-async def cas_set_regime(regime):
+async def cas_set_regime():
     data = await request.json
     regime = data["regime"]
     cas.set_regime(regime)
+    return {"result": "ok"}

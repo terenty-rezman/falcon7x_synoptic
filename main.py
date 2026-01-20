@@ -23,6 +23,7 @@ import falcon7x_core.common.sane_tasks as sane_tasks
 
 import params_to_subscribe
 import screen_control
+import cas
 
 import settings as s
 
@@ -146,6 +147,8 @@ if __name__ == "__main__":
     )
     pdu_right.show()
     view_helper.all_views.append(pdu_right)
+
+    cas.create_cas_windows()
 
     screen_control.create_black_screens()
 

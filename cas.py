@@ -1,3 +1,4 @@
+import itertools
 from PySide6.QtCore import QTimer
 
 import falcon7x_core.cas.messages as all_messages
@@ -39,8 +40,13 @@ class CAS:
             lines.append(
                 view_helper.find_object(qml_name, qml_root_item_name)
             )
-        
+       
+        # flatten nested list
+        lines = list(itertools.chain.from_iterable(lines))
         self.qml_lines = lines
+    
+    def update_counts(self):
+        pass
 
     # функция для добавления пришедшего сообщения в общий список и сортировки его по цвету
     def add_mssg(self, msg_cls: all_messages.CASmssg):
@@ -120,6 +126,9 @@ class CAS:
     def reading_mssgs(self, bttn_to_read_mssgs):
         if bttn_to_read_mssgs == True: # если нажата кнопка прочтения сообщений
             for item_f in self.final_mssgs_list:
+                if item_f == "END":
+                    continue
+
                 if item_f != None:
                     item_f.isread = True # меняем атрибут класса отображаемых сообщений на прочитано
 
@@ -143,7 +152,7 @@ class CAS:
 
 
     # функция для удаления сообщения
-    def remove_message(self, message_to_delete: all_messages.CASmssg):
+    def remove_message_internal(self, message_to_delete: all_messages.CASmssg):
         # обновление списка полученных красных
         for item_r in self.recieved_red:
             if message_to_delete == item_r:
@@ -267,14 +276,16 @@ class CAS:
     def update_lines(self):
         for line in self.qml_lines:
             line.setProperty("text", "")
-            line.setProperty("type", "empty") # empty msg
+            line.setProperty("type", "none") # empty msg
 
-        for msg, line in zip(self.final_mssgs_list, self.lines):
+        for msg, line in zip(self.final_mssgs_list, self.qml_lines):
             if msg is None:
                 continue
 
             if msg == "END":
-                line.setProperty("text", f"{msg}")
+                line.setProperty("text", "END")
+                line.setProperty("type", "end")
+                continue
             else:
                 line.setProperty("text", f"{msg.text}")
 
@@ -295,7 +306,7 @@ class CAS:
         msg_cls = all_messages.all_mssgs[message]
         msg_color = self.add_mssg(msg_cls)
         if msg_color == "W":
-            QTimer.singleShot(10000, None, lambda: self.auto_read(msg_cls))
+            QTimer.singleShot(10000, lambda: self.auto_read(msg_cls))
         self.update_lines()
 
     def read_message(self):
@@ -309,7 +320,7 @@ class CAS:
 
     def remove_message(self, message):
         msg_cls = all_messages.all_mssgs[message]
-        self.remove_message(msg_cls)
+        self.remove_message_internal(msg_cls)
         self.update_lines()
 
     def remove_all_messages(self):
@@ -322,10 +333,16 @@ class CAS:
         self.update_lines()
 
 
-cas_objects = [
-    CAS("pdu_left"),
-    CAS("pdu_right")
-]
+cas_objects = []
+
+
+def create_cas_windows():
+    global cas_objects
+
+    cas_objects = [
+        CAS("pdu_left"),
+        CAS("pdu_right")
+    ]
 
 
 def show_message(message):
@@ -345,10 +362,10 @@ def scroll_up():
 
 def remove_message(message):
     for cas in cas_objects:
-        cas.read_message(message)
+        cas.remove_message(message)
 
 
-def remove_all_messages(message):
+def remove_all_messages():
     for cas in cas_objects:
         cas.remove_all_messages()
 
