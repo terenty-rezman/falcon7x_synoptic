@@ -73,7 +73,7 @@ Item {
         y: 0
         width: 253
         height: 19
-        color: "#ffffff"
+        color: "#000"
         border.width: 0
     }
     Text {
@@ -84,7 +84,7 @@ Item {
         height: 19
         visible: true
         color: "#000"
-        text: qsTr("ENGINES: ALL OUT")
+        text: qsTr("")
         font.letterSpacing: -0.3
         font.pixelSize: 18
         horizontalAlignment: Text.AlignLeft

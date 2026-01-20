@@ -1,3 +1,5 @@
+from enum import IntEnum
+
 from PySide6.QtQuick import QQuickView
 from PySide6.QtCore import QPoint, QSettings, QRect, Qt, QUrl
 from PySide6.QtQuick import QQuickView, QQuickItem
@@ -5,6 +7,7 @@ from PySide6.QtQuick import QQuickView, QQuickItem
 import screen_brightness_control
 
 from falcon7x_core.xplane.params import Params
+import settings as s
 
 
 def strtobool (val):
@@ -22,15 +25,22 @@ def strtobool (val):
         raise ValueError("invalid truth value %r" % (val,))
 
 
+class ScreenState(IntEnum):
+    MONITOR_ENABLED = 0
+    BLACK_SCREEN = 1
+    RED_CROSS = 2
+
+
 class Screen(QQuickView):
     def __init__(self, window_width, window_height, name, monitor_number):
         self.win_width = window_width
         self.win_height = window_height
         self.mouse_pressed = False
         self.name = name
-        self.screen = False
         self.monitor_number = monitor_number
         self.last_brightness = None
+
+        self.last_black_screen_state = None
         return super().__init__()
 
     def mousePressEvent(self, event):
@@ -93,10 +103,39 @@ class Screen(QQuickView):
 
         self.setFlags(self.flags() | Qt.WindowStaysOnTopHint)
 
+
     def set_monitor_brightness(self, brightness):
         if self.last_brightness != brightness:
+            update_black_screen_state = False
+            if self.last_brightness == 0 or brightness == 0:
+                update_black_screen_state = True
+
             self.last_brightness = brightness
             screen_brightness_control.set_brightness(brightness, display=self.monitor_number)
+
+            if update_black_screen_state:
+                self.update_monitor_state()            
+
+
+    def set_black_screen_state(self, state):
+        if self.last_black_screen_state != state:
+            self.last_black_screen_state = state
+            self.update_monitor_state()
+
+
+    def update_monitor_state(self):
+        if self.last_brightness > 0:
+            if self.last_black_screen_state == ScreenState.MONITOR_ENABLED:
+                self.hide();
+            elif self.last_black_screen_state == ScreenState.RED_CROSS: 
+                self.show();
+                cross = self.rootObject().findChild(QQuickItem, "red_cross")
+                cross.setProperty("visible", True)
+    
+        if self.last_brightness == 0 or self.last_black_screen_state == ScreenState.BLACK_SCREEN:
+                self.show();
+                cross = self.rootObject().findChild(QQuickItem, "red_cross")
+                cross.setProperty("visible", False)
 
 
 class Screens:
@@ -110,19 +149,19 @@ class Screens:
 def create_black_screens():
     global Screens
 
-    Screens.left_screen = create_sreen_control("left black screen", 0)
+    Screens.left_screen = create_sreen_control("left black screen", s.LEFT_MONITOR_ID)
     Screens.left_screen.show()
 
-    Screens.right_screen = create_sreen_control("right black screen", 2)
+    Screens.right_screen = create_sreen_control("right black screen", s.RIGHT_MONITOR_ID)
     Screens.right_screen.show()
 
-    Screens.middle_up_screen = create_sreen_control("middle up black screen", 1)
+    Screens.middle_up_screen = create_sreen_control("middle up black screen", s.MIDDLE_UP_MONITOR_ID)
     Screens.middle_up_screen.show()
 
-    Screens.middle_down_screen = create_sreen_control("middle down black screen", 3)
+    Screens.middle_down_screen = create_sreen_control("middle down black screen", s.MIDDLE_DOWN_MONITOR_ID)
     Screens.middle_down_screen.show()
 
-    Screens.mini_screen = create_sreen_control("mini black screen", 4)
+    Screens.mini_screen = create_sreen_control("mini black screen", s.MINI_MONITOR_ID)
     Screens.mini_screen.show()
 
 
@@ -164,26 +203,13 @@ def set_data_http_tcp(data, synoptic):
         value = data.get(dataref)
         if value is not None:
             if value == 0:
-                screen.hide();
-                # if dataref == Params["sim/custom/7x/z_middle_up_black_screen"]:
-                #     if synoptic:
-                #         synoptic.show()
+                screen.set_black_screen_state(ScreenState.MONITOR_ENABLED)
 
             if value == 1:
-                screen.show();
-                cross = screen.rootObject().findChild(QQuickItem, "red_cross")
-                cross.setProperty("visible", False)
-                # if dataref == Params["sim/custom/7x/z_middle_up_black_screen"]:
-                #     if synoptic:
-                #         synoptic.hide()
+                screen.set_black_screen_state(ScreenState.BLACK_SCREEN)
 
             if value == 2:
-                screen.show();
-                cross = screen.rootObject().findChild(QQuickItem, "red_cross")
-                cross.setProperty("visible", True)
-                # if dataref == Params["sim/custom/7x/z_middle_up_black_screen"]:
-                #     if synoptic:
-                #         synoptic.hide()
+                screen.set_black_screen_state(ScreenState.RED_CROSS)
 
 
 brightness_screen_ref = None

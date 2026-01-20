@@ -52,6 +52,11 @@ Item {
         y: 768 / 4
     }
 
+    CAS_window {
+        x: 0
+        y: 0
+    }
+
     PDUsys {
         x: 0
         y: 768 / 2

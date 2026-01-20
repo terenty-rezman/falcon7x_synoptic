@@ -19,3 +19,10 @@ XP_MASTER_PORT = 51000
 # native xplane udp port to send to
 XP_MASTER_UDP_PORT = 49000
 UDP_LOCAL_PORT = 62223
+
+# monitor id in Windows for brightness control
+LEFT_MONITOR_ID = 0
+RIGHT_MONITOR_ID = 1
+MIDDLE_UP_MONITOR_ID = 2
+MIDDLE_DOWN_MONITOR_ID = 3
+MINI_MONITOR_ID = 4
