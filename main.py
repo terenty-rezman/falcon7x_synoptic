@@ -38,7 +38,7 @@ def on_data_exception(ex: Exception):
 
 def on_new_xp_data_udp(received_vals):
     backend.backend.set_data_http({"data": received_vals})
-    # screen_control.set_data_http_udp({"data": received_vals})
+    screen_control.set_data_http_udp({"data": received_vals})
     pass
 
 
@@ -130,7 +130,7 @@ if __name__ == "__main__":
         "components/mdu_up.qml", "mdu up", "mdu - falcon7x",
         s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
     )
-    # mdu_up.show()
+    mdu_up.show()
     view_helper.all_views.append(mdu_up)
 
     pdu_left = create_toplevel_qml_view(
