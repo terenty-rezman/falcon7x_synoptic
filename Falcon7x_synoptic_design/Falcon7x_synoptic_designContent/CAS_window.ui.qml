@@ -101,4 +101,6 @@ Rectangle {
         x: 5
         y: 172
     }
+
+    BlueBorder{}
 }

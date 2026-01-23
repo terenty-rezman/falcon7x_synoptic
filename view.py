@@ -1,14 +1,16 @@
 from PySide6.QtQuick import QQuickView
 from PySide6.QtCore import QPoint, QSettings, QRect
+from PySide6.QtGui import QCursor
+import backend
 
 
 class View(QQuickView):
     def __init__(self, window_name, window_width, window_height):
+        super().__init__()
         self.win_width = window_width
         self.win_height = window_height
         self.mouse_pressed = False
         self.window_name = window_name 
-        return super().__init__()
 
     def mousePressEvent(self, event):
         # Store the positions of mouse and window and
@@ -53,4 +55,7 @@ class View(QQuickView):
         self.setHeight(self.win_height)
         self.setMaximumWidth(self.win_width)
         self.setMaximumHeight(self.win_height)
+    
+    def send_mouse_event():
+        pass
 

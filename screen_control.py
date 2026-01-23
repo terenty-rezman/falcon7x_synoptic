@@ -38,7 +38,7 @@ class Screen(QQuickView):
         self.mouse_pressed = False
         self.name = name
         self.monitor_number = monitor_number
-        self.last_brightness = None
+        self.last_brightness = -1
 
         self.last_black_screen_state = None
         return super().__init__()

@@ -448,4 +448,6 @@ Item {
 
         y: 347
     }
+
+    BlueBorder{}
 }

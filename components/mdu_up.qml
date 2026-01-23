@@ -4,6 +4,8 @@ import QtQuick
 import QtQuick.Layouts
 
 Rectangle {
+    id: mdu
+
     anchors.fill: parent
     color: "#000000"
 
@@ -28,6 +30,27 @@ Rectangle {
                 Qt.quit() // Close the application
             }
         }
+
+        // Action {
+        //     text: "create_synoptic"
+        //     onTriggered: {
+        //         window_manager.createWindows()
+        //     }
+        // }
+    }
+
+    Item {
+        id: window_manager
+
+        property var windows: []
+        property var components: (new Map())
+
+        function createWindows() {
+            synoptic_2.y = parent.height / 2;
+            synoptic_2.width = 2 * parent.width / 3;
+            synoptic_2.height = parent.height / 2;
+            synoptic_2.visible = true;
+        }
     }
 
     Synoptic {
@@ -35,6 +58,7 @@ Rectangle {
         width: 2 * parent.width / 3 
         height: parent.height / 2
         currentIndex: 4
+        // visible: false
     }
 
     Synoptic {
@@ -43,6 +67,7 @@ Rectangle {
         width: 2 * parent.width / 3
         height: parent.height / 2
         currentIndex: 3
+        // visible: false
     }
 
     Text {
