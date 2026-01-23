@@ -1,20 +1,22 @@
 import QtQuick 2.15
+import QtQuick.Studio.Components
 
 Item {
     id: self
 
-    width: 63
-    height: 288
+    width: 67
+    height: 197
 
     property bool fail: false
-    property real altitude_ft: 1000 
-    property real target_alt_ft: 0 
+    property real altitude_ft: 8600.1
+    property real target_alt_ft: 8600
     property real radio_alt_ft: 200 
     property real baro_settings: 29.92
     property string fonts: "bold 26px sans-serif"
 
     property int center_x: width / 2
     property int center_y: height / 2
+    y: 0
 
     Connections {
         target: backend 
@@ -109,24 +111,61 @@ Item {
             ctx.closePath();
 
             // draw ground
-            const pattern = ctx.createPattern("../png/adi_ground_pattern.png", "repeat");
+            // const pattern = ctx.createPattern("../png/adi_ground_pattern.png", "repeat");
 
-            ctx.resetTransform();
-            ctx.translate(0, center_y);
-            ctx.translate(0, alt * alt_to_pix);
+            // ctx.resetTransform();
+            // ctx.translate(0, center_y);
+            // ctx.translate(0, alt * alt_to_pix);
 
-            ctx.strokeStyle = '#fff';
-            ctx.fillStyle = pattern;
-            ctx.clearRect(0, (radio_alt - alt) * alt_to_pix, width, height);
-            ctx.fillRect(0, (radio_alt - alt) * alt_to_pix, width, height);
-            ctx.lineWidth = 2;
-            ctx.strokeRect(0, (radio_alt - alt) * alt_to_pix, width, 1);
+            // ctx.strokeStyle = '#fff';
+            // ctx.fillStyle = pattern;
+            // ctx.clearRect(0, (radio_alt - alt) * alt_to_pix, width, height);
+            // ctx.fillRect(0, (radio_alt - alt) * alt_to_pix, width, height);
+            // ctx.lineWidth = 2;
+            // ctx.strokeRect(0, (radio_alt - alt) * alt_to_pix, width, 1);
         }
     }
 
     ECSAltCurrent {
-        y: self.center_y
-        altitude_ft: self.altitude_ft
+        x: 4
+        anchors.verticalCenter: parent.verticalCenter
+        altitude_ft: 8400
         fail: self.fail
+        transformOrigin: Item.Left
+    }
+
+    Rectangle {
+        id: rectangle
+        x: 2
+        y: 2
+        width: 2
+        height: 102
+        color: "#ff0000"
+        border.width: 0
+    }
+
+    TriangleItem {
+        id: triangle
+        x: -24
+        y: 99 + target_alt_ft - altitude_ft
+        width: 16
+        height: 16
+        radius: 0
+        fillColor: "#e400c9"
+        rotation: 90
+        strokeWidth: 0
+        transformOrigin: Item.Right
+    }
+
+    Text {
+        id: _text7
+        x: 68
+        y: 88
+        color: "#9faea4"
+        text: qsTr("ft")
+        font.letterSpacing: 1
+        font.pixelSize: 18
+        font.styleName: "Narrow"
+        font.family: "Arial"
     }
 }

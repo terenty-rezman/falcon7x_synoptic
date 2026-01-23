@@ -359,14 +359,14 @@ Rectangle {
     ECSAlt {
         objectName: "adi_alt"
         x: 485
-        y: 113
+        y: 95
         width: 67
         height: 197
         visible: true
     }
 
     ECSVerticalSpeed {
-        x: 574
-        y: 74
+        x: 576
+        y: 94
     }
 }
