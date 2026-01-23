@@ -107,7 +107,7 @@ class Screen(QQuickView):
     def set_monitor_brightness(self, brightness):
         if self.last_brightness != brightness:
             update_black_screen_state = False
-            if self.last_brightness < 2 or brightness < 2:
+            if self.last_brightness <= 2 or brightness <= 2:
                 update_black_screen_state = True
 
             self.last_brightness = brightness
@@ -132,7 +132,7 @@ class Screen(QQuickView):
                 cross = self.rootObject().findChild(QQuickItem, "red_cross")
                 cross.setProperty("visible", True)
     
-        if self.last_brightness < 2 or self.last_black_screen_state == ScreenState.BLACK_SCREEN:
+        if self.last_brightness <= 2 or self.last_black_screen_state == ScreenState.BLACK_SCREEN:
                 self.show();
                 cross = self.rootObject().findChild(QQuickItem, "red_cross")
                 cross.setProperty("visible", False)
