@@ -232,6 +232,7 @@ def set_data_http_udp(data):
         value = data.get(dataref)
         if value is not None:
             screen.set_monitor_brightness(value)
+            print(dataref, value)
 
 
 # save initial brightness
