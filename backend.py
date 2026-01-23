@@ -273,6 +273,12 @@ class Backend(QObject):
     # triger repaint for all canvas item in qml
     updateCanvas = Signal()
 
+    # triger blue border in qml
+    updateMousePos = Signal(int, int, int, int)
+
+    def update_mouse(self):
+        self.updateMousePos.emit(0, 1, 2, 3)
+
     def set_data_http(self, data: dict):
         overrides = data.get("overrides") or {}
         data = data.get("data") or {} 
@@ -303,6 +309,7 @@ class Backend(QObject):
                     item.setProperty(value_name, val)
 
         backend.updateCanvas.emit()
+        # backend.update_mouse()
 
 
 backend = Backend()
