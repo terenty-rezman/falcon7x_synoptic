@@ -8,6 +8,7 @@ from backend import backend
 import param_overrides
 from falcon7x_core.xplane.params import Params
 import view_helper
+import cas
 
 
 quart_task = None
@@ -82,4 +83,54 @@ async def synoptic_page():
     for item in synoptics:
         item.setProperty("currentIndex", page)
 
+    return {"result": "ok"}
+
+
+@app.post("/api/cas/show_message")
+async def cas_show_message():
+    data = await request.json
+    message = data["message"]
+
+    cas.show_message(message)
+
+    print("show msg", message)
+
+    return {"result": "ok"}
+
+
+@app.post("/api/cas/read_message")
+async def cas_read_message():
+    cas.read_message()
+    return {"result": "ok"}
+
+
+@app.post("/api/cas/scroll_up")
+async def cas_scroll_up():
+    cas.scroll_up()
+    return {"result": "ok"}
+
+
+@app.post("/api/cas/remove_message")
+async def cas_remove_message():
+    data = await request.json
+    message = data["message"]
+
+    cas.remove_message(message)
+
+    print("remove msg", message)
+
+    return {"result": "ok"}
+
+
+@app.post("/api/cas/remove_all_messages")
+async def cas_remove_all_messages():
+    cas.remove_all_messages()
+    return {"result": "ok"}
+
+
+@app.post("/api/cas/set_regime")
+async def cas_set_regime():
+    data = await request.json
+    regime = data["regime"]
+    cas.set_regime(regime)
     return {"result": "ok"}

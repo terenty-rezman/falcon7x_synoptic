@@ -42,13 +42,18 @@ Item {
         y: 0
         side: "left"
 
-        width: 684
+        width: 0.6666 * 1024
         height: 768
     }
 
     EngUnderCas {
-        x: 1024 * 2 / 3
+        x: 2 / 3 * 1024
         y: 768 / 4
+    }
+
+    CAS_window {
+        x: 0.6666 * 1024
+        y: 0
     }
 
     PDUsys {

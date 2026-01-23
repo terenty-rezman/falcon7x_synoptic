@@ -13,7 +13,7 @@ Rectangle {
     border.width: 2
 
     property int fuel_weight: 0
-    property int max_fuel_weight: 10895 / 2.20
+    property int max_fuel_weight: 0
 
     Rectangle {
         color: (self.fuel_weight > 250 / 2.2 ) ? "#44dc3a" : "#dfd229"

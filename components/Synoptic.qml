@@ -23,38 +23,48 @@ Item {
         SynopticTabButton {
             id: stat_button
             text: qsTr("STAT")
+
+            BlueBorder{}
         }
 
         SynopticTabButton {
             text: qsTr("ENG")
+            BlueBorder{}
         }
 
         SynopticTabButton {
             text: qsTr("ELEC")
+            BlueBorder{}
         }
 
         SynopticTabButton {
             text: qsTr("FUEL")
+            BlueBorder{}
         }
 
         SynopticTabButton {
             text: qsTr("HYD")
+            BlueBorder{}
         }
 
         SynopticTabButton {
             text: qsTr("ECS")
+            BlueBorder{}
         }
 
         SynopticTabButton {
             text: qsTr("BLD")
+            BlueBorder{}
         }
 
         SynopticTabButton {
             text: qsTr("FCS")
+            BlueBorder{}
         }
 
         SynopticTabButton {
             text: qsTr("TEST")
+            BlueBorder{}
         }
     }
 
@@ -100,4 +110,6 @@ Item {
 
         }
     }
+
+    BlueBorder {}
 }

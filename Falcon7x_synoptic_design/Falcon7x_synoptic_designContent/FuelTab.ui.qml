@@ -47,6 +47,8 @@ Rectangle {
         y: 8
         width: 103
         height: 46
+
+        max_fuel_weight: 5106 // kg
     }
 
     Fuel_Pump {
@@ -669,6 +671,8 @@ Rectangle {
         objectName: "fuel_tank2"
         x: 320
         y: 56
+
+        max_fuel_weight: 5708 // kg
     }
 
     Rectangle {
@@ -703,6 +707,8 @@ Rectangle {
         height: 46
         scale: 1
         rotation: 0
+
+        max_fuel_weight: 5125 // kg
 
         transform: Scale {
             origin.x: 0

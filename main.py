@@ -3,7 +3,7 @@ import asyncio
 import traceback
 
 from PySide6.QtQuick import QQuickView, QQuickItem
-from PySide6.QtGui import QGuiApplication
+from PySide6.QtGui import QGuiApplication, QCursor
 from PySide6.QtCore import QUrl, QObject, Slot, Property, SLOT, SIGNAL, QByteArray, QTimer
 from PySide6.QtNetwork import QUdpSocket, QHostAddress
 from PySide6.QtQml import QQmlContext
@@ -23,6 +23,7 @@ import falcon7x_core.common.sane_tasks as sane_tasks
 
 import params_to_subscribe
 import screen_control
+import cas
 
 import settings as s
 
@@ -38,7 +39,7 @@ def on_data_exception(ex: Exception):
 
 def on_new_xp_data_udp(received_vals):
     backend.backend.set_data_http({"data": received_vals})
-    # screen_control.set_data_http_udp({"data": received_vals})
+    screen_control.set_data_http_udp({"data": received_vals})
     pass
 
 
@@ -72,8 +73,17 @@ async def test_qml():
         await asyncio.sleep(0.016)
 
 
+async def blue_border_mouse_update():
+    while True:
+        global_pos = QCursor.pos()  
+        backend.backend.updateMousePos.emit(global_pos.x(), global_pos.y(), 0, 0)
+        await asyncio.sleep(0.2)
+
+
 async def main():
     try:
+        sane_tasks.spawn(blue_border_mouse_update())    
+
         web_interface.run_server_task("0.0.0.0", s.WEB_INTERFACE_PORT)
 
         # replace suscribe values
@@ -146,6 +156,8 @@ if __name__ == "__main__":
     )
     pdu_right.show()
     view_helper.all_views.append(pdu_right)
+
+    cas.create_cas_windows()
 
     screen_control.create_black_screens()
 
