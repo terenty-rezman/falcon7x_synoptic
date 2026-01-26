@@ -4,17 +4,18 @@ import QtQuick.Window 2.15
 Item {
     id: self
 
-    width: 40
+    width: 20
     height: 50
 
-    property string font: "bold 24px sans-serif"
-
     property real value: 0 
+    property int pixel_height: 30
 
     property int center_x: width / 2
     property int center_y: height / 2
 
     property string color: "#fff"
+
+    property bool draw_0: true
 
     Connections {
         target: backend 
@@ -37,11 +38,11 @@ Item {
             // draw sky rect
             ctx.strokeStyle = self.color;
             ctx.fillStyle = self.color;
-            ctx.font = self.font;
+            ctx.font = "bold 24px sans-serif";
             ctx.textAlign = "right";
 
-            const alt_to_pix = 1;
-            const line_step = 20;
+            const alt_to_pix = self.pixel_height;
+            const line_step = 1;
             const value = self.value;
             const closest_below_line = value - value % line_step;
 
@@ -55,14 +56,10 @@ Item {
                 const line_alt = i * line_step + closest_below_line;
                 const line_y = alt_to_pix * line_alt; 
 
-                let number = line_alt % 100;
-                if (number < 0) {
-                    number = 100 + number;
-                } 
+                const number = (line_alt + 10) % 10;
 
-                if (number == 0) {
-                    ctx.fillText("00", self.width - 4, -line_y + 8);
-                    continue;
+                if (number == 0 && self.draw_0 == false) {
+                    break;
                 }
 
                 ctx.fillText(number, self.width - 4, -line_y + 8);

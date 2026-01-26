@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="60"
+   width="61"
    height="52"
-   viewBox="0 0 15.875 13.758333"
+   viewBox="0 0 16.139583 13.758333"
    version="1.1"
    id="svg1"
    sodipodi:docname="ECS_ALTITUDE_BACKGROUND_TOO_HIGH.svg"
@@ -24,8 +24,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      inkscape:zoom="6.018123"
-     inkscape:cx="31.73747"
-     inkscape:cy="33.149871"
+     inkscape:cx="31.654388"
+     inkscape:cy="33.316036"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -34,7 +34,7 @@
      inkscape:current-layer="layer1"><inkscape:page
        x="0"
        y="0"
-       width="15.875"
+       width="16.139584"
        height="13.758333"
        id="page2"
        margin="0"
@@ -45,7 +45,7 @@
      id="layer1"
      transform="translate(-212.33656,-145.00611)"><path
        style="fill:#b63921;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:3.3;stroke-dasharray:none"
-       d="m 214.42953,147.20214 v -2.19603 h 13.78203 v 13.75833 h -13.84127 v -2.01083 l -2.03373,-4.7625 z"
+       d="m 214.46441,147.20214 v -2.19603 h 14.01173 v 13.75833 h -14.07195 v -2.01083 l -2.06763,-4.7625 z"
        id="path3"
        inkscape:export-filename="adi_alt.png"
        inkscape:export-xdpi="96"
