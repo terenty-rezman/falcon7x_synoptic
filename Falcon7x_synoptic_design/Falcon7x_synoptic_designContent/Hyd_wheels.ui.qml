@@ -1,11 +1,9 @@
 import QtQuick
+import QtQuick.Controls
 import QtQuick.Studio.Components
 import QtCharts
 
-Item {
-    id: _item
-    width: 83
-    height: 28
+Button {
 
     // Image {
     //     id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
@@ -16,26 +14,31 @@ Item {
     //     enabled: true
     //     fillMode: Image.PreserveAspectFit
     // }
-    Rectangle {
-        id: rectangle
-        x: 0
-        y: 0
-        width: 83
-        height: 28
+    id: self
+
+    x: 0
+    y: 0
+    width: 83
+    height: 28
+    text: "WHEELS"
+    rotation: 0
+    rightPadding: 0
+    leftPadding: 0
+    bottomPadding: 0
+    topPadding: 0
+    bottomInset: 0
+    topInset: 0
+    font.pointSize: 14
+    font.wordSpacing: 0
+    font.letterSpacing: -0.9
+    font.family: "Arial"
+    font.bold: false
+    background: Rectangle {
+        implicitWidth: 83
+        implicitHeight: 28
         color: "#868b81"
-        radius: 1
         border.color: "#a8b49e"
         border.width: 2
-    }
-
-    Text {
-        id: _text
-        x: 5
-        y: 5
-        color: "#a8b49e"
-        text: qsTr("WHEELS")
-        font.letterSpacing: 0.4
-        font.pixelSize: 17
-        font.family: "Arial"
+        radius: 1
     }
 }

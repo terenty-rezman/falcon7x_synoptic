@@ -22,15 +22,15 @@ Rectangle {
 
     color: Constants.backgroundColor
 
-    Image {
-        id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
-        x: 0
-        y: 0
-        visible: true
-        source: "images/ECS.png"
-        enabled: true
-        fillMode: Image.PreserveAspectFit
-    }
+    // Image {
+    //     id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
+    //     x: 0
+    //     y: 0
+    //     visible: true
+    //     source: "images/ECS.png"
+    //     enabled: true
+    //     fillMode: Image.PreserveAspectFit
+    // }
     ECS_landing_field_elev {
         id: eCS_landing_field_elev
         x: 457

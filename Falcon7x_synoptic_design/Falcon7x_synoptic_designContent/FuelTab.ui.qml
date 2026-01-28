@@ -21,16 +21,15 @@ Rectangle {
 
     color: Constants.backgroundColor
 
-    Image {
-        id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
-        x: 0
-        y: 0
-        visible: false
-        source: "images/FUEL_F8X.jpg"
-        enabled: true
-        fillMode: Image.PreserveAspectFit
-    }
-
+    // Image {
+    //     id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
+    //     x: 0
+    //     y: 0
+    //     visible: true
+    //     source: "images/FUEL_F8X.jpg"
+    //     enabled: true
+    //     fillMode: Image.PreserveAspectFit
+    // }
     Fuel_pipes {
         id: _item
         height: 342
@@ -714,6 +713,33 @@ Rectangle {
             origin.x: 0
             origin.y: 0
             xScale: -1
+        }
+    }
+    Button {
+        id: c_b_button
+        x: 595
+        y: 167
+        width: 66
+        height: 47
+        text: qsTr("FU\nRESET")
+        rightPadding: 0
+        leftPadding: 0
+        bottomPadding: 0
+        topPadding: 0
+        bottomInset: 0
+        topInset: 0
+        font.pointSize: 13
+        font.wordSpacing: 0
+        font.styleName: "Обычный"
+        font.family: "Arial"
+        font.bold: false
+        background: Rectangle {
+            implicitWidth: 66
+            implicitHeight: 57
+            color: "#c1c1c1"
+            border.color: "#9faea4"
+            border.width: 3
+            radius: 2
         }
     }
 }

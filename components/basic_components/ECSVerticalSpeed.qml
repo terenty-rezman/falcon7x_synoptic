@@ -5,13 +5,13 @@ import QtQuick.Shapes
 Item {
     id: self
 
-    property real vy_ft_per_min: -1500
-    property real limit_rate: 3550
-    property int max_warning_zone: 2500
-    property int min_warning_zone: -1500
+    readonly property real vy_ft_per_min: -1500
+    readonly property real limit_rate: 3550
+    readonly property int max_warning_zone: 2500
+    readonly property int min_warning_zone: -1500
     property int y_center: height / 2
     property int y_center_plot: main_rectangle.height-2*main_rectangle.border.width
-    property int line_width: 4
+    readonly property int line_width: 4
 
     width: 40
     height: 198

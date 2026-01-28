@@ -8,11 +8,11 @@ Item {
     height: 197
 
     property bool fail: false
-    property real altitude_ft: 8600.1
-    property real target_alt_ft: 8600
+    property real altitude_ft: 9000
+    property real target_alt_ft: 8000
     property real radio_alt_ft: 200 
     property real baro_settings: 29.92
-    property string fonts: "bold 26px sans-serif"
+    property string fonts: "20px arial"
 
     property int center_x: width / 2
     property int center_y: height / 2
@@ -41,10 +41,10 @@ Item {
         anchors.topMargin: 2
         anchors.bottomMargin: 2
 
-        Component.onCompleted: {
-            canvas.loadImage("../svg/ADI_ALT_SETPOINT.svg"); 
-            canvas.loadImage("../png/adi_ground_pattern.png"); 
-        }
+        // Component.onCompleted: {
+        //     canvas.loadImage("../svg/ADI_ALT_SETPOINT.svg");
+        //     canvas.loadImage("../png/adi_ground_pattern.png");
+        // }
 
         onPaint: {
             const ctx = getContext("2d");
@@ -55,8 +55,8 @@ Item {
             }
 
             // draw sky rect
-            ctx.strokeStyle = "#FFFFFF";
-            ctx.fillStyle = "#FFFFFF"
+            ctx.strokeStyle = "#000000";
+            ctx.fillStyle = "#000000"
             ctx.font = self.fonts;
             ctx.textAlign = "right";
 
@@ -73,12 +73,12 @@ Item {
             ctx.translate(0, alt * alt_to_pix);
 
             // draw target alt symbol
-            ctx.drawImage("../svg/ADI_ALT_SETPOINT.svg", 0, (-target_alt) * alt_to_pix - setpoint_height / 2);
+            // ctx.drawImage("../svg/ADI_ALT_SETPOINT.svg", 0, (-target_alt) * alt_to_pix - setpoint_height / 2);
 
             const line_count = 10;
             const line_width = 10; 
 
-            ctx.fillStyle = "#FFFFFF"
+            ctx.fillStyle = "#000000"
             ctx.beginPath();
             // draw lines
             for(let i = -line_count / 2; i < line_count / 2 + 2; i++) {
@@ -104,8 +104,8 @@ Item {
                 const line_y = alt_to_pix * line_alt; 
 
                 if (line_alt % 2 == 0 && line_alt >= 0) {
-                    ctx.strokeText(line_alt, self.width - 4, -line_y + 8);
-                    ctx.fillText(line_alt, self.width - 4, -line_y + 8);
+                    // ctx.strokeText(line_alt, self.width - 4, -line_y + 8);
+                    ctx.fillText(line_alt*100, self.width - 6, -line_y + 8);
                 }
             }
             ctx.closePath();
@@ -147,7 +147,7 @@ Item {
     TriangleItem {
         id: triangle
         x: -24
-        y: 99 + target_alt_ft - altitude_ft
+        y: 99 - (target_alt_ft - altitude_ft)/37
         width: 16
         height: 16
         radius: 0

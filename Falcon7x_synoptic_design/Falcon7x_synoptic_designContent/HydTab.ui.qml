@@ -22,14 +22,14 @@ Rectangle {
 
     color: Constants.backgroundColor
 
-    Image {
-        id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
-        x: 0
-        y: 0
-        visible: false
-        source: "images/HYD.png"
-        fillMode: Image.PreserveAspectFit
-    }
+    // Image {
+    //     id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
+    //     x: 0
+    //     y: 0
+    //     visible: true
+    //     source: "images/HYD_wheels.png"
+    //     fillMode: Image.PreserveAspectFit
+    // }
     Text {
         id: _text6
         x: 620
@@ -187,6 +187,7 @@ Rectangle {
         id: hyd_wheels
         x: 6
         y: 304
+        onClicked: hyd_wheels_window.visible = true
     }
 
     Hyd_pump_status_text {
@@ -338,5 +339,11 @@ Rectangle {
         objectName: "hyd_pump_c2"
         x: 552
         y: 39
+    }
+    Hyd_wheels_window {
+        id: hyd_wheels_window
+        x: 186
+        y: 84
+        visible: false
     }
 }

@@ -21,29 +21,40 @@ Rectangle {
 
     color: Constants.backgroundColor
 
-    Image {
-        id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
-        visible: false
-        source: "images/ELEC_F7X_CODDE1_R13_DGT97831 Image[2252]_ok.jpg"
-        enabled: true
-        fillMode: Image.PreserveAspectFit
-
-        Button {
-            id: c_b_button
-            x: 484
-            y: 275
-            width: 119
-            height: 29
-            text: qsTr("C/B STATUS")
-        }
-
-        Elec_cb_out {
-            id: elec_cb_out
-            x: 508
-            y: 314
+    // Image {
+    //     id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
+    //     visible: true
+    //     source: "images/ELEC_F7X_CODDE1_R13_DGT97831 Image[2252]_ok.jpg"
+    //     enabled: true
+    //     fillMode: Image.PreserveAspectFit
+    // }
+    Button {
+        id: c_b_button
+        x: 483
+        y: 268
+        width: 121
+        height: 42
+        text: qsTr("C/B STATUS")
+        font.pointSize: 9
+        font.wordSpacing: 2.5
+        font.styleName: "Обычный"
+        font.family: "Arial"
+        font.bold: false
+        background: Rectangle {
+            implicitWidth: 121
+            implicitHeight: 42
+            color: "#c1c1c1"
+            border.color: "#9faea4"
+            border.width: 3
+            radius: 2
         }
     }
 
+    Elec_cb_out {
+        id: elec_cb_out
+        x: 508
+        y: 314
+    }
     Elec_Apu {
         id: elec_apu
         objectName: "elec_apu"
@@ -243,10 +254,3 @@ Rectangle {
         height: 17
     }
 }
-
-/*##^##
-Designer {
-    D{i:0}D{i:25;invisible:true}
-}
-##^##*/
-
