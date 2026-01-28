@@ -66,11 +66,6 @@ Item {
                 _text.color = black_color;
             }
         }
-
-        
-        console.log(rectangle1.color)
-        console.log(_text.color)
-        console.log("")
     }
 
     // Image {
