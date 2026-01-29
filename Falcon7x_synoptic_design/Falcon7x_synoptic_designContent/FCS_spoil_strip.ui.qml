@@ -2,19 +2,26 @@ import QtQuick
 import QtQuick.Studio.Components
 
 Item {
-    id: fcs_sfcc_num
+    id: self
     x: 0
     y: 0
     width: 15
     height: 44
+
+    property real value: deflection / 40
+
+    property real deflection: 2
+
     Rectangle {
-        id: rectangle9
+        id: fill
         x: 2
-        y: 19
+        y: 2
         width: 11
-        height: 23
+        height: (40 * self.value)
         color: "#00ff00"
         border.color: "#00000000"
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 2
     }
 
     Rectangle {

@@ -2,24 +2,44 @@ import QtQuick
 import QtQuick.Studio.Components
 
 Item {
-    id: fcs_sfcc_num
+    id: self
     x: 0
     y: 0
     width: 14
 
+    property real value: (ail_def / 25)
+
+    property real ail_def: 25 // [-25 25]
+
     height: 50
+
     Rectangle {
-        id: rectangle4
+        id: bottom_fill
         x: 2
-        y: 25
+        anchors.top: horizontal_line.bottom
+
         width: 10
-        height: 15
         color: "#00ff00"
         border.color: "#00000000"
+
+        height: Math.abs(self.value) * 23
+        visible: value > 0
     }
 
     Rectangle {
-        id: rectangle18
+        id: top_fill
+        x: 2
+        anchors.bottom: horizontal_line.top
+
+        width: 10
+        color: "#00ff00"
+        border.color: "#00000000"
+
+        height: Math.abs(self.value) * 23
+        visible: value < 0
+    }
+
+    Rectangle {
         x: 0
         y: 0
         width: 14
@@ -31,7 +51,7 @@ Item {
     }
 
     Rectangle {
-        id: rectangle19
+        id: horizontal_line
         x: 0
         y: 24
         width: 14

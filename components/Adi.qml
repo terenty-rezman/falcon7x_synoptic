@@ -399,7 +399,7 @@ Rectangle {
                 visible: false
             }
 
-            text: fq
+            text: (fq * 2.20400).toFixed(0)
             x: 92 - width
             y: 154
             horizontalAlignment: Text.AlignRight
@@ -421,10 +421,31 @@ Rectangle {
                 visible: false
             }
 
-            text: fr
+            text: (fr * 2.20400).toFixed(0)
             x: 92 - width
             y: 176
             horizontalAlignment: Text.AlignRight
+        }
+
+        AdiWhiteText {
+            x: 98
+            text: "LB"
+            font.pixelSize: 14
+            y: 202
+        }
+
+        AdiWhiteText {
+            x: 98
+            y: 179
+            text: "LB"
+            font.pixelSize: 14
+        }
+
+        AdiWhiteText {
+            x: 98
+            y: 157
+            text: "LB"
+            font.pixelSize: 14
         }
 
         AdiWhiteText {
@@ -443,10 +464,12 @@ Rectangle {
                 visible: false
             }
 
-            text: gw
+            text: (gw * 2.20400).toFixed(0)
             x: 92 - width
             y: 198
             horizontalAlignment: Text.AlignRight
         }
     }
+
+
 }

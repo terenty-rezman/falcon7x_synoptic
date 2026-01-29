@@ -2,6 +2,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Studio.Components
 import QtCharts
+import QtQuick.Controls.Material 
+
 import "../../components/basic_components"
 
 Button {
@@ -34,6 +36,17 @@ Button {
     font.letterSpacing: -0.9
     font.family: "Arial"
     font.bold: false
+
+    contentItem: Text {
+        text: self.text
+        font: self.font
+        opacity: enabled ? 1.0 : 0.3
+        color: self.down ? "#fff" : "#fff"
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        elide: Text.ElideRight
+    }
+
     background: Rectangle {
         implicitWidth: parent.width
         implicitHeight: parent.height

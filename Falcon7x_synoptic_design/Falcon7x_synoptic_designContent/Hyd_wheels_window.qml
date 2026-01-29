@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Studio.Components
+import QtQuick.Controls.Material 
 
 import "../../components/basic_components"
 

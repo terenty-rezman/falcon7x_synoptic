@@ -11,6 +11,8 @@ import QtQuick.Controls
 import Falcon7x_synoptic_design
 import QtQuick.Studio.Components
 import QtQuick.VectorImage
+import QtQuick.Controls.Material 
+
 import "../../components/basic_components"
 
 Rectangle {
@@ -28,26 +30,13 @@ Rectangle {
     //     enabled: true
     //     fillMode: Image.PreserveAspectFit
     // }
-    Button {
+    Button_synoptic {
         id: c_b_button
         x: 483
         y: 268
         width: 121
         height: 42
         text: qsTr("C/B STATUS")
-        font.pointSize: 9
-        font.wordSpacing: 2.5
-        font.styleName: "Обычный"
-        font.family: "Arial"
-        font.bold: false
-        background: Rectangle {
-            implicitWidth: 121
-            implicitHeight: 42
-            color: "#c1c1c1"
-            border.color: "#9faea4"
-            border.width: 3
-            radius: 2
-        }
     }
 
     Elec_cb_out {

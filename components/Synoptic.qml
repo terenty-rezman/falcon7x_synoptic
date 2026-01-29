@@ -106,9 +106,7 @@ Item {
 
         }
 
-        Item {
-
-        }
+        TestTab {}
     }
 
     BlueBorder {}

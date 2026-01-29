@@ -2,6 +2,7 @@ import itertools
 from PySide6.QtCore import QTimer
 
 import falcon7x_core.cas.messages as all_messages
+from falcon7x_core.xplane.params import Params
 
 import view_helper
 
@@ -373,3 +374,14 @@ def remove_all_messages():
 def set_regime(regime):
     for cas in cas_objects:
         cas.set_regime(regime)
+
+    
+def set_regime_xp_data(data):
+    data = data.get("data") or {} 
+
+    value = data.get(Params["sim/custom/7x/z_flight_regime"])
+    if value is not None:
+        cas_regime = all_messages.Regimes.from_int(value)
+        if cas_regime is not None:
+            set_regime(str(cas_regime))
+

@@ -8,7 +8,7 @@ Item {
     width: 43
     height: 23
 
-    property int state: 3
+    property int state: 2
 
     FCS_slats_spoil_moving {
         id: fCS_slats_spoil_moving

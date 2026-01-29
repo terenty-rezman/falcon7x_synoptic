@@ -1,6 +1,6 @@
 from PySide6.QtQuick import QQuickView
-from PySide6.QtCore import QPoint, QSettings, QRect
-from PySide6.QtGui import QCursor
+from PySide6.QtCore import QPoint, QSettings, QRect, QEvent, Qt
+from PySide6.QtGui import QCursor, QMouseEvent, QGuiApplication
 import backend
 
 
@@ -19,6 +19,7 @@ class View(QQuickView):
         self.windowPos = self.position()
         self.mousePos = QPoint(event.globalPosition().x(), event.globalPosition().y())
         super().mousePressEvent(event)
+        self.send_mouse_event()
 
     def mouseMoveEvent(self, event):
         if self.mouse_pressed:
@@ -56,6 +57,10 @@ class View(QQuickView):
         self.setMaximumWidth(self.win_width)
         self.setMaximumHeight(self.win_height)
     
-    def send_mouse_event():
-        pass
+    def send_mouse_event(self):
+        global_pos = QCursor.pos()  
+        local_pos = self.mapFromGlobal(global_pos)
+        event = QMouseEvent(QEvent.Type.MouseButtonPress, global_pos, local_pos, Qt.MouseButton.RightButton, Qt.MouseButton.NoButton, Qt.KeyboardModifier.NoModifier)
+        QGuiApplication.sendEvent(self, event)
+
 

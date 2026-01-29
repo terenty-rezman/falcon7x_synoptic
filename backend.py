@@ -93,6 +93,10 @@ dref_indicators = [
     ("sim/custom/7x/z_thrust_purple_max_deg_2", None, "eng_engn2", "max_thrust_deg", None),
     ("sim/custom/7x/z_thrust_purple_max_deg_3", None, "eng_engn3", "max_thrust_deg", None),
 
+    # adi
+    ("sim/flightmodel/weight/m_fuel_total", None, "adi_fq_text", "fq", None),
+    ("sim/flightmodel/weight/m_fuel_total", None, "adi_fr_text", "fr", None),
+    ("sim/flightmodel/weight/m_total", None, "adi_gw_text", "gw", None),
     ("sim/cockpit2/gauges/indicators/pitch_electric_deg_pilot", None, "adi_horizon", "pitch_deg", None),
     ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_horizon", "bank_deg", None),
     ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_bank", "bank_deg", None),
@@ -242,6 +246,25 @@ dref_indicators = [
     ("sim/cockpit2/hydraulics/indicators/hydraulic_fluid_ratio_1", None, "hyd_qty_1", "fluid_ratio", None),
     ("sim/cockpit2/hydraulics/indicators/hydraulic_fluid_ratio_2", None, "hyd_qty_2", "fluid_ratio", None),
     ("sim/cockpit2/hydraulics/indicators/hydraulic_fluid_ratio_2", None, "hyd_qty_3", "fluid_ratio", None),
+
+    # fcs tab
+    ("sim/flightmodel/controls/wing1l_ail1def", None, "fcs_lh_ail", "ail_def", None),
+    ("sim/flightmodel/controls/wing1r_ail1def", None, "fcs_rh_ail", "ail_def", None),
+    ("sim/flightmodel/controls/lsplrdef", None, "fcs_lh_spoil", "deflection", None),
+    ("sim/flightmodel/controls/wing1r_spo1def", None, "fcs_rh_spoil", "deflection", None),
+    ("sim/flightmodel/controls/hstab1_elv1def", None, "fcs_lh_elev", "deflection", None),
+    ("sim/flightmodel/controls/hstab1_elv1def", None, "fcs_rh_elev", "deflection", None),
+    ("sim/flightmodel/controls/vstab1_rud1def", None, "fcs_rudder", "deflection", None),
+    ("sim/cockpit2/controls/aileron_trim", None, "fcs_roll_trim", "value", None),
+    ("sim/cockpit2/controls/rudder_trim", None, "fcs_yaw_trim", "value", None),
+    ("sim/cockpit2/controls/elevator_trim", None, "fcs_pitch_trim", "value", None),
+    ("sim/flightmodel/controls/slatrat", None, "fcs_slats_right", "value", None),
+    ("sim/custom/7x/z_fcs_mfcc_1", None, "fcs_mfcc", "sys1_ok", None),
+    ("sim/custom/7x/z_fcs_mfcc_2", None, "fcs_mfcc", "sys2_ok", None),
+    ("sim/custom/7x/z_fcs_mfcc_3", None, "fcs_mfcc", "sys3_ok", None),
+    ("sim/custom/7x/z_fcs_sfcc_1", None, "fcs_sfcc", "sys1_ok", None),
+    ("sim/custom/7x/z_fcs_sfcc_2", None, "fcs_sfcc", "sys2_ok", None),
+    ("sim/custom/7x/z_fcs_sfcc_3", None, "fcs_sfcc", "sys3_ok", None),
 ]
 
 dref_nested_dict = defaultdict(list)

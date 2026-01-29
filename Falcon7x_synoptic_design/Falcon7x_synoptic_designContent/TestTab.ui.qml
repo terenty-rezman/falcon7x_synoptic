@@ -125,9 +125,9 @@ Rectangle {
         y: 172
         width: 139
         height: 34
-        text: "ECS"
+        text: "ECS EMERG"
         font.letterSpacing: -0.59
-        font.pointSize: 19
+        font.pointSize: 17
         font.bold: true
     }
     Button_synoptic {

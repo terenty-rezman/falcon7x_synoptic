@@ -11,6 +11,8 @@ import QtQuick.Controls
 import Falcon7x_synoptic_design
 import QtQuick.Studio.Components
 import QtQuick.VectorImage
+import QtQuick.Controls.Material 
+
 import "../../components/basic_components"
 
 Rectangle {
@@ -715,31 +717,12 @@ Rectangle {
             xScale: -1
         }
     }
-    Button {
+    Button_synoptic {
         id: c_b_button
         x: 595
         y: 167
         width: 66
         height: 47
         text: qsTr("FU\nRESET")
-        rightPadding: 0
-        leftPadding: 0
-        bottomPadding: 0
-        topPadding: 0
-        bottomInset: 0
-        topInset: 0
-        font.pointSize: 13
-        font.wordSpacing: 0
-        font.styleName: "Обычный"
-        font.family: "Arial"
-        font.bold: false
-        background: Rectangle {
-            implicitWidth: 66
-            implicitHeight: 57
-            color: "#c1c1c1"
-            border.color: "#9faea4"
-            border.width: 3
-            radius: 2
-        }
     }
 }
