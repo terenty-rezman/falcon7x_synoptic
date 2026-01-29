@@ -8,15 +8,18 @@ Item {
     height: 197
 
     property bool fail: false
-    property real altitude_ft: 9000
-    property real target_alt_ft: 8000
+    property real altitude_ft: 11300
+    property real target_alt_ft: 15000
     property real radio_alt_ft: 200 
     property real baro_settings: 29.92
     property string fonts: "20px arial"
 
     property int center_x: width / 2
     property int center_y: height / 2
-    y: 0
+
+
+
+
 
     Connections {
         target: backend 
@@ -129,7 +132,7 @@ Item {
     ECSAltCurrent {
         x: 4
         anchors.verticalCenter: parent.verticalCenter
-        altitude_ft: 8400
+        altitude_ft: self.altitude_ft
         fail: self.fail
         transformOrigin: Item.Left
     }
@@ -139,15 +142,31 @@ Item {
         x: 2
         y: 2
         width: 2
-        height: 102
+        height: warning_alt(8300 - altitude_ft)
         color: "#ff0000"
         border.width: 0
+
+        function warning_alt(delta_alt){
+            const pix_to_alt = 38;
+            const max_pix_height = 193;
+            let h = 0.0;
+            if (delta_alt >= 0 ){
+                h = 97 - delta_alt / pix_to_alt;
+            }
+            else{
+                h = 97 - delta_alt / pix_to_alt;
+                if (h > max_pix_height){
+                    h = max_pix_height;
+                }
+            }
+            return h
+        }
     }
 
     TriangleItem {
         id: triangle
         x: -24
-        y: 99 - (target_alt_ft - altitude_ft)/37
+        y: alt_to_pixel(target_alt_ft - altitude_ft)
         width: 16
         height: 16
         radius: 0
@@ -155,6 +174,24 @@ Item {
         rotation: 90
         strokeWidth: 0
         transformOrigin: Item.Right
+
+        function alt_to_pixel(delta_alt){
+            const max_delta = 3550;
+            const pix_to_alt = 37;
+            let delta_h = 0.0;
+            if (delta_alt >= max_delta){
+                delta_h = max_delta;
+            }
+            else if (delta_alt <= -max_delta){
+                delta_h = -max_delta;
+                }
+            else {
+                delta_h = delta_alt;
+            }
+
+            return (99 - delta_h / pix_to_alt)
+        }
+
     }
 
     Text {
