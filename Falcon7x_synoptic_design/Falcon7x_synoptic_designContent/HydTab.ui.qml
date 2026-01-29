@@ -183,11 +183,12 @@ Rectangle {
         y: 0
     }
 
-    Hyd_wheels {
+    Button_synoptic {
         id: hyd_wheels
         x: 6
         y: 304
         onClicked: hyd_wheels_window.visible = true
+        text: "WHEELS"
     }
 
     Hyd_pump_status_text {

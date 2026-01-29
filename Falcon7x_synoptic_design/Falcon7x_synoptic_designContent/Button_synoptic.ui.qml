@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Studio.Components
 import QtCharts
+import "../../components/basic_components"
 
 Button {
 
@@ -20,7 +21,7 @@ Button {
     y: 0
     width: 83
     height: 28
-    text: "WHEELS"
+    text: "name"
     rotation: 0
     rightPadding: 0
     leftPadding: 0
@@ -34,11 +35,13 @@ Button {
     font.family: "Arial"
     font.bold: false
     background: Rectangle {
-        implicitWidth: 83
-        implicitHeight: 28
+        implicitWidth: parent.width
+        implicitHeight: parent.height
         color: "#868b81"
         border.color: "#a8b49e"
         border.width: 2
         radius: 1
     }
+
+    BlueBorder {}
 }
