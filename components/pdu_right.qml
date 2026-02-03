@@ -14,29 +14,7 @@ Item {
         color: "#545454"
     }
 
-
-    MouseArea {
-        anchors.fill: parent
-        acceptedButtons: Qt.RightButton
-
-        onClicked: (mouse) => {
-            if (mouse.button === Qt.RightButton) {
-                contextMenu.popup()
-            }
-        }
-    }
-
-    Menu {
-        id: contextMenu
-
-        // Close Action
-        Action {
-            text: "Close Window"
-            onTriggered: {
-                Qt.quit() // Close the application
-            }
-        }
-    }
+    SystemMenu{}
 
     Adi {
         x: 1024 * 1 / 3

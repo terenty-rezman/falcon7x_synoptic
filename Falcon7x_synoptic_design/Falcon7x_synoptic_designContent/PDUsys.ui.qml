@@ -237,18 +237,21 @@ Item {
     }
 
     FCS_yaw_scale {
+        objectName: "fcs_yaw_trim"
         id: fCS_yaw_scale
         x: 146
         y: 210
     }
 
     FCS_roll_scale {
+        objectName: "fcs_roll_trim"
         id: fCS_roll_scale
         x: 20
         y: 210
     }
 
     FCS_pitch_scale {
+        objectName: "fcs_pitch_trim"
         id: fCS_pitch_scale
         x: 249
         y: 177

@@ -9,6 +9,9 @@ import "../Falcon7x_synoptic_design/Falcon7x_synoptic_designContent"
 Item {
     property alias currentIndex: tab_bar.currentIndex
 
+    width: childrenRect.width
+    height: childrenRect.height
+
     TabBar {
         id: tab_bar
 
@@ -107,7 +110,33 @@ Item {
         }
 
         TestTab {}
+
     }
 
     BlueBorder {}
+    
+    AviaMenuArea { 
+        menu: pages_menu
+
+        AviaMenu {
+            id: pages_menu
+
+            AviaMenuItem {
+                text: "INAV"
+            }
+
+            AviaMenuItem {
+                text: "WPT LIST"
+            }
+
+            AviaMenuItem {
+                text: "SYNOPTIC"
+            }
+
+            AviaMenuItem {
+                text: "AVIONICS"
+            }
+        }
+    }
+
 }

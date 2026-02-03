@@ -6,7 +6,7 @@ Item {
 
     visible: false
 
-    readonly property string cyan_color: "#00FFFF"
+    property string cyan_color: "#00FFFF"
     readonly property int line_width: 2
 
     anchors.fill: parent
@@ -56,8 +56,10 @@ Item {
 
         function onUpdateMousePos(x, y, x1, y1) {
             let local_xy = self.mapFromGlobal(x, y);
+            let local_x1y1 = self.mapFromGlobal(x1, y1);
 
-            if (self.contains(local_xy)) {
+            if (self.contains(local_xy) || self.contains(local_x1y1)) 
+            {
                 self.visible = true;
             } else {
                 self.visible = false;

@@ -11,6 +11,8 @@ Item {
     property int sys2_ok: 1
     property int sys3_ok: 1
 
+    property int engaged: 0
+
 
     /*Image {
         id: eLEC_F7X_CODDE1_R13_DGT97831Image2252_ok
@@ -93,7 +95,7 @@ Item {
         width: 115
         height: 42
         color: "#00ffffff"
-        border.color: (sys1_ok && sys2_ok && sys3_ok) ? "#00ff00" : "#d2b60c"
+        border.color: engaged ? (sys1_ok && sys2_ok && sys3_ok) ? "#00ff00" : "#d2b60c" : "#555555"
         border.width: 2
     }
 

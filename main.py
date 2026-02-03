@@ -119,6 +119,7 @@ def create_toplevel_qml_view(app_qml_url: str, view_name: str, window_title: str
     view = View(view_name, width, height)
     view.engine().addImportPath("./Falcon7x_synoptic_design")
     view.rootContext().setContextProperty("backend", backend.backend)
+    view.rootContext().setContextProperty("view", view)
     view.setSource(app_qml_url)
     view.setTitle(window_title)
     view.setResizeMode(QQuickView.SizeRootObjectToView)
@@ -140,7 +141,7 @@ if __name__ == "__main__":
     view_helper.all_views.append(mdu_down)
 
     mdu_up = create_toplevel_qml_view(
-        "components/mdu_up.qml", "mdu up", "mdu - falcon7x",
+        "components/mdu_up.qml", "mdu_up", "mdu - falcon7x",
         s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT
     )
     mdu_up.show()

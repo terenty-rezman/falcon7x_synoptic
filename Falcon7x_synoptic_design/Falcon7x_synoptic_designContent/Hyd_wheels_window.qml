@@ -22,11 +22,6 @@ Item {
     property int nose_gear_psi_11_n: 160
     property int nose_gear_psi_12_n: 164
 
-
-
-
-
-
     // Image {
     //     id: image
     //     x: 0

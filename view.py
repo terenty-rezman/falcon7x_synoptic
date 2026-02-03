@@ -1,6 +1,7 @@
 from PySide6.QtQuick import QQuickView
-from PySide6.QtCore import QPoint, QSettings, QRect, QEvent, Qt
+from PySide6.QtCore import QPoint, QSettings, QRect, QEvent, Qt, QDateTime
 from PySide6.QtGui import QCursor, QMouseEvent, QGuiApplication
+import PySide6.QtTest as QtTest
 import backend
 
 
@@ -11,15 +12,23 @@ class View(QQuickView):
         self.win_height = window_height
         self.mouse_pressed = False
         self.window_name = window_name 
+        
+        # if window_name == "mdu_up":
+        #     self.startTimer(5000)
+    
+    def timerEvent(self, arg__1):
+        self.send_mouse_event()
+        return super().timerEvent(arg__1)
 
-    def mousePressEvent(self, event):
+    def mousePressEvent(self, event: QMouseEvent):
         # Store the positions of mouse and window and
         # change the window position relative to them.
-        self.mouse_pressed = True
-        self.windowPos = self.position()
-        self.mousePos = QPoint(event.globalPosition().x(), event.globalPosition().y())
+        if event.button() == Qt.MouseButton.LeftButton:
+            self.mouse_pressed = True
+            self.windowPos = self.position()
+            self.mousePos = QPoint(event.globalPosition().x(), event.globalPosition().y())
+
         super().mousePressEvent(event)
-        self.send_mouse_event()
 
     def mouseMoveEvent(self, event):
         if self.mouse_pressed:
@@ -28,7 +37,8 @@ class View(QQuickView):
         super().mouseMoveEvent(event)
     
     def mouseReleaseEvent(self, event):
-        self.mouse_pressed = False
+        if event.button() == Qt.MouseButton.LeftButton:
+            self.mouse_pressed = False
         return super().mouseReleaseEvent(event)
     
     def closeEvent(self, event):
@@ -60,7 +70,4 @@ class View(QQuickView):
     def send_mouse_event(self):
         global_pos = QCursor.pos()  
         local_pos = self.mapFromGlobal(global_pos)
-        event = QMouseEvent(QEvent.Type.MouseButtonPress, global_pos, local_pos, Qt.MouseButton.RightButton, Qt.MouseButton.NoButton, Qt.KeyboardModifier.NoModifier)
-        QGuiApplication.sendEvent(self, event)
-
-
+        QtTest.QTest.mouseClick(self, Qt.MouseButton.RightButton, Qt.KeyboardModifier.AltModifier, local_pos)
