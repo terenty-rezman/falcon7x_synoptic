@@ -6,7 +6,7 @@ import "../js/helpers.mjs" as Helpers
 MenuItem {
     id: control
     text: "INAV"
-    width: 120
+    width: 135
 
     background: Rectangle {
         color: control.pressed ? "#00ff00" :"#00cccc"
@@ -23,7 +23,7 @@ MenuItem {
         color: "#fff"
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: 18
+        font.pixelSize: 16
         font.bold: true
         font.family: "Helvetica"
     }

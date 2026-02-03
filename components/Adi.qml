@@ -471,5 +471,30 @@ Rectangle {
         }
     }
 
+    BlueBorder {
+        top_border_visible: false
 
+        anchors.fill: undefined
+
+        x: 0
+        y: (1 / 2) * 768
+        width: parent.width
+        height: (1 / 2) * 768
+
+        AviaMenuArea { 
+            menu: pages_menu
+
+            AviaMenu {
+                id: pages_menu
+
+                AviaMenuItem {
+                    text: "ROSE"
+                }
+
+                AviaMenuItem {
+                    text: "ARC"
+                }
+            }
+        }
+    }
 }

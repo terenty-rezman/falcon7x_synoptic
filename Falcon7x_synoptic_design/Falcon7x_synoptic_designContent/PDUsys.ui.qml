@@ -453,4 +453,32 @@ Item {
     }
 
     BlueBorder{}
+
+    AviaMenuArea { 
+        menu: pages_menu
+
+        AviaMenu {
+            id: pages_menu
+
+            AviaMenuItem {
+                text: "ENG-TRM-FUEL"
+            }
+
+            AviaMenuItem {
+                text: "RADIOS"
+            }
+
+            AviaMenuItem {
+                text: "ATC DTLK"
+            }
+
+            AviaMenuItem {
+                text: "SENSORS"
+            }
+
+            AviaMenuItem {
+                text: "TRAFFIC"
+            }
+        }
+    }
 }

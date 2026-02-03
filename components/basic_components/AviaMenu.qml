@@ -11,7 +11,7 @@ Menu {
     topPadding: 0
 
     background: Rectangle {
-        implicitWidth: 120
+        implicitWidth: 135
         implicitHeight: 40
         color: "transparent"
     }

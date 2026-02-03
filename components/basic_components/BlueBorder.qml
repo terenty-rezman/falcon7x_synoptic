@@ -6,6 +6,8 @@ Item {
 
     visible: false
 
+    property alias top_border_visible: top_border.visible
+
     property string cyan_color: "#00FFFF"
     readonly property int line_width: 2
 
@@ -33,6 +35,8 @@ Item {
 
     // top border
     Rectangle {
+        id: top_border
+
         height: self.line_width
         color: cyan_color 
 
