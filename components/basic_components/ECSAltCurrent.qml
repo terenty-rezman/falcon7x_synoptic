@@ -2,7 +2,7 @@ import QtQuick 2.15
 
 Item {
     id: self
-    property real altitude_ft: 8400
+    property real altitude_ft: 12345
     property bool fail: false
     property int state: 2
 
@@ -25,11 +25,11 @@ Item {
     }
 
     Text {
-        x: 10 
+        x: 3
         y: -height/2
-        text: Math.floor((altitude_ft / 100) / 10 % 100 / 10);
         visible: ((altitude_ft / 100) > 100 && self.fail == false) ? true : false;
         color: "#00FC00"
+        text: "8"
         font.pixelSize: 26
         font.bold: true
         font.family: "Helvetica"
@@ -39,9 +39,9 @@ Item {
         id: first_digit
         x: 12
         y: -16
-        text: Math.floor((altitude_ft / 100) / 10 % 10);
         visible: ((altitude_ft / 100) > 10 && self.fail == false) ? true : false;
         color: "#00FC00"
+        text: "4"
         font.pixelSize: 24
         font.bold: true
         font.family: "Helvetica"
