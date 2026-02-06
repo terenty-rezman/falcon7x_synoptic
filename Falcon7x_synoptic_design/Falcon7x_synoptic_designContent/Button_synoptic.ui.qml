@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Studio.Components
 import QtCharts
-import QtQuick.Controls.Material 
+import QtQuick.Controls.Material
 
 import "../../components/basic_components"
 
@@ -41,7 +41,8 @@ Button {
         text: self.text
         font: self.font
         opacity: enabled ? 1.0 : 0.3
-        color: self.down ? "#fff" : "#fff"
+
+        color: self.enabled ? (self.pressed ? "#000" : "#fff") : "#aaa"
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
@@ -50,7 +51,7 @@ Button {
     background: Rectangle {
         implicitWidth: parent.width
         implicitHeight: parent.height
-        color: "#868b81"
+        color: self.pressed ? "#00ff00" : "#868b81"
         border.color: "#a8b49e"
         border.width: 2
         radius: 1
