@@ -475,25 +475,31 @@ Rectangle {
         top_border_visible: false
 
         anchors.fill: undefined
-
         x: 0
         y: (1 / 2) * 768
         width: parent.width
         height: (1 / 2) * 768
 
-        AviaMenuArea { 
-            menu: pages_menu
+    }
 
-            AviaMenu {
-                id: pages_menu
+    AviaMenuArea { 
+        menu: pages_menu
 
-                AviaMenuItem {
-                    text: "ROSE"
-                }
+        anchors.fill: undefined
+        x: 0
+        y: (1 / 2) * 768
+        width: parent.width
+        height: (1 / 2) * 768
 
-                AviaMenuItem {
-                    text: "ARC"
-                }
+        AviaMenu {
+            id: pages_menu
+
+            AviaMenuItem {
+                text: "ROSE"
+            }
+
+            AviaMenuItem {
+                text: "ARC"
             }
         }
     }

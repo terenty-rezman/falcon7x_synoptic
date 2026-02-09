@@ -337,7 +337,7 @@ class CAS:
 cas_objects = []
 
 
-def create_cas_windows():
+def create_cas_objects():
     global cas_objects
 
     cas_objects = [

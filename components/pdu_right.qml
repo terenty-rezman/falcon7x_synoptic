@@ -21,7 +21,7 @@ Item {
         y: 0
         side: "right"
 
-        width: 684
+        width: 1024 * (2 / 3)
         height: 768
     }
 

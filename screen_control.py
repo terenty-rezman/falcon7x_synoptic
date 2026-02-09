@@ -185,7 +185,7 @@ def create_sreen_control(name, monitor_number):
 black_screen_ref = None
 
 
-def set_data_http_tcp(data, synoptic):
+def set_data_http_tcp(data):
     global black_screen_ref
 
     data = data.get("data") or {} 

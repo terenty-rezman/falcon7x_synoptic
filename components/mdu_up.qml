@@ -11,20 +11,6 @@ Rectangle {
 
     SystemMenu {}
 
-    Item {
-        id: window_manager
-
-        property var windows: []
-        property var components: (new Map())
-
-        function createWindows() {
-            synoptic_2.y = parent.height / 2;
-            synoptic_2.width = 2 * parent.width / 3;
-            synoptic_2.height = parent.height / 2;
-            synoptic_2.visible = true;
-        }
-    }
-
     Synoptic {
         id: synoptic_1
         width: 2 * parent.width / 3 
