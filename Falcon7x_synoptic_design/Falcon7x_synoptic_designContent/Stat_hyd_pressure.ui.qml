@@ -9,8 +9,6 @@ ZoneText {
     property int max_psi: 4000
     property int low_level: 1800
     property int high_level: 3300
-    y: 77
-    anchors.horizontalCenter: scale_item.horizontalCenter
 
     color: "#00ff00"
     value: psi

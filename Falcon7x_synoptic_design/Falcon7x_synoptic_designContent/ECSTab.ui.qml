@@ -88,19 +88,19 @@ Rectangle {
 
     ECS_vol_qty {
         id: eCS_vol_qty
-        objectName: "ecs_o2_qty"
-        property int o2_qty: 1200
+        objectName: "ecs_o2_volume"
+        property int o2_liter: 1200
         x: 51
         y: 209
         width: 37
         height: 19
-        text: (o2_qty / 31).toFixed(0)
+        text: (o2_liter / 31).toFixed(0)
     }
 
     ECS_vol_qty {
         id: eCS_vol_qty1
         objectName: "ecs_o2_volume"
-        property int o2_liter: 3100
+        property int o2_liter: 0
 
         x: 48
         y: 166
