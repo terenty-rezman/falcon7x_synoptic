@@ -265,6 +265,9 @@ dref_indicators = [
     ("sim/custom/7x/z_fcs_sfcc_1", None, "fcs_sfcc", "sys1_ok", None),
     ("sim/custom/7x/z_fcs_sfcc_2", None, "fcs_sfcc", "sys2_ok", None),
     ("sim/custom/7x/z_fcs_sfcc_3", None, "fcs_sfcc", "sys3_ok", None),
+
+    ("sim/cockpit2/pressurization/indicators/cabin_altitude_ft", None, "ecs_cabin_alt", "alt_ft", None),
+    ("sim/cockpit2/oxygen/indicators/o2_bottle_rem_liter", None, "ecs_o2_volume", "o2_liter", None),
 ]
 
 dref_nested_dict = defaultdict(list)

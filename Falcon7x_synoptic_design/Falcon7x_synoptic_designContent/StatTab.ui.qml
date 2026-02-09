@@ -542,15 +542,37 @@ Rectangle {
         y: 32
     }
 
-    Stat_gen_amps {
+    Text {
         id: stat_gen_amps6
+        objectName: "ecs_cabin_alt"
+        property int alt_ft: 1500
         x: 598
         y: 32
+        color: "#00ff00"
+        width: 51
+        height: 22
+        text: alt_ft
+        font.pixelSize: 20
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
+        font.family: "Arial"
+        rightPadding: 3
     }
 
-    Stat_gen_amps {
+    Text {
         id: stat_gen_amps7
         x: 598
         y: 84
+        objectName: "ecs_o2_volume"
+        property int o2_liter: 3100
+        color: "#00ff00"
+        width: 51
+        height: 22
+        text: o2_liter
+        font.pixelSize: 20
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
+        font.family: "Arial"
+        rightPadding: 3
     }
 }

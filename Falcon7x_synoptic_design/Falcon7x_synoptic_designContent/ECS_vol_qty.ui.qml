@@ -13,11 +13,9 @@ Text {
     width: 49
     height: 19
 
-    property int value: 100
-
     visible: true
     color: "#00ff00"
-    text: self.value
+    text: "333"
     font.pixelSize: 18
     horizontalAlignment: Text.AlignRight
     font.family: "Arial"
