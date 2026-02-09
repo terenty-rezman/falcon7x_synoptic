@@ -77,7 +77,7 @@ Rectangle {
 
         currentIndex: tab_bar.currentIndex
 
-        Item {
+        StatTab {
             id: stat_tab
         }
         

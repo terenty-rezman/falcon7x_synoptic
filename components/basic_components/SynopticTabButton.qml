@@ -22,7 +22,7 @@ TabButton {
         implicitHeight: 40
         color: button.checked ? "#221E1F" : "#7F7F7F" 
         border.color: button.checked ? "#00FC00" : "#000000"
-        border.width: button.checked ? 4 : 2
+        border.width: button.checked ? 2 : 2
         radius: 4
 
         // Rectangle {
