@@ -225,4 +225,7 @@ to_subscribe = [
     (Params["sim/custom/7x/z_fcs_sfcc"], None, "tcp"),
     
     (Params["sim/flightmodel/weight/m_total"], 1, "udp"),
+
+    (Params["sim/cockpit2/pressurization/indicators/cabin_altitude_ft"], 1, "udp"),
+    (Params["sim/cockpit2/oxygen/indicators/o2_bottle_rem_liter"], 1, "udp"),
 ]
