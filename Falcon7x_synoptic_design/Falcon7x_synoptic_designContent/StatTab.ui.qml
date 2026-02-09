@@ -34,10 +34,10 @@ Rectangle {
     // }
     Rectangle {
         id: rectangle1
-        x: 259
+        x: 0
         y: 109
-        width: 425
-        height: 3
+        width: 684
+        height: 2
         color: "#ffffff"
         border.color: "#ffffff"
         border.width: 0
@@ -198,7 +198,7 @@ Rectangle {
             id: rectangle2
             x: -19
             y: -55
-            width: 3
+            width: 2
             height: 110
             color: "#ffffff"
             border.color: "#ffffff"
@@ -209,7 +209,7 @@ Rectangle {
             id: rectangle3
             x: 292
             y: -56
-            width: 3
+            width: 2
             height: 110
             color: "#ffffff"
             border.color: "#ffffff"
@@ -218,10 +218,10 @@ Rectangle {
 
         Rectangle {
             id: rectangle4
-            x: 403
+            x: 404
             y: -56
-            width: 3
-            height: 110
+            width: 2
+            height: 343
             color: "#ffffff"
             border.color: "#ffffff"
             border.width: 0
@@ -231,7 +231,7 @@ Rectangle {
             id: rectangle6
             x: -52
             y: 54
-            width: 3
+            width: 2
             height: 233
             color: "#ffffff"
             border.color: "#ffffff"
@@ -242,7 +242,7 @@ Rectangle {
             id: rectangle8
             x: -278
             y: -56
-            width: 3
+            width: 2
             height: 343
             color: "#ffffff"
             border.color: "#ffffff"
@@ -445,9 +445,9 @@ Rectangle {
     Rectangle {
         id: rectangle7
         x: 0
-        y: 339
+        y: 340
         width: 684
-        height: 3
+        height: 2
         color: "#ffffff"
         border.color: "#ffffff"
         border.width: 0
@@ -574,5 +574,16 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
         font.family: "Arial"
         rightPadding: 3
+    }
+
+    Rectangle {
+        id: rectangle5
+        x: 0
+        y: -1
+        width: 684
+        height: 2
+        color: "#ffffff"
+        border.color: "#ffffff"
+        border.width: 0
     }
 }
