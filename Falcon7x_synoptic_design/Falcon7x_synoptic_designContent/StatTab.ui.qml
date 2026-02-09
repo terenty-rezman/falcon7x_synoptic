@@ -455,75 +455,89 @@ Rectangle {
 
     Stat_bat_amps {
         id: stat_bat_amps
+        objectName: "elec_current_bat_1"
         x: 339
         y: 33
     }
 
     Stat_bat_amps {
         id: stat_bat_amps1
+        objectName: "elec_current_bat_2"
         x: 496
         y: 33
     }
-    Stat_gen_amps {
-        id: stat_gen_amps4
-        x: 112
-        y: 32
-    }
+
     Stat_gen_amps {
         id: stat_gen_amps
+        objectName: "elec_current_gen_1"
         x: 339
         y: 58
     }
 
     Stat_gen_amps {
         id: stat_gen_amps1
+        objectName: "elec_current_gen_3"
         x: 339
         y: 84
     }
 
     Stat_gen_amps {
         id: stat_gen_amps2
+        objectName: "elec_current_gen_2"
         x: 496
         y: 59
     }
 
     Stat_bat_volt {
         id: stat_bat_volt
+        objectName: "elec_left_voltage"
         x: 339
         y: 7
     }
 
     Stat_bat_volt {
         id: stat_bat_volt1
+        objectName: "elec_right_voltage"
         x: 498
         y: 7
     }
 
     Stat_hyd_pressure {
         id: stat_hyd_pressure
+        objectName: "hyd_psi_1"
         x: 50
         y: 57
     }
 
     Stat_hyd_pressure {
         id: stat_hyd_pressure1
+        objectName: "hyd_psi_2"
         x: 115
         y: 57
     }
 
     Stat_hyd_pressure {
         id: stat_hyd_pressure2
+        objectName: "hyd_psi_3"
         x: 179
         y: 57
     }
 
-    Stat_gen_amps {
-        id: stat_gen_amps3
-        x: 43
+    Stat_hyd_qty {
+        id: stat_hyd_qty
+        objectName: "hyd_qty_1"
+        x: 45
         y: 32
     }
-    Stat_gen_amps {
+    Stat_hyd_qty {
+        id: stat_gen_amps4
+        objectName: "hyd_qty_2"
+        x: 112
+        y: 32
+    }
+    Stat_hyd_qty {
         id: stat_gen_amps5
+        objectName: "hyd_qty_3"
         x: 174
         y: 32
     }
