@@ -5,26 +5,33 @@ from PySide6.QtGui import QGuiApplication, QCursor, QScreen
 from PySide6.QtCore import QObject, Slot, Property, Signal, QPoint, QRect
 import PySide6.QtCore as QtCore
 
-from window_manager.tiles import ScreenPosition, WindowTile, screen_tiles, ScreenTiles
+from window_manager.tiles import ScreenPosition, WindowTile, current_screen_tiles, ScreenTiles
 import backend
 import view_helper
 import window_manager.click_manager
 
+import settings as s
 
-all_screens = []
-screens_number = {
-    ScreenPosition.MDU_UP: 0,
-    ScreenPosition.MDU_DOWN: 1,
-    ScreenPosition.PDU_LEFT: 0,
-    ScreenPosition.PDU_RIGHT: 1,
+
+screen_serials = {
+    ScreenPosition.MDU_UP: s.MDU_UP_SERIAL,
+    ScreenPosition.MDU_DOWN: s.MDU_DOWN_SERIAL,
+    ScreenPosition.PDU_LEFT: s.PDU_LEFT_SERIAL,
+    ScreenPosition.PDU_RIGHT: s.PDU_RIGHT_SERIAL,
 }
+
+screen_id_screen_obj = {}
 
 
 def update_screen_sizes():
-    global all_screens
+    global screen_id_screen_obj
 
     all_screens = QGuiApplication.screens()
-    returnile_watchers = []
+
+    print()
+    for i, s in enumerate(all_screens):
+        print(f"screen {i}", s.serialNumber())
+        screen_id_screen_obj[s.serialNumber()] = s
 
 
 tile_watchers = []
@@ -41,8 +48,8 @@ class Watcher():
 
     @classmethod
     def update(cls):
-        if cls.prev_screen_tiles != screen_tiles:
-            for (screen_type, state_new), (_, state_old) in zip(screen_tiles.items(), cls.prev_screen_tiles.items()):
+        if cls.prev_screen_tiles != current_screen_tiles:
+            for (screen_type, state_new), (_, state_old) in zip(current_screen_tiles.items(), cls.prev_screen_tiles.items()):
                 if state_new != state_old:
                     for w in tile_watchers:
                         if w.screen_type == screen_type:
@@ -51,9 +58,9 @@ class Watcher():
             # on the first run
             if cls.prev_screen_tiles == {}:
                 for w in tile_watchers:
-                    w.compare_tiles_state(screen_tiles[w.screen_type])
+                    w.compare_tiles_state(current_screen_tiles[w.screen_type])
 
-            cls.prev_screen_tiles = deepcopy(screen_tiles)
+            cls.prev_screen_tiles = deepcopy(current_screen_tiles)
 
 
 class TilesWatcherBase():
@@ -80,38 +87,42 @@ class TilesWatcherBase():
 
     @classmethod
     def update_window_pos(cls, new_tiles):
-        global screens_number
-        global all_screens
+        global screen_serials
+        global screen_id_screen_obj
 
-        screen_number = screens_number[cls.screen_type]
+        screen_serial = screen_serials[cls.screen_type]
 
-        screen_geometry = all_screens[screen_number].availableGeometry()
+        screen_geometry = screen_id_screen_obj[screen_serial].availableGeometry()
         screen_width = screen_geometry.width()
         screen_height = screen_geometry.height()
 
         screen_x = screen_geometry.topLeft().x()
         screen_y = screen_geometry.topLeft().y()
 
-        window_pos_x, window_pos_y, window_width, window_height = cls.calc_window_geometry(screen_x, screen_y, screen_width, screen_height, new_tiles)
-
         if cls.view is None:
-            cls.view = cls.create_view(window_pos_x, window_pos_y, window_width, window_height)
+            cls.view = cls.create_view(0, 0, 0, 0)
+            if cls.screen_type == ScreenPosition.MDU_DOWN:
+                cls.view.is_down_mdu = True
 
         if cls.is_visible(new_tiles):
-           cls.view.setGeometry(window_pos_x, window_pos_y, window_width, window_height) 
-           cls.view.current_window_tile = str(cls.watch_tile_type)
-           cls.view.show()
+            window_pos_x, window_pos_y, window_width, window_height = cls.calc_window_geometry(screen_x, screen_y, screen_width, screen_height, new_tiles)
+            cls.view.setGeometry(window_pos_x, window_pos_y, window_width, window_height) 
+            cls.view.current_window_tile = str(cls.watch_tile_type)
+            cls.view.show()
+            cls.view.screen_width = cls.view.screen().availableGeometry().width()
+            cls.view.screen_height = cls.view.screen().availableGeometry().height()
+            pass
         else:
             cls.view.hide()
 
     @classmethod
     def create_view(cls, x, y, w, h):
-        synoptic = view_helper.create_toplevel_qml_view(
+        view = view_helper.create_toplevel_qml_view(
             cls.qml_component_path, cls.view_name, cls.view_title,
             w, h, backend.backend, window_manager.click_manager.get_click_manager(tile_watchers, Watcher)
         )
-        view_helper.all_views.append(synoptic)
-        return synoptic
+        view_helper.all_views.append(view)
+        return view
 
     @classmethod
     def is_visible(cls, new_tiles):
@@ -127,4 +138,5 @@ import window_manager.pdu_watchers
 import window_manager.inav_watchers
 import window_manager.avionics_watchers
 import window_manager.wptlist_watchers
+import window_manager.flight_mgmt_watchers
 

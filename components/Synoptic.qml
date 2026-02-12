@@ -118,6 +118,8 @@ Item {
     AviaMenuArea { 
         menu: pages_menu
 
+        anchors.fill: parent
+
         AviaMenu {
             id: pages_menu
 

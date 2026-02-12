@@ -11,15 +11,15 @@ receive_task = None
 mouse_coords = [0, 0, 0, 0]
 
 
-async def run_receive_2_mouse_task(uso_host, uso_receive_port):
+async def run_receive_2_mouse_task(uso_host, uso_receive_port, on_udp_callback):
     endpoint = await open_local_endpoint(host=uso_host, port=uso_receive_port)
     print(f"The UDP 2 MOUSE server is running on port {endpoint.address[1]}...")
 
     global receive_task
-    receive_task = sane_tasks.spawn(receive_uso_task(endpoint))    
+    receive_task = sane_tasks.spawn(receive_uso_task(endpoint, on_udp_callback))    
 
 
-async def receive_uso_task(udp_endpoint):
+async def receive_uso_task(udp_endpoint, on_udp_callback):
     global mouse_coords
 
     clear_uso_buffer = True
@@ -52,6 +52,8 @@ async def receive_uso_task(udp_endpoint):
             mouse_coords[1] = data["mouse1_y"]
             mouse_coords[2] = data["mouse2_x"]
             mouse_coords[3] = data["mouse2_y"]
+
+            on_udp_callback()
 
             print(data)
 

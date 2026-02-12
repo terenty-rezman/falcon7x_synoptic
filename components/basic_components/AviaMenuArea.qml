@@ -8,8 +8,6 @@ MouseArea {
 
     property var menu: null 
 
-    anchors.fill: parent
-
     acceptedButtons: Qt.RightButton
     propagateComposedEvents: true
 

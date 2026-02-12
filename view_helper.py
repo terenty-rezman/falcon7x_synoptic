@@ -8,7 +8,7 @@ from PySide6.QtCore import QUrl, QObject, Slot, Property, SLOT, SIGNAL, QByteArr
 from view import View
 
 
-all_views: list[QQuickView] = []
+all_views: list[View] = []
 
 
 def create_toplevel_qml_view(app_qml_url: str, view_name: str, window_title: str, width: int, height: int, backend, window_manager=None):

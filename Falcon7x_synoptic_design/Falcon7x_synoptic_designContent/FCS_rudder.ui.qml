@@ -9,15 +9,14 @@ Item {
     height: 13
 
     property real value: deflection / 25
-    property real deflection: 10
+    property real deflection: 20
 
     Rectangle {
         id: right_fill
-        x: 34
         anchors.left: vertical_line.right
-        y: 1
+        y: 0
         width: 23 * Math.abs(self.value)
-        height: 11
+        height: 12
         color: "#00ff00"
         border.color: "#00000000"
         visible: value > 0
@@ -25,11 +24,9 @@ Item {
 
     Rectangle {
         id: left_fill
-        x: 10
         anchors.right: vertical_line.left
-        y: 1
         width: 23 * Math.abs(self.value)
-        height: 11
+        height: 12
         color: "#00ff00"
         border.color: "#00000000"
         visible: value < 0
@@ -50,12 +47,11 @@ Item {
 
     Rectangle {
         id: vertical_line
-        x: 19
-        y: 5
-        width: 13
-        height: 2
+        x: 25
+        y: 0
+        width: 2
+        height: 13
         color: "#919b8a"
         border.color: "#00000000"
-        rotation: 90
     }
 }

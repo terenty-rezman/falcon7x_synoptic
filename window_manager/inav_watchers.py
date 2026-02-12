@@ -2,7 +2,7 @@ from copy import deepcopy
 
 import view_helper
 import backend
-from window_manager.tiles import ScreenTiles, WindowTile, ScreenPosition, screen_tiles
+from window_manager.tiles import ScreenTiles, WindowTile, ScreenPosition, current_screen_tiles
 
 from window_manager.manager import add_to_watchers, TilesWatcherBase
 
@@ -25,21 +25,42 @@ class INAV_DOWN_TilesWatcher(TilesWatcherBase):
 
     @classmethod 
     def calc_window_geometry(cls, screen_x, screen_y, screen_width, screen_height, new_tiles):
-        if new_tiles[0][0] == cls.watch_tile_type and new_tiles[1][0] == cls.watch_tile_type:
+        if (
+            new_tiles[0][1] == cls.watch_tile_type and new_tiles[1][1] == cls.watch_tile_type and
+            new_tiles[1][0] == cls.watch_tile_type and new_tiles[1][1] == cls.watch_tile_type 
+        ):
+            # fullscreen
+            x = screen_x
+            y = screen_y
+            w = screen_width
+            h = screen_height
+
+            cls.view.vertical_position = "top"
+            cls.view.horizontal_position = "left"
+        elif new_tiles[0][0] == cls.watch_tile_type and new_tiles[1][0] == cls.watch_tile_type:
             x = screen_x
             y = screen_y
             w = screen_width * 2 / 3
             h = screen_height
+
+            cls.view.vertical_position = "top"
+            cls.view.horizontal_position = "left"
         elif new_tiles[0][0] == cls.watch_tile_type:
             x = screen_x
             y = screen_y
             w = screen_width * 2 / 3
             h = screen_height * 1 / 2
+
+            cls.view.vertical_position = "top"
+            cls.view.horizontal_position = "left"
         else:
             x = screen_x
             y = screen_y + screen_height * 1/ 2
             w = screen_width * 2 / 3
             h = screen_height * 1 / 2
+
+            cls.view.vertical_position = "bottom"
+            cls.view.horizontal_position = "left"
 
         return x, y, w, h
 

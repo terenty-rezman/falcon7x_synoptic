@@ -485,7 +485,6 @@ Rectangle {
     AviaMenuArea { 
         menu: pages_menu
 
-        anchors.fill: undefined
         x: 0
         y: (1 / 2) * 768
         width: parent.width

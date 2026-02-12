@@ -1,4 +1,5 @@
 import enum
+from copy import deepcopy
 
 
 class WindowTile(enum.StrEnum):
@@ -18,6 +19,9 @@ class ScreenTiles:
     
     def __getitem__(self, i):
         return self.tiles[i]
+    
+    def __setitem__(self, i, value):
+        self.tiles[i] = value 
 
     def remove_all_tiles_beside(self, tile_type: WindowTile):
         new_tiles = [
@@ -51,7 +55,7 @@ class ScreenPosition(enum.StrEnum):
     MDU_DOWN = "MDU_DOWN"
 
 
-screen_tiles = {
+default_screen_tiles = {
 
     ScreenPosition.PDU_LEFT: 
         ScreenTiles([
@@ -76,4 +80,19 @@ screen_tiles = {
             [WindowTile.SYNOPTIC, WindowTile.FLIGHT_MGMT],
             [WindowTile.SYNOPTIC, WindowTile.CHECKLIST],
         ])
+}
+
+
+current_screen_tiles = {
+    ScreenPosition.PDU_LEFT: 
+        deepcopy(default_screen_tiles[ScreenPosition.PDU_LEFT]),
+
+    ScreenPosition.PDU_RIGHT: 
+        deepcopy(default_screen_tiles[ScreenPosition.PDU_RIGHT]),
+
+    ScreenPosition.MDU_UP: 
+        deepcopy(default_screen_tiles[ScreenPosition.MDU_UP]),
+
+    ScreenPosition.MDU_DOWN: 
+        deepcopy(default_screen_tiles[ScreenPosition.MDU_DOWN])
 }

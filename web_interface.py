@@ -1,4 +1,6 @@
 import asyncio
+
+from PySide6.QtCore import QPoint
 from quart import Quart, request
 from quart_schema import QuartSchema, validate_request, validate_response
 
@@ -9,6 +11,7 @@ import param_overrides
 from falcon7x_core.xplane.params import Params
 import view_helper
 import cas
+import udp_2_mouse
 
 
 quart_task = None
@@ -133,4 +136,22 @@ async def cas_set_regime():
     data = await request.json
     regime = data["regime"]
     cas.set_regime(regime)
+    return {"result": "ok"}
+
+
+@app.post("/api/button_click")
+async def button_click():
+    data = await request.json
+
+    button = data["button"]
+
+    if button == "tb_menu_lh" or button == "tb_menu_rh":
+        if button == "tb_menu_lh":
+            global_mouse_coords = QPoint(udp_2_mouse.mouse_coords[0], udp_2_mouse.mouse_coords[1])
+        else:
+            global_mouse_coords = QPoint(udp_2_mouse.mouse_coords[2], udp_2_mouse.mouse_coords[3])
+
+        for v in view_helper.all_views:
+            v.send_avia_menu_click(global_mouse_coords)
+
     return {"result": "ok"}

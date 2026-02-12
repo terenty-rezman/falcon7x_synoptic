@@ -2,7 +2,7 @@ from copy import deepcopy
 
 import view_helper
 import backend
-from window_manager.tiles import ScreenTiles, WindowTile, ScreenPosition, screen_tiles
+from window_manager.tiles import ScreenTiles, WindowTile, ScreenPosition, current_screen_tiles
 
 from window_manager.manager import add_to_watchers, TilesWatcherBase
 
@@ -30,6 +30,9 @@ class AVIONICS_DOWN_1_TilesWatcher(TilesWatcherBase):
         w = screen_width * 2 / 3
         h = screen_height * 1 / 2
 
+        cls.view.vertical_position = "top"
+        cls.view.horizontal_position = "left"
+
         return x, y, w, h
 
 
@@ -51,6 +54,9 @@ class AVIONICS_DOWN_2_TilesWatcher(AVIONICS_DOWN_1_TilesWatcher):
         y = screen_y + screen_height * 1 / 2
         w = screen_width * 2 / 3
         h = screen_height * 1 / 2
+
+        cls.view.vertical_position = "bottom"
+        cls.view.horizontal_position = "left"
 
         return x, y, w, h
 

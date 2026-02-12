@@ -22,6 +22,66 @@ class View(QQuickView):
             self.current_tile = value
             self.current_window_tile_changed.emit()
 
+    horizontal_position_changed = Signal()
+
+    @Property(str, notify=horizontal_position_changed)
+    def horizontal_position(self):
+        return self.horizontal_position_
+
+    @horizontal_position.setter
+    def horizontal_position(self, value: str):
+        if value != self.horizontal_position_:
+            self.horizontal_position_ = value
+            self.horizontal_position_changed.emit()
+
+    vertical_position_changed = Signal()
+
+    @Property(str, notify=vertical_position_changed)
+    def vertical_position(self):
+        return self.vertical_position_
+
+    @vertical_position.setter
+    def vertical_position(self, value: str):
+        if value != self.vertical_position_:
+            self.vertical_position_ = value
+            self.vertical_position_changed.emit()
+
+    screen_width_changed = Signal()
+
+    @Property(int, notify=screen_width_changed)
+    def screen_width(self):
+        return self.screen_width_
+
+    @screen_width.setter
+    def screen_width(self, value: int):
+        if value != self.screen_width_:
+            self.screen_width_ = value
+            self.screen_width_changed.emit()
+
+    screen_height_changed = Signal()
+
+    @Property(int, notify=screen_height_changed)
+    def screen_height(self):
+        return self.screen_height_
+
+    @screen_height.setter
+    def screen_height(self, value: int):
+        if value != self.screen_height_:
+            self.screen_height_ = value
+            self.screen_height_changed.emit()
+
+    is_down_mdu_changed = Signal()
+
+    @Property(bool, notify=is_down_mdu_changed)
+    def is_down_mdu(self):
+        return self.is_screen_down_mdu
+
+    @is_down_mdu.setter
+    def is_down_mdu(self, value: bool):
+        if value != self.is_screen_down_mdu:
+            self.is_screen_down_mdu = value
+            self.is_down_mdu_changed.emit()
+
     def __init__(self, window_name, window_width, window_height):
         super().__init__()
         self.win_width = window_width
@@ -29,6 +89,12 @@ class View(QQuickView):
         self.mouse_pressed = False
         self.window_name = window_name 
         self.current_tile = "UNDEFINED"
+        self.horizontal_position_ = "left"
+        self.vertical_position_ = "top"
+
+        self.screen_width_ = 0
+        self.screen_height_ = 0
+        self.is_screen_down_mdu = False
         
         # if window_name == "mdu_up":
         #     self.startTimer(5000)
@@ -88,3 +154,8 @@ class View(QQuickView):
         global_pos = QCursor.pos()  
         local_pos = self.mapFromGlobal(global_pos)
         QtTest.QTest.mouseClick(self, Qt.MouseButton.RightButton, Qt.KeyboardModifier.AltModifier, local_pos)
+
+    def send_avia_menu_click(self, global_mouse_pos):
+        if self.geometry().contains(global_mouse_pos):
+            local_pos = self.mapFromGlobal(global_mouse_pos)
+            QtTest.QTest.mouseClick(self, Qt.MouseButton.RightButton, Qt.KeyboardModifier.AltModifier, local_pos)

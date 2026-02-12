@@ -116,29 +116,6 @@ Rectangle {
     SystemMenu {}
 
     BlueBorder {}
-    
-    AviaMenuArea { 
-        menu: pages_menu
 
-        AviaMenu {
-            id: pages_menu
-
-            AviaMenuItem {
-                text: "INAV"
-            }
-
-            AviaMenuItem {
-                text: "WPT LIST"
-            }
-
-            AviaMenuItem {
-                text: "SYNOPTIC"
-            }
-
-            AviaMenuItem {
-                text: "AVIONICS"
-            }
-        }
-    }
-
+    MduAviaMenu {}
 }

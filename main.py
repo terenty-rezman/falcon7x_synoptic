@@ -73,8 +73,7 @@ async def test_qml():
         await asyncio.sleep(0.016)
 
 
-async def blue_border_mouse_update():
-    while True:
+def blue_border_mouse_update():
         # global_pos = QCursor.pos()  
         # backend.backend.updateMousePos.emit(global_pos.x(), global_pos.y(), 0, 0)
 
@@ -84,32 +83,31 @@ async def blue_border_mouse_update():
             udp_2_mouse.mouse_coords[2],
             udp_2_mouse.mouse_coords[3]
         )
-        await asyncio.sleep(0.2)
 
 
 async def window_manager_test():
-    from window_manager.manager import screen_tiles, ScreenPosition, WindowTile
+    from window_manager.manager import current_screen_tiles, ScreenPosition, WindowTile
 
     await asyncio.sleep(2)
-    screen_tiles[ScreenPosition.MDU_DOWN][1][0] = WindowTile.INAV
+    current_screen_tiles[ScreenPosition.MDU_DOWN][1][0] = WindowTile.INAV
     manager.Watcher.update()
 
     await asyncio.sleep(2)
-    screen_tiles[ScreenPosition.MDU_DOWN][0][0] = WindowTile.INAV
+    current_screen_tiles[ScreenPosition.MDU_DOWN][0][0] = WindowTile.INAV
     manager.Watcher.update()
 
     await asyncio.sleep(2)
-    screen_tiles[ScreenPosition.MDU_DOWN][1][0] = WindowTile.SYNOPTIC
+    current_screen_tiles[ScreenPosition.MDU_DOWN][1][0] = WindowTile.SYNOPTIC
     manager.Watcher.update()
 
     await asyncio.sleep(2)
-    screen_tiles[ScreenPosition.MDU_DOWN][0][0] = WindowTile.SYNOPTIC
+    current_screen_tiles[ScreenPosition.MDU_DOWN][0][0] = WindowTile.SYNOPTIC
     manager.Watcher.update()
 
 
 async def main():
     try:
-        sane_tasks.spawn(blue_border_mouse_update())    
+        # sane_tasks.spawn(blue_border_mouse_update())    
 
         web_interface.run_server_task("0.0.0.0", s.WEB_INTERFACE_PORT)
 
@@ -126,7 +124,7 @@ async def main():
 
         sane_tasks.spawn(param_overrides.param_overrides_auto_disable_task())    
 
-        await udp_2_mouse.run_receive_2_mouse_task(s.MOUSE_RECEIVE_HOST, s.MOUSE_RECEIVE_PORT)
+        await udp_2_mouse.run_receive_2_mouse_task(s.MOUSE_RECEIVE_HOST, s.MOUSE_RECEIVE_PORT, blue_border_mouse_update)
 
         # sane_tasks.spawn(window_manager_test())    
 
