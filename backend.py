@@ -103,6 +103,7 @@ dref_indicators = [
     ("sim/flightmodel2/position/hpath", None, "adi_horizon", "hpath", None),
     ("sim/flightmodel2/position/vpath", None, "adi_horizon", "vpath", None),
     ("sim/flightmodel/position/true_psi", None, "adi_horizon", "true_psi", None),
+    ("sim/cockpit2/gauges/indicators/airspeed_kts_pilot", None, "adi_horizon", "air_speed", None),
 
     ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_bank", "bank_deg", None),
     ("sim/cockpit2/gauges/indicators/altitude_ft_pilot", None, "adi_alt", "altitude_ft", "pdu_left"),
