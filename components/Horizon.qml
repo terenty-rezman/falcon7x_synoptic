@@ -11,6 +11,10 @@ Item {
     property int center_x: 324
     property int center_y: 222
 
+    property real hpath: 0
+    property real vpath: 0
+    property real true_psi: 0
+
     Connections {
         target: backend 
         function onUpdateCanvas() {
@@ -21,6 +25,7 @@ Item {
     Canvas {
         id: canvas
         anchors.fill: parent
+
         onPaint: {
             const pitch_to_pix = 20;
             const ctx = getContext("2d")
@@ -121,6 +126,26 @@ Item {
 
             ctx.stroke();
             ctx.closePath();
+        }
+    }
+
+    Image {
+        source: "./svg/ADI_FLIGHT_PATH_SYMBOL.svg"
+
+        x: xy_bank(center_x, center_y, true_psi, pitch_deg, hpath, vpath, bank_deg)[0]
+        y: xy_bank(center_x, center_y, true_psi, pitch_deg, hpath, vpath, bank_deg)[1]
+
+        width: 97
+        height: 26
+
+        function xy_bank(center_x, center_y, true_psi, pitch_deg, hpath, vpath, bank_deg) {
+            let x = (true_psi - hpath) * 15;
+            let y = (pitch_deg - vpath) * 20.5;
+
+            const bank_rad = bank_deg / 180 * Math.PI; 
+            let x1 = -x * Math.cos(bank_rad) + y * Math.sin(bank_rad) + center_x - width / 2;
+            let y1 = x * Math.sin(bank_rad) + y * Math.cos(bank_rad) + center_y - height / 2;
+            return [x1, y1]
         }
     }
 }

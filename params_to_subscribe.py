@@ -228,4 +228,9 @@ to_subscribe = [
 
     (Params["sim/cockpit2/pressurization/indicators/cabin_altitude_ft"], 1, "udp"),
     (Params["sim/cockpit2/oxygen/indicators/o2_bottle_rem_liter"], 1, "udp"),
+
+
+    (Params["sim/flightmodel/position/true_psi"], 24, "udp"),
+    (Params["sim/flightmodel2/position/hpath"], 24, "udp"),
+    (Params["sim/flightmodel2/position/vpath"], 24, "udp"),
 ]

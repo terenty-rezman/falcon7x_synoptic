@@ -99,6 +99,11 @@ dref_indicators = [
     ("sim/flightmodel/weight/m_total", None, "adi_gw_text", "gw", None),
     ("sim/cockpit2/gauges/indicators/pitch_electric_deg_pilot", None, "adi_horizon", "pitch_deg", None),
     ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_horizon", "bank_deg", None),
+
+    ("sim/flightmodel2/position/hpath", None, "adi_horizon", "hpath", None),
+    ("sim/flightmodel2/position/vpath", None, "adi_horizon", "vpath", None),
+    ("sim/flightmodel/position/true_psi", None, "adi_horizon", "true_psi", None),
+
     ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_bank", "bank_deg", None),
     ("sim/cockpit2/gauges/indicators/altitude_ft_pilot", None, "adi_alt", "altitude_ft", "pdu_left"),
     ("sim/cockpit2/gauges/indicators/altitude_ft_copilot", None, "adi_alt", "altitude_ft", "pdu_right"),
@@ -327,7 +332,8 @@ class Backend(QObject):
             for idx, object_name, value_name, root_obj_name in indicator_list:
                 items = view_helper.find_object(object_name, root_obj_name)
                 if not items:
-                    raise Exception(f"no such object_name {object_name}")
+                    pass
+                    # raise Exception(f"no such object_name {object_name}")
 
                 val = value[idx] if idx is not None else value
 
