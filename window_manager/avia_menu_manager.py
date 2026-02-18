@@ -79,6 +79,10 @@ class AviaMenuManager(QObject):
             view.setResizeMode(QQuickView.SizeRootObjectToView)
             view.setFlags(view.flags() | Qt.FramelessWindowHint)
             self.view = view
+        else:
+            if self.view.isVisible():
+                self.view.hide()
+                return
 
         mdu_down = screen_id_screen_obj[screen_serials[ScreenPosition.MDU_DOWN]]
         mdu_up = screen_id_screen_obj[screen_serials[ScreenPosition.MDU_UP]]
