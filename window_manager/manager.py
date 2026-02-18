@@ -29,8 +29,8 @@ def update_screen_sizes():
 
     print()
     for i, s in enumerate(all_screens):
-        print(f"screen {i}", s.serialNumber())
-        screen_id_screen_obj[s.serialNumber()] = s
+        print(f"screen {i}", s.name())
+        screen_id_screen_obj[s.name()] = s
 
 
 tile_watchers = []

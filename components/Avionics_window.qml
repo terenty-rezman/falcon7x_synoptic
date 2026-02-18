@@ -13,7 +13,7 @@ Rectangle {
     Text {
         anchors.centerIn: parent
         color: "#aaa"
-        text: "AVIONICS\nunder development"
+        text: "AVIONICS\nneed more $ to unlock"
         font.pixelSize: 20
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
