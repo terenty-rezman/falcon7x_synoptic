@@ -7,7 +7,7 @@ from window_manager.tiles import ScreenTiles, WindowTile, ScreenPosition, curren
 from window_manager.manager import add_to_watchers, TilesWatcherBase
 
 
-# @add_to_watchers
+@add_to_watchers
 class PDU_LEFT_TilesWatcher(TilesWatcherBase):
     watch_tile_type = WindowTile.PDU
     screen_type = ScreenPosition.PDU_LEFT
@@ -36,7 +36,7 @@ class PDU_LEFT_TilesWatcher(TilesWatcherBase):
         return x, y, w, h
 
 
-# @add_to_watchers
+@add_to_watchers
 class PDU_RIGHT_TilesWatcher(PDU_LEFT_TilesWatcher):
     watch_tile_type = WindowTile.PDU
     screen_type = ScreenPosition.PDU_RIGHT
