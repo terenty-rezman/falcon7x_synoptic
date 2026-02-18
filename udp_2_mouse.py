@@ -55,7 +55,7 @@ async def receive_uso_task(udp_endpoint, on_udp_callback):
 
             on_udp_callback()
 
-            print(data)
+            # print(data)
 
         except Exception as e:
             print(traceback.format_exc())
