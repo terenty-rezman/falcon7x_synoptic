@@ -4,7 +4,8 @@ from PySide6.QtGui import QGuiApplication, QCursor, QScreen
 from PySide6.QtCore import QObject, Slot, Property, Signal, QPoint, QRect
 import PySide6.QtCore as QtCore
 
-from window_manager.tiles import WindowTile, current_screen_tiles, default_screen_tiles
+from window_manager.tiles import WindowTile, current_screen_tiles, default_screen_tiles, ScreenPosition
+from window_manager.manager import screen_id_screen_obj, screen_serials
 
 
 class ClickManager(QObject):
@@ -17,21 +18,30 @@ class ClickManager(QObject):
 
     @Slot(QObject, str, QPoint, result=None)
     def menu_item_clicked(self, view, clicked_item, global_mouse_pos):
-        global current_screen_tiles
-
         screen: QScreen = view.screen()
         screen_rect = screen.availableGeometry()
 
         i, j = self.calc_quadrant(global_mouse_pos, screen_rect)
-        screen_type = None
 
         for w in self.tile_watchers:
             if w.view == view:
                 screen_type = w.screen_type
                 break
         
-        old_matrix = deepcopy(current_screen_tiles[screen_type])
-        screen_matrix = current_screen_tiles[screen_type]
+        mdu_down = screen_id_screen_obj[screen_serials[ScreenPosition.MDU_DOWN]]
+        mdu_up = screen_id_screen_obj[screen_serials[ScreenPosition.MDU_UP]]
+
+        screens = {ScreenPosition.MDU_DOWN: mdu_down, ScreenPosition.MDU_UP: mdu_up}
+
+        screen_matrix = None
+        for screen_type, s in screens.items():
+            screen_rect = s.availableGeometry()
+            if screen_rect.contains(global_mouse_pos):
+                old_matrix = deepcopy(self.screen_tiles[screen_type])
+                screen_matrix = self.screen_tiles[screen_type]
+
+        if screen_matrix is None: 
+            return
 
         match clicked_item:
             case "FULL INAV":
@@ -91,7 +101,6 @@ class ClickManager(QObject):
                 screen_matrix[1][1] = default_screen_tiles[screen_type][1][1] 
 
         self.Watcher.update()
-
 
     @staticmethod
     def calc_quadrant(global_mouse_pos, screen_rect): 

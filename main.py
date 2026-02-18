@@ -23,6 +23,7 @@ import udp_2_mouse
 import settings as s
 
 import window_manager.manager as manager
+from window_manager.avia_menu_manager import top_level_avia_menu_manager
 
 
 def on_new_xp_data(type, dataref, value):
@@ -39,7 +40,7 @@ def on_data_exception(ex: Exception):
 
 def on_new_xp_data_udp(received_vals):
     backend.backend.set_data_http({"data": received_vals})
-    # screen_control.set_data_http_udp({"data": received_vals})
+    screen_control.set_data_http_udp({"data": received_vals})
     pass
 
 
@@ -88,21 +89,12 @@ def blue_border_mouse_update():
 async def window_manager_test():
     from window_manager.manager import current_screen_tiles, ScreenPosition, WindowTile
 
-    await asyncio.sleep(2)
-    current_screen_tiles[ScreenPosition.MDU_DOWN][1][0] = WindowTile.INAV
-    manager.Watcher.update()
+    while True:
+        global_mouse_pos = QCursor.pos()  
+        backend.backend.updateMousePos.emit(global_mouse_pos.x(), global_mouse_pos.y(), 0, 0)
+        top_level_avia_menu_manager.invoke_menu(global_mouse_pos)
 
-    await asyncio.sleep(2)
-    current_screen_tiles[ScreenPosition.MDU_DOWN][0][0] = WindowTile.INAV
-    manager.Watcher.update()
-
-    await asyncio.sleep(2)
-    current_screen_tiles[ScreenPosition.MDU_DOWN][1][0] = WindowTile.SYNOPTIC
-    manager.Watcher.update()
-
-    await asyncio.sleep(2)
-    current_screen_tiles[ScreenPosition.MDU_DOWN][0][0] = WindowTile.SYNOPTIC
-    manager.Watcher.update()
+        await asyncio.sleep(2)
 
 
 async def main():

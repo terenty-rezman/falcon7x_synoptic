@@ -12,6 +12,7 @@ from falcon7x_core.xplane.params import Params
 import view_helper
 import cas
 import udp_2_mouse
+from window_manager.avia_menu_manager import top_level_avia_menu_manager
 
 
 quart_task = None
@@ -150,6 +151,8 @@ async def button_click():
             global_mouse_coords = QPoint(udp_2_mouse.mouse_coords[0], udp_2_mouse.mouse_coords[1])
         else:
             global_mouse_coords = QPoint(udp_2_mouse.mouse_coords[2], udp_2_mouse.mouse_coords[3])
+
+        top_level_avia_menu_manager.invoke_menu(global_mouse_coords)
 
         for v in view_helper.all_views:
             v.send_avia_menu_click(global_mouse_coords)

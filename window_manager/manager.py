@@ -8,7 +8,6 @@ import PySide6.QtCore as QtCore
 from window_manager.tiles import ScreenPosition, WindowTile, current_screen_tiles, ScreenTiles
 import backend
 import view_helper
-import window_manager.click_manager
 
 import settings as s
 
@@ -133,6 +132,7 @@ class TilesWatcherBase():
         pass
 
 
+import window_manager.click_manager
 import window_manager.synoptic_watchers
 import window_manager.pdu_watchers
 import window_manager.inav_watchers

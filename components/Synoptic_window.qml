@@ -116,6 +116,4 @@ Rectangle {
     SystemMenu {}
 
     BlueBorder {}
-
-    MduAviaMenu {}
 }

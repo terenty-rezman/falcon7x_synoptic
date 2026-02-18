@@ -22,6 +22,4 @@ Rectangle {
     SystemMenu {}
 
     BlueBorder {}
-    
-    MduAviaMenu {}
 }
