@@ -9,7 +9,7 @@ MouseArea {
         acceptedButtons: Qt.RightButton
 
         onClicked: (mouse) => {
-            if (mouse.button === Qt.RightButton && mouse.modifiers & Qt.NoModifier) {
+            if (mouse.button === Qt.RightButton && (mouse.modifiers & Qt.AltModifier) == false) {
                 contextMenu.popup()
             }
         }
