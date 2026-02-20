@@ -13,10 +13,10 @@ import settings as s
 
 
 screen_serials = {
-    ScreenPosition.MDU_UP: s.MDU_UP_SERIAL,
-    ScreenPosition.MDU_DOWN: s.MDU_DOWN_SERIAL,
-    ScreenPosition.PDU_LEFT: s.PDU_LEFT_SERIAL,
-    ScreenPosition.PDU_RIGHT: s.PDU_RIGHT_SERIAL,
+    ScreenPosition.MDU_UP: s.MDU_UP_MONITOR_NAME,
+    ScreenPosition.MDU_DOWN: s.MDU_DOWN_MONITOR_NAME,
+    ScreenPosition.PDU_LEFT: s.PDU_LEFT_MONITOR_NAME,
+    ScreenPosition.PDU_RIGHT: s.PDU_RIGHT_MONITOR_NAME,
 }
 
 screen_id_screen_obj = {}
@@ -27,10 +27,11 @@ def update_screen_sizes():
 
     all_screens = QGuiApplication.screens()
 
-    print()
+    print("qt monitor names")
     for i, s in enumerate(all_screens):
         print(f"screen {i}", s.name())
         screen_id_screen_obj[s.name()] = s
+    print()
 
 
 tile_watchers = []

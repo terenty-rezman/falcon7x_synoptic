@@ -32,12 +32,12 @@ class ScreenState(IntEnum):
 
 
 class Screen(QQuickView):
-    def __init__(self, window_width, window_height, name, monitor_number):
+    def __init__(self, window_width, window_height, name, monitor_id):
         self.win_width = window_width
         self.win_height = window_height
         self.mouse_pressed = False
         self.name = name
-        self.monitor_number = monitor_number
+        self.monitor_id = monitor_id
         self.last_brightness = -1
 
         self.last_black_screen_state = None
@@ -111,7 +111,8 @@ class Screen(QQuickView):
                 update_black_screen_state = True
 
             self.last_brightness = brightness
-            screen_brightness_control.set_brightness(brightness, display=self.monitor_number)
+            if self.monitor_id is not None:
+                screen_brightness_control.set_brightness(brightness, display=self.monitor_id)
 
             if update_black_screen_state:
                 self.update_monitor_state()            
@@ -139,36 +140,36 @@ class Screen(QQuickView):
 
 
 class Screens:
-    left_screen: Screen = None
-    right_screen: Screen = None
-    middle_up_screen: Screen = None
-    middle_down_screen: Screen = None
+    pdu_left: Screen = None
+    pdu_right: Screen = None
+    mdu_up: Screen = None
+    mdu_down: Screen = None
     mini_screen: Screen = None
 
 
 def create_black_screens():
     global Screens
 
-    Screens.left_screen = create_sreen_control("left black screen", s.LEFT_MONITOR_ID)
-    Screens.left_screen.show()
+    Screens.pdu_left = create_sreen_control("left black screen", s.LEFT_MONITOR_ID)
+    Screens.pdu_left.show()
 
-    Screens.right_screen = create_sreen_control("right black screen", s.RIGHT_MONITOR_ID)
-    Screens.right_screen.show()
+    Screens.pdu_right = create_sreen_control("right black screen", s.RIGHT_MONITOR_ID)
+    Screens.pdu_right.show()
 
-    Screens.middle_up_screen = create_sreen_control("middle up black screen", s.MIDDLE_UP_MONITOR_ID)
-    Screens.middle_up_screen.show()
+    Screens.mdu_up = create_sreen_control("middle up black screen", s.MIDDLE_UP_MONITOR_ID)
+    Screens.mdu_up.show()
 
-    Screens.middle_down_screen = create_sreen_control("middle down black screen", s.MIDDLE_DOWN_MONITOR_ID)
-    Screens.middle_down_screen.show()
+    Screens.mdu_down = create_sreen_control("middle down black screen", s.MIDDLE_DOWN_MONITOR_ID)
+    Screens.mdu_down.show()
 
     Screens.mini_screen = create_sreen_control("mini black screen", s.MINI_MONITOR_ID)
     Screens.mini_screen.show()
 
 
-def create_sreen_control(name, monitor_number):
+def create_sreen_control(name, monitor_id):
     black_qml_url = QUrl("components/black_screen.qml")
 
-    screen = Screen(300, 150, name=name, monitor_number=monitor_number)
+    screen = Screen(300, 150, name=name, monitor_id=monitor_id)
     screen.rootContext().setContextProperty("window_name", name)
     screen.rootContext().setContextProperty("view", screen)
     screen.engine().addImportPath("./Falcon7x_synoptic_design")
@@ -192,10 +193,10 @@ def set_data_http_tcp(data):
 
     if black_screen_ref is None:
         black_screen_ref = {
-            Params["sim/custom/7x/z_left_black_screen"]: Screens.left_screen,
-            Params["sim/custom/7x/z_right_black_screen"]: Screens.right_screen,
-            Params["sim/custom/7x/z_middle_up_black_screen"]: Screens.middle_up_screen,
-            Params["sim/custom/7x/z_middle_down_black_screen"]: Screens.middle_down_screen,
+            Params["sim/custom/7x/z_left_black_screen"]: Screens.pdu_left,
+            Params["sim/custom/7x/z_right_black_screen"]: Screens.pdu_right,
+            Params["sim/custom/7x/z_middle_up_black_screen"]: Screens.mdu_up,
+            Params["sim/custom/7x/z_middle_down_black_screen"]: Screens.mdu_down,
             Params["sim/custom/7x/z_mini_black_screen"]: Screens.mini_screen,
         }
 
@@ -221,10 +222,10 @@ def set_data_http_udp(data):
 
     if brightness_screen_ref is None:
         brightness_screen_ref = {
-            Params["sim/custom/7x/z_left_screen_brightness"]: Screens.left_screen,
-            Params["sim/custom/7x/z_right_screen_brightness"]: Screens.right_screen,
-            Params["sim/custom/7x/z_up_screen_brightness"]: Screens.middle_up_screen,
-            Params["sim/custom/7x/z_down_screen_brightness"]: Screens.middle_down_screen,
+            Params["sim/custom/7x/z_left_screen_brightness"]: Screens.pdu_left,
+            Params["sim/custom/7x/z_right_screen_brightness"]: Screens.pdu_right,
+            Params["sim/custom/7x/z_up_screen_brightness"]: Screens.mdu_up,
+            Params["sim/custom/7x/z_down_screen_brightness"]: Screens.mdu_down,
             Params["sim/custom/7x/z_mini_screen_brightness"]: Screens.mini_screen
         }
 
