@@ -10,13 +10,17 @@ Rectangle {
     anchors.fill: parent 
     color: "#000"
 
-    Text {
-        anchors.centerIn: parent
-        color: "#aaa"
-        text: "INAV\nneed more $ to unlock"
-        font.pixelSize: 20
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
+    // Text {
+    //     anchors.centerIn: parent
+    //     color: "#aaa"
+    //     text: "INAV\nneed more $ to unlock"
+    //     font.pixelSize: 20
+    //     horizontalAlignment: Text.AlignHCenter
+    //     verticalAlignment: Text.AlignVCenter
+    // }
+
+    INAV {
+        anchors.fill: parent
     }
 
     SystemMenu {}
