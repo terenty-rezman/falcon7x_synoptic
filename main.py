@@ -96,6 +96,52 @@ async def window_manager_test():
 
         await asyncio.sleep(2)
 
+from INAV.inav import markerModel
+import random
+import numpy as np
+import pickle
+import os
+
+nav_map = {}
+
+def generate_nav_map():
+    i = 0
+    for lat in np.arange(-90, 90, 0.05):
+        for lon in np.arange(-180, 180, 0.1):
+            i+=1
+            # randomly generate some markers around the base coordinate
+            item_lat = lat + (random.uniform(-0.05, 0.05))
+            item_lon = lon + (random.uniform(-0.05, 0.05))
+            name = f"NAV{i}"
+            nav_map[f"{lat:.2f}{lon:.2f}"] = (item_lat, item_lon, name)
+
+
+def request_nav_items():
+    inav_map = view_helper.find_object("inav_map")
+    if not inav_map:
+        print("INAV map not found, cannot generate markers")
+        return
+    inav_map = inav_map[1]  # Assuming we get a list of objects, take the first one
+    center = inav_map.property("center")
+    base_lat = center.latitude()
+    base_lon = center.longitude()
+
+    base_lat = round(base_lat / 0.05) * 0.05
+    base_lon = round(base_lon / 0.1) * 0.1    
+
+    markerModel.clear()
+
+    for lat in np.arange(base_lat - 0.2, base_lat + 0.2, 0.05):
+        for lon in np.arange(base_lon - 0.2, base_lon + 0.2, 0.1):
+            key = f"{lat:.2f}{lon:.2f}"
+            if key in nav_map:
+                item_lat, item_lon, name = nav_map[key] 
+                markerModel.addMarker(item_lat, item_lon, name)   
+
+async def inav_test():
+    while True: 
+        request_nav_items()
+        await asyncio.sleep(1)
 
 async def main():
     try:
@@ -105,6 +151,8 @@ async def main():
 
         # replace suscribe values
         xp.set_subscribe_params(params_to_subscribe.to_subscribe)
+
+        sane_tasks.spawn(inav_test())
 
         await xp.xp_master_udp.connect(
             s.XP_MASTER_HOST, s.XP_MASTER_UDP_PORT, on_new_xp_data_udp, on_data_exception_udp, listen_port=s.UDP_LOCAL_PORT

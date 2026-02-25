@@ -106,18 +106,18 @@ class View(QQuickView):
     def mousePressEvent(self, event: QMouseEvent):
         self.mouse_global_pos = QPoint(event.globalPosition().x(), event.globalPosition().y())
 
-        if event.button() == Qt.MouseButton.LeftButton:
+        if event.button() == Qt.MouseButton.LeftButton and event.modifiers() & Qt.KeyboardModifier.ShiftModifier:
             self.mouse_pressed = True
             self.windowPos = self.position()
             self.mousePos = self.mouse_global_pos
 
-        super().mousePressEvent(event)
+        return super().mousePressEvent(event)
 
     def mouseMoveEvent(self, event):
         if self.mouse_pressed:
             global_pos = QPoint(event.globalPosition().x(), event.globalPosition().y())
             self.setPosition(self.windowPos + global_pos - self.mousePos)
-        super().mouseMoveEvent(event)
+        return super().mouseMoveEvent(event)
     
     def mouseReleaseEvent(self, event):
         if event.button() == Qt.MouseButton.LeftButton:
