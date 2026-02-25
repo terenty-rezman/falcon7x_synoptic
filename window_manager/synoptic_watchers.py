@@ -1,5 +1,7 @@
 from copy import deepcopy
 
+from PySide6.QtQuick import QQuickView, QQuickItem
+
 import view_helper
 import backend
 from window_manager.tiles import ScreenTiles, WindowTile, ScreenPosition, current_screen_tiles
@@ -63,6 +65,13 @@ class SYNOPTIC_DOWN_2_TilesWatcher(SYNOPTIC_DOWN_1_TilesWatcher):
         cls.view.horizontal_position = "left"
 
         return x, y, w, h
+    
+    @classmethod
+    def on_view_created(cls):
+        if cls.view.is_down_mdu:
+            found = cls.view.rootObject().findChildren(QQuickItem, "synoptic")
+            if found:
+                found[0].setProperty("objectName", "synoptic_mdu")
 
 
 @add_to_watchers
@@ -87,3 +96,7 @@ class SYNOPTIC_UP_2_TilesWatcher(SYNOPTIC_DOWN_2_TilesWatcher):
 
     view = None
     prev_state = [[], []]
+
+    @classmethod
+    def on_view_created(cls):
+        pass

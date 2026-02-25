@@ -135,35 +135,6 @@ def quit():
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
 
-    # mdu_down = view_helper.create_toplevel_qml_view(
-    #     "components/mdu_down.qml", "mdu_down", "mdu - falcon7x",
-    #     s.SYNOPTIC_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT, backend.backend
-    # )
-    
-    # mdu_down.show()
-    # view_helper.all_views.append(mdu_down)
-
-    # mdu_up = view_helper.create_toplevel_qml_view(
-    #     "components/mdu_up.qml", "mdu_up", "mdu - falcon7x",
-    #     s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT, backend.backend
-    # )
-    # mdu_up.show()
-    # view_helper.all_views.append(mdu_up)
-
-    # pdu_left = view_helper.create_toplevel_qml_view(
-    #     "components/pdu_left.qml", "pdu_left", "pdu left - falcon7x", 
-    #     s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT, backend.backend
-    # )
-    # pdu_left.show()
-    # view_helper.all_views.append(pdu_left)
-
-    # pdu_right = view_helper.create_toplevel_qml_view(
-    #     "components/pdu_right.qml", "pdu_right", "pdu right - falcon7x", 
-    #     s.PDU_WINDOW_WIDTH, s.PDU_WINDOW_HEIGHT, backend.backend
-    # )
-    # pdu_right.show()
-    # view_helper.all_views.append(pdu_right)
-
     manager.update_screen_sizes()
     manager.Watcher.update()
 

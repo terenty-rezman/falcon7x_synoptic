@@ -6,16 +6,16 @@ import QtQuick.Layouts
 import "basic_components"
 import "../Falcon7x_synoptic_design/Falcon7x_synoptic_designContent"
 
-Item {
+Rectangle {
     property alias currentIndex: tab_bar.currentIndex
 
-    width: childrenRect.width
-    height: childrenRect.height
+    anchors.fill: parent 
+    color: "#000"
 
     TabBar {
         id: tab_bar
 
-        width: 1024
+        width: 1024 * 2 / 3
 
         background: Rectangle {
             color: "#000000"
@@ -113,32 +113,7 @@ Item {
 
     }
 
+    SystemMenu {}
+
     BlueBorder {}
-    
-    AviaMenuArea { 
-        menu: pages_menu
-
-        anchors.fill: parent
-
-        AviaMenu {
-            id: pages_menu
-
-            AviaMenuItem {
-                text: "INAV"
-            }
-
-            AviaMenuItem {
-                text: "WPT LIST"
-            }
-
-            AviaMenuItem {
-                text: "SYNOPTIC"
-            }
-
-            AviaMenuItem {
-                text: "AVIONICS"
-            }
-        }
-    }
-
 }

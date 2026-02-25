@@ -78,10 +78,10 @@ synoptic_pages = {
 
 @app.post("/api/synoptic_page")
 async def synoptic_page():
-    synoptics = view_helper.find_object("synoptic_tab_bar")
+    synoptics = view_helper.find_object("synoptic_mdu")
     data = await request.json
     if not synoptics:
-        raise Exception(f"no such object_name 'synoptic_tab_bar'")
+        raise Exception(f"no such object_name 'synoptic_mdu'")
 
     page = synoptic_pages[data["page"]] 
     for item in synoptics:

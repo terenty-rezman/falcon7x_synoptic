@@ -14,7 +14,11 @@ MouseArea {
     onClicked: (mouse) => {
         if (mouse.button === Qt.RightButton && mouse.modifiers & Qt.AltModifier) {
             if (menu != null) {
-                menu.popup(Qt.point(self.width - menu.width, 0));
+                if (menu.visible == false) {
+                    menu.popup(Qt.point(self.width - menu.width, 0));
+                } else {
+                    menu.close();
+                }
             } 
         }  else {
             mouse.accepted = false;

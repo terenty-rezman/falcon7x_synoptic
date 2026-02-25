@@ -103,6 +103,8 @@ class TilesWatcherBase():
             if cls.screen_type == ScreenPosition.MDU_DOWN:
                 cls.view.is_down_mdu = True
 
+            cls.on_view_created()
+
         if cls.is_visible(new_tiles):
             window_pos_x, window_pos_y, window_width, window_height = cls.calc_window_geometry(screen_x, screen_y, screen_width, screen_height, new_tiles)
             cls.view.setGeometry(window_pos_x, window_pos_y, window_width, window_height) 
@@ -114,6 +116,7 @@ class TilesWatcherBase():
         else:
             cls.view.hide()
 
+
     @classmethod
     def create_view(cls, x, y, w, h):
         view = view_helper.create_toplevel_qml_view(
@@ -122,6 +125,10 @@ class TilesWatcherBase():
         )
         view_helper.all_views.append(view)
         return view
+
+    @classmethod
+    def on_view_created(cls):
+        pass
 
     @classmethod
     def is_visible(cls, new_tiles):
