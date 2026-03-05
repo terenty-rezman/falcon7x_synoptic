@@ -8,6 +8,7 @@ import screen_brightness_control
 
 from falcon7x_core.xplane.params import Params
 import settings as s
+import window_manager.manager
 
 
 def strtobool (val):
@@ -81,8 +82,14 @@ class Screen(QQuickView):
     def readSettings(self):
         settings = QSettings("settings.ini", QSettings.IniFormat)
         settings.beginGroup(self.name)
-        x = int(settings.value("x", 40))
-        y = int(settings.value("y", 40))
+
+        screen_geometry = self.screen().availableGeometry()
+
+        screen_x = screen_geometry.topLeft().x()
+        screen_y = screen_geometry.topLeft().y()
+
+        x = int(settings.value("x", screen_x))
+        y = int(settings.value("y", screen_y))
         w = int(settings.value("w", self.win_width))
         h = int(settings.value("h", self.win_height))
 
@@ -150,23 +157,23 @@ class Screens:
 def create_black_screens():
     global Screens
 
-    Screens.pdu_left = create_sreen_control("left black screen", s.LEFT_MONITOR_ID)
+    Screens.pdu_left = create_sreen_control("left black screen", s.LEFT_MONITOR_ID, s.PDU_LEFT_MONITOR_NAME)
     Screens.pdu_left.show()
 
-    Screens.pdu_right = create_sreen_control("right black screen", s.RIGHT_MONITOR_ID)
+    Screens.pdu_right = create_sreen_control("right black screen", s.RIGHT_MONITOR_ID, s.PDU_RIGHT_MONITOR_NAME)
     Screens.pdu_right.show()
 
-    Screens.mdu_up = create_sreen_control("middle up black screen", s.MIDDLE_UP_MONITOR_ID)
+    Screens.mdu_up = create_sreen_control("middle up black screen", s.MIDDLE_UP_MONITOR_ID, s.MDU_UP_MONITOR_NAME)
     Screens.mdu_up.show()
 
-    Screens.mdu_down = create_sreen_control("middle down black screen", s.MIDDLE_DOWN_MONITOR_ID)
+    Screens.mdu_down = create_sreen_control("middle down black screen", s.MIDDLE_DOWN_MONITOR_ID, s.MDU_DOWN_MONITOR_NAME)
     Screens.mdu_down.show()
 
-    Screens.mini_screen = create_sreen_control("mini black screen", s.MINI_MONITOR_ID)
+    Screens.mini_screen = create_sreen_control("mini black screen", s.MINI_MONITOR_ID, s.MINI_MONITOR_NAME)
     Screens.mini_screen.show()
 
 
-def create_sreen_control(name, monitor_id):
+def create_sreen_control(name, monitor_id, qt_screen_id):
     black_qml_url = QUrl("components/black_screen.qml")
 
     screen = Screen(300, 150, name=name, monitor_id=monitor_id)
@@ -176,7 +183,12 @@ def create_sreen_control(name, monitor_id):
     screen.setSource(black_qml_url)
     screen.setTitle(f"{name} - falcon7x")
     screen.setResizeMode(QQuickView.SizeRootObjectToView)
+
+    qt_screen = window_manager.manager.screen_id_screen_obj[qt_screen_id]
+    screen.setScreen(qt_screen)
+
     screen.readSettings()
+
     # left_screen.setFlags(synoptic.flags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
     # black_screen.setFlags(black_screen.flags() | Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint)
 

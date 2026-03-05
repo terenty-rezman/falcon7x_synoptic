@@ -11,7 +11,8 @@ from view import View
 import window_manager.click_manager
 from window_manager.manager import Watcher, tile_watchers
 import backend
-import view_helper
+
+import mumo_connection
 
 
 class AviaMenuManager(QObject):
@@ -64,8 +65,10 @@ class AviaMenuManager(QObject):
     @Slot(result=None)
     def close_menu(self):
         self.view.hide()
+        mumo_connection.disable_boundrect(1)
+        mumo_connection.disable_boundrect(2)
 
-    def invoke_menu(self, global_mouse_pos):
+    def invoke_menu(self, mouse_id, global_mouse_pos):
         if self.view is None:
             app_qml_url = QUrl("components/TopLevelAviaMenu.qml")
             view = View("avia_menu", self.menu_width, self.menu_height)
@@ -81,7 +84,7 @@ class AviaMenuManager(QObject):
             self.view = view
         else:
             if self.view.isVisible():
-                self.view.hide()
+                self.close_menu()
                 return
 
         mdu_down = screen_id_screen_obj[screen_serials[ScreenPosition.MDU_DOWN]]
@@ -134,6 +137,8 @@ class AviaMenuManager(QObject):
                 self.view.show()
                 self.view.requestActivate()
 
+                mumo_connection.enable_boundrect(mouse_id, window_pos_x, window_pos_y, window_width, window_height, 0)
+
     @staticmethod
     def get_quadrant_rect(global_mouse_pos, screen_rect): 
         sl = screen_rect.left()
@@ -157,7 +162,7 @@ class AviaMenuManager(QObject):
         if bottom_right.contains(global_mouse_pos):
             return bottom_right, 1, 1
 
-        return None
+        return None, None, None
 
 
 top_level_avia_menu_manager = AviaMenuManager()

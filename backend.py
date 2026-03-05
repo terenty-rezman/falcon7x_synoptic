@@ -274,6 +274,10 @@ dref_indicators = [
 
     ("sim/cockpit2/pressurization/indicators/cabin_altitude_ft", None, "ecs_cabin_alt", "alt_ft", None),
     ("sim/cockpit2/oxygen/indicators/o2_bottle_rem_liter", None, "ecs_o2_volume", "o2_liter", None),
+
+    ("sim/flightmodel/position/longitude", None, "inav_plane_marker", "longitude", None),
+    ("sim/flightmodel/position/latitude", None, "inav_plane_marker", "latitude", None),
+    ("sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot", None, "inav_plane_marker", "heading", None),
 ]
 
 dref_nested_dict = defaultdict(list)

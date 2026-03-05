@@ -233,4 +233,7 @@ to_subscribe = [
     (Params["sim/flightmodel/position/true_psi"], 24, "udp"),
     (Params["sim/flightmodel2/position/hpath"], 24, "udp"),
     (Params["sim/flightmodel2/position/vpath"], 24, "udp"),
+
+    (Params["sim/flightmodel/position/longitude"], 5, "udp"),
+    (Params["sim/flightmodel/position/latitude"], 5, "udp"),
 ]

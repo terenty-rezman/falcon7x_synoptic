@@ -41,10 +41,12 @@ Rectangle {
         anchors.fill: parent
         plugin: mapPlugin
         
-        center{
-            latitude: centerLatitude
-            longitude: centerLongitude
-        }
+        center.latitude: planeMarker.latitude
+        center.longitude: planeMarker.longitude
+        // center{
+        //     latitude: centerLatitude
+        //     longitude: centerLongitude
+        // }
 
         zoomLevel: 12
         // activeMapType: map1.supportedMapTypes[6]
@@ -64,12 +66,19 @@ Rectangle {
                 anchorPoint: Qt.point(5, 5) // Center the marker
                 coordinate: model.position // 'position' role from Python model
 
+                autoFadeIn: false
+
                 // Add a visual item as the map item
                 sourceItem: Rectangle {
                     id: markerRect
                     width: 10
                     height: 10
-                    color: "red"
+                    radius: 5
+
+                    color: "white"
+
+                    border.width: 2
+                    border.color: "black"
 
                     Text{
                         y: 15
@@ -91,12 +100,11 @@ Rectangle {
 
         MapQuickItem {
             id: planeMarker
+            objectName: "inav_plane_marker"
             property real latitude:  43.433
             property real longitude: 40.333
             property real heading:  45 
 
-            // anchorPoint.x: planeMarkerImage.width/2
-            // anchorPoint.y: planeMarkerImage.height/2
             coordinate{
                 latitude:  latitude
                 longitude: longitude
@@ -279,15 +287,15 @@ Rectangle {
     }
 
     function timerFunc() {
-        self.centerLatitude = planeMarker.latitude;
-        self.centerLongitude = planeMarker.longitude;
+        // self.centerLatitude = planeMarker.latitude;
+        // self.centerLongitude = planeMarker.longitude;
 
         map1.onZoomLevelChanged();
     }
 
     Timer {
         id: onPlaneTimer
-        interval: 1000;
+        interval: 500;
         running: true;
         repeat: true
         triggeredOnStart: true

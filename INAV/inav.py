@@ -6,6 +6,7 @@ from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtPositioning import QGeoCoordinate
 
+from sortedcontainers import SortedDict
 
 class MarkerModel(QAbstractListModel):
     # Define roles for QML access
@@ -16,7 +17,7 @@ class MarkerModel(QAbstractListModel):
 
     def __init__(self, parent=None):
         super().__init__(parent)
-        self._coordinates = []
+        self._coordinates = SortedDict()
 
     def rowCount(self, parent=QModelIndex()):
         return len(self._coordinates)
@@ -24,7 +25,7 @@ class MarkerModel(QAbstractListModel):
     def data(self, index, role=Qt.DisplayRole):
         if not index.isValid() or index.row() >= self.rowCount():
             return None
-        coordinate_data = self._coordinates[index.row()]
+        coordinate_data = self._coordinates.peekitem(index.row())[1]
         if role == Qt.UserRole + 1:
             return coordinate_data['position']
         if role == Qt.UserRole + 2:
@@ -41,6 +42,11 @@ class MarkerModel(QAbstractListModel):
         self.beginInsertRows(QModelIndex(), self.rowCount(), self.rowCount())
         self._coordinates.append({'position': coordinate, 'name': name})
         self.endInsertRows()
+    
+    def replace_rows(self, rows):
+        self.beginResetModel()
+        self._coordinates = rows 
+        self.endResetModel()
 
     def clear(self):
         """Clears all data from the model."""

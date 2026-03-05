@@ -1,5 +1,6 @@
 import sys
 import asyncio
+
 import traceback
 
 from PySide6.QtGui import QGuiApplication, QCursor
@@ -92,29 +93,43 @@ async def window_manager_test():
     while True:
         global_mouse_pos = QCursor.pos()  
         backend.backend.updateMousePos.emit(global_mouse_pos.x(), global_mouse_pos.y(), 0, 0)
-        top_level_avia_menu_manager.invoke_menu(global_mouse_pos)
+        top_level_avia_menu_manager.invoke_menu(1, global_mouse_pos)
 
-        await asyncio.sleep(2)
+        await asyncio.sleep(4)
+
 
 from INAV.inav import markerModel
 import random
 import numpy as np
 import pickle
 import os
+import string
+from sortedcontainers import SortedDict
+
+from PySide6.QtPositioning import QGeoCoordinate
 
 nav_map = {}
 
 def generate_nav_map():
     i = 0
-    for lat in np.arange(-90, 90, 0.05):
-        for lon in np.arange(-180, 180, 0.1):
+    for lat in np.arange(0, 70, 0.05):
+        for lon in np.arange(0, 100, 0.1):
             i+=1
             # randomly generate some markers around the base coordinate
             item_lat = lat + (random.uniform(-0.05, 0.05))
             item_lon = lon + (random.uniform(-0.05, 0.05))
-            name = f"NAV{i}"
+
+            letters = string.ascii_letters
+            random_chars = random.choices(letters, k=4)
+            random_string = "".join(random_chars)
+
+            name = random_string.upper()
+
             nav_map[f"{lat:.2f}{lon:.2f}"] = (item_lat, item_lon, name)
 
+# generate_nav_map()
+
+old_rows = None
 
 def request_nav_items():
     inav_map = view_helper.find_object("inav_map")
@@ -131,28 +146,36 @@ def request_nav_items():
 
     markerModel.clear()
 
-    for lat in np.arange(base_lat - 0.2, base_lat + 0.2, 0.05):
-        for lon in np.arange(base_lon - 0.2, base_lon + 0.2, 0.1):
+    new_rows = SortedDict()
+    for lat in np.arange(base_lat - 0.5, base_lat + 0.5, 0.05):
+        for lon in np.arange(base_lon - 0.7, base_lon + 0.7, 0.1):
             key = f"{lat:.2f}{lon:.2f}"
             if key in nav_map:
                 item_lat, item_lon, name = nav_map[key] 
-                markerModel.addMarker(item_lat, item_lon, name)   
+                # markerModel.addMarker(item_lat, item_lon, name)   
+                coordinate = QGeoCoordinate(item_lat, item_lon)
+                new_rows[name] = {'position': coordinate, 'name': name}
+                # new_rows.append({'position': coordinate, 'name': name})
+
+    markerModel.replace_rows(new_rows)
+
 
 async def inav_test():
     while True: 
         request_nav_items()
         await asyncio.sleep(1)
 
+
 async def main():
     try:
-        # sane_tasks.spawn(blue_border_mouse_update())    
+        sane_tasks.spawn(process_qt_events())    
 
         web_interface.run_server_task("0.0.0.0", s.WEB_INTERFACE_PORT)
 
         # replace suscribe values
         xp.set_subscribe_params(params_to_subscribe.to_subscribe)
 
-        sane_tasks.spawn(inav_test())
+        # sane_tasks.spawn(inav_test())
 
         await xp.xp_master_udp.connect(
             s.XP_MASTER_HOST, s.XP_MASTER_UDP_PORT, on_new_xp_data_udp, on_data_exception_udp, listen_port=s.UDP_LOCAL_PORT
@@ -166,16 +189,18 @@ async def main():
 
         await udp_2_mouse.run_receive_2_mouse_task(s.MOUSE_RECEIVE_HOST, s.MOUSE_RECEIVE_PORT, blue_border_mouse_update)
 
-        # sane_tasks.spawn(window_manager_test())    
-
         await app_close_event.wait()
         # asyncio.create_task(test_qml())
     except asyncio.exceptions.CancelledError:
         pass
 
+async def process_qt_events():
+    while app_close_event.is_set() is False:
+        app.processEvents()
+        await asyncio.sleep(0.02)
+
 
 def quit():
-    main_future.cancel()
     screen_control.restore_brightness()
     app.quit()
 
@@ -190,12 +215,7 @@ if __name__ == "__main__":
 
     screen_control.create_black_screens()
 
-    event_loop = QEventLoop(app)
-    asyncio.set_event_loop(event_loop)
-
     app_close_event = asyncio.Event()
     app.aboutToQuit.connect(app_close_event.set)
     
-    with event_loop:
-        main_future = asyncio.Task(main())
-        event_loop.run_until_complete(main_future)
+    asyncio.run(main())

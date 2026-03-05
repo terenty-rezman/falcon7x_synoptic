@@ -1,4 +1,5 @@
 import asyncio
+from dataclasses import dataclass
 
 from PySide6.QtCore import QPoint
 from quart import Quart, request
@@ -147,12 +148,15 @@ async def button_click():
     button = data["button"]
 
     if button == "tb_menu_lh" or button == "tb_menu_rh":
+        mouse_id = 0
         if button == "tb_menu_lh":
             global_mouse_coords = QPoint(udp_2_mouse.mouse_coords[0], udp_2_mouse.mouse_coords[1])
+            mouse_id = 1
         else:
             global_mouse_coords = QPoint(udp_2_mouse.mouse_coords[2], udp_2_mouse.mouse_coords[3])
+            mouse_id = 2
 
-        top_level_avia_menu_manager.invoke_menu(global_mouse_coords)
+        top_level_avia_menu_manager.invoke_menu(mouse_id, global_mouse_coords)
 
         for v in view_helper.all_views:
             v.send_avia_menu_click(global_mouse_coords)
