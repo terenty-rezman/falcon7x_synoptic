@@ -160,5 +160,17 @@ async def button_click():
 
         for v in view_helper.all_views:
             v.send_avia_menu_click(global_mouse_coords)
+    elif button in [
+        "tb_disp_down_rh",
+        "tb_disp_up_rh",
+        "tb_disp_left_rh",
+        "tb_disp_right_rh",
+
+        "tb_disp_down_lh",
+        "tb_disp_up_lh",
+        "tb_disp_left_lh",
+        "tb_disp_right_lh"
+    ]:
+        top_level_avia_menu_manager.close_menu()
 
     return {"result": "ok"}

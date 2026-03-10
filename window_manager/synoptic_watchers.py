@@ -72,6 +72,7 @@ class SYNOPTIC_DOWN_2_TilesWatcher(SYNOPTIC_DOWN_1_TilesWatcher):
             found = cls.view.rootObject().findChildren(QQuickItem, "synoptic")
             if found:
                 found[0].setProperty("objectName", "synoptic_mdu")
+                found[0].setProperty("currentIndex", 2)
 
 
 @add_to_watchers

@@ -8,7 +8,7 @@ Item {
     width: 100
     height: 100
 
-    property real rotation_green_arrow_deg: 70
+    property real itt: 70
     property int ign: 0
 
     property int center_x: 49 
@@ -32,7 +32,7 @@ Item {
             const degs = [-110 - 90, 90 - 90]
             const map_n1 = new Helpers.Interp1d(vals, degs); 
 
-            let rotation_green_arrow_deg = map_n1.interp(n1.rotation_green_arrow_deg);
+            let rotation_green_arrow_deg = map_n1.interp(n1.itt);
             // console.log(rotation_green_arrow_deg)
 
             const initial_rotation = degs[0];
@@ -58,8 +58,12 @@ Item {
             }
 
             // draw green line
-            if (rotation_green_arrow_deg >= -10)
+            if (n1.itt >= 930){
                 ctx.strokeStyle = "#ff0000";
+            }
+            else if (n1.itt >= 920) {
+                ctx.strokeStyle = "#ff6e00";
+            }
             else {
                 ctx.strokeStyle = "#00ff00";
             }

@@ -74,6 +74,9 @@ class TilesWatcherBase():
     prev_state = [[], []]
     view = None
 
+    screen_obj = None
+    occupied_mouse = None
+
     @classmethod
     def compare_tiles_state(cls, new_tiles: ScreenTiles):
         cleared_tiles = new_tiles.remove_all_tiles_beside(cls.watch_tile_type)
@@ -91,8 +94,9 @@ class TilesWatcherBase():
         global screen_id_screen_obj
 
         screen_serial = screen_serials[cls.screen_type]
+        cls.screen_obj = screen_id_screen_obj[screen_serial]
 
-        screen_geometry = screen_id_screen_obj[screen_serial].availableGeometry()
+        screen_geometry = cls.screen_obj.availableGeometry()
         screen_width = screen_geometry.width()
         screen_height = screen_geometry.height()
 
