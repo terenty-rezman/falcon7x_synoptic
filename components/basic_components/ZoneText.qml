@@ -71,6 +71,19 @@ Text {
                 target: rect_
                 color: "#AA0000"
             }
+        },
+        State {
+            name: "orange"
+
+            PropertyChanges {
+                target: self
+                color: "#000000"
+            }
+
+            PropertyChanges {
+                target: rect_
+                color: "#FF6E00"
+            }
         }
     ]
 }

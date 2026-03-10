@@ -8,8 +8,11 @@ Item {
     width: 100
     height: 100
 
-    property real itt: 70
+    property real itt: 930
     property int ign: 0
+    readonly property int orange_level: 919
+    readonly property int red_level: 929
+
 
     property int center_x: 49 
     property int center_y: 52 
@@ -79,7 +82,22 @@ Item {
         }
     }
 
-    Text {
+    ZoneText {
+        id: eng_itt_text
+
+        x: 49 //32
+        y: 55 //22
+        // width: 25
+
+        value_zones: [0, orange_level, red_level]
+        state_zones:  ["green", "orange", "red"]
+
+        value: n1.itt.toFixed(0)
+
+        font.pixelSize: 18
+        horizontalAlignment: Text.AlignRight
+    }
+    /*Text {
         x: 32 
         y: 22
         text: "IGN"
@@ -96,7 +114,7 @@ Item {
         color: "#00FC00"
         font.pixelSize: 18
         // font.bold: true
-    }
+    }*/
 
     Image {
         source: "../svg/ENG_ITT.svg"

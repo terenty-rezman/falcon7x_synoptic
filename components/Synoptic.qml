@@ -14,6 +14,7 @@ Rectangle {
 
     TabBar {
         id: tab_bar
+        currentIndex: 1
 
         width: 1024 * 2 / 3
 

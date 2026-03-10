@@ -210,7 +210,7 @@ Item {
     }
 
     Text {
-        x: 38
+        x: 50
         y: 65
         text: self.n1.toFixed(1)
         color: "#00FC00"

@@ -81,21 +81,21 @@ Item {
     MappedValueText {
         objectName: "eng_n2_1"
         
-        x: 63
+        x: 75
         y: 160
     }
 
     MappedValueText {
         objectName: "eng_n2_2"
         
-        x: 168
+        x: 177
         y: 160
     }
 
     MappedValueText {
         objectName: "eng_n2_3"
         
-        x: 263
+        x: 279
         y: 160
     }
 }
