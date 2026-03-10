@@ -92,7 +92,7 @@ Item {
     Text {
         x: 38
         y: 55
-        text: n1.rotation_green_arrow_deg.toFixed(0)
+        text: n1.itt.toFixed(0)
         color: "#00FC00"
         font.pixelSize: 18
         // font.bold: true
