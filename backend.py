@@ -47,6 +47,11 @@ dref_indicators = [
     ("sim/custom/7x/z_oil_min_height_1", None, "eng_oil1", "oil_min_temp", None),
     ("sim/custom/7x/z_oil_min_height_2", None, "eng_oil2", "oil_min_temp", None),
     ("sim/custom/7x/z_oil_min_height_3", None, "eng_oil3", "oil_min_temp", None),
+
+    ("sim/custom/7x/z_eng_status_1", None, "shared_data", "engine_status_1", None),
+    ("sim/custom/7x/z_eng_status_2", None, "shared_data", "engine_status_2", None),
+    ("sim/custom/7x/z_eng_status_3", None, "shared_data", "engine_status_3", None),
+
     ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[0]", None, "eng_oil1", "temp", None),
     ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[1]", None, "eng_oil2", "temp", None),
     ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[2]", None, "eng_oil3", "temp", None),
@@ -330,6 +335,10 @@ class Backend(QObject):
                 del data[param]
 
         for dataref, value in data.items():
+
+            # if dataref.name == "sim/cockpit2/engine/indicators/ITT_deg_C[0]":
+            #     print(value)
+
             indicator_list = dref_nested_dict.get(str(dataref))
             if not indicator_list:
                 continue

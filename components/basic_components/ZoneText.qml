@@ -8,6 +8,8 @@ Text {
     property var value_zones: [0, 25, 146, 149, 152]
     property var state_zones: ["yellow", "green", "yellow", "red", "red"]
 
+    property bool disable_zones: false
+
     anchors.leftMargin: 4
     anchors.rightMargin: 4
     
@@ -28,6 +30,10 @@ Text {
         let color_idx = Helpers.bisectLeft(self.value_zones, self.value);
         let color = state_zones[color_idx];
         self.state = color; 
+
+        if(self.disable_zones == true) {
+            self.state = "green"; 
+        }
     }
 
     states: [

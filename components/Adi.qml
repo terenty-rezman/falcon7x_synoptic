@@ -37,7 +37,6 @@ Rectangle {
         property bool current_ads_fail: ads_self == ads_failed
     }
 
-
     Horizon {
         objectName: "adi_horizon"
     }

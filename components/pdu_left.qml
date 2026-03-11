@@ -15,6 +15,15 @@ Item {
         color: "#545454"
     }
 
+    Item {
+        id: shared_data
+        objectName: "shared_data"
+
+        property int engine_status_1: 0
+        property int engine_status_2: 0
+        property int engine_status_3: 0
+    }
+
     SystemMenu {}
 
     Adi {

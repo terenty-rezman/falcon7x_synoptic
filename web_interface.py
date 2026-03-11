@@ -1,5 +1,6 @@
 import asyncio
 from dataclasses import dataclass
+import logging
 
 from PySide6.QtCore import QPoint
 from quart import Quart, request
@@ -22,6 +23,8 @@ app = Quart(__name__)
 # fix bug KeyError: 'QUART_SCHEMA_CONVERT_CASING'
 app.config["QUART_SCHEMA_CONVERT_CASING"] = None
 app.config["QUART_SCHEMA_CONVERSION_PREFERENCE"] = None
+
+logging.getLogger('hypercorn.access').disabled = True
 
 
 @app.post("/api/set_data")
