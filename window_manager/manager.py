@@ -10,6 +10,8 @@ import backend
 import view_helper
 
 import settings as s
+import mumo.mumo_connection as mumo_connection
+import mumo.mouse_state as mouse_state
 
 
 screen_serials = {
@@ -20,6 +22,26 @@ screen_serials = {
 }
 
 screen_id_screen_obj = {}
+
+
+class MouseOccupied(enum.StrEnum):
+    EMPTY = "empty"
+    MOUSE_1 = "1"
+    MOUSE_2 = "2"
+
+    def __add__(self, value):
+        if self == MouseOccupied.EMPTY:
+            return value
+        else:
+            return self
+    
+    def __sub__(self, other):
+        if self == MouseOccupied.EMPTY:
+            return MouseOccupied.EMPTY
+        elif self == other:
+            return MouseOccupied.EMPTY
+        else:
+            return self
 
 
 def update_screen_sizes():
@@ -75,7 +97,8 @@ class TilesWatcherBase():
     view = None
 
     screen_obj = None
-    occupied_mouse = None
+    occupied_mouse = MouseOccupied.EMPTY
+    banned_mouse = MouseOccupied.EMPTY
 
     @classmethod
     def compare_tiles_state(cls, new_tiles: ScreenTiles):
@@ -142,6 +165,75 @@ class TilesWatcherBase():
     @classmethod 
     def calc_window_geometry(cls, screen_x, screen_y, screen_width, screen_height, new_tiles):
         pass
+
+    @classmethod
+    def check_mouse_priority(cls, mouse1_x, mouse1_y, mouse2_x, mouse2_y):
+        if cls.view is None:
+            return
+
+        if cls.view.isVisible() == False:
+            cls.occupied_mouse = MouseOccupied.EMPTY
+            cls.banned_mouse = MouseOccupied.EMPTY
+            return
+
+        occupied_mouse = cls.occupied_mouse
+
+        mouse1_contained = False
+        geometry = cls.view.geometry()
+        if geometry.contains(mouse1_x, mouse1_y) and not mouse_state.mouse_1.hidden:
+            mouse1_contained = True
+        else:
+            occupied_mouse -= MouseOccupied.MOUSE_1
+
+        mouse2_contained = False
+        geometry = cls.view.geometry()
+        if geometry.contains(mouse2_x, mouse2_y) and not mouse_state.mouse_2.hidden:
+            mouse2_contained = True
+        else:
+            occupied_mouse -= MouseOccupied.MOUSE_2
+        
+        if mouse1_contained == False and mouse2_contained == False:
+            cls.occupied_mouse = MouseOccupied.EMPTY
+            cls.banned_mouse = MouseOccupied.EMPTY
+            return
+
+        if mouse1_contained:
+            occupied_mouse += MouseOccupied.MOUSE_1
+        
+        if mouse2_contained:
+            occupied_mouse += MouseOccupied.MOUSE_2
+
+        banned_mouse = MouseOccupied.EMPTY
+        if occupied_mouse == MouseOccupied.MOUSE_1 and mouse2_contained:
+            banned_mouse = MouseOccupied.MOUSE_2
+        
+        if occupied_mouse == MouseOccupied.MOUSE_2 and mouse1_contained:
+            banned_mouse = MouseOccupied.MOUSE_1
+        
+        if occupied_mouse != cls.occupied_mouse:
+            # enable mouse 1 or 2
+            mumo_connection.unban_mouse(occupied_mouse)
+            cls.occupied_mouse = occupied_mouse
+
+            if occupied_mouse == MouseOccupied.MOUSE_1:
+                mouse_state.mouse_1.set_banned(False)
+            if occupied_mouse == MouseOccupied.MOUSE_2:
+                mouse_state.mouse_2.set_banned(False)
+
+        if banned_mouse != cls.banned_mouse:
+            # disble mouse 1 or 2
+            mumo_connection.ban_mouse(banned_mouse)
+            cls.banned_mouse = banned_mouse
+
+            if banned_mouse == MouseOccupied.MOUSE_1:
+                mouse_state.mouse_1.set_banned(True)
+            if banned_mouse == MouseOccupied.MOUSE_2:
+                mouse_state.mouse_2.set_banned(True)
+
+
+def update_mouse_priority(mouse1_x, mouse1_y, mouse2_x, mouse2_y):
+    for w in tile_watchers:
+        w.check_mouse_priority(mouse1_x, mouse1_y, mouse2_x, mouse2_y)
 
 
 import window_manager.click_manager

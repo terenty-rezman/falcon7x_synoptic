@@ -61,9 +61,43 @@ async def _disable_boundrect(mouse_id):
     )
 
 
+async def _ban_mouse(mouse_id):
+    json = {
+        "mouse": mouse_id,
+        "ban": 1
+    }
+
+    await _make_post_async(
+        "/boundrect", json, 
+        s.MUMO_HOST,
+        s.MUMO_PORT
+    )
+
+
+async def _unban_mouse(mouse_id):
+    json = {
+        "mouse": mouse_id,
+        "ban": 0
+    }
+
+    await _make_post_async(
+        "/boundrect", json, 
+        s.MUMO_HOST,
+        s.MUMO_PORT
+    )
+
+
 def enable_boundrect(mouse_id, x, y, w, h, debug=0):
     return asyncio.create_task(_enable_boundrect(mouse_id, x, y, w, h, debug))
 
 
 def disable_boundrect(mouse_id):
     return asyncio.create_task(_disable_boundrect(mouse_id))
+
+
+def ban_mouse(mouse_id):
+    return asyncio.create_task(_ban_mouse(mouse_id))
+
+
+def unban_mouse(mouse_id):
+    return asyncio.create_task(_unban_mouse(mouse_id))

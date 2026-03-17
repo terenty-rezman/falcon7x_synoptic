@@ -19,12 +19,15 @@ import falcon7x_core.common.sane_tasks as sane_tasks
 import params_to_subscribe
 import screen_control
 import cas
-import udp_2_mouse
+import mumo.mouse_state as mouse_state
+import mumo.mumo_udp as mumo_udp
 
 import settings as s
 
 import window_manager.manager as manager
 from window_manager.avia_menu_manager import top_level_avia_menu_manager
+
+import window_manager.manager as window_manager
 
 
 def on_new_xp_data(type, dataref, value):
@@ -80,10 +83,17 @@ def blue_border_mouse_update():
         # backend.backend.updateMousePos.emit(global_pos.x(), global_pos.y(), 0, 0)
 
         backend.backend.updateMousePos.emit(
-            udp_2_mouse.mouse_coords[0],
-            udp_2_mouse.mouse_coords[1],
-            udp_2_mouse.mouse_coords[2],
-            udp_2_mouse.mouse_coords[3]
+            mouse_state.mouse_1.x,
+            mouse_state.mouse_1.y,
+            mouse_state.mouse_2.x,
+            mouse_state.mouse_2.y
+        )
+
+        window_manager.update_mouse_priority(
+            mouse_state.mouse_1.x,
+            mouse_state.mouse_1.y,
+            mouse_state.mouse_2.x,
+            mouse_state.mouse_2.y
         )
 
 
@@ -187,7 +197,7 @@ async def main():
 
         sane_tasks.spawn(param_overrides.param_overrides_auto_disable_task())    
 
-        await udp_2_mouse.run_receive_2_mouse_task(s.MOUSE_RECEIVE_HOST, s.MOUSE_RECEIVE_PORT, blue_border_mouse_update)
+        await mumo_udp.run_receive_2_mouse_task(s.MOUSE_RECEIVE_HOST, s.MOUSE_RECEIVE_PORT, blue_border_mouse_update)
 
         await app_close_event.wait()
         # asyncio.create_task(test_qml())

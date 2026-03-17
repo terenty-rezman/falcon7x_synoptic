@@ -13,8 +13,8 @@ import param_overrides
 from falcon7x_core.xplane.params import Params
 import view_helper
 import cas
-import udp_2_mouse
 from window_manager.avia_menu_manager import top_level_avia_menu_manager
+import mumo.mouse_state as mouse_state
 
 
 quart_task = None
@@ -153,11 +153,17 @@ async def button_click():
     if button == "tb_menu_lh" or button == "tb_menu_rh":
         mouse_id = 0
         if button == "tb_menu_lh":
-            global_mouse_coords = QPoint(udp_2_mouse.mouse_coords[0], udp_2_mouse.mouse_coords[1])
+            global_mouse_coords = QPoint(mouse_state.mouse_1.x, mouse_state.mouse_1.y)
             mouse_id = 1
         else:
-            global_mouse_coords = QPoint(udp_2_mouse.mouse_coords[2], udp_2_mouse.mouse_coords[3])
+            global_mouse_coords = QPoint(mouse_state.mouse_2.x, mouse_state.mouse_2.y)
             mouse_id = 2
+
+        if mouse_id == 1 and mouse_state.mouse_1.banned or mouse_state.mouse_1.hidden:
+            return {"result": "ok"}
+        
+        if mouse_id == 2 and mouse_state.mouse_2.banned or mouse_state.mouse_2.hidden:
+            return {"result": "ok"}
 
         top_level_avia_menu_manager.invoke_menu(mouse_id, global_mouse_coords)
 

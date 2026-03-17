@@ -12,7 +12,7 @@ import window_manager.click_manager
 from window_manager.manager import Watcher, tile_watchers
 import backend
 
-import mumo_connection
+import mumo.mumo_connection as mumo_connection
 
 
 class AviaMenuManager(QObject):
