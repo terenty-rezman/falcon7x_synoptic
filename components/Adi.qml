@@ -253,7 +253,7 @@ Rectangle {
             text: mins_part(secs) + ":" + secs_part(secs)
 
             function mins_part(secs) {
-                const mins = (secs / 60).toFixed(0)
+                const mins = Math.floor(secs / 60)
 
                 if (mins < 10) {
                     return "0" + mins;
