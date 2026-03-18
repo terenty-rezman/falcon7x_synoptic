@@ -108,6 +108,7 @@ dref_indicators = [
     ("sim/flightmodel2/position/hpath", None, "adi_horizon", "hpath", None),
     ("sim/flightmodel2/position/vpath", None, "adi_horizon", "vpath", None),
     ("sim/flightmodel/position/true_psi", None, "adi_horizon", "true_psi", None),
+    ("sim/custom/7x/ROT", None, "adi_horizon", "rot", None),
     ("sim/cockpit2/gauges/indicators/airspeed_kts_pilot", None, "adi_horizon", "air_speed", None),
 
     ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_bank", "bank_deg", None),
@@ -118,7 +119,6 @@ dref_indicators = [
     ("sim/cockpit2/gauges/indicators/airspeed_kts_pilot", None, "adi_airspeed", "speed", "pdu_left"),
     ("sim/cockpit2/gauges/indicators/airspeed_kts_copilot", None, "adi_airspeed", "speed", "pdu_right"),
     ("sim/cockpit2/gauges/indicators/mach_pilot", None, "adi_airspeed", "mach", None),
-    ("sim/custom/7x/z_flight_regime", None, "adi_airspeed", "flight_regime", None),
     ("sim/cockpit2/gauges/indicators/vvi_fpm_pilot", None, "adi_vertical_speed", "vy_ft_per_min", None),
     ("sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot", None, "adi_alt", "baro_settings", "pdu_left"),
     ("sim/cockpit2/gauges/actuators/barometer_setting_in_hg_copilot", None, "adi_alt", "baro_settings", "pdu_right"),
@@ -173,6 +173,9 @@ dref_indicators = [
     ("sim/custom/7x/z_vor_copilot", None, "adi_shared_data", "vor_self", "pdu_right"),
     ("sim/custom/7x/z_vor_copilot", None, "adi_shared_data", "vor_partner", "pdu_left"),
     ("sim/custom/7x/z_vor_pilot", None, "adi_shared_data", "vor_partner", "pdu_right"),
+
+    ("sim/custom/7x/z_flight_regime", None, "adi_shared_data", "flight_regime", None),
+
     ("sim/flightmodel/controls/sbrkrat", None, "adi_airspeed", "ab_pos", None),
     ("sim/flightmodel/controls/sbrkrat", None, "adi_flaps_slats", "airbrake_pos", None),
     ("sim/flightmodel/controls/flaprat", None, "adi_flaps_slats", "flaps_pos", None),
