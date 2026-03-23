@@ -382,6 +382,8 @@ Item {
         x: 61
         y: 31
         width: 100
+
+        engine_running: shared_data.engine_status_1 == 2
     }
 
     Text {
@@ -406,6 +408,8 @@ Item {
         x: 163
         y: 31
         width: 100
+
+        engine_running: shared_data.engine_status_2 == 2
     }
 
     EngOilPdu {
@@ -413,6 +417,8 @@ Item {
         x: 268
         y: 31
         width: 100
+        
+        engine_running: shared_data.engine_status_3 == 2
     }
 
     Rectangle {

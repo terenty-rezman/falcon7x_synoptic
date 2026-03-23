@@ -9,6 +9,19 @@ import "../Falcon7x_synoptic_design/Falcon7x_synoptic_designContent"
 Item {
     objectName: "pdu_right"
 
+    Item {
+        id: shared_data
+        objectName: "shared_data"
+
+        property int engine_status_1: 0
+        property int engine_status_2: 0
+        property int engine_status_3: 0
+
+        onEngine_status_1Changed: {
+            console.log("CHANGED ENGINE STATUS ", shared_data.engine_status_1)
+        }
+    }
+
     Rectangle {
         anchors.fill: parent
         color: "#545454"

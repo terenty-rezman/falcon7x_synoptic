@@ -4,11 +4,10 @@ import json
 
 from falcon7x_core.common.aioudp import open_local_endpoint
 import falcon7x_core.common.sane_tasks as sane_tasks
+import mumo.mouse_state as mouse_state
 
 
 receive_task = None
-
-mouse_coords = [0, 0, 0, 0]
 
 
 async def run_receive_2_mouse_task(uso_host, uso_receive_port, on_udp_callback):
@@ -20,8 +19,6 @@ async def run_receive_2_mouse_task(uso_host, uso_receive_port, on_udp_callback):
 
 
 async def receive_uso_task(udp_endpoint, on_udp_callback):
-    global mouse_coords
-
     clear_uso_buffer = True
 
     while True:
@@ -48,10 +45,11 @@ async def receive_uso_task(udp_endpoint, on_udp_callback):
 
             data = json.loads(str_packet)
 
-            mouse_coords[0] = data["mouse1_x"]
-            mouse_coords[1] = data["mouse1_y"]
-            mouse_coords[2] = data["mouse2_x"]
-            mouse_coords[3] = data["mouse2_y"]
+            mouse_state.mouse_1.set_position(data["mouse1_x"], data["mouse1_y"])
+            mouse_state.mouse_2.set_position(data["mouse2_x"], data["mouse2_y"])
+
+            mouse_state.mouse_1.set_hidden(data["mouse1_hidden"])
+            mouse_state.mouse_2.set_hidden(data["mouse2_hidden"])
 
             on_udp_callback()
 

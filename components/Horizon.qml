@@ -15,7 +15,22 @@ Item {
     property real vpath: 0
     property real true_psi: 0
 
+    property real rot: 0
+
     property real air_speed: 0
+
+    property int flight_regime: 1
+
+    onFlight_regimeChanged: {
+        if (flight_regime == 1) {
+            rot_symbol.visible = true;
+        }
+        else {
+            if (hide_rot_time.running == false) {
+                hide_rot_time.start()
+            }
+        }
+    }
 
     Connections {
         target: backend 
@@ -153,6 +168,30 @@ Item {
             const x1 = -x * Math.cos(bank_rad) + y * Math.sin(bank_rad) + center_x - width / 2;
             const y1 = x * Math.sin(bank_rad) + y * Math.cos(bank_rad) + center_y - height / 2;
             return [x1, y1]
+        }
+    }
+
+    Image {
+        id: rot_symbol
+        source: "./svg/ADI_ROTATION_SYMBOL.svg"
+
+        x: center_x - width / 2
+        y: self.rot * 10 + center_y - height / 2
+
+        width: 90
+        height: 16
+
+        visible: flight_regime == 1 
+    }
+
+    Timer {
+        id: hide_rot_time
+        interval: 3000
+        running: false
+        repeat: false
+
+        onTriggered: {
+            rot_symbol.visible = 0;
         }
     }
 }

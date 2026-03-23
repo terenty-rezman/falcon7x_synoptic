@@ -160,18 +160,24 @@ Item {
         objectName: "eng_oil1"
         x: 82
         y: 243
+
+        engine_running: shared_data.engine_status_1 == 2
     }
 
     EngOil {
         objectName: "eng_oil2"
         x: 210
         y: 243
+
+        engine_running: shared_data.engine_status_2 == 2
     }
 
     EngOil {
         objectName: "eng_oil3"
         x: 343
         y: 243
+
+        engine_running: shared_data.engine_status_3 == 2
     }
 
     Text {

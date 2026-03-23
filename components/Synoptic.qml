@@ -12,6 +12,16 @@ Rectangle {
     anchors.fill: parent 
     color: "#000"
 
+    Item {
+        id: shared_data
+        objectName: "shared_data"
+
+        property int engine_status_1: 0
+        property int engine_status_2: 0
+        property int engine_status_3: 0
+
+    }
+
     TabBar {
         id: tab_bar
         currentIndex: 1

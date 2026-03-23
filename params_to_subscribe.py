@@ -233,7 +233,12 @@ to_subscribe = [
     (Params["sim/flightmodel/position/true_psi"], 24, "udp"),
     (Params["sim/flightmodel2/position/hpath"], 24, "udp"),
     (Params["sim/flightmodel2/position/vpath"], 24, "udp"),
+    (Params["sim/custom/7x/ROT"], 24, "udp"),
 
     (Params["sim/flightmodel/position/longitude"], 5, "udp"),
     (Params["sim/flightmodel/position/latitude"], 5, "udp"),
+
+    (Params["sim/custom/7x/z_eng_status_1"], None, "tcp"),
+    (Params["sim/custom/7x/z_eng_status_2"], None, "tcp"),
+    (Params["sim/custom/7x/z_eng_status_3"], None, "tcp"),
 ]

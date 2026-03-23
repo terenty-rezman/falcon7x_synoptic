@@ -48,6 +48,11 @@ dref_indicators = [
     ("sim/custom/7x/z_oil_min_height_1", None, "eng_oil1", "oil_min_temp", None),
     ("sim/custom/7x/z_oil_min_height_2", None, "eng_oil2", "oil_min_temp", None),
     ("sim/custom/7x/z_oil_min_height_3", None, "eng_oil3", "oil_min_temp", None),
+
+    ("sim/custom/7x/z_eng_status_1", None, "shared_data", "engine_status_1", None),
+    ("sim/custom/7x/z_eng_status_2", None, "shared_data", "engine_status_2", None),
+    ("sim/custom/7x/z_eng_status_3", None, "shared_data", "engine_status_3", None),
+
     ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[0]", None, "eng_oil1", "temp", None),
     ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[1]", None, "eng_oil2", "temp", None),
     ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[2]", None, "eng_oil3", "temp", None),
@@ -104,6 +109,7 @@ dref_indicators = [
     ("sim/flightmodel2/position/hpath", None, "adi_horizon", "hpath", None),
     ("sim/flightmodel2/position/vpath", None, "adi_horizon", "vpath", None),
     ("sim/flightmodel/position/true_psi", None, "adi_horizon", "true_psi", None),
+    ("sim/custom/7x/ROT", None, "adi_horizon", "rot", None),
     ("sim/cockpit2/gauges/indicators/airspeed_kts_pilot", None, "adi_horizon", "air_speed", None),
 
     ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_bank", "bank_deg", None),
@@ -114,7 +120,6 @@ dref_indicators = [
     ("sim/cockpit2/gauges/indicators/airspeed_kts_pilot", None, "adi_airspeed", "speed", "pdu_left"),
     ("sim/cockpit2/gauges/indicators/airspeed_kts_copilot", None, "adi_airspeed", "speed", "pdu_right"),
     ("sim/cockpit2/gauges/indicators/mach_pilot", None, "adi_airspeed", "mach", None),
-    ("sim/custom/7x/z_flight_regime", None, "adi_airspeed", "flight_regime", None),
     ("sim/cockpit2/gauges/indicators/vvi_fpm_pilot", None, "adi_vertical_speed", "vy_ft_per_min", None),
     ("sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot", None, "adi_alt", "baro_settings", "pdu_left"),
     ("sim/cockpit2/gauges/actuators/barometer_setting_in_hg_copilot", None, "adi_alt", "baro_settings", "pdu_right"),
@@ -169,6 +174,9 @@ dref_indicators = [
     ("sim/custom/7x/z_vor_copilot", None, "adi_shared_data", "vor_self", "pdu_right"),
     ("sim/custom/7x/z_vor_copilot", None, "adi_shared_data", "vor_partner", "pdu_left"),
     ("sim/custom/7x/z_vor_pilot", None, "adi_shared_data", "vor_partner", "pdu_right"),
+
+    ("sim/custom/7x/z_flight_regime", None, "adi_shared_data", "flight_regime", None),
+
     ("sim/flightmodel/controls/sbrkrat", None, "adi_airspeed", "ab_pos", None),
     ("sim/flightmodel/controls/sbrkrat", None, "adi_flaps_slats", "airbrake_pos", None),
     ("sim/flightmodel/controls/flaprat", None, "adi_flaps_slats", "flaps_pos", None),
@@ -339,6 +347,10 @@ class Backend(QObject):
                 del data[param]
 
         for dataref, value in data.items():
+
+            # if dataref.name == "sim/cockpit2/engine/indicators/ITT_deg_C[0]":
+            #     print(value)
+
             indicator_list = dref_nested_dict.get(str(dataref))
             if not indicator_list:
                 continue

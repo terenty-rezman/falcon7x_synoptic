@@ -35,11 +35,13 @@ Rectangle {
         property int no_slip_comp: 0 // ads id with no slip comp
 
         property bool current_ads_fail: ads_self == ads_failed
-    }
 
+        property int flight_regime
+    }
 
     Horizon {
         objectName: "adi_horizon"
+        flight_regime: adi_shared_data.flight_regime
     }
 
     AdiAtSpd {
@@ -91,6 +93,7 @@ Rectangle {
         y: 74
 
         fail: adi_shared_data.current_ads_fail
+        flight_regime: adi_shared_data.flight_regime
     }
     
     AdiHeading {
@@ -250,7 +253,7 @@ Rectangle {
             text: mins_part(secs) + ":" + secs_part(secs)
 
             function mins_part(secs) {
-                const mins = (secs / 60).toFixed(0)
+                const mins = Math.floor(secs / 60)
 
                 if (mins < 10) {
                     return "0" + mins;

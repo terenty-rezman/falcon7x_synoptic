@@ -97,7 +97,8 @@ Item {
         font.pixelSize: 18
         horizontalAlignment: Text.AlignRight
     }
-    /*Text {
+
+    Text {
         x: 32 
         y: 22
         text: "IGN"
@@ -107,6 +108,7 @@ Item {
         visible: n1.ign
      }
 
+    /*
     Text {
         x: 38
         y: 55

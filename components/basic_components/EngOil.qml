@@ -26,6 +26,8 @@ Item {
     property var oil_psi_zones: [-1, 10, 20, 200, 240, 260]
     property var oil_psi_color: ["#FF0000", "#fccd07", "#00FF00", "#00FF00", "#fccd07", "#FF0000"]
 
+    property bool engine_running: true
+
     Connections {
         target: backend 
         function onUpdateCanvas() {
@@ -138,6 +140,8 @@ Item {
 
         value_zones: self.oil_psi_zones
         state_zones:  ["red", "yellow", "green", "green", "yellow", "red"]
+
+        disable_zones: !self.engine_running
 
         value: self.psi.toFixed(0)
 
