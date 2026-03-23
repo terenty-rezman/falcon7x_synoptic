@@ -7,6 +7,7 @@ import view_helper
 import param_overrides
 
 from falcon7x_core.xplane.params import Params
+import settings
 
 
 dref_indicators = [
@@ -298,6 +299,14 @@ class Backend(QObject):
     @Property(float)
     def scale_y(self):
         return 1
+
+    @Property(str)
+    def core_host_address(self):
+        return settings.CORE_HOST
+
+    @Property(int)
+    def core_host_port(self):
+        return settings.CORE_PORT
 
     def __init__(self):
         super().__init__()
