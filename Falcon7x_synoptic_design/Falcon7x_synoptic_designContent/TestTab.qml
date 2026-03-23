@@ -12,6 +12,7 @@ import Falcon7x_synoptic_design
 import QtQuick.Studio.Components
 import QtQuick.VectorImage
 import "../../components/basic_components"
+import "../../components/js/helpers.mjs" as Helpers
 import Falcon7x_synoptic_design 1.0
 
 Rectangle {
@@ -52,7 +53,23 @@ Rectangle {
         font.letterSpacing: -0.59
         font.pointSize: 19
         font.bold: true
+
+        onClicked: {
+            console.log(backend.core_host_address, backend.core_host_port)
+            let connection = new Helpers.Request({
+                "URLbase": `http://${backend.core_host_address}:${backend.core_host_address}/api/`
+            })
+
+            console.log('http://${backend.core_host_address}:${backend.core_host_address}/api/')
+
+            connection.post('run_synoptic_test', {
+                "test_name": "LIGHTS"
+            }).catch(function (err) {
+                           console.log(err)
+                       })
+        }
     }
+
     Button_synoptic {
         id: wdshield
         x: 25
