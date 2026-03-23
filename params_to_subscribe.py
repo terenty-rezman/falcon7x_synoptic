@@ -241,4 +241,6 @@ to_subscribe = [
     (Params["sim/custom/7x/z_eng_status_1"], None, "tcp"),
     (Params["sim/custom/7x/z_eng_status_2"], None, "tcp"),
     (Params["sim/custom/7x/z_eng_status_3"], None, "tcp"),
+
+    (Params["sim/custom/7x/z_adi_no_data"], None, "tcp"),
 ]

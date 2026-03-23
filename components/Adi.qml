@@ -37,6 +37,8 @@ Rectangle {
         property bool current_ads_fail: ads_self == ads_failed
 
         property int flight_regime
+
+        property bool no_data: false
     }
 
     Horizon {
@@ -84,7 +86,7 @@ Rectangle {
         x: 547
         y: 74
 
-        fail: adi_shared_data.current_ads_fail
+        fail: adi_shared_data.current_ads_fail || adi_shared_data.no_data
     }
 
     AdiSpeed {
@@ -92,7 +94,7 @@ Rectangle {
         x: 32
         y: 74
 
-        fail: adi_shared_data.current_ads_fail
+        fail: adi_shared_data.current_ads_fail || adi_shared_data.no_data
         flight_regime: adi_shared_data.flight_regime
     }
     
@@ -100,6 +102,8 @@ Rectangle {
         objectName: "adi_heading"
         x: 324
         y: 621
+
+        ads_fail: adi_shared_data.current_ads_fail || adi_shared_data.no_data
     }
 
     AdiVerticalSpeed {
@@ -160,7 +164,7 @@ Rectangle {
         x: 154
         y: 135
 
-        visible: adi_shared_data.current_ads_fail
+        visible: adi_shared_data.current_ads_fail || adi_shared_data.no_data
     }
 
     AdiFdSymbol {
@@ -168,7 +172,7 @@ Rectangle {
         x: 154  // уточнить расположение
         y: 290
 
-        visible: adi_shared_data.current_ads_fail
+        visible: adi_shared_data.current_ads_fail || adi_shared_data.no_data
     }
 
     AdiAccSymbol {

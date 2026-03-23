@@ -5,6 +5,7 @@ Item {
     id: self
 
     property real heading_deg: 45
+    property bool ads_fail: true
 
     width: 288
     height: 288
@@ -59,21 +60,42 @@ Item {
                 horizontalAlignment: Text.AlignRight
                 style: Text.Outline 
                 styleColor: "#55000000"
+
+            }
+
+            Rectangle {
+                anchors.fill: parent
+                color: "#fa4c1e"
+                visible: ads_fail
+
+                Text {
+                    anchors.centerIn: parent
+                    text: "HDG"
+                    color: "#ffffff"
+                    font.pixelSize: 16
+                    font.bold: true
+                }
             }
         }
 
         Image {
-            Rectangle {
-                anchors.fill: parent
-                color: "#5500ffff"
-                visible: false
-            }
             source: "../svg/ADI_HEADING_1.svg"
+
+            visible: !self.ads_fail
 
             width: 288
             height: 288
 
             rotation: -self.heading_deg
+        }
+
+        Image {
+            source: "../svg/ADI_ROSE_WITHOUT_NUM.svg"
+
+            visible: self.ads_fail
+
+            width: 288
+            height: 288
         }
     }
 }
