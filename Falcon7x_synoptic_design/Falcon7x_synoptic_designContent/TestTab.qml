@@ -55,18 +55,14 @@ Rectangle {
         font.bold: true
 
         onClicked: {
-            console.log(backend.core_host_address, backend.core_host_port)
             let connection = new Helpers.Request({
-                "URLbase": `http://${backend.core_host_address}:${backend.core_host_address}/api/`
+                "URLbase": `http://${backend.core_host_address}:${backend.core_host_port}/api/`
             })
 
-            console.log('http://${backend.core_host_address}:${backend.core_host_address}/api/')
-
-            connection.post('run_synoptic_test', {
-                "test_name": "LIGHTS"
-            }).catch(function (err) {
-                           console.log(err)
-                       })
+            connection.post('run_synoptic_test', { "test_name": "LIGHTS"})
+            .catch(function (err) {
+                console.log(err)
+            });
         }
     }
 
@@ -80,6 +76,16 @@ Rectangle {
         font.letterSpacing: -0.59
         font.pointSize: 19
         font.bold: true
+        onClicked: {
+            let connection = new Helpers.Request({
+                "URLbase": `http://${backend.core_host_address}:${backend.core_host_port}/api/`
+            })
+
+            connection.post('run_synoptic_test', { "test_name": "WDSHIELD"})
+            .catch(function (err) {
+                console.log(err)
+            });
+        }
     }
     Button_synoptic {
         id: wx_radar
@@ -135,6 +141,16 @@ Rectangle {
         font.letterSpacing: -0.59
         font.pointSize: 19
         font.bold: true
+        onClicked: {
+            let connection = new Helpers.Request({
+                "URLbase": `http://${backend.core_host_address}:${backend.core_host_port}/api/`
+            })
+
+            connection.post('run_synoptic_test', { "test_name": "RAT"})
+            .catch(function (err) {
+                console.log(err)
+            });
+        }
     }
     Button_synoptic {
         id: ecs
@@ -179,6 +195,16 @@ Rectangle {
         font.letterSpacing: -0.59
         font.pointSize: 19
         font.bold: true
+        onClicked: {
+            let connection = new Helpers.Request({
+                "URLbase": `http://${backend.core_host_address}:${backend.core_host_port}/api/`
+            })
+
+            connection.post('run_synoptic_test', { "test_name": "ICE"})
+            .catch(function (err) {
+                console.log(err)
+            });
+        }
     }
     Button_synoptic {
         id: tcas

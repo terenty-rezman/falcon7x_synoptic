@@ -42,3 +42,6 @@ MINI_MONITOR_NAME = "HP 27xi"
 MUMO_HOST = "127.0.0.1"
 MUMO_PORT = 8181
 
+# core host address for calling core web api
+CORE_HOST = "127.0.0.1"
+CORE_PORT = 6070
