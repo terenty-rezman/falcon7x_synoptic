@@ -18,6 +18,8 @@ Item {
     property real rot: 0
 
     property real air_speed: 0
+    property real air_speed_acc: 0
+    property real thrust_dir: 0
 
     property int flight_regime: 1
 
@@ -168,6 +170,24 @@ Item {
             const x1 = -x * Math.cos(bank_rad) + y * Math.sin(bank_rad) + center_x - width / 2;
             const y1 = x * Math.sin(bank_rad) + y * Math.cos(bank_rad) + center_y - height / 2;
             return [x1, y1]
+        }
+
+        Image {
+            source: "./svg/ADI_ACCELERATION_SHEVRON.svg"
+            width: 14
+            height: 22
+
+            x: -15
+            y: parent.height / 2 - height / 2 - self.air_speed_acc * 10
+        }
+
+        Image {
+            source: "./svg/ADI_THRUST_DIRECTOR.svg"
+            width: 14
+            height: 41
+
+            x: -14
+            y: parent.height / 2 - height / 2 - self.thrust_dir * 10
         }
     }
 

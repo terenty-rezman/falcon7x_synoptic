@@ -234,6 +234,8 @@ to_subscribe = [
     (Params["sim/flightmodel2/position/hpath"], 24, "udp"),
     (Params["sim/flightmodel2/position/vpath"], 24, "udp"),
     (Params["sim/custom/7x/ROT"], 24, "udp"),
+    (Params["sim/cockpit2/gauges/indicators/airspeed_acceleration_kts_sec_pilot"], 24, "udp"),
+    (Params["sim/custom/7x/dirth_no_aoa"], 24, "udp"),
 
     (Params["sim/flightmodel/position/longitude"], 5, "udp"),
     (Params["sim/flightmodel/position/latitude"], 5, "udp"),

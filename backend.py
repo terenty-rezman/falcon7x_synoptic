@@ -288,7 +288,10 @@ dref_indicators = [
     ("sim/flightmodel/position/latitude", None, "inav_plane_marker", "latitude", None),
     ("sim/cockpit2/gauges/indicators/heading_AHARS_deg_mag_pilot", None, "inav_plane_marker", "heading", None),
 
-    ("sim/custom/7x/z_adi_no_data", None, "adi_shared_data", "no_data", None)
+    ("sim/custom/7x/z_adi_no_data", None, "adi_shared_data", "no_data", None),
+
+    ("sim/cockpit2/gauges/indicators/airspeed_acceleration_kts_sec_pilot", None, "adi_horizon", "air_speed_acc", None),
+    ("sim/custom/7x/dirth_no_aoa", None, "adi_horizon", "thrust_dir", None),
 ]
 
 dref_nested_dict = defaultdict(list)
