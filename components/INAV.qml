@@ -6,6 +6,8 @@ import QtLocation 6.5
 import QtQuick.Controls 2.0
 // import QtQuick.Controls.Styles
 import QtQuick.Shapes
+import QtQuick.Layouts
+import QtQuick.Controls.Material 
 
 import "basic_components"
 
@@ -14,6 +16,7 @@ Rectangle {
 
     property real centerLatitude: 43.333
     property real centerLongitude: 40.333
+
 
     Plugin {
         id: mapPlugin
@@ -38,7 +41,12 @@ Rectangle {
     Map {
         id: map1
         objectName: "inav_map"
-        anchors.fill: parent
+
+        anchors.top: topBar.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+
         plugin: mapPlugin
         
         center.latitude: planeMarker.latitude
@@ -300,6 +308,243 @@ Rectangle {
         repeat: true
         triggeredOnStart: true
         onTriggered: parent.timerFunc()
+    }
+
+
+    Rectangle {
+        id: topBar
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: 50
+
+        color: "transparent"
+
+        RowLayout {
+            anchors.fill: parent
+            anchors.margins: 0
+            spacing: 0
+
+
+            Rectangle {
+
+                Text{
+
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+
+                    onClicked: {
+                    }
+                }
+            }
+
+            Button {
+                text: "INAV\nData"
+
+                Layout.preferredWidth: topBar.width * 0.12
+                Layout.minimumWidth: 50
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                
+                background: Rectangle {
+                    anchors.fill: parent    
+
+                    color: "#5a5a5a"
+                    border.color: "#2b2b2b"
+                    border.width: 1        
+                }
+
+                contentItem: Text {
+                    anchors.fill: parent    
+
+                    text: parent.text
+                    color: "white"
+                    font.pixelSize: 14
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    lineHeight: 0.9
+                }
+            }
+
+            Button {
+                text: "WX"
+                Layout.preferredWidth: topBar.width * 0.12
+                Layout.minimumWidth: 47
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                checkable: true
+
+                background: Rectangle {
+                    color: "#5a5a5a"
+                    border.color: "#2b2b2b"
+                    border.width: 2
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    font.pixelSize: 14
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
+            }
+
+            Button {
+                text: "Vert\nProf"
+                Layout.preferredWidth: topBar.width * 0.12
+                Layout.minimumWidth: 50
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                checkable: true
+
+                background: Rectangle {
+                    color: "#5a5a5a"
+                    border.color: "#2b2b2b"
+                    border.width: 2
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    font.pixelSize: 14
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    lineHeight: 0.9
+                }
+            }
+
+            Button {
+                text: "Hdg\nUp"
+                Layout.preferredWidth: topBar.width * 0.15
+                Layout.minimumWidth: 61
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                checkable: true
+                
+
+                background: Rectangle {
+                    color: parent.checked ? "#111111" : "#5a5a5a"
+                    border.color: "#2b2b2b"
+                    border.width: 2
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    font.pixelSize: 14
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    lineHeight: 0.9
+                }
+            }
+
+            Button {
+                text: "Center\nAircraft"
+                Layout.preferredWidth: topBar.width * 0.15
+                Layout.minimumWidth: 59
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                
+
+                background: Rectangle {
+                    color: "#5a5a5a"
+                    border.color: "#2b2b2b"
+                    border.width: 2
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    font.pixelSize: 14
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    lineHeight: 0.9
+                }
+            }
+
+            Button {
+                text: "Center\nTO Wpt"
+                Layout.preferredWidth: topBar.width * 0.12
+                Layout.minimumWidth: 50
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                background: Rectangle {
+                    color: "#5a5a5a"
+                    border.color: "#2b2b2b"
+                    border.width: 2
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    font.pixelSize: 14
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    lineHeight: 0.9
+                }
+            }
+
+            Button {
+                text: "Skip\nWpt"
+                Layout.preferredWidth: topBar.width * 0.09
+                Layout.minimumWidth: 36
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                background: Rectangle {
+                    color: "#5a5a5a"
+                    border.color: "#2b2b2b"
+                    border.width: 2
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    font.pixelSize: 14
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    lineHeight: 0.9
+                }
+            }
+
+            Button {
+                text: "Recall\nWpt"
+                Layout.preferredWidth: topBar.width * 0.13
+                Layout.minimumWidth: 51
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                background: Rectangle {
+                    color: "#5a5a5a"
+                    border.color: "#2b2b2b"
+                    border.width: 2
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    font.pixelSize: 14
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    lineHeight: 0.9
+                }
+            }
+
+            // AviaMenu {
+            //     id: pages_menu
+
+            //     AviaMenuItem {
+            //         text: "ENG-TRM-FUEL"
+            //     }
+
+            //     AviaMenuItem {
+            //         text: "RADIOS"
+            //     }
+            // }
+       }
     }
 }
 
