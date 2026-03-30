@@ -183,6 +183,10 @@ Item {
             let x = (true_psi - hpath) * 20;
             let y = -target_pitch_deg * 20;
 
+            if (air_speed < 1) {
+                x = 0;
+            }
+
             const bank_rad = bank_deg / 180 * Math.PI; 
             const x1 = -x * Math.cos(bank_rad) + y * Math.sin(bank_rad) + center_x - width / 2;
             const y1 = x * Math.sin(bank_rad) + y * Math.cos(bank_rad) + center_y - height / 2;
