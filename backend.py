@@ -20,7 +20,7 @@ dref_indicators = [
     ("sim/cockpit2/engine/indicators/N1_percent[1]", None,"eng_engn2", "n1", None),
     ("sim/cockpit2/engine/actuators/throttle_ratio[1]", None, "eng_engn2", "rotation_purpure_circle", None),
     ("sim/custom/7x/z_syn_eng_start2", None, "eng_engn2", "start", None),
-    ("sim/custom/xap/maxin1", None, "eng_engn2", "top_digit", None),
+    ("sim/custom/7x/z_n1_max_eng2", None, "eng_engn2", "top_digit", None),
     ("sim/custom/7x/z_syn_eng_ab2", None, "eng_engn2", "ab", None),
     ("sim/cockpit2/engine/indicators/N1_percent[2]", None, "eng_engn3", "n1", None),
     ("sim/cockpit2/engine/actuators/throttle_ratio[2]", None, "eng_engn3", "rotation_purpure_circle", None),
