@@ -13,14 +13,14 @@ Item {
     width: 100
     height: 100
 
-    property real psi: 0 
-    property real temp: 25
+    property real psi: 10 
+    property real temp: 147 
 
     property int center_x: 50
     property int center_y: 59
     property int oil_min_temp: 0
 
-    property var oil_temp_zones: [0, self.oil_min_temp, 146, 149, 152]
+    property var oil_temp_zones: [0, self.oil_min_temp, 146, 149, 172]
     property var oil_temp_color: ["#fccd07", "#00FF00", "#fccd07", "#FF0000", "#FF0000"]
 
     property var oil_psi_zones: [-1, 10, 20, 200, 240, 260]
@@ -49,7 +49,7 @@ Item {
         anchors.fill: parent
 
         onPaint: {
-            const temp_args = [0, 25, 150]
+            const temp_args = [0, 25, 172]
             const temp_vals = [0, 20, 55]
             const map_temp = new Helpers.Interp1d(temp_args, temp_vals); 
             let temp_m = map_temp.interp(self.temp);
@@ -77,8 +77,13 @@ Item {
 
             let color_idx = Helpers.bisectLeft(self.oil_temp_zones, self.temp);
 
-            ctx.fillStyle = self.oil_temp_color[color_idx];
-            ctx.strokeStyle = self.oil_temp_color[color_idx];
+            if (!self.engine_running) {
+                ctx.fillStyle = self.oil_temp_color[color_idx];
+                ctx.strokeStyle = self.oil_temp_color[color_idx];
+            } else {
+                ctx.fillStyle = "#00FF00";
+                ctx.strokeStyle = "#00FF00";
+            }
             ctx.lineWidth = 1;
 
             const side = 8
@@ -162,6 +167,7 @@ Item {
 
         value_zones: self.oil_temp_zones
         state_zones: ["yellow", "green", "yellow", "red", "red"]
+        disable_zones: !self.engine_running
 
         value: self.temp.toFixed(0)
 

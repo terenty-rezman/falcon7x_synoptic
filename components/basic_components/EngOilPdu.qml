@@ -14,13 +14,13 @@ Item {
     height: 100
 
     property real psi: 0 
-    property real temp: 25
+    property real temp: 145
 
     property int center_x: 50
     property int center_y: 59
     property int oil_min_temp: 0
 
-    property var oil_temp_zones: [0, self.oil_min_temp, 146, 149, 152]
+    property var oil_temp_zones: [0, self.oil_min_temp, 146, 149, 170]
     property var oil_temp_color: ["#fccd07", "#00FF00", "#fccd07", "#FF0000", "#FF0000"]
 
     property var oil_psi_zones: [-1, 10, 20, 200, 240, 260]
@@ -49,7 +49,7 @@ Item {
         anchors.fill: parent
 
         onPaint: {
-            const temp_args = [0, 25, 150]
+            const temp_args = [0, 25, 170]
             const temp_vals = [0, 20, 55]
             const map_temp = new Helpers.Interp1d(temp_args, temp_vals); 
             let temp_m = map_temp.interp(self.temp);
