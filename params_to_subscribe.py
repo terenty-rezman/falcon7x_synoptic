@@ -236,6 +236,8 @@ to_subscribe = [
     (Params["sim/custom/7x/ROT"], 24, "udp"),
     (Params["sim/cockpit2/gauges/indicators/airspeed_acceleration_kts_sec_pilot"], 24, "udp"),
     (Params["sim/custom/7x/dirth_no_aoa"], 24, "udp"),
+    (Params["sim/cockpit2/autopilot/flight_director_roll_deg"], 24, "udp"),
+    (Params["sim/custom/7x/dirpitch"], 24, "udp"),
 
     (Params["sim/flightmodel/position/longitude"], 5, "udp"),
     (Params["sim/flightmodel/position/latitude"], 5, "udp"),
@@ -245,4 +247,7 @@ to_subscribe = [
     (Params["sim/custom/7x/z_eng_status_3"], None, "tcp"),
 
     (Params["sim/custom/7x/z_adi_no_data"], None, "tcp"),
+
+    (Params["sim/custom/7x/z_fdtd_pilot"], None, "tcp"), # front panel - FD/TD
+    (Params["sim/custom/7x/z_fdtd_copilot"], None, "tcp"), # front panel - FD/TD
 ]

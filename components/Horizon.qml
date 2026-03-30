@@ -21,16 +21,40 @@ Item {
     property real air_speed_acc: 0
     property real thrust_dir: 0
 
+    property real roll_director_deg: 0
+    property real pitch_director_deg: 0
+
     property int flight_regime: 1
+    property int fdtd: 1
 
     onFlight_regimeChanged: {
         if (flight_regime == 1) {
             rot_symbol.visible = true;
+            hide_rot_time.stop();
         }
         else {
             if (hide_rot_time.running == false) {
                 hide_rot_time.start()
             }
+        }
+    }
+
+    onFdtdChanged: {
+        if (fdtd == 1) {
+            flight_director.visible = true;
+            thrust_director.visible = true;
+        }
+        else if (fdtd == 2) {
+            flight_director.visible = true;
+            thrust_director.visible = false;
+        }
+        else if (fdtd == 3) {
+            flight_director.visible = false;
+            thrust_director.visible = true;
+        }
+        else {
+            flight_director.visible = false;
+            thrust_director.visible = false;
         }
     }
 
@@ -149,6 +173,30 @@ Item {
     }
 
     Image {
+        id: flight_director
+        source: "./svg/ADI_FLIGHT_DIRECTOR.svg"
+
+        x: xy_bank_fd(pitch_deg, pitch_director_deg, bank_deg)[0]
+        y: xy_bank_fd(pitch_deg, pitch_director_deg, bank_deg)[1]
+
+        function xy_bank_fd(pitch_deg, target_pitch_deg, bank_deg) {
+            let x = (true_psi - hpath) * 20;
+            let y = -target_pitch_deg * 20;
+
+            const bank_rad = bank_deg / 180 * Math.PI; 
+            const x1 = -x * Math.cos(bank_rad) + y * Math.sin(bank_rad) + center_x - width / 2;
+            const y1 = x * Math.sin(bank_rad) + y * Math.cos(bank_rad) + center_y - height / 2;
+            return [x1, y1];
+        }
+
+        transformOrigin: Item.Center
+        rotation: self.roll_director_deg - self.bank_deg
+
+        width: 145
+        height: 26
+    }
+
+    Image {
         source: "./svg/ADI_FLIGHT_PATH_SYMBOL.svg"
 
         x: xy_bank(true_psi, pitch_deg, hpath, vpath, bank_deg)[0]
@@ -158,8 +206,8 @@ Item {
         height: 26
 
         function xy_bank(true_psi, pitch_deg, hpath, vpath, bank_deg) {
-            let x = (true_psi - hpath) * 15;
-            let y = (pitch_deg - vpath) * 20.5;
+            let x = (true_psi - hpath) * 20;
+            let y = (pitch_deg - vpath) * 20;
 
             if (air_speed < 1) {
                 x = 0;
@@ -181,13 +229,15 @@ Item {
             y: parent.height / 2 - height / 2 - self.air_speed_acc * 10
         }
 
+        // thrust director
         Image {
+            id: thrust_director
             source: "./svg/ADI_THRUST_DIRECTOR.svg"
             width: 14
             height: 41
 
             x: -14
-            y: parent.height / 2 - height / 2 - self.thrust_dir * 10
+            y: parent.height / 2 - height / 2 - self.thrust_dir * 8 
         }
     }
 
@@ -201,7 +251,7 @@ Item {
         width: 90
         height: 16
 
-        visible: flight_regime == 1 
+        visible: self.flight_regime == 1 
     }
 
     Timer {
@@ -214,4 +264,6 @@ Item {
             rot_symbol.visible = 0;
         }
     }
+
+
 }

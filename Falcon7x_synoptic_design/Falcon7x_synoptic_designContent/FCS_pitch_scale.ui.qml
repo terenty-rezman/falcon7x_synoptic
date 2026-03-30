@@ -159,7 +159,7 @@ Item {
         x: 9
         y: 14
         color: white
-        text: qsTr("NO")
+        text: qsTr("ND")
         font.letterSpacing: -1.6
         font.pixelSize: 15
         font.styleName: "Narrow"

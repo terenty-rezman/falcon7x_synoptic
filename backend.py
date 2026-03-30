@@ -112,6 +112,9 @@ dref_indicators = [
     ("sim/custom/7x/ROT", None, "adi_horizon", "rot", None),
     ("sim/cockpit2/gauges/indicators/airspeed_kts_pilot", None, "adi_horizon", "air_speed", None),
 
+    ("sim/custom/7x/z_fdtd_pilot", None, "adi_horizon", "fdtd", "pdu_left"),
+    ("sim/custom/7x/z_fdtd_copilot", None, "adi_horizon", "fdtd", "pdu_right"),
+
     ("sim/cockpit2/gauges/indicators/roll_electric_deg_pilot", None, "adi_bank", "bank_deg", None),
     ("sim/cockpit2/gauges/indicators/altitude_ft_pilot", None, "adi_alt", "altitude_ft", "pdu_left"),
     ("sim/cockpit2/gauges/indicators/altitude_ft_copilot", None, "adi_alt", "altitude_ft", "pdu_right"),
@@ -292,6 +295,9 @@ dref_indicators = [
 
     ("sim/cockpit2/gauges/indicators/airspeed_acceleration_kts_sec_pilot", None, "adi_horizon", "air_speed_acc", None),
     ("sim/custom/7x/dirth_no_aoa", None, "adi_horizon", "thrust_dir", None),
+
+    ("sim/custom/7x/dirpitch", None, "adi_horizon", "pitch_director_deg", None),
+    ("sim/cockpit2/autopilot/flight_director_roll_deg", None, "adi_horizon", "roll_director_deg", None),
 ]
 
 dref_nested_dict = defaultdict(list)
