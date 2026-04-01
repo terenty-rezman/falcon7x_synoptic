@@ -23,8 +23,8 @@ Item {
     property var oil_temp_zones: [0, self.oil_min_temp, 146, 149, 170]
     property var oil_temp_color: ["#fccd07", "#00FF00", "#fccd07", "#FF0000", "#FF0000"]
 
-    property var oil_psi_zones: [-1, 10, 20, 200, 240, 260]
-    property var oil_psi_color: ["#FF0000", "#fccd07", "#00FF00", "#00FF00", "#fccd07", "#FF0000"]
+    property var oil_psi_zones: [-1, 10, 20, 240, 260]
+    property var oil_psi_color: ["#FF0000", "#fccd07", "#00FF00", "#fccd07", "#FF0000"]
 
     property bool engine_running: true
 
@@ -79,7 +79,7 @@ Item {
 
         args: self.oil_psi_zones
         colors: self.oil_psi_color
-        pixels: [0, 5, 10, 40, 47, 59]
+        pixels: [0, 5, 10, 47, 59]
         value: self.psi
 
         right_side: false

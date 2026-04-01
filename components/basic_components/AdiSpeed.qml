@@ -11,7 +11,7 @@ Item {
     property real mach: 0.0
     property real target_speed: 120 
     property real ab_pos: 0.5
-    property real high_speed: 380
+    property real high_speed: 360
     property real stall_speed: 100
     property real low_speed: stall_speed + 10
     property int flight_regime: 0

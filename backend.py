@@ -124,6 +124,7 @@ dref_indicators = [
     ("sim/cockpit2/gauges/indicators/airspeed_kts_copilot", None, "adi_airspeed", "speed", "pdu_right"),
     ("sim/cockpit2/gauges/indicators/mach_pilot", None, "adi_airspeed", "mach", None),
     ("sim/cockpit2/gauges/indicators/vvi_fpm_pilot", None, "adi_vertical_speed", "vy_ft_per_min", None),
+    ("sim/cockpit2/autopilot/vvi_dial_fpm", None, "adi_vertical_speed", "target_vy_ft_per_min", None),
     ("sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot", None, "adi_alt", "baro_settings", "pdu_left"),
     ("sim/cockpit2/gauges/actuators/barometer_setting_in_hg_copilot", None, "adi_alt", "baro_settings", "pdu_right"),
     ("sim/cockpit2/clock_timer/local_time_hours", None, "adi_current_time", "hours", None),

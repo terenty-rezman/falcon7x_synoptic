@@ -4,6 +4,8 @@ Item {
     id: self
 
     property real vy_ft_per_min: 0
+    property real target_vy_ft_per_min: 0
+
     property int y_center: height / 2
 
     width: 41
@@ -20,6 +22,27 @@ Item {
         target: backend 
         function onUpdateCanvas() {
             canvas.requestPaint()
+        }
+    }
+
+    Rectangle {
+        color: "black"
+        border.color: "white"
+        border.width: 2
+
+        anchors.centerIn: parent
+
+        width: 41
+        height: 30
+
+        visible: Math.abs(self.vy_ft_per_min) > 270
+
+        Text {
+            anchors.centerIn: parent
+            text: (self.vy_ft_per_min / 1000).toFixed(1)
+            color: "#00ff00"
+            font.pixelSize: 16
+            font.bold: true
         }
     }
 
@@ -73,5 +96,11 @@ Item {
             ctx.lineTo(21, y);
             ctx.stroke()
         }
+    }
+
+    AdiMagentaText {
+        text: (self.target_vy_ft_per_min / 1000).toFixed(1)
+        anchors.right: parent.right
+        anchors.bottom: parent.top
     }
 }

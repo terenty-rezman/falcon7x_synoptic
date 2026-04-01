@@ -252,4 +252,5 @@ to_subscribe = [
     (Params["sim/custom/7x/z_fdtd_copilot"], None, "tcp"), # front panel - FD/TD
 
     (Params["sim/custom/7x/z_n1_max_eng2"], 1, "udp"),
+    (Params["sim/cockpit2/autopilot/vvi_dial_fpm"], 5, "udp"),
 ]
