@@ -20,7 +20,7 @@ Item {
     property int center_y: 59
     property int oil_min_temp: 0
 
-    property var oil_temp_zones: [0, self.oil_min_temp, 146, 149, 172]
+    property var oil_temp_zones: [0, self.oil_min_temp, 146, 149, 175]
     property var oil_temp_color: ["#fccd07", "#00FF00", "#fccd07", "#FF0000", "#FF0000"]
 
     property var oil_psi_zones: [-1, 10, 20, 200, 240, 260]

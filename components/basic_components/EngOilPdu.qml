@@ -2,10 +2,10 @@ import QtQuick 2.15
 import "../js/helpers.mjs" as Helpers
 
 Item {
-
     // Rectangle {
     //     anchors.fill: parent
-    //     color: "red"
+    //     color: "#ff00ff"
+    //     opacity: 0.5
     // }
 
     id: self 
@@ -14,11 +14,11 @@ Item {
     height: 100
 
     property real psi: 0 
-    property real temp: 145
+    property real temp: 147
 
     property int center_x: 50
     property int center_y: 59
-    property int oil_min_temp: 0
+    property int oil_min_temp: 30 
 
     property var oil_temp_zones: [0, self.oil_min_temp, 146, 149, 170]
     property var oil_temp_color: ["#fccd07", "#00FF00", "#fccd07", "#FF0000", "#FF0000"]
@@ -28,89 +28,63 @@ Item {
 
     property bool engine_running: true
 
-    Connections {
-        target: backend 
-        function onUpdateCanvas() {
-            canvas.requestPaint()
-        }
-    }
-
-    Image {
-        source: "../svg/ENG_OIL.svg"
-        x: 27
-        y: 2
+    // Image {
+    //     source: "../svg/ENG_OIL.svg"
+    //     x: 27
+    //     y: 2
         
-        width: 100
-        height: 100
+    //     width: 100
+    //     height: 100
+    // }
+
+    VerticalScaleWithArrow {
+        id: oil_temp
+
+        // Rectangle {
+        //     anchors.fill: parent
+        //     color: "#ff00ff"
+        //     opacity: 0.5
+        // }
+
+        x: 13
+        y: -8
+
+        height: 80
+        width: 60
+
+        args: self.oil_temp_zones
+        colors: self.oil_temp_color
+        pixels: [0, 10, 40, 47, 59]
+        value: self.temp
+
+        right_side: true
+
+        disable_arrow_color: !self.engine_running
     }
 
-    Canvas {
-        id: canvas
-        anchors.fill: parent
+    VerticalScaleWithArrow {
+        id: oil_press
 
-        onPaint: {
-            const temp_args = [0, 25, 170]
-            const temp_vals = [0, 20, 55]
-            const map_temp = new Helpers.Interp1d(temp_args, temp_vals); 
-            let temp_m = map_temp.interp(self.temp);
+        // Rectangle {
+        //     anchors.fill: parent
+        //     color: "#00ff00"
+        //     opacity: 0.5
+        // }
 
-            const psi_args = [0, 220]
-            const psi_vals = [0, 55]
-            const map_psi = new Helpers.Interp1d(psi_args, psi_vals); 
-            let psi_m = map_psi.interp(self.psi);
+        x: -3
+        y: -8
 
-            let temp_height_m = map_temp.interp(self.oil_min_temp);
+        height: 80
+        width: 60
 
-            const ctx = getContext("2d"); 
+        args: self.oil_psi_zones
+        colors: self.oil_psi_color
+        pixels: [0, 5, 10, 40, 47, 59]
+        value: self.psi
 
-            ctx.reset();
+        right_side: false
 
-            ctx.fillStyle = "#fccd07";
-            ctx.translate(center_x - 7, center_y + 2);
-            ctx.fillRect(0, 0, 4, -temp_height_m)
-
-            ctx.resetTransform();
-
-            // draw green triangle temp
-            ctx.translate(center_x, center_y + 2);
-            ctx.translate(0, -temp_m);
-
-            let color_idx = Helpers.bisectLeft(self.oil_temp_zones, self.temp);
-
-            ctx.fillStyle = self.oil_temp_color[color_idx];
-            ctx.strokeStyle = self.oil_temp_color[color_idx];
-            ctx.lineWidth = 1;
-
-            const side = 8
-            ctx.beginPath();
-            ctx.moveTo(0, 0)
-            ctx.lineTo(side, -side/2)
-            ctx.lineTo(side, side/2)
-            ctx.lineTo(0, 0)
-            ctx.fill()
-            ctx.stroke()
-            ctx.closePath();
-
-            ctx.resetTransform()
-
-            color_idx = Helpers.bisectLeft(self.oil_psi_zones, self.psi);
-
-            ctx.fillStyle = self.oil_psi_color[color_idx];
-            ctx.strokeStyle = self.oil_psi_color[color_idx];
-            ctx.lineWidth = 1;
-
-            ctx.translate(center_x, center_y);
-            ctx.translate(-25, -psi_m);
-
-            ctx.beginPath();
-            ctx.moveTo(0, 0)
-            ctx.lineTo(-side, -side/2)
-            ctx.lineTo(-side, side/2)
-            ctx.lineTo(0, 0)
-            ctx.fill()
-            ctx.stroke()
-            ctx.closePath();
-        }
+        disable_arrow_color: !self.engine_running
     }
 
     Text {
