@@ -320,7 +320,7 @@ Rectangle {
 
         color: "transparent"
         
-        component topBarButton: Rectangle {
+        component TopBarButton: Rectangle {
             id: btn
 
             property string buttonText: ""
@@ -395,7 +395,8 @@ Rectangle {
                         ctx.lineTo(width - 2, height / 2) 
                         ctx.lineTo(2, height - 2) 
                         ctx.closePath() 
-                        ctx.stroke() } }
+                        ctx.stroke()
+                        ctx.fill() } }
 
             }
 
@@ -418,7 +419,7 @@ Rectangle {
             spacing: 0
 
 
-            topBarButton {
+            TopBarButton {
                 id: inavDataBtn
                 buttonText: "INAV\nData"
                 widthFactor: 0.12
@@ -427,26 +428,8 @@ Rectangle {
                 toggle: true
             }
 
-            AviaMenu {
-                id: inavDataMenu
-                visible: inavDataBtn.checked
-
-                x: inavDataBtn.x
-                y: topBar.height
-                width: 165
-                height: 8 * 30
-
-                AviaMenuItem {text: "Terrain"}
-                AviaMenuItem {text: "Traffic"}
-                AviaMenuItem {text: "FPLN"}
-                AviaMenuItem {text: "Fixes"}
-                AviaMenuItem {text: "Airways"}
-                AviaMenuItem {text: "Airspaces"}
-                AviaMenuItem {text: "Boundaries"}
-                AviaMenuItem {text: "OTS Tracks"}
-            }
-
-            topBarButton {
+            
+            TopBarButton {
                 buttonText: "WX"
                 widthFactor: 0.12
                 minWidth: 47
@@ -454,14 +437,15 @@ Rectangle {
                 toggle: true
             }
 
-            topBarButton {
+            TopBarButton {
                 buttonText: "Vert\nProf"
                 widthFactor: 0.12
                 minWidth: 50
                 showCheck: true
+                toggle: true
             }
 
-            topBarButton {
+            TopBarButton {
                 buttonText: "Hdg\nUp"
                 widthFactor: 0.15
                 minWidth: 61
@@ -469,25 +453,25 @@ Rectangle {
                 toggle: true
             }
 
-            topBarButton {
+            TopBarButton {
                 buttonText: "Center\nAircraft"
                 widthFactor: 0.15
                 minWidth: 59
             }
 
-            topBarButton {
+            TopBarButton {
                 buttonText: "Center\nTO Wpt"
                 widthFactor: 0.12
                 minWidth: 50
             }
 
-            topBarButton {
+            TopBarButton {
                 buttonText: "Skip\nWpt"
                 widthFactor: 0.09
                 minWidth: 36
             }
 
-            topBarButton {
+            TopBarButton {
                 buttonText: "Recall\nWpt"
                 widthFactor: 0.13
                 minWidth: 51
@@ -507,6 +491,27 @@ Rectangle {
             //     }
             // }
        }
+
+       AviaMenu {
+                id: inavDataMenu
+                visible: inavDataBtn.checked
+
+                x: inavDataBtn.x
+                y: topBar.height
+                width: 165
+                height: 8 * 30
+
+                AviaMenuItem {text: "Terrain"}
+                AviaMenuItem {text: "Traffic"}
+                AviaMenuItem {text: "FPLN"}
+                AviaMenuItem {text: "Fixes"}
+                AviaMenuItem {text: "Airways"}
+                AviaMenuItem {text: "Airspaces"}
+                AviaMenuItem {text: "Boundaries"}
+                AviaMenuItem {text: "OTS Tracks"}
+            }
+
+
     }
 }
 
