@@ -319,219 +319,181 @@ Rectangle {
         height: 50
 
         color: "transparent"
+        
+        component topBarButton: Rectangle {
+            id: btn
 
+            property string buttonText: ""
+            property real widthFactor: 0.12
+            property int minWidth: 50
+
+            Layout.preferredWidth: topBar.width * widthFactor
+            Layout.minimumWidth: minWidth
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            property bool showTriangle: false
+            property bool showCheck: false
+
+            property bool toggle: false
+            property bool checked: false
+
+
+            color: "#5a5a5a"
+
+            border.color: btn.checked ? "#00ffff" : "#2b2b2b" 
+            border.width: 2
+
+            RowLayout {
+                anchors.fill: parent
+                spacing: 6
+
+                Text {
+                    text: btn.buttonText
+                    color: "white"
+                    font.pixelSize: 14
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    lineHeight: 0.9
+                }
+
+                Item {
+                    Layout.fillWidth: true
+                }
+
+                Rectangle {
+                    visible: btn.showCheck
+                    width: 16
+                    height: 16
+                    color: "#101010"
+                    border.color: "#cfcfcf"
+                    border.width: 1
+                    Layout.alignment: Qt.AlignVCenter
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: btn.checked ? "✓" : ""
+                        color: "white"
+                        font.pixelSize: 10
+                    }
+                }
+
+                Canvas { 
+                    visible: btn.showTriangle 
+                    width: 18 
+                    height: 16 
+                    Layout.alignment: Qt.AlignVCenter 
+                    
+                    onPaint: { 
+                        var ctx = getContext("2d") 
+                        ctx.clearRect(0, 0, width, height) 
+                        ctx.strokeStyle = "#cfcfcf" 
+                        ctx.fillStyle = "#414141"
+                        ctx.lineWidth = 1 
+                        ctx.beginPath() 
+                        ctx.moveTo(2, 2) 
+                        ctx.lineTo(width - 2, height / 2) 
+                        ctx.lineTo(2, height - 2) 
+                        ctx.closePath() 
+                        ctx.stroke() } }
+
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    if (btn.toggle) {
+                        btn.checked = !btn.checked;
+                    }
+                }
+            }
+
+
+
+
+        }
         RowLayout {
             anchors.fill: parent
             anchors.margins: 0
             spacing: 0
 
 
-            Rectangle {
-
-                Text{
-
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-
-                    onClicked: {
-                    }
-                }
+            topBarButton {
+                id: inavDataBtn
+                buttonText: "INAV\nData"
+                widthFactor: 0.12
+                minWidth: 50
+                showTriangle: true
+                toggle: true
             }
 
-            Button {
-                text: "INAV\nData"
+            AviaMenu {
+                id: inavDataMenu
+                visible: inavDataBtn.checked
 
-                Layout.preferredWidth: topBar.width * 0.12
-                Layout.minimumWidth: 50
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                
-                background: Rectangle {
-                    anchors.fill: parent    
+                x: inavDataBtn.x
+                y: topBar.height
+                width: 165
+                height: 8 * 30
 
-                    color: "#5a5a5a"
-                    border.color: "#2b2b2b"
-                    border.width: 1        
-                }
-
-                contentItem: Text {
-                    anchors.fill: parent    
-
-                    text: parent.text
-                    color: "white"
-                    font.pixelSize: 14
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    lineHeight: 0.9
-                }
+                AviaMenuItem {text: "Terrain"}
+                AviaMenuItem {text: "Traffic"}
+                AviaMenuItem {text: "FPLN"}
+                AviaMenuItem {text: "Fixes"}
+                AviaMenuItem {text: "Airways"}
+                AviaMenuItem {text: "Airspaces"}
+                AviaMenuItem {text: "Boundaries"}
+                AviaMenuItem {text: "OTS Tracks"}
             }
 
-            Button {
-                text: "WX"
-                Layout.preferredWidth: topBar.width * 0.12
-                Layout.minimumWidth: 47
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                checkable: true
-
-                background: Rectangle {
-                    color: "#5a5a5a"
-                    border.color: "#2b2b2b"
-                    border.width: 2
-                }
-
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    font.pixelSize: 14
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
+            topBarButton {
+                buttonText: "WX"
+                widthFactor: 0.12
+                minWidth: 47
+                showTriangle: true
+                toggle: true
             }
 
-            Button {
-                text: "Vert\nProf"
-                Layout.preferredWidth: topBar.width * 0.12
-                Layout.minimumWidth: 50
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-                checkable: true
-
-                background: Rectangle {
-                    color: "#5a5a5a"
-                    border.color: "#2b2b2b"
-                    border.width: 2
-                }
-
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    font.pixelSize: 14
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    lineHeight: 0.9
-                }
+            topBarButton {
+                buttonText: "Vert\nProf"
+                widthFactor: 0.12
+                minWidth: 50
+                showCheck: true
             }
 
-            Button {
-                text: "Hdg\nUp"
-                Layout.preferredWidth: topBar.width * 0.15
-                Layout.minimumWidth: 61
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-                checkable: true
-                
-
-                background: Rectangle {
-                    color: parent.checked ? "#111111" : "#5a5a5a"
-                    border.color: "#2b2b2b"
-                    border.width: 2
-                }
-
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    font.pixelSize: 14
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    lineHeight: 0.9
-                }
+            topBarButton {
+                buttonText: "Hdg\nUp"
+                widthFactor: 0.15
+                minWidth: 61
+                showTriangle: true
+                toggle: true
             }
 
-            Button {
-                text: "Center\nAircraft"
-                Layout.preferredWidth: topBar.width * 0.15
-                Layout.minimumWidth: 59
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                
-
-                background: Rectangle {
-                    color: "#5a5a5a"
-                    border.color: "#2b2b2b"
-                    border.width: 2
-                }
-
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    font.pixelSize: 14
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    lineHeight: 0.9
-                }
+            topBarButton {
+                buttonText: "Center\nAircraft"
+                widthFactor: 0.15
+                minWidth: 59
             }
 
-            Button {
-                text: "Center\nTO Wpt"
-                Layout.preferredWidth: topBar.width * 0.12
-                Layout.minimumWidth: 50
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                background: Rectangle {
-                    color: "#5a5a5a"
-                    border.color: "#2b2b2b"
-                    border.width: 2
-                }
-
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    font.pixelSize: 14
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    lineHeight: 0.9
-                }
+            topBarButton {
+                buttonText: "Center\nTO Wpt"
+                widthFactor: 0.12
+                minWidth: 50
             }
 
-            Button {
-                text: "Skip\nWpt"
-                Layout.preferredWidth: topBar.width * 0.09
-                Layout.minimumWidth: 36
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                background: Rectangle {
-                    color: "#5a5a5a"
-                    border.color: "#2b2b2b"
-                    border.width: 2
-                }
-
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    font.pixelSize: 14
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    lineHeight: 0.9
-                }
+            topBarButton {
+                buttonText: "Skip\nWpt"
+                widthFactor: 0.09
+                minWidth: 36
             }
 
-            Button {
-                text: "Recall\nWpt"
-                Layout.preferredWidth: topBar.width * 0.13
-                Layout.minimumWidth: 51
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                background: Rectangle {
-                    color: "#5a5a5a"
-                    border.color: "#2b2b2b"
-                    border.width: 2
-                }
-
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    font.pixelSize: 14
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    lineHeight: 0.9
-                }
+            topBarButton {
+                buttonText: "Recall\nWpt"
+                widthFactor: 0.13
+                minWidth: 51
             }
+
+            
 
             // AviaMenu {
             //     id: pages_menu
