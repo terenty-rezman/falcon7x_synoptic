@@ -31,120 +31,37 @@ Rectangle {
     //     enabled: true
     //     fillMode: Image.PreserveAspectFit
     // }
-    Bleed_nacelles {
-        id: bleed_nacelles
-        x: 240
-        y: 163
-    }
-
     Bleed_wing {
         id: bleed_wing
         x: 417
         y: 4
+
+        objectName: "bld_brake"
     }
 
     Bleed_brake {
         id: bleed_brake
+
+        objectName: "bld_brake"
+
         x: 465
         y: 144
     }
 
     Bleed_valve {
         id: bleed_valve
+
+        objectName: "bld_xbleed12"
+
         x: 164
         y: 82
     }
 
     Bleed_valve {
-        id: bleed_valve1
-        x: 364
-        y: 82
-    }
-
-    Bleed_valve {
-        id: bleed_valve2
-        x: 14
-        y: 194
-        rotation: 90
-    }
-
-    Bleed_valve {
-        id: bleed_valve3
-        x: 14
-        y: 258
-        rotation: 90
-    }
-
-    Bleed_valve {
-        id: bleed_valve4
-        x: 134
-        y: 239
-        rotation: 90
-    }
-
-    Bleed_valve {
-        id: bleed_valve5
-        x: 193
-        y: 239
-        rotation: 90
-    }
-
-    Bleed_valve {
-        id: bleed_valve6
-        x: 281
-        y: 167
-    }
-    Bleed_valve {
-        id: bleed_valve7
-        x: 313
-        y: 193
-        rotation: 90
-    }
-
-    Bleed_valve {
-        id: bleed_valve8
-        x: 313
-        y: 258
-        rotation: 90
-    }
-
-    Bleed_valve {
-        id: bleed_valve9
-        x: 422
-        y: 204
-        rotation: 90
-    }
-
-    Bleed_valve {
-        id: bleed_valve10
-        x: 508
-        y: 239
-        rotation: 90
-    }
-
-    Bleed_valve {
-        id: bleed_valve11
-        x: 627
-        y: 258
-        rotation: 90
-    }
-
-    Bleed_valve {
-        id: bleed_valve12
-        x: 627
-        y: 194
-        rotation: 90
-    }
-
-    Bleed_valve {
-        id: bleed_valve13
-        x: 500
-        y: 114
-        rotation: 90
-    }
-
-    Bleed_valve {
         id: bleed_valve14
+
+        objectName: "bld_wings_valve"
+
         x: 478
         y: 50
         rotation: 90
@@ -154,14 +71,6 @@ Rectangle {
         id: bleed_apu
         x: 424
         y: 249
-    }
-
-    Bleed_pax {
-        id: bleed_pax1
-        x: 599
-        y: 11
-        height: 25
-        text: "CREW"
     }
 
     Text {
@@ -335,13 +244,6 @@ Rectangle {
         font.family: "Arial"
     }
 
-    Bleed_pax {
-        id: bleed_pax
-        x: 28
-        y: 8
-        text: "PAX"
-    }
-
     Bleed_pipes {
         id: bleed_pipes
         x: 0
@@ -349,20 +251,165 @@ Rectangle {
 
         Bleed_inlet_1 {
             id: bleed_inlet_1
+
+            objectName: "bld_eng_1"
+
+            property int n2: 0
+            state: (n2 > 35) ? 1 : 0
+
             x: 81
             y: 180
         }
 
         Bleed_inlet_3 {
             id: bleed_inlet_3
+
+            objectName: "bld_eng_3"
+
+            property int n2: 0
+            state: (n2 > 35) ? 1 : 0
+
             x: 521
             y: 180
         }
 
         Bleed_inlet_2 {
             id: bleed_inlet_2
+
+            objectName: "bld_eng_2"
+
+            property int n2: 0
+            state: (n2 > 35) ? 1 : 0
+
             x: 207
             y: 125
         }
+    }
+    Bleed_valve {
+        id: bleed_valve2
+
+        objectName: "bld_eng_lp_1"
+
+        x: 14
+        y: 194
+        rotation: 90
+    }
+    Bleed_valve {
+        id: bleed_valve12
+
+        objectName: "bld_eng_lp_3"
+
+        x: 627
+        y: 194
+        rotation: 90
+    }
+    Bleed_valve {
+        id: bleed_valve11
+
+        objectName: "bld_eng_hp_3"
+
+        x: 627
+        y: 258
+        rotation: 90
+    }
+    Bleed_valve {
+        id: bleed_valve10
+        objectName: "bld_eng_ai_3"
+        x: 508
+        y: 239
+        rotation: 90
+    }
+    Bleed_valve {
+        id: bleed_valve9
+        x: 422
+        y: 204
+        rotation: 90
+    }
+    Bleed_valve {
+        id: bleed_valve1
+
+        objectName: "bld_xbleed13"
+
+        x: 364
+        y: 82
+    }
+    Bleed_valve {
+        id: bleed_valve6
+
+        objectName: "bld_eng_lp_2"
+
+        x: 281
+        y: 167
+    }
+    Bleed_valve {
+        id: bleed_valve7
+
+        objectName: "bld_eng_lp_2"
+
+        x: 313
+        y: 193
+        rotation: 90
+    }
+    Bleed_valve {
+        id: bleed_valve8
+
+        objectName: "bld_eng_hp_2"
+
+        x: 313
+        y: 258
+        rotation: 90
+    }
+    Bleed_valve {
+        id: bleed_valve5
+        objectName: "bld_eng_ai_2"
+        x: 193
+        y: 239
+        rotation: 90
+    }
+    Bleed_valve {
+        id: bleed_valve4
+        objectName: "bld_eng_ai_1"
+        x: 134
+        y: 239
+        rotation: 90
+    }
+    Bleed_nacelles {
+        id: bleed_nacelles
+        x: 240
+        y: 163
+    }
+    Bleed_valve {
+        id: bleed_valve13
+
+        objectName: "bld_brake_valve"
+
+        x: 500
+        y: 114
+        rotation: 90
+    }
+    Bleed_valve {
+        id: bleed_valve3
+
+        objectName: "bld_eng_hp_1"
+
+        x: 14
+        y: 258
+        rotation: 90
+    }
+    Bleed_pax {
+        id: bleed_pax
+        x: 28
+        y: 8
+        text: "PAX"
+    }
+    Bleed_pax {
+        id: bleed_crew
+
+        objectName: "bld_pipe_eng_3"
+
+        x: 599
+        y: 11
+        height: 25
+        text: "CREW"
     }
 }

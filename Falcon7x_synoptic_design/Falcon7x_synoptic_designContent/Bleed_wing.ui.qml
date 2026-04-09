@@ -63,7 +63,7 @@ Item {
         width: 156
         height: 59
     }
-    property int wing_state: 5
+    property int wing_state: 2
 
     states: [
         State {

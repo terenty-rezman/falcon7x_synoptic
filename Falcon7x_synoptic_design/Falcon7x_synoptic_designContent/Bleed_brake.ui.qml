@@ -71,7 +71,7 @@ Item {
     //     lineHeight: 0.9
     //     font.family: "Arial"
     // }
-    property int brake_state: 3
+    property int brake_state: 1
 
     states: [
         State {

@@ -32,14 +32,6 @@ Item {
     // }
     property int state: 6
 
-    Rectangle {
-        id: streak
-        x: 1
-        y: 14
-        width: 31
-        height: 6
-        color: "#00ff00"
-    }
     ArcItem {
         id: arc
         x: 0
@@ -48,8 +40,18 @@ Item {
         height: 33
         strokeColor: "#00ff00"
         strokeWidth: 6
+        begin: 0
         end: 360
-        fillColor: "#00000000"
+        fillColor: "#000"
+    }
+
+    Rectangle {
+        id: streak
+        x: 1
+        y: 14
+        width: 31
+        height: 6
+        color: "#00ff00"
     }
 
     Image {
@@ -85,7 +87,7 @@ Item {
         },
         State {
             name: "valve_closed"
-            when: self.state === 2
+            when: self.state === 0
 
             PropertyChanges {
                 target: streak

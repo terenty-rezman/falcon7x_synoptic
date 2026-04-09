@@ -16,10 +16,6 @@ Item {
         property int engine_status_1: 0
         property int engine_status_2: 0
         property int engine_status_3: 0
-
-        onEngine_status_1Changed: {
-            console.log("CHANGED ENGINE STATUS ", shared_data.engine_status_1)
-        }
     }
 
     Rectangle {
