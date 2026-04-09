@@ -69,6 +69,7 @@ Rectangle {
 
     Bleed_apu {
         id: bleed_apu
+        objectName: "bld_apu"
         x: 424
         y: 249
     }
@@ -321,6 +322,7 @@ Rectangle {
     }
     Bleed_valve {
         id: bleed_valve9
+        objectName: "bld_apu_valve"
         x: 422
         y: 204
         rotation: 90

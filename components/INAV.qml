@@ -310,7 +310,6 @@ Rectangle {
         onTriggered: parent.timerFunc()
     }
 
-
     Rectangle {
         id: topBar
         anchors.top: parent.top
@@ -346,6 +345,7 @@ Rectangle {
 
             RowLayout {
                 anchors.fill: parent
+                anchors.margins: 4
                 spacing: 6
 
                 Text {
@@ -355,11 +355,13 @@ Rectangle {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     lineHeight: 0.9
+
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
                 }
 
-                Item {
-                    Layout.fillWidth: true
-                }
+                // Item {
+                //     Layout.fillWidth: true
+                // }
 
                 Rectangle {
                     visible: btn.showCheck
@@ -368,7 +370,7 @@ Rectangle {
                     color: "#101010"
                     border.color: "#cfcfcf"
                     border.width: 1
-                    Layout.alignment: Qt.AlignVCenter
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
 
                     Text {
                         anchors.centerIn: parent
@@ -382,7 +384,7 @@ Rectangle {
                     visible: btn.showTriangle 
                     width: 18 
                     height: 16 
-                    Layout.alignment: Qt.AlignVCenter 
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
                     
                     onPaint: { 
                         var ctx = getContext("2d") 
@@ -409,9 +411,7 @@ Rectangle {
                 }
             }
 
-
-
-
+            BlueBorder {}
         }
         RowLayout {
             anchors.fill: parent
@@ -492,23 +492,23 @@ Rectangle {
             // }
        }
 
-       AviaMenu {
+       InavMenu {
                 id: inavDataMenu
                 visible: inavDataBtn.checked
 
                 x: inavDataBtn.x
                 y: topBar.height
                 width: 165
-                height: 8 * 30
+                height: 10 * 30
 
-                AviaMenuItem {text: "Terrain"}
-                AviaMenuItem {text: "Traffic"}
-                AviaMenuItem {text: "FPLN"}
-                AviaMenuItem {text: "Fixes"}
-                AviaMenuItem {text: "Airways"}
-                AviaMenuItem {text: "Airspaces"}
-                AviaMenuItem {text: "Boundaries"}
-                AviaMenuItem {text: "OTS Tracks"}
+                InavMenuItem {text: "Terrain"}
+                InavMenuItem {text: "Traffic"}
+                InavMenuItem {text: "FPLN"}
+                InavMenuItem {text: "Fixes"}
+                InavMenuItem {text: "Airways"}
+                InavMenuItem {text: "Airspaces"}
+                InavMenuItem {text: "Boundaries"}
+                InavMenuItem {text: "OTS Tracks"}
             }
 
 
