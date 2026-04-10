@@ -20,6 +20,9 @@ Rectangle {
         property int engine_status_2: 0
         property int engine_status_3: 0
 
+        property int generator_off_1: 0
+        property int generator_off_2: 0
+        property int generator_off_3: 0
     }
 
     TabBar {

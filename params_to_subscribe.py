@@ -291,4 +291,8 @@ to_subscribe = [
     (Params["sim/custom/7x/z_bld_xbleed13_on_off"], None, "tcp"),
     (Params["sim/custom/7x/z_bld_wings_valve"], None, "tcp"),
     (Params["sim/custom/7x/z_bld_brake_valve"], None, "tcp"),
+    (Params["sim/custom/7x/z_bld_apu_valve"], None, "tcp"),
+    (Params["sim/custom/7x/z_bld_apu"], None, "tcp"),
+
+    (Params["sim/cockpit/warnings/annunciators/generator_off"], None, "tcp")
 ]

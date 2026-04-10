@@ -71,12 +71,12 @@ Item {
     //     lineHeight: 0.9
     //     font.family: "Arial"
     // }
-    property int brake_state: 1
+    property int state: 1
 
     states: [
         State {
             name: "bleed_brake_heating_off"
-            when: self.brake_state === 1
+            when: self.state === 0
 
             PropertyChanges {
                 target: bleed_pipe_1
@@ -97,7 +97,7 @@ Item {
         },
         State {
             name: "bleed_brake_heating_on"
-            when: self.brake_state === 2
+            when: self.state === 1
 
             PropertyChanges {
                 target: bleed_pipe_1
@@ -114,7 +114,7 @@ Item {
         },
         State {
             name: "bleed_brake_heating_failure"
-            when: self.brake_state === 3
+            when: self.state === 2
 
             PropertyChanges {
                 target: bleed_pipe_1

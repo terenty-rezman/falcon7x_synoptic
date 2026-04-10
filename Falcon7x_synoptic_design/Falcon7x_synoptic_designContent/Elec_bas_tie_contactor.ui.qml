@@ -7,7 +7,9 @@ Image {
     width: 31
     height: 31
 
-    property int state: 1
+    property int state: (shared_data.generator_off_1 === 0 && shared_data.generator_off_2 === 0 && shared_data.generator_off_3 === 0 && self.button === 1) ? 2 : self.button
+
+    property int button: 0
 
     Text {
         id: text_
@@ -49,6 +51,21 @@ Image {
             PropertyChanges {
                 target: text_
                 visible: false
+            }
+        },
+
+        State {
+            name: "closed_all_gen_online"
+            when: self.state === 2
+
+            PropertyChanges {
+                target: self
+                source: "images/ELEC_BAS_TIE_CONTACTOR_CLOSED_WHEN_ALL_MAIN_GEN_ARE_ONLINE.svg"
+            }
+
+            PropertyChanges {
+                target: text_
+                visible: true
             }
         }
     ]

@@ -97,7 +97,7 @@ Item {
         },
         State {
             name: "bleed_Engine_stopped"
-            when: self.state === 3
+            when: self.state === 0
 
             PropertyChanges {
                 target: inlet

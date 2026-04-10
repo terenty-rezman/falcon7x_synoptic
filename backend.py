@@ -53,6 +53,10 @@ dref_indicators = [
     ("sim/custom/7x/z_eng_status_2", None, "shared_data", "engine_status_2", None),
     ("sim/custom/7x/z_eng_status_3", None, "shared_data", "engine_status_3", None),
 
+    ("sim/cockpit/warnings/annunciators/generator_off", 0, "shared_data", "generator_off_1", None),
+    ("sim/cockpit/warnings/annunciators/generator_off", 1, "shared_data", "generator_off_2", None),
+    ("sim/cockpit/warnings/annunciators/generator_off", 2, "shared_data", "generator_off_3", None),
+
     ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[0]", None, "eng_oil1", "temp", None),
     ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[1]", None, "eng_oil2", "temp", None),
     ("sim/cockpit2/engine/indicators/oil_temperature_deg_C[2]", None, "eng_oil3", "temp", None),
@@ -61,7 +65,7 @@ dref_indicators = [
     ("sim/cockpit2/engine/indicators/N1_percent[2]", None, "eng_vib3", "vib", None),
     ("sim/custom/7x/lhisol", None, "elec_contactor_lh", "state", None),
     ("sim/custom/7x/rhisol", None, "elec_contactor_rh", "state", None),
-    ("sim/cockpit2/electrical/cross_tie", None, "elec_bus_tie_contactor", "state", None),
+    ("sim/cockpit2/electrical/cross_tie", None, "elec_bus_tie_contactor", "button", None),
     # ("sim/cockpit2/electrical/battery_on", 0, "elec_bat_1", "state", None),
     ("sim/cockpit2/electrical/battery_on[0]", None, "elec_bat_1", "state", None),
     ("sim/cockpit2/electrical/battery_on", 1, "elec_bat_2", "state", None),
@@ -343,6 +347,8 @@ dref_indicators = [
     ("sim/custom/7x/z_bld_xbleed13_on_off", None, "bld_xbleed13_on_off", "state", None),
     ("sim/custom/7x/z_bld_wings_valve", None, "bld_wings_valve", "state", None),
     ("sim/custom/7x/z_bld_brake_valve", None, "bld_brake_valve", "state", None),
+    ("sim/custom/7x/z_bld_apu_valve", None, "bld_apu_valve", "state", None),
+    ("sim/custom/7x/z_bld_apu", None, "bld_apu", "state", None),
 ]
 
 dref_nested_dict = defaultdict(list)

@@ -17,7 +17,6 @@ Rectangle {
     property real centerLatitude: 43.333
     property real centerLongitude: 40.333
 
-
     Plugin {
         id: mapPlugin
         name: "osm"

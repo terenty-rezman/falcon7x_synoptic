@@ -16,7 +16,7 @@ Image {
         width: 5
         height: 13
         color: "#ffbf00"
-        border.color: "#ffbf00"
+        border.width: 0
     }
 
     states: [
@@ -28,6 +28,11 @@ Image {
                 target: self
                 source: "images/BLEED_APU_OPERATING.svg"
             }
+
+            PropertyChanges {
+                target: rectangle
+                color: "#00ff00"
+            }
         },
 
         State {
@@ -38,6 +43,11 @@ Image {
                 target: self
                 source: "images/BLEED_APU_STOPPED.svg"
             }
+
+            PropertyChanges {
+                target: rectangle
+                color: "#555555"
+            }
         },
 
         State {
@@ -47,6 +57,11 @@ Image {
             PropertyChanges {
                 target: self
                 source: "images/BLEED_APU_INVALID_DATA.svg"
+            }
+
+            PropertyChanges {
+                target: rectangle
+                color: "#ffbf00"
             }
         }
     ]

@@ -36,7 +36,7 @@ Rectangle {
         x: 417
         y: 4
 
-        objectName: "bld_brake"
+        objectName: "bld_wings"
     }
 
     Bleed_brake {
@@ -400,6 +400,7 @@ Rectangle {
     }
     Bleed_pax {
         id: bleed_pax
+        objectName: "bld_pipe_eng_1"
         x: 28
         y: 8
         text: "PAX"

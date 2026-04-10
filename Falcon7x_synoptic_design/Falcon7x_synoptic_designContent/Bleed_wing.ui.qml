@@ -63,12 +63,12 @@ Item {
         width: 156
         height: 59
     }
-    property int wing_state: 2
+    property int state: 2
 
     states: [
         State {
             name: "Bleed_wing_anti-icing_command_on_or_st-by"
-            when: self.wing_state === 1
+            when: self.state === 1
 
             PropertyChanges {
                 target: bleed_pipe_1
@@ -89,7 +89,7 @@ Item {
         },
         State {
             name: "Bleed_wing_anti-icing_command_off"
-            when: self.wing_state === 2
+            when: self.state === 0
 
             PropertyChanges {
                 target: bleed_pipe_1
@@ -110,7 +110,7 @@ Item {
         },
         State {
             name: "Bleed_Wing_anti-icing_ON_with_valve_in_abnormal_position"
-            when: self.wing_state === 3
+            when: self.state === 2
 
             PropertyChanges {
                 target: bleed_pipe_1
@@ -131,7 +131,7 @@ Item {
         },
         State {
             name: "Bleed_Wing_anti-icing_command_ON_and_low_power"
-            when: self.wing_state === 4
+            when: self.state === 3
 
             PropertyChanges {
                 target: bleed_pipe_1
@@ -153,7 +153,7 @@ Item {
         },
         State {
             name: "Bleed_Wing_anti-icing_command_ON_and_high_temperature"
-            when: self.wing_state === 5
+            when: self.state === 4
 
             PropertyChanges {
                 target: bleed_pipe_1

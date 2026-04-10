@@ -86,6 +86,32 @@ Item {
 
     states: [
         State {
+            name: "bleed_Engine_stopped"
+            when: self.state === 0
+
+            PropertyChanges {
+                target: top_inlet
+                source: "images/BLEED_ENG_1_3_INLET_OFF.svg"
+            }
+            PropertyChanges {
+                target: engine
+                source: "images/BLEED_ENGINE_OFF.svg"
+            }
+            PropertyChanges {
+                target: middle_inlet
+                color: "#555555"
+                border.color: "#555555"
+            }
+            PropertyChanges {
+                target: _top_text
+                visible: false
+            }
+            PropertyChanges {
+                target: _duct_text
+                visible: false
+            }
+        },
+        State {
             name: "bleed_Engine 2 anti-icing_command ON"
             when: self.state === 1
 
